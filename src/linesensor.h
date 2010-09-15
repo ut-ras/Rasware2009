@@ -17,7 +17,7 @@
 #include "driverlib/sysctl.h"
 #include "driverlib/interrupt.h"
 #include "driverlib/timer.h"
-#include "RASLib/timer.h"
+#include "timer.h"
 
 //*****************************************************************************
 //
