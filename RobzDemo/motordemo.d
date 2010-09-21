@@ -1,0 +1,9 @@
+motordemo.o: MotorDemo.c
+motordemo.o: C:\StellarisWare\inc/hw_types.h
+motordemo.o: C:\StellarisWare\inc/hw_memmap.h
+motordemo.o: C:\StellarisWare\utils/uartstdio.h
+motordemo.o: C:\StellarisWare\driverlib/gpio.h
+motordemo.o: C:\StellarisWare\driverlib/sysctl.h
+motordemo.o: ..\RASWARE_STUFF\trunk\RASLib/motor.h
+motordemo.o: C:\StellarisWare\driverlib/pwm.h
+motordemo.o: RobzDemo.h

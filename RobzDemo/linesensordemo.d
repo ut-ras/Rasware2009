@@ -1,0 +1,12 @@
+linesensordemo.o: LineSensorDemo.c
+linesensordemo.o: C:\StellarisWare\inc/hw_types.h
+linesensordemo.o: C:\StellarisWare\inc/hw_memmap.h
+linesensordemo.o: C:\StellarisWare\utils/uartstdio.h
+linesensordemo.o: C:\StellarisWare\driverlib/gpio.h
+linesensordemo.o: C:\StellarisWare\driverlib/sysctl.h
+linesensordemo.o: ..\RASWARE_STUFF\trunk\RASLib/linesensor.h
+linesensordemo.o: C:\StellarisWare\inc/hw_ints.h
+linesensordemo.o: C:\StellarisWare\driverlib/pin_map.h
+linesensordemo.o: C:\StellarisWare\driverlib/interrupt.h
+linesensordemo.o: C:\StellarisWare\driverlib/timer.h
+linesensordemo.o: RobzDemo.h
