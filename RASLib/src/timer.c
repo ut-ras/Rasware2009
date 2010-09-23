@@ -6,8 +6,9 @@
 #include "inc/hw_memmap.h"
 #include "driverlib/timer.h"
 #include "driverlib/sysctl.h"
-#include "init.h"
-#include "timer.h"
+
+#include "RASLib/init.h"
+#include "RASLib/timer.h"
 
 // Summary:	waits a specified amount of time
 // Parameters:

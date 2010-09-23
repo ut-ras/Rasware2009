@@ -10,8 +10,8 @@
 #include "driverlib/pwm.h"
 #include "driverlib/sysctl.h"
 
-#include "init.h"
-#include "servo.h"
+#include "RASLib/init.h"
+#include "RASLib/servo.h"
 
 static unsigned us600;
 static unsigned us2400;

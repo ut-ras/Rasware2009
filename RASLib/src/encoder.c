@@ -4,7 +4,8 @@
 #include "driverlib/interrupt.h"
 #include "driverlib/sysctl.h"
 #include "driverlib/gpio.h"
-#include "encoder.h"
+
+#include "RASLib/encoder.h"
 
 volatile static encoder_count_t enc0 = 0, enc1 = 0;
 static signed dir0, dir1;		// direction to count (up/down) for each encoder

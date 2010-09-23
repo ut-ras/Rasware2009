@@ -6,8 +6,8 @@
 // PB2-PB3	: Sensors 1-2
 // PD2-PD7	: Sensors 3-8
 // *********************************
-#include "linesensor.h"
-#include "init.h"
+#include "RASLib/linesensor.h"
+#include "RASLib/init.h"
 
 static unsigned long ls_dischargeTime;					// the discharge time in microseconds for the line sensors
 static const unsigned ls_chargeTime = 10;				// it takes 10 microseconds to charge the line sensors

@@ -10,8 +10,8 @@
 #include "driverlib/pwm.h"
 #include "driverlib/sysctl.h"
 
-#include "init.h"
-#include "motor.h"
+#include "RASLib/init.h"
+#include "RASLib/motor.h"
 
 static unsigned long s_ulMotorPeriod;
 
