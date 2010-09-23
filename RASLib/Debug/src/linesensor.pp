@@ -1,0 +1,13 @@
+# FIXED
+src/linesensor.obj: ../src/linesensor.c
+src/linesensor.obj: ../src/linesensor.h
+src/linesensor.obj: C:/StellarisWare/inc/hw_types.h
+src/linesensor.obj: C:/StellarisWare/inc/hw_ints.h
+src/linesensor.obj: C:/StellarisWare/inc/hw_memmap.h
+src/linesensor.obj: C:/StellarisWare/driverlib/gpio.h
+src/linesensor.obj: C:/StellarisWare/driverlib/pin_map.h
+src/linesensor.obj: C:/StellarisWare/driverlib/sysctl.h
+src/linesensor.obj: C:/StellarisWare/driverlib/interrupt.h
+src/linesensor.obj: C:/StellarisWare/driverlib/timer.h
+src/linesensor.obj: ../src/timer.h
+src/linesensor.obj: ../src/init.h

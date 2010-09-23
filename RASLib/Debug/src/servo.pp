@@ -1,0 +1,10 @@
+# FIXED
+src/servo.obj: ../src/servo.c
+src/servo.obj: C:/StellarisWare/inc/hw_types.h
+src/servo.obj: C:/StellarisWare/inc/hw_memmap.h
+src/servo.obj: C:/StellarisWare/driverlib/gpio.h
+src/servo.obj: C:/StellarisWare/driverlib/pin_map.h
+src/servo.obj: C:/StellarisWare/driverlib/sysctl.h
+src/servo.obj: C:/StellarisWare/driverlib/pwm.h
+src/servo.obj: ../src/init.h
+src/servo.obj: ../src/servo.h
