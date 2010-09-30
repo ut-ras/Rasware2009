@@ -1,9 +1,9 @@
 irsensordemo.o: IRSensorDemo.c
-irsensordemo.o: C:\StellarisWare\inc/hw_types.h
-irsensordemo.o: C:\StellarisWare\inc/hw_memmap.h
-irsensordemo.o: C:\StellarisWare\utils/uartstdio.h
-irsensordemo.o: C:\StellarisWare\driverlib/uart.h
-irsensordemo.o: C:\StellarisWare\driverlib/sysctl.h
-irsensordemo.o: C:\StellarisWare\driverlib/gpio.h
-irsensordemo.o: C:\StellarisWare\driverlib/adc.h
+irsensordemo.o: ..\StellarisWare\inc/hw_types.h
+irsensordemo.o: ..\StellarisWare\inc/hw_memmap.h
+irsensordemo.o: ..\StellarisWare\utils/uartstdio.h
+irsensordemo.o: ..\StellarisWare\driverlib/uart.h
+irsensordemo.o: ..\StellarisWare\driverlib/sysctl.h
+irsensordemo.o: ..\StellarisWare\driverlib/gpio.h
+irsensordemo.o: ..\StellarisWare\driverlib/adc.h
 irsensordemo.o: RobzDemo.h

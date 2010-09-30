@@ -13,26 +13,26 @@ void initMotors(void) {
 }
 
 void motorDemo(void) {
-	UARTprintf("Press:\nw-forward\ns-backward\na-left\n");
-	UARTprintf("d-right\nspace-stop\nenter-quit\n");
+	UARTprintf("Press:\n  w-forward\n  s-backward\n  a-left\n  ");
+	UARTprintf("d-right\n  space-stop\n  enter-quit\n");
 	
 	{
 		// values should range between -128 and 127?
 		signed char left = 0, right = 0, maxSpeed = 127;
-		char newline = 10;
+		char newline = 13;
 		char ch = getc();
 		while(ch != newline) {
 			ch = getc();
 			putc(ch);
 			if (ch == 'w') {
 				left = maxSpeed;
-				right = maxSpeed;
+				right = -maxSpeed;
 			} else if (ch == 's') {
 				left = -maxSpeed;
-				right = -maxSpeed;
+				right = maxSpeed;
 			} else if (ch == 'a') {
 				left = -maxSpeed;
-				right = maxSpeed;
+				right = -maxSpeed;
 			} else if (ch == 'd') {
 				left = maxSpeed;
 				right = maxSpeed;
@@ -45,4 +45,5 @@ void motorDemo(void) {
 	}
 	
 	SetMotorPowers(0,0);
+	UARTprintf("\n");
 }

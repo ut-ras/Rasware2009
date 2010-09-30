@@ -77,6 +77,9 @@ __heap_limit
         AREA    RESET, CODE, READONLY
         THUMB
 
+		EXTERN	LSIntHandler
+		EXTERN	EncoderInterruptHandler
+
 ;******************************************************************************
 ;
 ; The vector table.
@@ -101,8 +104,8 @@ __Vectors
         DCD     IntDefaultHandler           ; PendSV Handler
         DCD     IntDefaultHandler           ; SysTick Handler
         DCD     IntDefaultHandler           ; GPIO Port A
-        DCD     IntDefaultHandler           ; GPIO Port B
-        DCD     IntDefaultHandler           ; GPIO Port C
+        DCD     EncoderInterruptHandler           ; GPIO Port B
+        DCD     EncoderInterruptHandler           ; GPIO Port C
         DCD     IntDefaultHandler           ; GPIO Port D
         DCD     IntDefaultHandler           ; GPIO Port E
         DCD     IntDefaultHandler           ; UART0
@@ -119,7 +122,7 @@ __Vectors
         DCD     IntDefaultHandler           ; ADC Sequence 2
         DCD     IntDefaultHandler           ; ADC Sequence 3
         DCD     IntDefaultHandler           ; Watchdog
-        DCD     IntDefaultHandler           ; Timer 0A
+        DCD     LSIntHandler           ; Timer 0A
         DCD     IntDefaultHandler           ; Timer 0B
         DCD     IntDefaultHandler           ; Timer 1A
         DCD     IntDefaultHandler           ; Timer 1B

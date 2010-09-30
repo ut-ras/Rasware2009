@@ -24,7 +24,7 @@ void uartDemo(void) {
 	}
 	
 	{
-		char newline = 10;
+		char newline = 13;
 		char ch = getc();
 		while(ch != newline) {
 			ch = getc();

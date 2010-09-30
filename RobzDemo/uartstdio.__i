@@ -1,1 +1,1 @@
--c --device DLM -D__EVAL -g -O0 --apcs=interwork -IC:\StellarisWare -I..\RASWARE_STUFF\trunk -I "C:\Keil\ARM\INC\Luminary" -o "uartstdio.o" --omf_browse "uartstdio.crf" --depend "uartstdio.d" "C:\StellarisWare\utils\uartstdio.c"
+-c --device DLM -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\StellarisWare -I..\RASLib\include -I "C:\Keil\ARM\INC\Luminary" -o "uartstdio.o" --omf_browse "uartstdio.crf" --depend "uartstdio.d" "..\StellarisWare\utils\uartstdio.c"

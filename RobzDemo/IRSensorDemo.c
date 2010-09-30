@@ -30,6 +30,7 @@ void IRSensorDemo(void) {
 	
 	while(!keyWasPressed()) {
 		unsigned long ADCValue = getADCValue();
-	 	UARTprintf("IR value: %l\r",ADCValue);
-	}
+	 	UARTprintf("IR value: %d\r",ADCValue);
+	}	
+	UARTprintf("\n");
 }

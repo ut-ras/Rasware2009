@@ -13,23 +13,33 @@ void initServo(void) {
 }
 
 void servoDemo(void) {
-	UARTprintf("Press:\nw-move 'up'\ns-move 'down'\nenter-quit\n");
+	UARTprintf("Press:\n  a-'up' 10\n  w-'up' 1\n  s-'down' 1\n");
+	UARTprintf("  d-'down' 10\n  enter-quit\n");
 	
 	{
 		unsigned char position = 0;
-		char newline = 10;
+		char newline = 13;
 		char ch;
 		
-		UARTprintf("position: %u\n",position);
+		UARTprintf("position: %u  ",position);
 		ch = getc();
 		while(ch != newline) {
-			ch = getc();
 			if (ch == 'w')
 				position++;
 			else if (ch == 's')
-				position--;
-			SetServoPosition(SERVO_0, position);
-			UARTprintf("position: %u",position);
+				position--;	 
+			else if (ch == 'a')
+				position+=10;
+			else if (ch == 'd')
+				position-=10;
+			SetServoPosition(SERVO_0, position); 
+			SetServoPosition(SERVO_1, position);
+			SetServoPosition(SERVO_2, position);
+			SetServoPosition(SERVO_3, position);
+			UARTprintf("%u  ",position);	 
+			ch = getc();
 		}
+				 
+		UARTprintf("\n");
 	}
 }

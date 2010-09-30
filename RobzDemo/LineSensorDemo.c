@@ -1,6 +1,7 @@
 #include "inc/hw_types.h"		// tBoolean
 #include "inc/hw_memmap.h"
-#include "utils/uartstdio.h"	// input/output over UART
+#include "utils/uartstdio.h"	// input/output over UART	 
+#include "driverlib/uart.h"		// input/output over UART
 #include "driverlib/gpio.h"
 #include "driverlib/sysctl.h"
 
@@ -9,7 +10,7 @@
 #include "RobzDemo.h"
 
 void initLineSensor(void) {
-	InitializeLineSensorAsync();
+	InitializeLineSensor();
 }
 
 void lineSensorDemo(void) {
@@ -17,7 +18,7 @@ void lineSensorDemo(void) {
 	UARTprintf("any key after read begins-quit\n");
 	
 	while(!keyWasPressed()) {
-		unsigned char lineSensorByte = ReadLineSensorAsync();
+		unsigned char lineSensorByte = ReadLineSensor();
 	 	int lineSensorArray[8];
 		int i;
 		for(i = 0; i < 8; i++) {
@@ -28,6 +29,7 @@ void lineSensorDemo(void) {
  		//black is 1, white is 0
 		for(i = 0; i < 8; i++) 
 			UARTprintf("%u",lineSensorArray[i]);
-		UARTprintf("\r");
+		UARTprintf("\r");  
 	}
+	UARTprintf("\n");
 }
