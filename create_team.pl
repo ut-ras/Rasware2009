@@ -11,7 +11,7 @@ my $pwd = `pwd`;
 # verify correct parameters
 print_usage() unless $#ARGV == 0;
 print_usage() if $target_name =~ /$name_checker/;
-print_usage() if `svn st` ne "";
+print_usage() if `svn st | grep -v "^\?"` ne "";
 
 # make sure SVN is up to date
 system ("svn up") == 0 || die "could not update SVN: $?";
