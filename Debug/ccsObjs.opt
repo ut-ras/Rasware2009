@@ -1,1 +1,0 @@
-"./RASDemo.obj" -l"rtsv7M3_T_le_eabi.lib" "../lm3s811.cmd" 
