@@ -5,12 +5,13 @@ use warnings;
 # some constants/variables we need
 my $template_name = "TEMPLATE";
 my $target_name = $ARGV[0];
-my $name_checker = "[^a-zA-Z0-9\-_]";
+my $name_checker = "^[a-z][a-z0-9-]*$"; # starts with lowercase letter
+					# and followed by alphanumeric or -
 my $pwd = `pwd`;
 
 # verify correct parameters
 print_usage() unless $#ARGV == 0;
-print_usage() if $target_name =~ /$name_checker/;
+print_usage() unless $target_name =~ /$name_checker/;
 print_usage() if `svn st | grep -v "^\?"` ne "";
 
 # make sure SVN is up to date
@@ -50,11 +51,9 @@ sub print_usage
   print <<EOT;
 Usage:
 $0 <target-name>
-    <target-name> may only contain alphanumeric characters, -, or _
-    I.e., if it matches the regex /$name_checker/, it is rejected.
-    In order for the <target-name> to be automatically imported into
-    your team's Google Code project, the <target-name> must exactly
-    match your Google Code project name.
+    <target-name> must exactly match your Google Code project name. It has to
+    start with a lowercase letter and be followed by any number of lowercase
+    letters, digits, or -
 
 Also, make sure that your working copy is clean. E.g, updated and no local
 modifications.
