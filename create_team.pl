@@ -5,7 +5,7 @@ use warnings;
 # some constants/variables we need
 my $template_name = "TEMPLATE";
 my $target_name = $ARGV[0];
-my $name_checker = "^[a-z][a-z0-9-]*$"; # starts with lowercase letter
+my $name_checker = "^[a-z][a-z0-9-]*\$"; # starts with lowercase letter
 					# and followed by alphanumeric or -
 my $pwd = `pwd`;
 
