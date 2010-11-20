@@ -1,9 +1,0 @@
-# FIXED
-src/encoder.obj: ../src/encoder.c
-src/encoder.obj: C:/StellarisWare/inc/hw_types.h
-src/encoder.obj: C:/StellarisWare/inc/hw_ints.h
-src/encoder.obj: C:/StellarisWare/inc/hw_memmap.h
-src/encoder.obj: C:/StellarisWare/driverlib/interrupt.h
-src/encoder.obj: C:/StellarisWare/driverlib/sysctl.h
-src/encoder.obj: C:/StellarisWare/driverlib/gpio.h
-src/encoder.obj: ../src/encoder.h
