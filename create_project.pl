@@ -43,7 +43,7 @@ while(<FILELIST>)
 }
 
 # we're done, so commit the changes and exit.
-exec ("svn ci -m 'created a new folder for project $target_name'");
+exec ("svn add $target_name; svn ci -m 'created a new folder for project $target_name'");
 #exec "svn import $target_name https://$target_name.googlecode.com/svn/trunk/ -m 'importing project from TEMPLATE'";
 
 sub print_usage
