@@ -9,18 +9,20 @@ my $name_checker = "^[a-z][a-z0-9-]*\$"; # starts with lowercase letter
 					# and followed by alphanumeric or -
 my $pwd = `pwd`;
 
+my $svn = "svn --no-auth-cache";
+
 # verify correct parameters
 print_usage() unless $#ARGV == 0;
 print_usage() unless $target_name =~ /$name_checker/;
-print_usage() if `svn st | grep -v "^\?"` ne "";
+print_usage() if `$svn st | grep -v "^\?"` ne "";
 
 # make sure SVN is up to date
-system ("svn up") == 0 || die "could not update SVN: $?";
+system ("$svn up") == 0 || die "could not update SVN: $?";
 
 # make a target directory
 mkdir $target_name || die "could not create directory $target_name: $?";
 # find all the files we have to copy
-open FILELIST, "svn ls -R $template_name |";
+open FILELIST, "$svn ls -R $template_name |";
 while(<FILELIST>)
 {
   chomp;
@@ -43,8 +45,8 @@ while(<FILELIST>)
 }
 
 # we're done, so commit the changes and exit.
-exec ("svn add $target_name; svn ci -m 'created a new folder for project $target_name'");
-#exec "svn import $target_name https://$target_name.googlecode.com/svn/trunk/ -m 'importing project from TEMPLATE'";
+exec ("$svn add $target_name; $svn ci -m 'created a new folder for project $target_name'");
+#exec "$svn import $target_name https://$target_name.googlecode.com/svn/trunk/ -m 'importing project from TEMPLATE'";
 
 sub print_usage
 {
@@ -64,7 +66,7 @@ EOT
 sub abort
 {
   print "uh-oh, something went wrong!\n@_\nReverting all changes\n\n";
-  system ("svn revert -R $target_name");
+  system ("$svn revert -R $target_name");
   system ("rm -rf $target_name");
   exit -1
 }
