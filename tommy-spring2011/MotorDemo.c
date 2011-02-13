@@ -25,7 +25,7 @@ void motorDemo(void) {
 			ch = getc();
 			putc(ch);
 			if (ch == 'w') {
-				left = maxSpeed;
+				left = 0;
 				right = -maxSpeed;
 			} else if (ch == 's') {
 				left = -maxSpeed;

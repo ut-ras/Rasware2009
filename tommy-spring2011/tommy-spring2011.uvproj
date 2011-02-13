@@ -415,6 +415,16 @@
               <FileType>1</FileType>
               <FilePath>.\EncoderDemo.c</FilePath>
             </File>
+            <File>
+              <FileName>MoveStraight.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MoveStraight.c</FilePath>
+            </File>
+            <File>
+              <FileName>OhmiesLib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\OhmiesLib.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

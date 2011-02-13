@@ -9,6 +9,7 @@
 
 #include "tommy-spring2011.h"
 
+/* Comment out to define MoveStraight()
 void initIRSensor(void) {
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC);
 	ADCSequenceConfigure(ADC_BASE,0, ADC_TRIGGER_PROCESSOR, 0);
@@ -23,7 +24,7 @@ long getADCValue(void) {
 	ADCSequenceDataGet(ADC_BASE, 0, &ADCValue);
 	return ADCValue;
 }
-
+*/
 void IRSensorDemo(void) {
 	UARTprintf("Press:\nany key-read IR sensor\n");
 	UARTprintf("any key after read begins-quit\n");

@@ -18,10 +18,21 @@ void initLineSensor(void);
 void lineSensorDemo(void);
 
 // Function in IRDemo
-void initIRSensor(void);
-long getADCValue(void);
+//void initIRSensor(void);
+//long getADCValue(void);
 void IRSensorDemo(void);
 
 // Functions in EncoderDemo
 void initEncoders(void);
 void encoderDemo(void);
+
+//Functions in OhmiesLib
+void initIRSensor(void);
+long getADCValue(void);
+void Forward(void);
+void TurnLeft(void);
+void TurnRight(void);
+
+//Functions in MoveStraight
+void MoveStraight(void);
+

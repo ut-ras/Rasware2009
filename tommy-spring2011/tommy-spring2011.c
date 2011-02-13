@@ -10,12 +10,13 @@ int main(void)
 	LockoutProtection();
 	InitializeMCU();
 	initUART();																							    
-	
-	while(1) {	
+	MoveStraight();
+/*	while(1) {	
 		UARTprintf("\nROBZ DEMO\n");
 		UARTprintf("  0=UART Demo\n  1=Motor Demo\n");
 		UARTprintf("  2=Servo Demo\n  3=Line Sensor\n");
 		UARTprintf("  4=IR Sensor Demo\n  5=Encoders Demo\n");
+		UARTprintf("  6=MoveStraight\n");
 		
 		UARTprintf(">> ");
 		ch = getc();
@@ -51,5 +52,9 @@ int main(void)
 			initEncoders();
 			encoderDemo();
 		}
-	}
+		else if (ch == '6') {
+			UARTprintf("\nMove Straight\n");
+			MoveStraight();
+		}
+	}	*/ 
 }
