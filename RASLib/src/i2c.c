@@ -9,7 +9,7 @@
 #include "driverlib/i2c.h"
 #include "RASLib/i2c.h"
 
-static short i2c_buffer[32];
+static unsigned char i2c_buffer[32];
 static unsigned short i2c_address;
 static short i2c_buffer_index;
 
@@ -44,7 +44,7 @@ void I2CAdd(short data)
 // Note:	Use this function when dealing with an unknown amount of characters to send
 void I2CStop()
 {
-	short *data = i2c_buffer;	// Technically not needed, but cleans code a bit
+	unsigned char *data = i2c_buffer;	// Technically not needed, but cleans code a bit
 	
 	// Set address to read from
 	I2CMasterSlaveAddrSet(I2C0_MASTER_BASE, i2c_address, false);
@@ -93,16 +93,16 @@ void I2CStop()
 void I2CSend(unsigned short addr, int num, ...)
 {
 	// Make sure data is actually being sent
-	if (num > 0){
+	if (num > 0 && num < 32){   // Max size of buffer
 		// Allocate memory for data
-		short *data = malloc(num * sizeof(short));
+		unsigned char *data = i2c_buffer;
 		va_list args;
 		int i=0;
 		
 		// Put characters to send in array
 		va_start(args, num);
 		for(; i<num; i++)
-			data[i] = (short)va_arg(args, int);
+			data[i] = (unsigned char) va_arg(args, int);
 		va_end(args);
 	
 		I2CMasterSlaveAddrSet(I2C0_MASTER_BASE, addr >> 1, false);
@@ -110,9 +110,6 @@ void I2CSend(unsigned short addr, int num, ...)
 		if (num == 1){
 		    I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_SINGLE_SEND);
 			while(I2CMasterBusy(I2C0_MASTER_BASE));
-			
-			// Deallocate memory
-			free(data);
 			return;
 		}
 		
@@ -123,21 +120,19 @@ void I2CSend(unsigned short addr, int num, ...)
 		data++;
 		
 		// Continue sending consecutive data
-		while(num > 0){
+		while(num > 1){
 			I2CMasterDataPut(I2C0_MASTER_BASE, *data);
 			I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_BURST_SEND_CONT);
 			while(I2CMasterBusy(I2C0_MASTER_BASE));
 			num--;
 			data++;
+            UARTprintf("%d\n", num);
 		}
 		
 		// Send last piece of data
 		I2CMasterDataPut(I2C0_MASTER_BASE, *data);
 		I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_BURST_SEND_FINISH);
 		while(I2CMasterBusy(I2C0_MASTER_BASE));
-		
-		// Deallocate memory
-		free(data);
 	}
 }
 
@@ -170,7 +165,7 @@ void I2CRecieve(unsigned short addr, unsigned char* data, unsigned int len)
 	data++;
 	
 	// Continue reading consecutive data
-	while(len > 0){
+	while(len > 1){
 		I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_BURST_RECEIVE_CONT);
     	while(I2CMasterBusy(I2C0_MASTER_BASE));
 		*data = I2CMasterDataGet(I2C0_MASTER_BASE);

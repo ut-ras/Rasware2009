@@ -1,5 +1,5 @@
 // ***************************
-// MOTOR FUNCTIONS AND DEFINES
+// I2C FUNCTIONS AND DEFINES
 // ***************************
 #ifndef I2C_H
 #define I2C_H
