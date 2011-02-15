@@ -230,10 +230,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>47</ColumnNumber>
+      <ColumnNumber>20</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>139</TopLine>
-      <CurrentLine>152</CurrentLine>
+      <TopLine>145</TopLine>
+      <CurrentLine>158</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2CDemo.c</PathWithFileName>
       <FilenameWithoutPath>I2CDemo.c</FilenameWithoutPath>
@@ -301,9 +301,9 @@
       <Documents>
         <Doc>
           <Name>.\I2CDemo.c</Name>
-          <ColumnNumber>47</ColumnNumber>
-          <TopLine>139</TopLine>
-          <CurrentLine>152</CurrentLine>
+          <ColumnNumber>20</ColumnNumber>
+          <TopLine>145</TopLine>
+          <CurrentLine>158</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\RASLib\include\../src/i2c.c</Name>

@@ -103,7 +103,7 @@ int main(void){
             init_nunchuck();
         }else{
             Wait(1);
-            I2CRecieve(0x52<<1, data, 8);   // Nunchuck data is 6 bytes, but for whatever reason, MEMOREX Wireless Nunchuck wants to send 8...
+            I2CRecieve(0x52<<1, data, 6);   // Nunchuck data is 6 bytes, but for whatever reason, MEMOREX Wireless Nunchuck wants to send 8...
             
             if (I2CMasterErr(I2C0_MASTER_BASE) != I2C_MASTER_ERR_NONE){
                 UARTprintf("Send Zero Error:\n");
@@ -157,7 +157,7 @@ int main(void){
                     UARTprintf(" %d\n", wiichuck[i]);
                 }NL;
                 
-                Wait(200);
+                Wait(100);
             }
         }
 	}
