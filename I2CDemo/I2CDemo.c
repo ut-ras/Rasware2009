@@ -149,7 +149,7 @@ int main(void){
                 r_vel = r_vel < -127 ? -127 : r_vel;
                 
                 //UARTprintf("X: %d\tY: %d\n", xpow*2, ypow*2);
-                SetMotorPowers(l_vel/2, r_vel/2);
+                SetMotorPowers(l_vel / (wiichuck[5]==0 ? 2 : 1), r_vel / (wiichuck[5]==0 ? 2 : 1));
                 UARTprintf("Motor L: %d\tMotor R: %d\n", l_vel, r_vel);
                 SetServoPosition(SERVO_0, wiichuck[6]==1 ? 255 : 140);
                 UARTprintf("Nunchuck Data:\n");
