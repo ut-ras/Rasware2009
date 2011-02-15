@@ -118,38 +118,6 @@
         <tIfile></tIfile>
         <pMon>BIN\lmidk-agdi.dll</pMon>
       </DebugOpt>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>103</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>I2CDemo.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>82</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>I2CDemo.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-      </Breakpoint>
       <DebugFlag>
         <trace>0</trace>
         <periodic>0</periodic>
@@ -262,10 +230,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>26</ColumnNumber>
+      <ColumnNumber>47</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>142</TopLine>
-      <CurrentLine>164</CurrentLine>
+      <TopLine>139</TopLine>
+      <CurrentLine>152</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2CDemo.c</PathWithFileName>
       <FilenameWithoutPath>I2CDemo.c</FilenameWithoutPath>
@@ -273,33 +241,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\Cruz Monrreal II\Desktop\Projects\RAS\DPRG\rasware\StellarisWare\driverlib\i2c.h</PathWithFilename>
-    <TopLine>115</TopLine>
-    <CurrentLine>115</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>C:\Users\Cruz Monrreal II\Desktop\Projects\RAS\DPRG\rasware\RASLib\include\RASLib\i2c.h</PathWithFilename>
+    <PathWithFilename>C:\Users\Cruz Monrreal II\Desktop\rasware\RASLib\include\RASLib\i2c.h</PathWithFilename>
     <TopLine>34</TopLine>
     <CurrentLine>47</CurrentLine>
     <Constant>0</Constant>
@@ -325,7 +267,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\Cruz Monrreal II\Desktop\Projects\RAS\DPRG\rasware\RASLib\src\i2c.c</PathWithFilename>
+    <PathWithFilename>C:\Users\Cruz Monrreal II\Desktop\rasware\RASLib\src\i2c.c</PathWithFilename>
     <TopLine>157</TopLine>
     <CurrentLine>170</CurrentLine>
     <Constant>0</Constant>
@@ -359,9 +301,9 @@
       <Documents>
         <Doc>
           <Name>.\I2CDemo.c</Name>
-          <ColumnNumber>26</ColumnNumber>
-          <TopLine>142</TopLine>
-          <CurrentLine>164</CurrentLine>
+          <ColumnNumber>47</ColumnNumber>
+          <TopLine>139</TopLine>
+          <CurrentLine>152</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\RASLib\include\../src/i2c.c</Name>
@@ -374,12 +316,6 @@
           <ColumnNumber>53</ColumnNumber>
           <TopLine>34</TopLine>
           <CurrentLine>47</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\StellarisWare\driverlib/i2c.h</Name>
-          <ColumnNumber>31</ColumnNumber>
-          <TopLine>115</TopLine>
-          <CurrentLine>115</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

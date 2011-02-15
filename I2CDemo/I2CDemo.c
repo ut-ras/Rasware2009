@@ -29,38 +29,23 @@ void InitializeI2C(){
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
 
 	GPIOPinTypeI2C(GPIO_PORTB_BASE, GPIO_PIN_2 | GPIO_PIN_3);
-    I2CMasterInitExpClk(I2C0_MASTER_BASE, SysCtlClockGet(), true);
+    I2CMasterInitExpClk(I2C0_MASTER_BASE, SysCtlClockGet(), false);
 }
 
 void init_nunchuck(){
 
-    UARTprintf("Initializing Wireless Nunchuck\n\n");
+    UARTprintf("Initializing Wireless Nunchuck\n\n");   
     while(1){
         I2CSend(0x52<<1, 2, 0xF0, 0x55);
         if (I2CMasterErr(I2C0_MASTER_BASE) == I2C_MASTER_ERR_NONE){
+            Wait(1);
             I2CSend(0x52<<1, 2, 0xFB, 0x00);
-            if (I2CMasterErr(I2C0_MASTER_BASE) != I2C_MASTER_ERR_NONE)
+            if (I2CMasterErr(I2C0_MASTER_BASE) == I2C_MASTER_ERR_NONE)
                 break;
-        }else{
-            switch(I2CMasterErr(I2C0_MASTER_BASE)){
-                case I2C_MASTER_ERR_ADDR_ACK:
-                    UARTprintf("I2C_MASTER_ERR_ADDR_ACK\n");
-                    break;
-                case I2C_MASTER_ERR_DATA_ACK:
-                    UARTprintf("I2C_MASTER_ERR_DATA_ACK\n");
-                    break;
-                case I2C_MASTER_ERR_ARB_LOST:
-                    UARTprintf("I2C_MASTER_ERR_ARB_LOST\n");
-                    break;
-            }
         }
-        NL;
+        
+        Wait(10);
     }
-    I2CSend(0x52<<1, 1, 0xFA);
-    
-  	I2CSend(0x52<<1, 2, 0x40, 0x00);
-  	I2CSend(0x52<<1, 2, 0x40, 0x00);
-  	I2CSend(0x52<<1, 2, 0x40, 0x00);
 }
 
 int main(void){
@@ -73,8 +58,10 @@ int main(void){
 	InitializeMCU();
 	InitializeUART();
     InitializeI2C();
+    
 	InitializeServos();
-            SetServoPosition(SERVO_0, 140);
+    SetServoPosition(SERVO_0, 140);
+    
 	InitializeMotors(true, false);
 	InitializeEncoders(true, false);
     
@@ -84,12 +71,17 @@ int main(void){
     
     init_nunchuck();
     
-    // Wireless Nunchucks 0 @ 128
+    // Wireless Nunchucks Zero @ 128
     xinit = yinit = 128;
         
 	while(1){
 		//Start Recalculating Values
-		I2CSend(0x52<<1, 1, 0x00);   
+        Wait(1);
+		I2CSend(0x52<<1, 1, 0x00);
+        Wait(1);   
+		I2CSend(0x52<<1, 1, 0x00);
+        Wait(1);     
+		I2CSend(0x52<<1, 1, 0x00);
         
         if (I2CMasterErr(I2C0_MASTER_BASE) != I2C_MASTER_ERR_NONE){
             UARTprintf("Send Zero Error:\n");
@@ -103,11 +95,14 @@ int main(void){
                 case I2C_MASTER_ERR_ARB_LOST:
                     UARTprintf(" I2C_MASTER_ERR_ARB_LOST\n");
                     break;
+                default:
+                    UARTprintf("WTF: %d\n", I2CMasterErr(I2C0_MASTER_BASE));
             }
             
             // Reinitialize Nunchuck on error
             init_nunchuck();
         }else{
+            Wait(1);
             I2CRecieve(0x52<<1, data, 8);   // Nunchuck data is 6 bytes, but for whatever reason, MEMOREX Wireless Nunchuck wants to send 8...
             
             if (I2CMasterErr(I2C0_MASTER_BASE) != I2C_MASTER_ERR_NONE){
@@ -154,13 +149,14 @@ int main(void){
                 r_vel = r_vel < -127 ? -127 : r_vel;
                 
                 //UARTprintf("X: %d\tY: %d\n", xpow*2, ypow*2);
-                SetMotorPowers(l_vel, r_vel);
+                SetMotorPowers(l_vel/2, r_vel/2);
                 UARTprintf("Motor L: %d\tMotor R: %d\n", l_vel, r_vel);
                 SetServoPosition(SERVO_0, wiichuck[6]==1 ? 255 : 140);
-                //UARTprintf("Nunchuck Data:\n");
-                //for(i=0; i<7; i++){
-                //    UARTprintf(" %d\n", wiichuck[i]);
-                //}NL;
+                UARTprintf("Nunchuck Data:\n");
+                for(i=0; i<7; i++){
+                    UARTprintf(" %d\n", wiichuck[i]);
+                }NL;
+                
                 Wait(200);
             }
         }

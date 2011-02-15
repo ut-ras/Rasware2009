@@ -3,7 +3,7 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\Cruz Monrreal II\Desktop\Projects\RAS\DPRG\rasware\I2CDemo\I2CDemo.uvproj
+C:\Users\Cruz Monrreal II\Desktop\rasware\I2CDemo\I2CDemo.uvproj
 Project File Date:  02/11/2011
 
 <h2>Output:</h2>
@@ -11,108 +11,10 @@ Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(68): warning:  #177-D: variable "i" was declared but never referenced
 linking...
-Program Size: Code=6036 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
-Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
-Connecting: Mode=JTAG, Speed=600000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling uartstdio.c...
-assembling Startup.s...
-compiling I2CDemo.c...
-I2CDemo.c(68): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-Program Size: Code=6036 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-compiling uartstdio.c...
-assembling Startup.s...
-compiling I2CDemo.c...
-I2CDemo.c(68): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-Program Size: Code=6036 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
-Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
-Connecting: Mode=JTAG, Speed=600000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling uartstdio.c...
-assembling Startup.s...
-compiling I2CDemo.c...
-I2CDemo.c(68): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-Program Size: Code=6036 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
-Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
-Connecting: Mode=JTAG, Speed=600000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
-Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
-Connecting: Mode=JTAG, Speed=600000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling uartstdio.c...
-assembling Startup.s...
-compiling I2CDemo.c...
-I2CDemo.c(68): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-Program Size: Code=6036 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
-Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
-Connecting: Mode=JTAG, Speed=600000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling uartstdio.c...
-assembling Startup.s...
-compiling I2CDemo.c...
-I2CDemo.c(68): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-Program Size: Code=6036 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
-Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
-Connecting: Mode=JTAG, Speed=600000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling uartstdio.c...
-assembling Startup.s...
-compiling I2CDemo.c...
-I2CDemo.c(68): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-Program Size: Code=6036 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
-Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
-Connecting: Mode=JTAG, Speed=600000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling uartstdio.c...
-assembling Startup.s...
-compiling I2CDemo.c...
-linking...
-Program Size: Code=6096 RO-data=236 RW-data=60 ZI-data=292  
+Program Size: Code=6340 RO-data=236 RW-data=60 ZI-data=292  
 "RobzDemo.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -123,9 +25,9 @@ compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
 linking...
-Program Size: Code=6096 RO-data=236 RW-data=60 ZI-data=292  
+Program Size: Code=6340 RO-data=236 RW-data=60 ZI-data=292  
 "RobzDemo.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -136,9 +38,9 @@ compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
 linking...
-Program Size: Code=6096 RO-data=236 RW-data=60 ZI-data=292  
+Program Size: Code=6340 RO-data=236 RW-data=60 ZI-data=292  
 "RobzDemo.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -149,9 +51,9 @@ compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
 linking...
-Program Size: Code=6096 RO-data=236 RW-data=60 ZI-data=292  
+Program Size: Code=6340 RO-data=236 RW-data=60 ZI-data=292  
 "RobzDemo.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -161,11 +63,10 @@ Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(67): warning:  #177-D: variable "i" was declared but never referenced
 linking...
-Program Size: Code=6060 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Program Size: Code=6324 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -175,18 +76,68 @@ Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(67): warning:  #177-D: variable "i" was declared but never referenced
-I2CDemo.c(334): error: At end of source:  #67: expected a "}"
+linking...
+Program Size: Code=6144 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6124 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6144 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6188 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+I2CDemo.c(50): error:  #18: expected a ")"
 Target not created
 Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(67): warning:  #177-D: variable "i" was declared but never referenced
 linking...
-Program Size: Code=6240 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Program Size: Code=6216 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -196,11 +147,10 @@ Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(67): warning:  #177-D: variable "i" was declared but never referenced
 linking...
-Program Size: Code=6316 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Program Size: Code=6224 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -210,11 +160,10 @@ Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(67): warning:  #177-D: variable "i" was declared but never referenced
 linking...
-Program Size: Code=6200 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Program Size: Code=6228 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -224,11 +173,10 @@ Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(67): warning:  #177-D: variable "i" was declared but never referenced
 linking...
-Program Size: Code=6004 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Program Size: Code=6168 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -238,11 +186,10 @@ Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(67): warning:  #177-D: variable "i" was declared but never referenced
 linking...
-Program Size: Code=6004 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Program Size: Code=6176 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
@@ -252,15 +199,216 @@ Build target 'Target 1'
 compiling uartstdio.c...
 assembling Startup.s...
 compiling I2CDemo.c...
-I2CDemo.c(67): warning:  #177-D: variable "i" was declared but never referenced
 linking...
-Program Size: Code=6180 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Program Size: Code=6148 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6148 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6148 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6156 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6156 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6164 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6172 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6160 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6176 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6176 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6128 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6128 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6128 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6128 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6128 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6148 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Connection failed!, error code=&d
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\Projects\\RAS\\DPRG\\rasware\\I2CDemo\\RobzDemo.AXF" 
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling I2CDemo.c...
+linking...
+Program Size: Code=6148 RO-data=236 RW-data=60 ZI-data=292  
+"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
 Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
 Connecting: Mode=JTAG, Speed=600000Hz
 Erase Done.
