@@ -6,12 +6,11 @@
 
 #include "RASLib/encoder.h"
 
-#include "enterpras-uc-slave.h"
 
 void initEncoders(void) {
 	InitializeEncoders(false, false);
 }
-
+/*
 void encoderDemo(void) {
 	UARTprintf("Press:\nany key-read encoder values\n");
 	UARTprintf("any key after read begins-quit\n");
@@ -31,3 +30,4 @@ void encoderDemo(void) {
 
 	UARTprintf("\n");
 }
+*/

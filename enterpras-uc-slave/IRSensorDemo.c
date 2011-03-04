@@ -7,7 +7,6 @@
 
 #include "driverlib/adc.h"
 
-#include "enterpras-uc-slave.h"
 
 void initIRSensor(void) {
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC);

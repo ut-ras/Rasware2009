@@ -6,13 +6,14 @@
 
 #include "RASLib/motor.h"
 
-#include "enterpras-uc-slave.h"
+#include "UART_Functions.h"
+
 
 void initMotors(void) {
 	InitializeMotors(false, false);
 }
 
-void motorDemo(void) {
+/*void motorDemo(void) {
 	UARTprintf("Press:\n  w-forward\n  s-backward\n  a-left\n  ");
 	UARTprintf("d-right\n  space-stop\n  enter-quit\n");
 	
@@ -46,4 +47,4 @@ void motorDemo(void) {
 	
 	SetMotorPowers(0,0);
 	UARTprintf("\n");
-}
+}*/

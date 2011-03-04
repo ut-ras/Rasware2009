@@ -79,6 +79,7 @@ __heap_limit
 
 		EXTERN	LSIntHandler
 		EXTERN	EncoderInterruptHandler
+		EXTERN	WatchdogIntHandler
 
 ;******************************************************************************
 ;
@@ -121,7 +122,7 @@ __Vectors
         DCD     IntDefaultHandler           ; ADC Sequence 1
         DCD     IntDefaultHandler           ; ADC Sequence 2
         DCD     IntDefaultHandler           ; ADC Sequence 3
-        DCD     IntDefaultHandler           ; Watchdog
+        DCD     WatchdogIntHandler			;IntDefaultHandler           ; Watchdog
         DCD     LSIntHandler           ; Timer 0A
         DCD     IntDefaultHandler           ; Timer 0B
         DCD     IntDefaultHandler           ; Timer 1A

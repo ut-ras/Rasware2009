@@ -7,7 +7,6 @@
 
 #include "RASLib/linesensor.h"
 
-#include "enterpras-uc-slave.h"
 
 void initLineSensor(void) {
 	InitializeLineSensor();

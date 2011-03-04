@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_proj.xsd">
 
-  <SchemaVersion>1.0</SchemaVersion>
+  <SchemaVersion>1.1</SchemaVersion>
 
   <Header>### uVision Project, (C) Keil Software</Header>
 
@@ -29,6 +29,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
+          <SFDFile></SFDFile>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -43,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>enterpras-uc-slave</OutputName>
+          <OutputName>PC-uC_Interface</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -345,7 +346,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>C:\working_dir\Robotathon2010\StellarisWare;C:\working_dir\Robotathon2010\RASLib\include</IncludePath>
+              <IncludePath>..\StellarisWare;..\RASLib\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -386,11 +387,6 @@
           <GroupName>Source</GroupName>
           <Files>
             <File>
-              <FileName>UARTDemo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\UARTDemo.c</FilePath>
-            </File>
-            <File>
               <FileName>MotorDemo.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\MotorDemo.c</FilePath>
@@ -401,19 +397,24 @@
               <FilePath>.\ServoDemo.c</FilePath>
             </File>
             <File>
-              <FileName>LineSensorDemo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\LineSensorDemo.c</FilePath>
-            </File>
-            <File>
-              <FileName>IRSensorDemo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\IRSensorDemo.c</FilePath>
-            </File>
-            <File>
               <FileName>EncoderDemo.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\EncoderDemo.c</FilePath>
+            </File>
+            <File>
+              <FileName>MessageProcessor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MessageProcessor.c</FilePath>
+            </File>
+            <File>
+              <FileName>UART_Functions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\UART_Functions.c</FilePath>
+            </File>
+            <File>
+              <FileName>Nunchuck_Functions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Nunchuck_Functions.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -423,17 +424,17 @@
             <File>
               <FileName>raslib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>C:\working_dir\Robotathon2010\RASLib\Debug\raslib.lib</FilePath>
+              <FilePath>..\RASLib\Debug\raslib.lib</FilePath>
             </File>
             <File>
               <FileName>driverlib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>C:\working_dir\Robotathon2010\StellarisWare\driverlib\rvmdk\driverlib.lib</FilePath>
+              <FilePath>..\StellarisWare\driverlib\rvmdk\driverlib.lib</FilePath>
             </File>
             <File>
               <FileName>uartstdio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>C:\working_dir\Robotathon2010\StellarisWare\utils\uartstdio.c</FilePath>
+              <FilePath>..\StellarisWare\utils\uartstdio.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -446,14 +447,34 @@
               <FilePath>.\Startup.s</FilePath>
             </File>
             <File>
-              <FileName>enterpras-uc-slave.c</FileName>
+              <FileName>PC_uC_Interface.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\enterpras-uc-slave.c</FilePath>
+              <FilePath>.\PC_uC_Interface.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>headers</GroupName>
+          <Files>
+            <File>
+              <FileName>CommDefinitions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CommDefinitions.h</FilePath>
             </File>
             <File>
-              <FileName>enterpras-uc-slave.h</FileName>
+              <FileName>MessageProcessor.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\enterpras-uc-slave.h</FilePath>
+              <FilePath>.\MessageProcessor.h</FilePath>
+            </File>
+            <File>
+              <FileName>UART_Functions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\UART_Functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>Nunchuck_Functions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Nunchuck_Functions.h</FilePath>
             </File>
           </Files>
         </Group>
