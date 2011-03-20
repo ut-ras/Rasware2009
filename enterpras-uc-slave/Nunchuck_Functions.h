@@ -1,8 +1,10 @@
 #ifndef NUNCHUCK_FUNCTIONS_H
 #define NUNCHUCK_FUNCTIONS_H
 
-extern void ackermannNunchuckTest(void);
+#include "definitions.h"
+
+extern NunchuckData getNunchuckData(void);
 extern void InitializeI2C(void);
-extern void init_nunchuck(void);
+extern void initNunchuck(void);
 
 #endif

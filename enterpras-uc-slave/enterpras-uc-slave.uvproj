@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>PC-uC_Interface</OutputName>
+          <OutputName>enterpras_uc_slave</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -160,7 +160,7 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4099</DriverSelection>
+            <DriverSelection>4097</DriverSelection>
           </Flash1>
           <Flash2>BIN\lmidk-agdi.dll</Flash2>
           <Flash3>"" ()</Flash3>
@@ -402,19 +402,29 @@
               <FilePath>.\EncoderDemo.c</FilePath>
             </File>
             <File>
-              <FileName>MessageProcessor.c</FileName>
+              <FileName>message_processor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MessageProcessor.c</FilePath>
+              <FilePath>.\message_processor.c</FilePath>
             </File>
             <File>
-              <FileName>UART_Functions.c</FileName>
+              <FileName>uart_functions.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\UART_Functions.c</FilePath>
+              <FilePath>.\uart_functions.c</FilePath>
             </File>
             <File>
-              <FileName>Nunchuck_Functions.c</FileName>
+              <FileName>nunchuck_functions.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Nunchuck_Functions.c</FilePath>
+              <FilePath>.\nunchuck_functions.c</FilePath>
+            </File>
+            <File>
+              <FileName>time_functions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\time_functions.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor_functions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\motor_functions.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -457,14 +467,14 @@
           <GroupName>headers</GroupName>
           <Files>
             <File>
-              <FileName>CommDefinitions.h</FileName>
+              <FileName>definitions.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\CommDefinitions.h</FilePath>
+              <FilePath>.\definitions.h</FilePath>
             </File>
             <File>
-              <FileName>MessageProcessor.h</FileName>
+              <FileName>message_processor.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\MessageProcessor.h</FilePath>
+              <FilePath>.\message_processor.h</FilePath>
             </File>
             <File>
               <FileName>UART_Functions.h</FileName>
@@ -475,6 +485,21 @@
               <FileName>Nunchuck_Functions.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Nunchuck_Functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>time_functions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\time_functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>motor_functions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\motor_functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>settings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\settings.h</FilePath>
             </File>
           </Files>
         </Group>

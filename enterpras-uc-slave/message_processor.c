@@ -6,8 +6,8 @@
  */
  
  #include "UART_Functions.h"
- #include "MessageProcessor.h"
- #include "CommDefinitions.h"
+ #include "message_processor.h"
+ #include "definitions.h"
  /*
  void processRequest(char* request)
  {
