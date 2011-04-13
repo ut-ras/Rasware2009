@@ -426,6 +426,21 @@
               <FileType>1</FileType>
               <FilePath>.\motor_functions.c</FilePath>
             </File>
+            <File>
+              <FileName>adc_functions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\adc_functions.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_functions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\gpio_functions.c</FilePath>
+            </File>
+            <File>
+              <FileName>utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\utils.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -500,6 +515,21 @@
               <FileName>settings.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\settings.h</FilePath>
+            </File>
+            <File>
+              <FileName>adc_functions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\adc_functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_functions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\gpio_functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>utils.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\utils.h</FilePath>
             </File>
           </Files>
         </Group>

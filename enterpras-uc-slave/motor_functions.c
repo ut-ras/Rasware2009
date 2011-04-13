@@ -14,6 +14,7 @@
 #include "motor_functions.h"
 #include "definitions.h"
 #include "settings.h"
+#include "utils.h"
 
 void setMotorSpeeds(signed short left_speed, signed short right_speed, signed short angle)
 {
@@ -25,7 +26,7 @@ void setMotorSpeeds(signed short left_speed, signed short right_speed, signed sh
 	{
 		//TODO?: modulate left and right speeds based on angle to provide electronic differential and / or skid protection
 		
-		SetServoPosition(STEERING_SERVO, angle_output);
+		desired_steering_angle = angle_output;
 		Wait(100); //wait for the front wheels to turn to the correct angle before we try to drive----TODO: make this proportional to the angle it needs to travel through
 	}
 	
@@ -84,8 +85,10 @@ void joyDrive(NunchuckData joy_data)
 		r_vel = 127 - r_vel;
 	    
 		//output new velocity to motors
-		SetServoPosition(LEFT_JAGUAR, (unsigned char) l_vel);
-		SetServoPosition(RIGHT_JAGUAR, (unsigned char) r_vel);
+		//SetServoPosition(LEFT_JAGUAR, (unsigned char) l_vel);
+		//SetServoPosition(RIGHT_JAGUAR, (unsigned char) r_vel);
+		
+		setMotorSpeeds(l_vel, r_vel, 0);
 	}
 	else if(drive_type == ACKERMANN)
 	{
@@ -103,10 +106,36 @@ void joyDrive(NunchuckData joy_data)
 		//correct for jaguar silliness
 		speed = 127 - speed;
 		
-		SetServoPosition(LEFT_JAGUAR, speed);
-		SetServoPosition(RIGHT_JAGUAR, speed);
-		SetServoPosition(STEERING_SERVO, angle);
+		//SetServoPosition(LEFT_JAGUAR, speed);
+		//SetServoPosition(RIGHT_JAGUAR, speed);
+		//SetServoPosition(STEERING_SERVO, angle);
+		setMotorSpeeds(speed, speed, angle);
 	}
 	
     Wait(100);
+}
+
+void pidSteeringServo(signed char desired_angle, signed char actual_angle)
+{
+	double pTerm;
+    double dTerm;
+    double iTerm;
+	double factor;
+	double angle_error = turnDirection(actual_angle, desired_angle) * angleBetween(actual_angle, desired_angle); //negative is ____, positive is ____
+    
+    //Proportional
+    pTerm = steeringPID.pGain * angle_error;
+    
+    //Integral
+    steeringPID.iState += angle_error;
+	steeringPID.iState = SATURATE(steeringPID.iState, steeringPID.iMin, steeringPID.iMax); //keep iState between the min and max angles it could be
+    iTerm = steeringPID.iGain * steeringPID.iState;
+    
+    //Derivative
+    dTerm = steeringPID.dGain * angleBetween(desired_angle, steeringPID.dState); 
+    steeringPID.dState = actual_angle;
+    
+    factor = pTerm + iTerm - dTerm;
+	
+	SetServoPosition(STEERING_SERVO, desired_angle * factor);
 }

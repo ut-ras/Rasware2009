@@ -14,11 +14,13 @@
 
 #include "UART_Functions.h"
 #include "message_processor.h"
-#include "Nunchuck_Functions.h"
+#include "nunchuck_functions.h"
 #include "motor_functions.h"
 #include "time_functions.h"
 #include "settings.h"
 #include "definitions.h"
+#include "adc_functions.h"
+#include "gpio_functions.h"
 
 //Globals
 volatile long leftEncoderCount;
@@ -32,6 +34,10 @@ volatile long ticks; //each tick is 1ms
 volatile unsigned char control_mode;
 volatile unsigned char drive_type; 
 volatile unsigned char battery_voltage;
+
+volatile signed char desired_steering_angle;
+
+volatile PIDdata steeringPID; //TODO: init steeringPID
 
 //Functions
 void init()
@@ -47,6 +53,7 @@ void init()
 	initUART();
 	initNunchuck();
 	initWatchdog();
+	initADC();
 	
 	//start encoder value interrupts (100ms)
 	
@@ -54,33 +61,50 @@ void init()
 	
 	//start ticker interrupts
 	
-	//do general setup------------TODO: get this data from switches or something
+	//do general setup------------TODO: get this data from switches
 	battery_voltage = 24;
 	control_mode = NUNCHUCK;
-	drive_type = DIFFERENTIAL;
+	drive_type = ACKERMANN;
 }
 
 int main()
 {
+	//TODO: put servo pwm in an interrupt
+	
 	init(); //do all necessary initializations (including interrupts)
+	
 	
 	while(1)
 	{
 		if(control_mode == AUTONOMOUS)
 		{
-			char incomingRequest[100];
-			getMessage(incomingRequest, 100); //wait until we get a valid message
-			//processRequest(incomingRequest); //process the message
-		}
-		else if(control_mode == NUNCHUCK) //control will automatically change to nunchuck whenever there is no heartbeat (TODO).
-		{
-			if(charIsAvailable())
+			//TODO: output to GPIO controlling flashing warning light
+			if(controlSwitchPosition() == NUNCHUCK)
 			{
-				control_mode = AUTONOMOUS; //if someone is trying to talk to us, go figure out what they want.
+				control_mode = NUNCHUCK;
+			}
+			else
+			{
+				if(charIsAvailable()) //if someone is trying to talk to us, go figure out what they want.
+				{
+					//TODO: Make this less blocky
+					char incomingRequest[100];
+					getMessage(incomingRequest, 100); //wait until we get a valid message
+					//processRequest(incomingRequest); //process the message
+				}
+				pidSteeringServo(desired_steering_angle, getCurrentSteeringAngle()); //if we're bored, do some PID
+			}
+		}
+		else if(control_mode == NUNCHUCK)
+		{
+			if(controlSwitchPosition() == AUTONOMOUS)
+			{
+				control_mode = AUTONOMOUS;
 			}
 			else
 			{
 				joyDrive(getNunchuckData()); //otherwise, be joyous!
+				pidSteeringServo(desired_steering_angle, getCurrentSteeringAngle());
 			}
 		}
 		else //something really bad happened, so lets try nunchucking it again

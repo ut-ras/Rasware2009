@@ -41,6 +41,8 @@
 
 #define DRIVE_JAGUAR 	SERVO_0 //if only one drive motor is used (as in the case of a mechanical differential), plug it in to servo port 0
 
+#define POTENTIOMETER	0
+
 //==========TIMER DEFINITIONS==========
 #define WATCHDOG_PERIOD 50000 * g_ulTicksPerUs //robot will stop moving within 50ms of receiving no heartbeat
 
@@ -71,5 +73,17 @@ typedef struct NunchuckData
 
 //==========GENERAL CODES==========
 #define MAINTAIN_STEERING_ANGLE -32768
+
+//==========PID STRUCT=============
+typedef struct
+{
+    double dState; // Last position input
+    double iState; // Integrator state
+    double iMin; // Minimum allowable integrator state
+    double iMax; // Maximum allowable integrator state
+    double iGain; // integral gain
+    double pGain; // proportional gain
+    double dGain; // derivative gain
+} PIDdata;
 
 #endif

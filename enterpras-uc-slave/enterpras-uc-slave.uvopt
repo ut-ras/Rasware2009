@@ -216,10 +216,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>31</ColumnNumber>
+      <ColumnNumber>3</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>9</CurrentLine>
+      <CurrentLine>12</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\message_processor.c</PathWithFileName>
       <FilenameWithoutPath>message_processor.c</FilenameWithoutPath>
@@ -230,10 +230,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>3</ColumnNumber>
+      <ColumnNumber>45</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>74</TopLine>
-      <CurrentLine>100</CurrentLine>
+      <TopLine>12</TopLine>
+      <CurrentLine>30</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\uart_functions.c</PathWithFileName>
       <FilenameWithoutPath>uart_functions.c</FilenameWithoutPath>
@@ -246,8 +246,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>12</TopLine>
+      <CurrentLine>13</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\nunchuck_functions.c</PathWithFileName>
       <FilenameWithoutPath>nunchuck_functions.c</FilenameWithoutPath>
@@ -260,8 +260,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>26</TopLine>
-      <CurrentLine>34</CurrentLine>
+      <TopLine>4</TopLine>
+      <CurrentLine>14</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\time_functions.c</PathWithFileName>
       <FilenameWithoutPath>time_functions.c</FilenameWithoutPath>
@@ -272,13 +272,55 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>164</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>21</TopLine>
-      <CurrentLine>29</CurrentLine>
+      <TopLine>117</TopLine>
+      <CurrentLine>118</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\motor_functions.c</PathWithFileName>
       <FilenameWithoutPath>motor_functions.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>34</TopLine>
+      <CurrentLine>42</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\adc_functions.c</PathWithFileName>
+      <FilenameWithoutPath>adc_functions.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>24</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>1</TopLine>
+      <CurrentLine>14</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\gpio_functions.c</PathWithFileName>
+      <FilenameWithoutPath>gpio_functions.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>1</TopLine>
+      <CurrentLine>17</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\utils.c</PathWithFileName>
+      <FilenameWithoutPath>utils.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -323,8 +365,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>386</TopLine>
+      <CurrentLine>386</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\StellarisWare\utils\uartstdio.c</PathWithFileName>
       <FilenameWithoutPath>uartstdio.c</FilenameWithoutPath>
@@ -356,10 +398,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>30</ColumnNumber>
+      <ColumnNumber>21</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>7</TopLine>
-      <CurrentLine>16</CurrentLine>
+      <TopLine>87</TopLine>
+      <CurrentLine>107</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\PC_uC_Interface.c</PathWithFileName>
       <FilenameWithoutPath>PC_uC_Interface.c</FilenameWithoutPath>
@@ -377,10 +419,10 @@
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>35</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>51</TopLine>
-      <CurrentLine>73</CurrentLine>
+      <TopLine>62</TopLine>
+      <CurrentLine>75</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\definitions.h</PathWithFileName>
       <FilenameWithoutPath>definitions.h</FilenameWithoutPath>
@@ -447,10 +489,10 @@
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>29</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>15</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\motor_functions.h</PathWithFileName>
       <FilenameWithoutPath>motor_functions.h</FilenameWithoutPath>
@@ -461,13 +503,55 @@
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
+      <ColumnNumber>43</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>1</TopLine>
+      <CurrentLine>18</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\settings.h</PathWithFileName>
+      <FilenameWithoutPath>settings.h</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\settings.h</PathWithFileName>
-      <FilenameWithoutPath>settings.h</FilenameWithoutPath>
+      <PathWithFileName>.\adc_functions.h</PathWithFileName>
+      <FilenameWithoutPath>adc_functions.h</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\gpio_functions.h</PathWithFileName>
+      <FilenameWithoutPath>gpio_functions.h</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\utils.h</PathWithFileName>
+      <FilenameWithoutPath>utils.h</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -476,49 +560,61 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>2</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\message_processor.c</Name>
-          <ColumnNumber>31</ColumnNumber>
+          <Name>motor_functions.h</Name>
+          <ColumnNumber>82</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>9</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\uart_functions.c</Name>
-          <ColumnNumber>3</ColumnNumber>
-          <TopLine>74</TopLine>
-          <CurrentLine>100</CurrentLine>
+          <CurrentLine>15</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\motor_functions.c</Name>
-          <ColumnNumber>164</ColumnNumber>
-          <TopLine>21</TopLine>
-          <CurrentLine>29</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>117</TopLine>
+          <CurrentLine>118</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\PC_uC_Interface.c</Name>
-          <ColumnNumber>30</ColumnNumber>
-          <TopLine>7</TopLine>
-          <CurrentLine>16</CurrentLine>
+          <ColumnNumber>21</ColumnNumber>
+          <TopLine>87</TopLine>
+          <CurrentLine>107</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\nunchuck_functions.c</Name>
+          <Name>.\adc_functions.c</Name>
           <ColumnNumber>0</ColumnNumber>
+          <TopLine>34</TopLine>
+          <CurrentLine>42</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>settings.h</Name>
+          <ColumnNumber>50</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <CurrentLine>20</CurrentLine>
         </Doc>
         <Doc>
           <Name>definitions.h</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>51</TopLine>
-          <CurrentLine>73</CurrentLine>
+          <ColumnNumber>23</ColumnNumber>
+          <TopLine>20</TopLine>
+          <CurrentLine>44</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\time_functions.c</Name>
+          <Name>.\gpio_functions.c</Name>
+          <ColumnNumber>24</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>14</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\utils.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>26</TopLine>
-          <CurrentLine>34</CurrentLine>
+          <TopLine>1</TopLine>
+          <CurrentLine>17</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>utils.h</Name>
+          <ColumnNumber>73</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>11</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
