@@ -15,5 +15,7 @@ extern void sendMessage(char* message);
 extern void getMessage(char* buffer, char size);
 extern void simpleCommTest(void);
 extern tBoolean charIsAvailable(void);
+extern void sendData(void);
+extern void handleCommMessage(void);
 
 #endif

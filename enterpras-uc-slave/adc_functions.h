@@ -11,6 +11,11 @@
 #include "definitions.h"
 
 extern void initADC(void);
-extern signed char getCurrentSteeringAngle(void);
+extern unsigned long getCurrentSteeringAngle(void);
+extern unsigned long getCurrentHokuyoAngle(void);
+extern unsigned long getADC0(void);
+extern unsigned long getADC1(void);
+extern unsigned long getADC2(void);
+extern unsigned long getADC3(void);
 
 #endif

@@ -12,6 +12,8 @@
 #include "driverlib/uart.h"		// input/output over UART
 #include "driverlib/gpio.h"
 #include "driverlib/sysctl.h"
+#include "utils/ustdlib.h"
+#include "RASLib/timer.h"
 
 //for watchdog
 #include "inc/hw_ints.h"		// input/output over UART
@@ -24,6 +26,12 @@
 #include "UART_Functions.h"
 #include "time_functions.h"
 #include "motor_functions.h"
+#include "settings.h"
+#include "common.h"
+#include "utils.h"
+#include "adc_functions.h"
+#include "RASLib/encoder.h"
+
 
 void initUART(void) 
 {
@@ -34,18 +42,7 @@ void initUART(void)
 
 void getMessage(char* buffer, char size)
 {
-	while(1)
-	{
-		UARTgets(buffer, size);
-		return;
-		
-		/*if(buffer[0] == '{') //check that the communication is not an error
-		{
-			//TODO: Add additional check for length of request
-			
-			return;
-		}*/
-	}
+	UARTgets(buffer, size);
 }
 
 void sendMessage(char* message)
@@ -72,16 +69,16 @@ tBoolean charIsAvailable(void)
 		return false;
 }
 
-/*void simpleCommTest(void)
+void simpleCommTest(void)
 {
 	char buffer[80];
 	signed char speed;
 	signed char angle;
 	
-	initWatchdog();
+	//initWatchdog();
 	
-	while(1)
-	{
+	//while(1)
+	//{
 		getMessage(buffer, 80);
 		
 		switch(buffer[0])
@@ -92,9 +89,87 @@ tBoolean charIsAvailable(void)
 			case 'A': angle = SATURATE(atoi(&buffer[1]), -128, 127);
 					  resetWatchdogTimer();
 					  break;
+			case 'P': steeringPID.pGain = atoi(&buffer[1]) / 1000; 	// proportional gain
+					  break;
+			case 'I': steeringPID.iGain = atoi(&buffer[1]) / 1000; 	// integral gain
+					  break;
+			case 'D': steeringPID.dGain = atoi(&buffer[1]) / 1000; 	// derivative gain
+					  break;
 			default : break;
 		}
 		
-		setMotorSpeeds(speed,speed,angle);
-	}
-}*/
+		//getting rid of warnings
+		speed = speed;
+		angle = angle; 
+		
+		//setMotorSpeeds(speed,speed,angle);
+	//}
+}
+
+void handleCommMessage(void)
+{
+	char buffer[80];
+	unsigned char function_code = 0;
+	long i;
+	
+	getMessage(buffer, 80);
+	
+	UARTprintf("MESSAGE GET!!%s\n", buffer);
+	
+	//if(checksumIsCorrect(buffer, 80))
+	//{
+		resetWatchdogTimer(); //we got a valid message, so they are still talking to us
+		
+		for(i = 0; i < CODE_LENGTH; i++) //generate hash of function code
+		{
+			function_code ^= buffer[CODE_START + i];
+		}
+		
+		switch(function_code)
+		{
+			case SVLM: SetJaguarVoltage(LEFT_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+					   break;
+			case SVRM: SetJaguarVoltage(RIGHT_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+					   break;
+			case SVSM: SetJaguarVoltage(STEERING_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+					   break;
+			case SALS: SetServoPosition(LIDAR_SERVO, 127 + SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+					   break;
+			default :  UARTprintf("WRONG CODE!!");
+					   break;
+		}
+	//}
+	//else
+	//{
+	//	UARTprintf("CHECKSUM BROKEN!!\n");
+	//}
+}
+
+#define STUPID_DELAY 1
+
+void sendData(void)
+{
+	//{ENCL:[Left encoder counts]_ENCR:[Right encoder counts]_STEA:[steering angle]_HOKA:[hokuyo angle]_TIME:[Timestamp]}:[Checksum]\n
+	char string[100];
+	//unsigned long adcdata0;
+	//unsigned long adcdata1;
+	
+	lockCanon();
+	
+	usnprintf((char*)string, 100, "$ ENCL %d ENCR %d STEA %d HOKA %d TIME %d*", canon_left_position, 
+																				canon_right_position,
+																				canon_steering_position,
+																				canon_hokuyo_position,
+																				timestamp);
+	
+	/*adcdata0 = getADC0();
+	Wait(STUPID_DELAY);	
+	
+	adcdata1 = getADC1();
+	Wait(STUPID_DELAY);	
+	
+	usnprintf((char*)string, 100, "{0:%d_1:%d}:", adcdata0, adcdata1, timestamp);// */
+	unlockCanon();
+	
+	UARTprintf("%s%2x\n", (char*) string, makeChecksum((char*) string, 100));
+}

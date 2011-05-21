@@ -8,7 +8,13 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include "definitions.h"
+
 extern signed char turnDirection(signed char angle1, signed char angle2);
 extern char angleBetween(signed char angle1, signed char angle2);
+extern unsigned char makeChecksum(char* data, unsigned long buffer_size);
+extern unsigned char checksumIsCorrect(char* data, unsigned long buffer_size);
+extern void pidGraph(void);
+extern void push(signed long value, SensorBuffer* sensorBuffer);
 
 #endif

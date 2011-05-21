@@ -12,15 +12,39 @@
 #include "utils/uartstdio.h"
 #include "settings.h"
 #include "definitions.h"
+#include "gpio_functions.h"
 
+static volatile unsigned char warning_light_output;
  
 void initGPIO(void)
 {
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
- 	GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, GPIO_PIN_2);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
+ 	GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, CONTROL_TYPE_INPUT);
+	GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, WARNING_LIGHT);
+	
+	//turnOnWarningLight();
 }
 
 char controlSwitchPosition(void)
 {
-	return GPIOPinRead(GPIO_PORTA_BASE,GPIO_PIN_2);
+	return AUTONOMOUS;//GPIOPinRead(GPIO_PORTA_BASE, CONTROL_TYPE_INPUT);
+}
+
+void turnOnWarningLight(void)
+{
+	warning_light_output = 0xff;
+	GPIOPinWrite(GPIO_PORTD_BASE, WARNING_LIGHT, warning_light_output); 
+}
+
+void turnOffWarningLight(void)
+{
+	warning_light_output = 0x00;
+	GPIOPinWrite(GPIO_PORTD_BASE, WARNING_LIGHT, warning_light_output); 
+}
+
+void toggleWarningLight(void)
+{
+	warning_light_output ^= 0xFF;
+	GPIOPinWrite(GPIO_PORTD_BASE, WARNING_LIGHT, warning_light_output); 
 }

@@ -3,6 +3,7 @@
 
 #include "definitions.h"
 
+//settings
 /*
 0x00 = autonomous
 0x01 = nunchuck
@@ -15,11 +16,18 @@ extern volatile unsigned char control_mode;
 */
 extern volatile unsigned char drive_type; 
 
+/*
+0x00 = microcontroller should manage
+0x01 = computer should manage
+*/
+extern volatile unsigned char steering_pider;
+
+/*
+0x00 = microcontroller should manage
+0x01 = computer should manage
+*/
+extern volatile unsigned char drive_pider;
+
 extern volatile unsigned char battery_voltage; //can be anything, but should most likely be 12 or 24
-
-extern volatile signed char desired_steering_angle;
-
-extern volatile PIDdata steeringPID;
-
 
 #endif

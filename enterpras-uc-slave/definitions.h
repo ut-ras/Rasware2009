@@ -12,39 +12,66 @@
 #include "inc/hw_types.h"		// tBoolean
 
 //==========COMM DEFINITIONS==========
-//various offset values in bytes
-#define CODE_START		1
+//offset values in bytes
+#define CODE_START					2
+#define CODE_LENGTH					4
+#define DATA_START					7
 
-#define LENGTH1			6
-#define DATA1			8
+//code hash values
+#define SVLM						'S'^'V'^'L'^'M'
+#define SVRM						'S'^'V'^'R'^'M'
+#define SVSM						'S'^'V'^'S'^'M'
+#define SALS						'S'^'A'^'L'^'S'
 
-#define LENGTH2			6
-#define DATA2			8
+//==========ROBOT CONTROl DEFINITIONS==========
+//jurisdiction
+#define MICROCONTROLLER				0
+#define COMPUTER					1
 
-//==========ROBOT DEFINITIONS==========
 //control_modes
-#define AUTONOMOUS 		0x00
-#define NUNCHUCK 		0x01
+#define AUTONOMOUS 					0
+#define NUNCHUCK 					1
 
 //drive_types
-#define ACKERMANN 		0x00
-#define DIFFERENTIAL 	0x01
+#define ACKERMANN 					0
+#define DIFFERENTIAL 				1
 
-//physical constants
-#define MAX_TURN_ANGLE	75	//maximum turning angle of the front wheels in degrees (MUST BE LESS THAN 127)
+//==========ROBOT PHYSICAL CONSTANTS==========
+#define MAX_TURN_ANGLE				60	//maximum turning angle of the front wheels in degrees (MUST BE LESS THAN 127)
+#define CENTER_STEERING_POT_VALUE	647
 
-//connections
-#define LEFT_JAGUAR 	SERVO_0
-#define RIGHT_JAGUAR 	SERVO_1
-#define STEERING_SERVO 	SERVO_2
-#define LIDAR_SERVO		SERVO_3
+//==========ROBOT PORT DEFINITIONS==========
+//servo ports
+#define LEFT_JAGUAR 				SERVO_0
+#define RIGHT_JAGUAR 				SERVO_1
+#define STEERING_JAGUAR				SERVO_2
+#define LIDAR_SERVO					SERVO_3
 
-#define DRIVE_JAGUAR 	SERVO_0 //if only one drive motor is used (as in the case of a mechanical differential), plug it in to servo port 0
+#define DRIVE_JAGUAR 				SERVO_0 //if only one drive motor is used (as in the case of a mechanical differential), plug it in to servo port 0
 
-#define POTENTIOMETER	0
+//adc ports
+#define POTENTIOMETER				0
+#define HOKUYO						1
+
+//encoder ports
+#define LEFT_ENCODER				ENCODER_0
+#define RIGHT_ENCODER				ENCODER_1
+
+//GPIO ports (bank A)
+#define CONTROL_TYPE_INPUT			GPIO_PIN_2
+#define WARNING_LIGHT				GPIO_PIN_3
 
 //==========TIMER DEFINITIONS==========
-#define WATCHDOG_PERIOD 50000 * g_ulTicksPerUs //robot will stop moving within 50ms of receiving no heartbeat
+#define WATCHDOG_PERIOD 			500000 * g_ulTicksPerUs //robot will stop moving within 50ms of receiving no new command
+
+//try to make SAMPLE_RATE / DATA_RATE an integer
+#define TICK_RATE					1000	//frequency of timestamp ticks in HZ (1Khz = 1ms period)
+#define SAMPLE_RATE					500		//TICK_RATE / SAMPLE_RATE MUST be an integer. 1000 is too fast for this.
+#define	DATA_RATE					10		//frequency of data messages to the computer in Hz(10Hz = 100ms period)
+#define FLASH_RATE					4		//frequency of warning light toggle
+
+//==========FILTER DEFINITIONS==========
+#define FILTER_SIZE					SAMPLE_RATE/DATA_RATE
 
 //==========I2C DEFINITIONS==========
 #define codeSelect 		GPIOPinRead(GPIO_PORTA_BASE, GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5) >> 2
@@ -77,13 +104,21 @@ typedef struct NunchuckData
 //==========PID STRUCT=============
 typedef struct
 {
-    double dState; // Last position input
-    double iState; // Integrator state
-    double iMin; // Minimum allowable integrator state
-    double iMax; // Maximum allowable integrator state
-    double iGain; // integral gain
-    double pGain; // proportional gain
-    double dGain; // derivative gain
+    signed long dState; // Last position input
+    signed long iState; // Integrator state
+    signed long iMin; // Minimum allowable integrator state
+    signed long iMax; // Maximum allowable integrator state
+    signed long iGain; // integral gain
+    signed long pGain; // proportional gain
+    signed long dGain; // derivative gain
 } PIDdata;
+
+//==========SENSOR DATA BUFFER STRUCT=============
+typedef struct
+{
+   	signed long buffer[FILTER_SIZE];
+	unsigned long index;
+	unsigned long num_values;
+} SensorBuffer;
 
 #endif

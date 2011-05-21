@@ -32,7 +32,7 @@
 ; <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ;
 ;******************************************************************************
-Stack   EQU     0x00000100
+Stack   EQU     0x00001100
 
 ;******************************************************************************
 ;
@@ -80,6 +80,8 @@ __heap_limit
 		EXTERN	LSIntHandler
 		EXTERN	EncoderInterruptHandler
 		EXTERN	WatchdogIntHandler
+		EXTERN	timestampInterruptHandler
+		EXTERN	calculationInterruptHandler
 
 ;******************************************************************************
 ;
@@ -127,8 +129,8 @@ __Vectors
         DCD     IntDefaultHandler           ; Timer 0B
         DCD     IntDefaultHandler           ; Timer 1A
         DCD     IntDefaultHandler           ; Timer 1B
-        DCD     IntDefaultHandler           ; Timer 2A
-        DCD     IntDefaultHandler           ; Timer 2B
+        DCD     timestampInterruptHandler   ; Timer 2A
+        DCD     calculationInterruptHandler ; Timer 2B
         DCD     IntDefaultHandler           ; Comp 0
         DCD     IntDefaultHandler           ; Comp 1
         DCD     IntDefaultHandler           ; Comp 2

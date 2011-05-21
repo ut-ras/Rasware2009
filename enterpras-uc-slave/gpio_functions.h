@@ -12,5 +12,8 @@
 
 extern void initGPIO(void);
 extern char controlSwitchPosition(void);
+extern void turnOnWarningLight(void);
+extern void turnOffWarningLight(void);
+extern void toggleWarningLight(void);
 
 #endif

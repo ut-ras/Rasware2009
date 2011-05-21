@@ -387,16 +387,6 @@
           <GroupName>Source</GroupName>
           <Files>
             <File>
-              <FileName>MotorDemo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\MotorDemo.c</FilePath>
-            </File>
-            <File>
-              <FileName>ServoDemo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ServoDemo.c</FilePath>
-            </File>
-            <File>
               <FileName>EncoderDemo.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\EncoderDemo.c</FilePath>
@@ -440,6 +430,26 @@
               <FileName>utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\utils.c</FilePath>
+            </File>
+            <File>
+              <FileName>sorted_buf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\sorted_buf.c</FilePath>
+            </File>
+            <File>
+              <FileName>ustdlib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StellarisWare\utils\ustdlib.c</FilePath>
+            </File>
+            <File>
+              <FileName>filtering_functions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\filtering_functions.c</FilePath>
+            </File>
+            <File>
+              <FileName>common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -530,6 +540,26 @@
               <FileName>utils.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\utils.h</FilePath>
+            </File>
+            <File>
+              <FileName>sorted_buf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\sorted_buf.h</FilePath>
+            </File>
+            <File>
+              <FileName>ustdlib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\StellarisWare\utils\ustdlib.h</FilePath>
+            </File>
+            <File>
+              <FileName>filtering_functions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\filtering_functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>common.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\common.h</FilePath>
             </File>
           </Files>
         </Group>
