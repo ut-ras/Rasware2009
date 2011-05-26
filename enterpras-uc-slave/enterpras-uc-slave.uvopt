@@ -644,8 +644,14 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>2</ActiveTab>
+      <ActiveTab>5</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>.\adc_functions.c</Name>
+          <ColumnNumber>63</ColumnNumber>
+          <TopLine>26</TopLine>
+          <CurrentLine>39</CurrentLine>
+        </Doc>
         <Doc>
           <Name>common.h</Name>
           <ColumnNumber>23</ColumnNumber>
@@ -672,9 +678,9 @@
         </Doc>
         <Doc>
           <Name>definitions.h</Name>
-          <ColumnNumber>24</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <ColumnNumber>38</ColumnNumber>
+          <TopLine>58</TopLine>
+          <CurrentLine>70</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\time_functions.c</Name>
@@ -693,12 +699,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>81</TopLine>
           <CurrentLine>81</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\adc_functions.c</Name>
-          <ColumnNumber>63</ColumnNumber>
-          <TopLine>26</TopLine>
-          <CurrentLine>39</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\uart_functions.c</Name>

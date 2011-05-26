@@ -78,13 +78,13 @@ signed long median_function(signed long array[], unsigned long num_values)
 }
 
 void calculateCanon(void)
-{
+{				
 	if(!canonLocked())
 	{
 		lockSensors();
 		
-		canon_left_position = mean_function((signed long*) &left_encoder_data.buffer, left_encoder_data.num_values);
-		canon_right_position = mean_function((signed long*) &right_encoder_data.buffer, right_encoder_data.num_values);
+		canon_left_position = GetEncoderCount(LEFT_ENCODER);//mean_function((signed long*) &left_encoder_data.buffer, left_encoder_data.num_values);
+		canon_right_position = GetEncoderCount(RIGHT_ENCODER);//mean_function((signed long*) &right_encoder_data.buffer, right_encoder_data.num_values);
 		canon_steering_position = mean_function((signed long*) &steering_pot_data.buffer, steering_pot_data.num_values);
 		canon_hokuyo_position = mean_function((signed long*) &hokuyo_pot_data.buffer, hokuyo_pot_data.num_values);
 		
@@ -97,8 +97,8 @@ void sampleSensors(void)
 {
 	if(!sensorsLocked())
 	{
-		push(GetEncoderCount(LEFT_ENCODER), (SensorBuffer*) &left_encoder_data);	//sample left encoder and push on array
-		push(GetEncoderCount(RIGHT_ENCODER), (SensorBuffer*) &right_encoder_data);	//sample right encoder and push on array
+		//push(GetEncoderCount(LEFT_ENCODER), (SensorBuffer*) &left_encoder_data);	//sample left encoder and push on array
+		//push(GetEncoderCount(RIGHT_ENCODER), (SensorBuffer*) &right_encoder_data);	//sample right encoder and push on array
 		push(getCurrentSteeringAngle(), (SensorBuffer*) &steering_pot_data);		//sample steering pot and push on array
 		push(getCurrentHokuyoAngle(), (SensorBuffer*) &hokuyo_pot_data);			//sample hokuyo pot and push on array
 	}

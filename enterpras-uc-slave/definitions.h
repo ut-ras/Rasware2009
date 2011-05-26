@@ -59,10 +59,10 @@
 
 //GPIO ports (bank A)
 #define CONTROL_TYPE_INPUT			GPIO_PIN_2
-#define WARNING_LIGHT				GPIO_PIN_3
+#define WARNING_LIGHT				GPIO_PIN_7
 
 //==========TIMER DEFINITIONS==========
-#define WATCHDOG_PERIOD 			500000 * g_ulTicksPerUs //robot will stop moving within 50ms of receiving no new command
+#define WATCHDOG_PERIOD 			50000 * g_ulTicksPerUs //robot will stop moving within 50ms of receiving no new command
 
 //try to make SAMPLE_RATE / DATA_RATE an integer
 #define TICK_RATE					1000	//frequency of timestamp ticks in HZ (1Khz = 1ms period)

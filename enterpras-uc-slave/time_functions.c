@@ -82,7 +82,7 @@ void initTimers(void)
     TimerEnable(TIMER2_BASE, TIMER_A);
 	//TimerEnable(TIMER2_BASE, TIMER_B);
 	
-	IntPrioritySet(INT_TIMER2A, 4);
+	IntPrioritySet(INT_TIMER2A, 3);
 	//IntPrioritySet(INT_TIMER2B, 3);
 	
 	TimerIntEnable(TIMER2_BASE, TIMER_A);
