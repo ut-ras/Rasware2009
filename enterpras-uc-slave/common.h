@@ -16,17 +16,6 @@ extern volatile unsigned long timestamp; //tick duration set in definitions.h
 
 extern volatile unsigned char robotIsMoving;
 
-//==========DESIRED OUTPUT VALUES==========
-extern volatile signed char desired_steering_angle;
-
-extern volatile signed char desired_left_motor_voltage;
-extern volatile signed char desired_right_motor_voltage;
-extern volatile signed char desired_steering_motor_voltage;
-extern volatile signed char desired_lidar_servo_angle;
-
-//==========PID STATES==========
-extern volatile PIDdata steeringPID;
-
 
 //==========SENSOR DATA BUFFERS==========
 //lock

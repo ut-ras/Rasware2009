@@ -44,7 +44,7 @@
 //servo ports
 #define LEFT_JAGUAR 				SERVO_0
 #define RIGHT_JAGUAR 				SERVO_1
-#define STEERING_JAGUAR				SERVO_2
+#define STEERING_SERVO				SERVO_2
 #define LIDAR_SERVO					SERVO_3
 
 #define DRIVE_JAGUAR 				SERVO_0 //if only one drive motor is used (as in the case of a mechanical differential), plug it in to servo port 0
@@ -57,9 +57,9 @@
 #define LEFT_ENCODER				ENCODER_0
 #define RIGHT_ENCODER				ENCODER_1
 
-//GPIO ports (bank A)
-#define CONTROL_TYPE_INPUT			GPIO_PIN_2
-#define WARNING_LIGHT				GPIO_PIN_7
+//GPIO ports 
+#define CONTROL_TYPE_INPUT			GPIO_PIN_6 //(bank D)
+#define WARNING_LIGHT				GPIO_PIN_7 //(bank D)
 
 //==========TIMER DEFINITIONS==========
 #define WATCHDOG_PERIOD 			50000 * g_ulTicksPerUs //robot will stop moving within 50ms of receiving no new command
@@ -75,6 +75,7 @@
 
 //==========I2C DEFINITIONS==========
 #define codeSelect 		GPIOPinRead(GPIO_PORTA_BASE, GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5) >> 2
+#define I2C_TIMEOUT		2000				//in timestamp ticks
 
 //==========CHAR PROCESSING DEFINITIONS==========
 #define isNum(x)		(x>='0' && x<='9')
@@ -100,18 +101,6 @@ typedef struct NunchuckData
 
 //==========GENERAL CODES==========
 #define MAINTAIN_STEERING_ANGLE -32768
-
-//==========PID STRUCT=============
-typedef struct
-{
-    signed long dState; // Last position input
-    signed long iState; // Integrator state
-    signed long iMin; // Minimum allowable integrator state
-    signed long iMax; // Maximum allowable integrator state
-    signed long iGain; // integral gain
-    signed long pGain; // proportional gain
-    signed long dGain; // derivative gain
-} PIDdata;
 
 //==========SENSOR DATA BUFFER STRUCT=============
 typedef struct

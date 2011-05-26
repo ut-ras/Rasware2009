@@ -18,6 +18,7 @@
 #include "settings.h"
 #include "utils.h"
 #include "common.h"
+#include "time_functions.h"
 
 /*void setMotorSpeeds(signed short left_speed, signed short right_speed, signed short angle)
 {
@@ -41,17 +42,13 @@
 
 void SetJaguarVoltage(servo_t device, signed char voltage) //for servo_t device, use port labels defined in definitions.h
 {
-	if(voltage != 0)
-	{
-		UARTprintf("Setting jaguar voltage to %d.\n", voltage);
-	}
 	SetServoPosition(device, 127-voltage);
 }
 
 void joyDrive(NunchuckData joy_data)
 {
-	signed short l_vel;
-	signed short r_vel;
+	//signed short l_vel;
+	//signed short r_vel;
     int xpow;
 	int ypow;
 	signed short speed;
@@ -61,6 +58,7 @@ void joyDrive(NunchuckData joy_data)
 	{
 		xpow = (joy_data.x_position - X_CENTER);
 	    ypow = (joy_data.y_position - Y_CENTER);
+		resetWatchdogTimer();
 	}
 	else
 	{
@@ -68,67 +66,24 @@ void joyDrive(NunchuckData joy_data)
 		ypow = 0;
 	}
 	
-	if(drive_type == DIFFERENTIAL)
+	angle = xpow * (MAX_TURN_ANGLE / 127); //xpow is between -127 and 127, so angle is between -MAX_TURN_ANGLE and +MAX_TURN_ANGLE
+	
+	if(joy_data.c_button == 0) 
 	{
-		xpow /= 2;
-		ypow /= 2;
-		l_vel = (xpow - ypow) * 2;
-	    r_vel = (xpow + ypow) * 2;
-	    
-		//keep it between -127 and +127
-		l_vel = l_vel > 127 ? 127 : l_vel;
-	    r_vel = r_vel > 127 ? 127 : r_vel;
-	    l_vel = l_vel < -127 ? -127 : l_vel;
-	    r_vel = r_vel < -127 ? -127 : r_vel;
-		
-		if(joy_data.c_button == 0) 
-		{
-			l_vel *= (6 / battery_voltage);
-			r_vel *= (6 / battery_voltage);
-		} 
-		else //if C button is pressed, enter turbo mode
-		{
-			l_vel *= (12 / battery_voltage);
-			r_vel *= (12 / battery_voltage);
-		}
-		
-		//correct for jaguar silliness
-		l_vel = 127 - l_vel; 
-		r_vel = 127 - r_vel;
-	    
-		//output new velocity to motors
-		//SetServoPosition(LEFT_JAGUAR, (unsigned char) l_vel);
-		//SetServoPosition(RIGHT_JAGUAR, (unsigned char) r_vel);
-		
-		angle = angle; //getting rid of warnings
-		
-		//setMotorSpeeds(l_vel, r_vel, 0);												//UNCOMMENT ME!!
-	}
-	else if(drive_type == ACKERMANN)
+		speed = ypow * (6 / battery_voltage);
+	} 
+	else //if C button is pressed, enter turbo mode
 	{
-		angle = xpow * (MAX_TURN_ANGLE / 127); //xpow is between -127 and 127, so angle is between -MAX_TURN_ANGLE and +MAX_TURN_ANGLE
-		
-		if(joy_data.c_button == 0) 
-		{
-			speed = ypow * (6 / battery_voltage);
-		} 
-		else //if C button is pressed, enter turbo mode
-		{
-			speed = ypow * (12 / battery_voltage);
-		}
-		
-		//correct for jaguar silliness
-		speed = 127 - speed;
-		
-		//SetServoPosition(LEFT_JAGUAR, speed);
-		//SetServoPosition(RIGHT_JAGUAR, speed);
-		//SetServoPosition(STEERING_SERVO, angle);
-		//setMotorSpeeds(speed, speed, angle);							//UNCOMMENT ME!!
+		speed = ypow * (12 / battery_voltage);
 	}
 	
-    Wait(100);
+	SetJaguarVoltage(LEFT_JAGUAR, speed);
+	SetJaguarVoltage(RIGHT_JAGUAR, speed);
+	SetServoPosition(STEERING_SERVO, angle);
+	
 }
 
+/*
 void pidSteeringServo(signed long desired_angle, signed long actual_angle)
 {
 	float pTerm;
@@ -193,15 +148,7 @@ void pidSteeringServoDumb(signed long desired_angle, signed long actual_angle)
     
     //Proportional
     pTerm = (steeringPID.pGain * angle_error) / 1000;
-    /*
-desired:        0
-current:        950
-error:          -950
-pTerm:          4294017
-iTerm:          4294713
-dTerm:          4292117
-Factor:         127
-*/
+
     //Integral
     steeringPID.iState += angle_error;
 	steeringPID.iState = SATURATE(steeringPID.iState, steeringPID.iMin, steeringPID.iMax); //keep iState between the min and max angles it could be
@@ -230,3 +177,4 @@ Factor:         127
 	
 	SetServoPosition(STEERING_JAGUAR, (int) 127.0 - factor);//127-factor);
 }
+*/

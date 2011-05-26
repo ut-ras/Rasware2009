@@ -89,12 +89,6 @@ void simpleCommTest(void)
 			case 'A': angle = SATURATE(atoi(&buffer[1]), -128, 127);
 					  resetWatchdogTimer();
 					  break;
-			case 'P': steeringPID.pGain = atoi(&buffer[1]) / 1000; 	// proportional gain
-					  break;
-			case 'I': steeringPID.iGain = atoi(&buffer[1]) / 1000; 	// integral gain
-					  break;
-			case 'D': steeringPID.dGain = atoi(&buffer[1]) / 1000; 	// derivative gain
-					  break;
 			default : break;
 		}
 		
@@ -114,11 +108,11 @@ void handleCommMessage(void)
 	
 	getMessage(buffer, 80);
 	
-	UARTprintf("MESSAGE GET!!%s\n", buffer);
+	//UARTprintf("MESSAGE GET!!%s\n", buffer);
 	
 	//if(checksumIsCorrect(buffer, 80))
 	//{
-		resetWatchdogTimer(); //we got a valid message, so they are still talking to us
+		
 		
 		for(i = 0; i < CODE_LENGTH; i++) //generate hash of function code
 		{
@@ -128,14 +122,16 @@ void handleCommMessage(void)
 		switch(function_code)
 		{
 			case SVLM: SetJaguarVoltage(LEFT_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+					   resetWatchdogTimer(); //we got a valid message, so they are still talking to us
 					   break;
 			case SVRM: SetJaguarVoltage(RIGHT_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+					   resetWatchdogTimer(); //we got a valid message, so they are still talking to us
 					   break;
-			case SVSM: SetJaguarVoltage(STEERING_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+			case SVSM: SetServoPosition(STEERING_SERVO, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
 					   break;
 			case SALS: SetServoPosition(LIDAR_SERVO, 127 + SATURATE(atoi(&buffer[DATA_START]), -128, 127));
 					   break;
-			default :  UARTprintf("WRONG CODE!!");
+			default :  UARTprintf("UNRECOGNIZED MESSAGE: %s\n", buffer);
 					   break;
 		}
 	//}
@@ -145,14 +141,10 @@ void handleCommMessage(void)
 	//}
 }
 
-#define STUPID_DELAY 1
-
 void sendData(void)
 {
 	//{ENCL:[Left encoder counts]_ENCR:[Right encoder counts]_STEA:[steering angle]_HOKA:[hokuyo angle]_TIME:[Timestamp]}:[Checksum]\n
 	char string[100];
-	//unsigned long adcdata0;
-	//unsigned long adcdata1;
 	
 	lockCanon();
 	
@@ -161,14 +153,6 @@ void sendData(void)
 																				canon_steering_position,
 																				canon_hokuyo_position,
 																				timestamp);
-	
-	/*adcdata0 = getADC0();
-	Wait(STUPID_DELAY);	
-	
-	adcdata1 = getADC1();
-	Wait(STUPID_DELAY);	
-	
-	usnprintf((char*)string, 100, "{0:%d_1:%d}:", adcdata0, adcdata1, timestamp);// */
 	unlockCanon();
 	
 	UARTprintf("%s%2x\n", (char*) string, makeChecksum((char*) string, 100));

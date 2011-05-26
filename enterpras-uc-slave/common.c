@@ -13,18 +13,6 @@ volatile unsigned long timestamp; //tick duration set in definitions.h
 
 volatile unsigned char robotIsMoving;
 
-//==========DESIRED OUTPUT VALUES==========
-volatile signed char desired_steering_angle; //Don't use; PID doesn't work yet
-
-volatile signed char desired_left_motor_voltage; //use these
-volatile signed char desired_right_motor_voltage;
-volatile signed char desired_steering_motor_voltage;
-volatile signed char desired_lidar_servo_angle;
-
-
-//==========PID STATES==========
-volatile PIDdata steeringPID;
-
 
 //==========SENSOR DATA BUFFERS==========
 //lock

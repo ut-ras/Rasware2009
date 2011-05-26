@@ -74,15 +74,15 @@ unsigned char checksumIsCorrect(char* data, unsigned long buffer_size)
 //char string[100]; //if you put this in the function
 void pidGraph(void)
 {
-	char string[50];
+	//char string[50];
 	//"$O[data]P[data]T[data]*[checksum]\n"
-	long position = getCurrentSteeringAngle();
+	//long position = getCurrentSteeringAngle();
 	
 	//try to move
-	pidSteeringServo(desired_steering_angle, position);
+	//pidSteeringServo(desired_steering_angle, position);
 	
 	//output stuff
-	usnprintf((char*)string, 50, "$O%dP%dT%d*", desired_steering_angle, position, timestamp);
+	//usnprintf((char*)string, 50, "$O%dP%dT%d*", desired_steering_angle, position, timestamp);
 	//UARTprintf("%s%2x\n", (char*) string, makeChecksum((char*) string, 50));
 }
 

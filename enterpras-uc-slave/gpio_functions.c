@@ -18,9 +18,8 @@ static volatile unsigned char warning_light_output;
  
 void initGPIO(void)
 {
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
- 	GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, CONTROL_TYPE_INPUT);
+ 	//GPIOPinTypeGPIOInput(GPIO_PORTD_BASE, CONTROL_TYPE_INPUT);
 	GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, WARNING_LIGHT);
 	
 	//turnOnWarningLight();
@@ -28,7 +27,7 @@ void initGPIO(void)
 
 char controlSwitchPosition(void)
 {
-	return AUTONOMOUS;//GPIOPinRead(GPIO_PORTA_BASE, CONTROL_TYPE_INPUT);
+	return AUTONOMOUS;//GPIOPinRead(GPIO_PORTD_BASE, CONTROL_TYPE_INPUT);
 }
 
 void turnOnWarningLight(void)

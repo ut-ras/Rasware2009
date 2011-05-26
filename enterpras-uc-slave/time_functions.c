@@ -53,9 +53,10 @@ void WatchdogIntHandler(void)
 	//stop all motors on the robot
 	SetJaguarVoltage(LEFT_JAGUAR, 0);
 	SetJaguarVoltage(RIGHT_JAGUAR, 0);
-	SetJaguarVoltage(STEERING_JAGUAR, 0);
 	
-	//SetServoPosition(LIDAR_SERVO, 0);	 //commented out because this causes motion instead of stopping it
+	
+	//SetJaguarVoltage(STEERING_SERVO, 0);  //commented out because this causes motion instead of stopping it
+	//SetServoPosition(LIDAR_SERVO, 0);	 
 	
 	robotIsMoving = 0;
 }
@@ -106,11 +107,6 @@ void timestampInterruptHandler(void)
 	
 	if(timestamp % (TICK_RATE / DATA_RATE) == 0)
 	{
-		if(steering_pider == MICROCONTROLLER)	//if we're in charge of PID, do it.
-		{
-			pidSteeringServo(desired_steering_angle, getCurrentSteeringAngle());
-		}
-		
 		calculateCanon();
 		sendData();
 	}
@@ -125,6 +121,21 @@ void timestampInterruptHandler(void)
 		{
 			turnOnWarningLight();
 		}
+		
+		/*if(control_mode == AUTONOMOUS)
+		{
+			turnOnWarningLight();
+			UARTprintf("autonomous\n");
+		}
+		else if(control_mode == NUNCHUCK)
+		{
+			turnOnWarningLight();
+			UARTprintf("autonomous\n");
+		}
+		else
+		{
+			UARTprintf("FUCK\n");
+		}*/
 	}
 }
 
