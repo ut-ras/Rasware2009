@@ -30,7 +30,7 @@
 
 //control_modes
 #define AUTONOMOUS 					0
-#define NUNCHUCK 					1
+#define NUNCHUCK 					16
 
 //drive_types
 #define ACKERMANN 					0
@@ -67,7 +67,7 @@
 //try to make SAMPLE_RATE / DATA_RATE an integer
 #define TICK_RATE					1000	//frequency of timestamp ticks in HZ (1Khz = 1ms period)
 #define SAMPLE_RATE					500		//TICK_RATE / SAMPLE_RATE MUST be an integer. 1000 is too fast for this.
-#define	DATA_RATE					10		//frequency of data messages to the computer in Hz(10Hz = 100ms period)
+#define	DATA_RATE					20		//frequency of data messages to the computer in Hz(10Hz = 100ms period)
 #define FLASH_RATE					4		//frequency of warning light toggle
 
 //==========FILTER DEFINITIONS==========

@@ -155,5 +155,5 @@ void sendData(void)
 																				timestamp);
 	unlockCanon();
 	
-	UARTprintf("%s%2x\n", (char*) string, makeChecksum((char*) string, 100));
+	UARTprintf("%s%02x\n", (char*) string, makeChecksum((char*) string, 100));
 }

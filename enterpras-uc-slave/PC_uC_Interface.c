@@ -75,21 +75,40 @@ int main()
 	
 	UARTprintf("Initialization complete!\n");
 	
+	//testServoPort(STEERING_SERVO);
+	
+	/*while(1)
+	{
+		if(controlSwitchPosition() == NUNCHUCK)
+		{
+			UARTprintf("nunchuck\n");
+		}
+		else if(controlSwitchPosition() == AUTONOMOUS)
+		{
+			UARTprintf("autonomous\n");
+		}
+		else
+		{
+			UARTprintf("oshit%d\n", controlSwitchPosition());
+		}
+	}*/
+	
 	while(1)
 	{
-		if(control_mode == AUTONOMOUS)
+		control_mode = controlSwitchPosition();
+		/*if(control_mode == AUTONOMOUS)
 		{
 			if(controlSwitchPosition() == NUNCHUCK)
 			{
 				control_mode = NUNCHUCK;
 			}
 			else
-			{
+			{*/
 				if(charIsAvailable()) //if someone is trying to talk to us, go figure out what they want.
 				{
 					handleCommMessage();
 				}
-			}
+			/*}
 		}
 		else if(control_mode == NUNCHUCK)
 		{
@@ -105,6 +124,6 @@ int main()
 		else //something really bad happened, so lets try nunchucking it again
 		{
 			control_mode = NUNCHUCK;
-		}
+		}*/
 	}
 }

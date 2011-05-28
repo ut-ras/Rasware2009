@@ -25,6 +25,8 @@
 #include "RASLib/init.h"
 #include "utils.h"
 #include "filtering_functions.h"
+#include "RASLib/servo.h"
+#include "RASLib/timer.h"
 
 signed char turnDirection(signed char angle1, signed char angle2)
 {
@@ -99,4 +101,34 @@ void push(signed long value, SensorBuffer* sensorBuffer)
 	sensorBuffer->num_values = SATURATE(sensorBuffer->num_values + 1, 0, FILTER_SIZE);
 	//UARTprintf("index:%d\n", sensorBuffer->index + 1);
 	//UARTprintf("S:%d\n", mean_function((signed long*) &steering_pot_data.buffer, steering_pot_data.num_values));
+}
+
+void testServoPort(servo_t device)
+{
+	long i = 0;
+	char direction = 0;
+	
+	while(1)
+	{
+		SetServoPosition(RIGHT_JAGUAR, i);
+		SetServoPosition(LEFT_JAGUAR, i);
+		SetServoPosition(STEERING_SERVO, i);
+		SetServoPosition(LIDAR_SERVO, i);
+		
+		if(direction)
+		{
+			i++;
+		}
+		else
+		{
+			i--;
+		}
+		
+		if(i >= 255 | i <= 0)
+		{
+			direction ^= 0;
+		}
+		
+		Wait(100);
+	}
 }

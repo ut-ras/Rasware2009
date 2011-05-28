@@ -51,8 +51,8 @@ void WatchdogIntHandler(void)
 	WatchdogIntClear(WATCHDOG0_BASE);
 	
 	//stop all motors on the robot
-	SetJaguarVoltage(LEFT_JAGUAR, 0);
-	SetJaguarVoltage(RIGHT_JAGUAR, 0);
+	//SetJaguarVoltage(LEFT_JAGUAR, 0);
+	//SetJaguarVoltage(RIGHT_JAGUAR, 0);
 	
 	
 	//SetJaguarVoltage(STEERING_SERVO, 0);  //commented out because this causes motion instead of stopping it
@@ -75,7 +75,7 @@ void initTimers(void)
 	//Timer 2B is for encoder sampling and calculations
 	
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER2);
-    TimerConfigure(TIMER2_BASE, TIMER_CFG_16_BIT_PAIR| TIMER_CFG_A_PERIODIC | TIMER_CFG_B_PERIODIC);
+    TimerConfigure(TIMER2_BASE, TIMER_CFG_16_BIT_PAIR| TIMER_CFG_A_PERIODIC);
 	
     TimerLoadSet(TIMER2_BASE, TIMER_A, SysCtlClockGet()/TICK_RATE); 	//1Khz = 1ms period
 	//TimerLoadSet(TIMER2_BASE, TIMER_B, SysCtlClockGet()/DATA_RATE);		//10Hz = 100ms period
@@ -121,21 +121,6 @@ void timestampInterruptHandler(void)
 		{
 			turnOnWarningLight();
 		}
-		
-		/*if(control_mode == AUTONOMOUS)
-		{
-			turnOnWarningLight();
-			UARTprintf("autonomous\n");
-		}
-		else if(control_mode == NUNCHUCK)
-		{
-			turnOnWarningLight();
-			UARTprintf("autonomous\n");
-		}
-		else
-		{
-			UARTprintf("FUCK\n");
-		}*/
 	}
 }
 
