@@ -96,34 +96,20 @@ int main()
 	while(1)
 	{
 		control_mode = controlSwitchPosition();
-		/*if(control_mode == AUTONOMOUS)
+		if(control_mode == AUTONOMOUS)
 		{
-			if(controlSwitchPosition() == NUNCHUCK)
+			if(charIsAvailable()) //if someone is trying to talk to us, go figure out what they want.
 			{
-				control_mode = NUNCHUCK;
+				handleCommMessage();
 			}
-			else
-			{*/
-				if(charIsAvailable()) //if someone is trying to talk to us, go figure out what they want.
-				{
-					handleCommMessage();
-				}
-		/*}
 		}
 		else if(control_mode == NUNCHUCK)
 		{
-			if(controlSwitchPosition() == AUTONOMOUS)
-			{
-				control_mode = AUTONOMOUS;
-			}
-			else
-			{
-				joyDrive(getNunchuckData()); //otherwise, be joyous!
-			*//*}
+			joyDrive(getNunchuckData()); //otherwise, be joyous!
 		}
 		else //something really bad happened, so lets try nunchucking it again
 		{
 			control_mode = NUNCHUCK;
-		}*/
+		}
 	}
 }

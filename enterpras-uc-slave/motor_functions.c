@@ -51,15 +51,13 @@ void joyDrive(NunchuckData joy_data)
 	//signed short r_vel;
     int xpow;
 	int ypow;
-	signed short speed;
-	signed short angle;
-	
-	//UARTprintf("Xpow:%d, Ypow:%d, valid?:%d\n", joy_data.x_position, joy_data.y_position, joy_data.valid);
+	signed long speed;
+	signed long angle;
 	
 	if(joy_data.valid) //if we were given valid data, use it.
 	{
-		xpow = (joy_data.x_position - X_CENTER);
-	    ypow = (joy_data.y_position - Y_CENTER);
+		xpow = (joy_data.y_position) + 80;//(joy_data.x_position - X_CENTER);
+	    ypow = -(joy_data.x_position - Y_CENTER);
 		resetWatchdogTimer();
 	}
 	else
@@ -68,16 +66,18 @@ void joyDrive(NunchuckData joy_data)
 		ypow = 0;
 	}
 	
-	angle = xpow * (MAX_TURN_ANGLE / 127); //xpow is between -127 and 127, so angle is between -MAX_TURN_ANGLE and +MAX_TURN_ANGLE
+	angle = SATURATE(205 + ((xpow-205)*55/124), 150, 255); //xpow is between -127 and 127, so angle is between -MAX_TURN_ANGLE and +MAX_TURN_ANGLE
 	
 	if(joy_data.c_button == 0) 
 	{
-		speed = ypow * (6 / battery_voltage);
+		speed = ((ypow * 6) / battery_voltage);
 	} 
 	else //if C button is pressed, enter turbo mode
 	{
-		speed = ypow * (12 / battery_voltage);
+		speed = ((ypow * 12) / battery_voltage);
 	}
+	
+	//UARTprintf("Xpow:%d, Ypow:%d, valid?:%d, speed:%d, angle:%d\n", joy_data.x_position, joy_data.y_position, joy_data.valid, speed, angle);
 	
 	SetJaguarVoltage(LEFT_JAGUAR, speed);
 	SetJaguarVoltage(RIGHT_JAGUAR, speed);

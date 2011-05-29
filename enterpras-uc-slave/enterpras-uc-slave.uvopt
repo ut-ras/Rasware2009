@@ -202,10 +202,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>87</ColumnNumber>
+      <ColumnNumber>57</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>115</TopLine>
-      <CurrentLine>130</CurrentLine>
+      <TopLine>133</TopLine>
+      <CurrentLine>146</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\uart_functions.c</PathWithFileName>
       <FilenameWithoutPath>uart_functions.c</FilenameWithoutPath>
@@ -216,10 +216,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>4</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>72</TopLine>
-      <CurrentLine>72</CurrentLine>
+      <TopLine>120</TopLine>
+      <CurrentLine>120</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\nunchuck_functions.c</PathWithFileName>
       <FilenameWithoutPath>nunchuck_functions.c</FilenameWithoutPath>
@@ -230,7 +230,7 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>25</ColumnNumber>
+      <ColumnNumber>1</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>50</TopLine>
       <CurrentLine>50</CurrentLine>
@@ -246,8 +246,8 @@
       <Focus>0</Focus>
       <ColumnNumber>3</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>47</TopLine>
-      <CurrentLine>57</CurrentLine>
+      <TopLine>56</TopLine>
+      <CurrentLine>80</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\motor_functions.c</PathWithFileName>
       <FilenameWithoutPath>motor_functions.c</FilenameWithoutPath>
@@ -426,10 +426,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>4</ColumnNumber>
+      <ColumnNumber>3</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>90</TopLine>
-      <CurrentLine>107</CurrentLine>
+      <TopLine>86</TopLine>
+      <CurrentLine>108</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\PC_uC_Interface.c</PathWithFileName>
       <FilenameWithoutPath>PC_uC_Interface.c</FilenameWithoutPath>
@@ -639,58 +639,6 @@
     </File>
   </Group>
 
-  <AlienFiles>
-    <PathWithFilename>C:\dev\ras\rasware\RASLib\src\i2c.c</PathWithFilename>
-    <TopLine>106</TopLine>
-    <CurrentLine>129</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>C:\dev\ras\rasware\RASLib\include\RASLib\servo.h</PathWithFilename>
-    <TopLine>19</TopLine>
-    <CurrentLine>19</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
   <MDIGroups>
     <Orientation>1</Orientation>
     <ActiveMDIGroup>0</ActiveMDIGroup>
@@ -699,16 +647,16 @@
       <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
-          <Name>..\RASLib\include\RASLib/servo.h</Name>
-          <ColumnNumber>22</ColumnNumber>
-          <TopLine>19</TopLine>
-          <CurrentLine>19</CurrentLine>
+          <Name>.\time_functions.c</Name>
+          <ColumnNumber>1</ColumnNumber>
+          <TopLine>50</TopLine>
+          <CurrentLine>50</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\uart_functions.c</Name>
-          <ColumnNumber>87</ColumnNumber>
-          <TopLine>115</TopLine>
-          <CurrentLine>130</CurrentLine>
+          <ColumnNumber>57</ColumnNumber>
+          <TopLine>133</TopLine>
+          <CurrentLine>146</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\gpio_functions.c</Name>
@@ -718,51 +666,27 @@
         </Doc>
         <Doc>
           <Name>.\nunchuck_functions.c</Name>
-          <ColumnNumber>1</ColumnNumber>
-          <TopLine>72</TopLine>
-          <CurrentLine>72</CurrentLine>
+          <ColumnNumber>4</ColumnNumber>
+          <TopLine>120</TopLine>
+          <CurrentLine>120</CurrentLine>
         </Doc>
         <Doc>
           <Name>definitions.h</Name>
-          <ColumnNumber>25</ColumnNumber>
-          <TopLine>65</TopLine>
-          <CurrentLine>70</CurrentLine>
+          <ColumnNumber>35</ColumnNumber>
+          <TopLine>83</TopLine>
+          <CurrentLine>102</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\motor_functions.c</Name>
           <ColumnNumber>3</ColumnNumber>
-          <TopLine>47</TopLine>
-          <CurrentLine>57</CurrentLine>
+          <TopLine>56</TopLine>
+          <CurrentLine>80</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\PC_uC_Interface.c</Name>
-          <ColumnNumber>4</ColumnNumber>
-          <TopLine>90</TopLine>
-          <CurrentLine>107</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\time_functions.c</Name>
-          <ColumnNumber>25</ColumnNumber>
-          <TopLine>50</TopLine>
-          <CurrentLine>50</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\utils.c</Name>
           <ColumnNumber>3</ColumnNumber>
-          <TopLine>69</TopLine>
-          <CurrentLine>79</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\filtering_functions.c</Name>
-          <ColumnNumber>2</ColumnNumber>
-          <TopLine>3</TopLine>
-          <CurrentLine>24</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\RASLib\include\../src/i2c.c</Name>
-          <ColumnNumber>25</ColumnNumber>
-          <TopLine>106</TopLine>
-          <CurrentLine>129</CurrentLine>
+          <TopLine>86</TopLine>
+          <CurrentLine>108</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

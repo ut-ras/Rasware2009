@@ -96,7 +96,7 @@ typedef struct NunchuckData
 	tBoolean valid;
 } NunchuckData;
 
-#define X_CENTER 128
+#define X_CENTER 55
 #define Y_CENTER 128
 
 //==========GENERAL CODES==========
