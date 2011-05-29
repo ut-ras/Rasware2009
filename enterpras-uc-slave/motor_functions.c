@@ -54,6 +54,8 @@ void joyDrive(NunchuckData joy_data)
 	signed short speed;
 	signed short angle;
 	
+	//UARTprintf("Xpow:%d, Ypow:%d, valid?:%d\n", joy_data.x_position, joy_data.y_position, joy_data.valid);
+	
 	if(joy_data.valid) //if we were given valid data, use it.
 	{
 		xpow = (joy_data.x_position - X_CENTER);

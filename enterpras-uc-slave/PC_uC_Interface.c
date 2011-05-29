@@ -54,11 +54,11 @@ void init()
 	InitializeServos();
 	InitializeMotors(false, false);
 	InitializeEncoders(false, false);
-	//InitializeI2C();
-	//initNunchuck();
 	initWatchdog();
 	initADC();
 	initTimers();
+	InitializeI2C();
+	initNunchuck();
 	initFilters();
 	initGPIO();
     
@@ -108,7 +108,7 @@ int main()
 				{
 					handleCommMessage();
 				}
-			/*}
+		/*}
 		}
 		else if(control_mode == NUNCHUCK)
 		{
@@ -119,7 +119,7 @@ int main()
 			else
 			{
 				joyDrive(getNunchuckData()); //otherwise, be joyous!
-			}
+			*//*}
 		}
 		else //something really bad happened, so lets try nunchucking it again
 		{

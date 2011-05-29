@@ -51,8 +51,8 @@ void WatchdogIntHandler(void)
 	WatchdogIntClear(WATCHDOG0_BASE);
 	
 	//stop all motors on the robot
-	//SetJaguarVoltage(LEFT_JAGUAR, 0);
-	//SetJaguarVoltage(RIGHT_JAGUAR, 0);
+	SetJaguarVoltage(LEFT_JAGUAR, 0);
+	SetJaguarVoltage(RIGHT_JAGUAR, 0);
 	
 	
 	//SetJaguarVoltage(STEERING_SERVO, 0);  //commented out because this causes motion instead of stopping it

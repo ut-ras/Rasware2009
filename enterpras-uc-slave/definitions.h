@@ -67,7 +67,7 @@
 //try to make SAMPLE_RATE / DATA_RATE an integer
 #define TICK_RATE					1000	//frequency of timestamp ticks in HZ (1Khz = 1ms period)
 #define SAMPLE_RATE					500		//TICK_RATE / SAMPLE_RATE MUST be an integer. 1000 is too fast for this.
-#define	DATA_RATE					20		//frequency of data messages to the computer in Hz(10Hz = 100ms period)
+#define	DATA_RATE					200		//frequency of data messages to the computer in Hz(10Hz = 100ms period)
 #define FLASH_RATE					4		//frequency of warning light toggle
 
 //==========FILTER DEFINITIONS==========
@@ -75,7 +75,7 @@
 
 //==========I2C DEFINITIONS==========
 #define codeSelect 		GPIOPinRead(GPIO_PORTA_BASE, GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5) >> 2
-#define I2C_TIMEOUT		2000				//in timestamp ticks
+#define I2C_TIMEOUT		10				//in timestamp ticks
 
 //==========CHAR PROCESSING DEFINITIONS==========
 #define isNum(x)		(x>='0' && x<='9')

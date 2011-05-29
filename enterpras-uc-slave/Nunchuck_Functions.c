@@ -35,15 +35,16 @@ void InitializeI2C()
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
 
-	GPIOPinTypeI2C(GPIO_PORTB_BASE, GPIO_PIN_2 | GPIO_PIN_3);
+	GPIOPinTypeI2C(GPIO_PORTB_BASE, GPIO_PIN_2 | GPIO_PIN_3); //2=C, 3=D
     I2CMasterInitExpClk(I2C0_MASTER_BASE, SysCtlClockGet(), false);
 }
 
 void initNunchuck()
 {
 	unsigned long initialTime = timestamp;
+	unsigned char good = 0;
     UARTprintf("Initializing Wireless Nunchuck\n\n");   
-    while(timestamp <= initialTime + I2C_TIMEOUT)
+    while(timestamp < I2C_TIMEOUT)
 	{
         I2CSend(0x52<<1, 2, 0xF0, 0x55);
         if (I2CMasterErr(I2C0_MASTER_BASE) == I2C_MASTER_ERR_NONE)
@@ -52,11 +53,12 @@ void initNunchuck()
             I2CSend(0x52<<1, 2, 0xFB, 0x00);
             if (I2CMasterErr(I2C0_MASTER_BASE) == I2C_MASTER_ERR_NONE)
 			{
-                break;
+				good=1;
+                break;				
 			}
         }
-        
         Wait(10);
+	
     }
 }
 

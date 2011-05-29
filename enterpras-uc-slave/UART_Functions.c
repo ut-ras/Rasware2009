@@ -127,7 +127,7 @@ void handleCommMessage(void)
 			case SVRM: SetJaguarVoltage(RIGHT_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
 					   resetWatchdogTimer(); //we got a valid message, so they are still talking to us
 					   break;
-			case SVSM: SetServoPosition(STEERING_SERVO, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+			case SVSM: SetServoPosition(STEERING_SERVO, 127 + SATURATE(atoi(&buffer[DATA_START]), -128, 127));
 					   break;
 			case SALS: SetServoPosition(LIDAR_SERVO, 127 + SATURATE(atoi(&buffer[DATA_START]), -128, 127));
 					   break;
