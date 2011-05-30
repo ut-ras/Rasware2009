@@ -13,6 +13,7 @@
 #include "settings.h"
 #include "definitions.h"
 #include "gpio_functions.h"
+#include "common.h"
 
 static volatile unsigned char warning_light_output;
  
@@ -20,7 +21,7 @@ void initGPIO(void)
 {
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
- 	GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, GPIO_PIN_4);
+ 	GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, CONTROL_TYPE_INPUT);
 	GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, WARNING_LIGHT);
 	
 	//turnOnWarningLight();
@@ -45,6 +46,7 @@ void turnOffWarningLight(void)
 
 void toggleWarningLight(void)
 {
+	//UARTprintf("%d\n", warning_light_output);
 	warning_light_output ^= 0xFF;
 	GPIOPinWrite(GPIO_PORTD_BASE, WARNING_LIGHT, warning_light_output); 
 }

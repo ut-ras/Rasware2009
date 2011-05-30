@@ -28,6 +28,12 @@ extern volatile unsigned char steering_pider;
 */
 extern volatile unsigned char drive_pider;
 
+/*
+0x00 = microcontroller should read adcs and servos 
+0x01 = microcontroller should listen for commands and output to servo ports
+*/
+extern volatile unsigned char paradigm;
+
 extern volatile unsigned char battery_voltage; //can be anything, but should most likely be 12 or 24
 
 #endif

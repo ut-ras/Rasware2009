@@ -42,8 +42,8 @@ void InitializeI2C()
 void initNunchuck()
 {
 	unsigned long initialTime = timestamp;
-    UARTprintf("Initializing Wireless Nunchuck\n\n");   
-    while(timestamp < I2C_TIMEOUT)
+    //UARTprintf("Initializing Wireless Nunchuck\n\n");   
+    while(1)//timestamp < I2C_TIMEOUT)
 	{
         I2CSend(0x52<<1, 2, 0xF0, 0x55);
         if (I2CMasterErr(I2C0_MASTER_BASE) == I2C_MASTER_ERR_NONE)

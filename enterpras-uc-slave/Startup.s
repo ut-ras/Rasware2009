@@ -81,7 +81,7 @@ __heap_limit
 		EXTERN	EncoderInterruptHandler
 		EXTERN	WatchdogIntHandler
 		EXTERN	timestampInterruptHandler
-		EXTERN	calculationInterruptHandler
+		EXTERN	flashInterruptHandler
 
 ;******************************************************************************
 ;
@@ -128,9 +128,9 @@ __Vectors
         DCD     LSIntHandler           		; Timer 0A
         DCD     IntDefaultHandler           ; Timer 0B
         DCD     IntDefaultHandler           ; Timer 1A
-        DCD     IntDefaultHandler           ; Timer 1B
+        DCD     flashInterruptHandler           ; Timer 1B
         DCD     timestampInterruptHandler   ; Timer 2A
-        DCD     calculationInterruptHandler ; Timer 2B
+        DCD     flashInterruptHandler		; Timer 2B
         DCD     IntDefaultHandler           ; Comp 0
         DCD     IntDefaultHandler           ; Comp 1
         DCD     IntDefaultHandler           ; Comp 2

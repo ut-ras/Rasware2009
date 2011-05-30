@@ -202,10 +202,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>57</ColumnNumber>
+      <ColumnNumber>23</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>133</TopLine>
-      <CurrentLine>146</CurrentLine>
+      <TopLine>135</TopLine>
+      <CurrentLine>135</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\uart_functions.c</PathWithFileName>
       <FilenameWithoutPath>uart_functions.c</FilenameWithoutPath>
@@ -216,10 +216,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>4</ColumnNumber>
+      <ColumnNumber>6</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>120</TopLine>
-      <CurrentLine>120</CurrentLine>
+      <TopLine>42</TopLine>
+      <CurrentLine>45</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\nunchuck_functions.c</PathWithFileName>
       <FilenameWithoutPath>nunchuck_functions.c</FilenameWithoutPath>
@@ -230,10 +230,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>48</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>50</TopLine>
-      <CurrentLine>50</CurrentLine>
+      <TopLine>95</TopLine>
+      <CurrentLine>100</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\time_functions.c</PathWithFileName>
       <FilenameWithoutPath>time_functions.c</FilenameWithoutPath>
@@ -260,8 +260,8 @@
       <Focus>0</Focus>
       <ColumnNumber>63</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>54</TopLine>
-      <CurrentLine>54</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\adc_functions.c</PathWithFileName>
       <FilenameWithoutPath>adc_functions.c</FilenameWithoutPath>
@@ -288,8 +288,8 @@
       <Focus>0</Focus>
       <ColumnNumber>3</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>69</TopLine>
-      <CurrentLine>79</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\utils.c</PathWithFileName>
       <FilenameWithoutPath>utils.c</FilenameWithoutPath>
@@ -328,10 +328,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>2</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>3</TopLine>
-      <CurrentLine>24</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\filtering_functions.c</PathWithFileName>
       <FilenameWithoutPath>filtering_functions.c</FilenameWithoutPath>
@@ -342,10 +342,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>37</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>7</TopLine>
-      <CurrentLine>14</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\common.c</PathWithFileName>
       <FilenameWithoutPath>common.c</FilenameWithoutPath>
@@ -391,10 +391,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>77</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>332</TopLine>
+      <CurrentLine>345</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\StellarisWare\utils\uartstdio.c</PathWithFileName>
       <FilenameWithoutPath>uartstdio.c</FilenameWithoutPath>
@@ -412,10 +412,10 @@
       <FileType>2</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>2</ColumnNumber>
+      <ColumnNumber>21</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>99</TopLine>
-      <CurrentLine>99</CurrentLine>
+      <TopLine>121</TopLine>
+      <CurrentLine>121</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Startup.s</PathWithFileName>
       <FilenameWithoutPath>Startup.s</FilenameWithoutPath>
@@ -426,10 +426,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>3</ColumnNumber>
+      <ColumnNumber>15</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>86</TopLine>
-      <CurrentLine>108</CurrentLine>
+      <TopLine>47</TopLine>
+      <CurrentLine>58</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\PC_uC_Interface.c</PathWithFileName>
       <FilenameWithoutPath>PC_uC_Interface.c</FilenameWithoutPath>
@@ -447,10 +447,10 @@
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>24</ColumnNumber>
+      <ColumnNumber>25</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>50</TopLine>
-      <CurrentLine>71</CurrentLine>
+      <TopLine>64</TopLine>
+      <CurrentLine>82</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\definitions.h</PathWithFileName>
       <FilenameWithoutPath>definitions.h</FilenameWithoutPath>
@@ -644,37 +644,25 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>1</ActiveTab>
+      <ActiveTab>5</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\time_functions.c</Name>
-          <ColumnNumber>1</ColumnNumber>
-          <TopLine>50</TopLine>
-          <CurrentLine>50</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\uart_functions.c</Name>
-          <ColumnNumber>57</ColumnNumber>
-          <TopLine>133</TopLine>
-          <CurrentLine>146</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\gpio_functions.c</Name>
-          <ColumnNumber>1</ColumnNumber>
-          <TopLine>17</TopLine>
-          <CurrentLine>26</CurrentLine>
+          <Name>.\filtering_functions.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\nunchuck_functions.c</Name>
-          <ColumnNumber>4</ColumnNumber>
-          <TopLine>120</TopLine>
-          <CurrentLine>120</CurrentLine>
+          <ColumnNumber>6</ColumnNumber>
+          <TopLine>42</TopLine>
+          <CurrentLine>45</CurrentLine>
         </Doc>
         <Doc>
           <Name>definitions.h</Name>
-          <ColumnNumber>35</ColumnNumber>
-          <TopLine>83</TopLine>
-          <CurrentLine>102</CurrentLine>
+          <ColumnNumber>26</ColumnNumber>
+          <TopLine>66</TopLine>
+          <CurrentLine>74</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\motor_functions.c</Name>
@@ -683,10 +671,22 @@
           <CurrentLine>80</CurrentLine>
         </Doc>
         <Doc>
+          <Name>.\time_functions.c</Name>
+          <ColumnNumber>1</ColumnNumber>
+          <TopLine>96</TopLine>
+          <CurrentLine>99</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>.\PC_uC_Interface.c</Name>
-          <ColumnNumber>3</ColumnNumber>
-          <TopLine>86</TopLine>
-          <CurrentLine>108</CurrentLine>
+          <ColumnNumber>17</ColumnNumber>
+          <TopLine>84</TopLine>
+          <CurrentLine>84</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\uart_functions.c</Name>
+          <ColumnNumber>23</ColumnNumber>
+          <TopLine>135</TopLine>
+          <CurrentLine>135</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

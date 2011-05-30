@@ -34,6 +34,7 @@
 #include "utils/uartstdio.h"	// input/output over UART
 #include "driverlib/uart.h"		// input/output over UART
 
+volatile unsigned char paradigm;
 volatile unsigned char control_mode;
 volatile unsigned char drive_type; 
 volatile unsigned char battery_voltage;
@@ -49,67 +50,63 @@ void init()
 	//initialize all physical sub-systems
 	InitializeMCU();
 	initUART();
-	UARTprintf("\n-------------------------------------------------------\n");
-	UARTprintf("Initializing...");
-	InitializeServos();
-	InitializeMotors(false, false);
-	InitializeEncoders(false, false);
-	initWatchdog();
-	initADC();
-	initTimers();
-	InitializeI2C();
-	initNunchuck();
-	initFilters();
-	initGPIO();
-    
+	
 	battery_voltage = 24;
-	control_mode = controlSwitchPosition(); ///TODO: Unfix controlSwitchPosition()
 	drive_type = ACKERMANN;
 	steering_pider = COMPUTER;
 	drive_pider = COMPUTER;
+	paradigm = ADC_SLAVE;
+	
+	if(paradigm == SERVO_SLAVE)
+	{
+		InitializeServos();
+		InitializeMotors(false, false);
+		initWatchdog();
+		InitializeI2C();
+		initNunchuck();
+		initGPIO();
+		control_mode = controlSwitchPosition();
+		initTimers();
+	}
+	else if(paradigm == ADC_SLAVE)
+	{
+		UARTprintf("\n-------------------------------------------------------\n");
+		UARTprintf("Initializing with paradigm %s...", (paradigm==ADC_SLAVE)? "ADC_SLAVE":"SERVO_SLAVE");
+		initTimers();
+		InitializeEncoders(true, false);
+		initADC();
+		initFilters();
+	}
 }
 
 int main()
 {
 	init(); //do all necessary initializations (including interrupts)
-	
-	UARTprintf("Initialization complete!\n");
-	
-	//testServoPort(STEERING_SERVO);
-	
-	/*while(1)
+	if(paradigm == ADC_SLAVE)
 	{
-		if(controlSwitchPosition() == NUNCHUCK)
-		{
-			UARTprintf("nunchuck\n");
-		}
-		else if(controlSwitchPosition() == AUTONOMOUS)
-		{
-			UARTprintf("autonomous\n");
-		}
-		else
-		{
-			UARTprintf("oshit%d\n", controlSwitchPosition());
-		}
-	}*/
+		UARTprintf("Initialization complete!\n");
+	}
 	
 	while(1)
 	{
-		control_mode = controlSwitchPosition();
-		if(control_mode == AUTONOMOUS)
+		if(paradigm == SERVO_SLAVE)
 		{
-			if(charIsAvailable()) //if someone is trying to talk to us, go figure out what they want.
+			control_mode = controlSwitchPosition();
+			if(control_mode == AUTONOMOUS)
 			{
-				handleCommMessage();
+				if(charIsAvailable()) //if someone is trying to talk to us, go figure out what they want.
+				{
+					handleCommMessage();
+				}
 			}
-		}
-		else if(control_mode == NUNCHUCK)
-		{
-			joyDrive(getNunchuckData()); //otherwise, be joyous!
-		}
-		else //something really bad happened, so lets try nunchucking it again
-		{
-			control_mode = NUNCHUCK;
+			else if(control_mode == NUNCHUCK)
+			{
+				joyDrive(getNunchuckData()); //otherwise, be joyous!
+			}
+			else //something really bad happened, so lets try nunchucking it again
+			{
+				control_mode = NUNCHUCK;
+			}
 		}
 	}
 }

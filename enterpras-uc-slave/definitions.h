@@ -28,6 +28,10 @@
 #define MICROCONTROLLER				0
 #define COMPUTER					1
 
+//paradigm
+#define ADC_SLAVE					0
+#define SERVO_SLAVE					1
+
 //control_modes
 #define AUTONOMOUS 					0
 #define NUNCHUCK 					16
@@ -58,7 +62,7 @@
 #define RIGHT_ENCODER				ENCODER_1
 
 //GPIO ports 
-#define CONTROL_TYPE_INPUT			GPIO_PIN_6 //(bank D)
+#define CONTROL_TYPE_INPUT			GPIO_PIN_4 //(bank A)
 #define WARNING_LIGHT				GPIO_PIN_7 //(bank D)
 
 //==========TIMER DEFINITIONS==========
@@ -67,7 +71,7 @@
 //try to make SAMPLE_RATE / DATA_RATE an integer
 #define TICK_RATE					1000	//frequency of timestamp ticks in HZ (1Khz = 1ms period)
 #define SAMPLE_RATE					500		//TICK_RATE / SAMPLE_RATE MUST be an integer. 1000 is too fast for this.
-#define	DATA_RATE					200		//frequency of data messages to the computer in Hz(10Hz = 100ms period)
+#define	DATA_RATE					150 		//frequency of data messages to the computer in Hz(10Hz = 100ms period)
 #define FLASH_RATE					4		//frequency of warning light toggle
 
 //==========FILTER DEFINITIONS==========

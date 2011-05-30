@@ -77,13 +77,20 @@ void initTimers(void)
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER2);
     TimerConfigure(TIMER2_BASE, TIMER_CFG_16_BIT_PAIR| TIMER_CFG_A_PERIODIC);
 	
-    TimerLoadSet(TIMER2_BASE, TIMER_A, SysCtlClockGet()/TICK_RATE); 	//1Khz = 1ms period
+	if(paradigm == ADC_SLAVE)
+	{
+    	TimerLoadSet(TIMER2_BASE, TIMER_A, SysCtlClockGet()/TICK_RATE); 	//1Khz = 1ms period
+	}
+	else
+	{
+		TimerLoadSet(TIMER2_BASE, TIMER_A, SysCtlClockGet()/FLASH_RATE); 	
+	}
 	//TimerLoadSet(TIMER2_BASE, TIMER_B, SysCtlClockGet()/DATA_RATE);		//10Hz = 100ms period
 	
     TimerEnable(TIMER2_BASE, TIMER_A);
 	//TimerEnable(TIMER2_BASE, TIMER_B);
 	
-	IntPrioritySet(INT_TIMER2A, 3);
+	IntPrioritySet(INT_TIMER2A, 1);
 	//IntPrioritySet(INT_TIMER2B, 3);
 	
 	TimerIntEnable(TIMER2_BASE, TIMER_A);
@@ -95,23 +102,37 @@ void initTimers(void)
 	IntMasterEnable();
 }
 
+/*void initFlasherTimer(void)
+{	
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER1);
+    TimerConfigure(TIMER1_BASE, TIMER_CFG_16_BIT_PAIR | TIMER_CFG_B_PERIODIC);
+    TimerLoadSet(TIMER1_BASE, TIMER_B, SysCtlClockGet()/TICK_RATE); 	//1Khz = 1ms period
+    TimerEnable(TIMER1_BASE, TIMER_B);
+	IntPrioritySet(INT_TIMER1B, 3);
+	TimerIntEnable(TIMER1_BASE, TIMER_B);
+	IntEnable(INT_TIMER1B);	
+	IntMasterEnable();
+}*/
+
 void timestampInterruptHandler(void)
 {
 	TimerIntClear(TIMER2_BASE, TIMER_TIMA_TIMEOUT);
-	timestamp++;
-	
-	if(timestamp % (TICK_RATE / SAMPLE_RATE) == 0)
+	if(paradigm == ADC_SLAVE)
 	{
-		sampleSensors();
+		timestamp++;
+		
+		if(timestamp % (TICK_RATE / SAMPLE_RATE) == 0)
+		{
+			sampleSensors();
+		}
+		
+		if(timestamp % (TICK_RATE / DATA_RATE) == 0)
+		{
+			calculateCanon();
+			sendData();
+		}
 	}
-	
-	if(timestamp % (TICK_RATE / DATA_RATE) == 0)
-	{
-		calculateCanon();
-		sendData();
-	}
-	
-	if(timestamp % (TICK_RATE / FLASH_RATE) == 0)
+	else
 	{
 		if(robotIsMoving)
 		{
@@ -124,16 +145,14 @@ void timestampInterruptHandler(void)
 	}
 }
 
-void calculationInterruptHandler(void)
+void flashInterruptHandler(void)
 {
-	/*
-	if(steering_pider == MICROCONTROLLER)	//if we're in charge of PID, do it.
+	if(robotIsMoving)
 	{
-		pidSteeringServo(desired_steering_angle, getCurrentSteeringAngle());
+		toggleWarningLight();
 	}
-	
-	calculateCanon();
-	sendData();
-	
-	// */
+	else
+	{
+		turnOnWarningLight();
+	}
 }
