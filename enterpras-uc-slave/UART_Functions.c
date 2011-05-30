@@ -122,9 +122,11 @@ void handleCommMessage(void)
 		switch(function_code)
 		{
 			case SVLM: SetJaguarVoltage(LEFT_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+					   robotIsMoving = 1;
 					   resetWatchdogTimer(); //we got a valid message, so they are still talking to us
 					   break;
 			case SVRM: SetJaguarVoltage(RIGHT_JAGUAR, SATURATE(atoi(&buffer[DATA_START]), -128, 127));
+					   robotIsMoving = 1;
 					   resetWatchdogTimer(); //we got a valid message, so they are still talking to us
 					   break;
 			case SVSM: SetServoPosition(STEERING_SERVO, 127 + SATURATE(atoi(&buffer[DATA_START]), -128, 127));

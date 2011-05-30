@@ -23,13 +23,12 @@ void initGPIO(void)
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
  	GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, CONTROL_TYPE_INPUT);
 	GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, WARNING_LIGHT);
-	
 	//turnOnWarningLight();
 }
 
 char controlSwitchPosition(void)
 {
-	return GPIOPinRead(GPIO_PORTA_BASE, GPIO_PIN_4);
+	return GPIOPinRead(GPIO_PORTA_BASE, CONTROL_TYPE_INPUT);
 }
 
 void turnOnWarningLight(void)
@@ -46,7 +45,6 @@ void turnOffWarningLight(void)
 
 void toggleWarningLight(void)
 {
-	//UARTprintf("%d\n", warning_light_output);
 	warning_light_output ^= 0xFF;
 	GPIOPinWrite(GPIO_PORTD_BASE, WARNING_LIGHT, warning_light_output); 
 }

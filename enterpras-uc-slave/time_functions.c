@@ -43,7 +43,6 @@
 void resetWatchdogTimer(void)
 {
 	WatchdogReloadSet(WATCHDOG0_BASE, WATCHDOG_PERIOD);
-	robotIsMoving = 1;
 }
 
 void WatchdogIntHandler(void)
@@ -83,7 +82,7 @@ void initTimers(void)
 	}
 	else
 	{
-		TimerLoadSet(TIMER2_BASE, TIMER_A, SysCtlClockGet()/FLASH_RATE); 	
+		TimerLoadSet(TIMER2_BASE, TIMER_A, SysCtlClockGet()/TICK_RATE); 	
 	}
 	//TimerLoadSet(TIMER2_BASE, TIMER_B, SysCtlClockGet()/DATA_RATE);		//10Hz = 100ms period
 	
@@ -117,10 +116,10 @@ void initTimers(void)
 void timestampInterruptHandler(void)
 {
 	TimerIntClear(TIMER2_BASE, TIMER_TIMA_TIMEOUT);
+	timestamp++;
+	
 	if(paradigm == ADC_SLAVE)
-	{
-		timestamp++;
-		
+	{	
 		if(timestamp % (TICK_RATE / SAMPLE_RATE) == 0)
 		{
 			sampleSensors();
@@ -134,13 +133,16 @@ void timestampInterruptHandler(void)
 	}
 	else
 	{
-		if(robotIsMoving)
+		if(timestamp % (TICK_RATE / FLASH_RATE) == 0)
 		{
-			toggleWarningLight();
-		}
-		else
-		{
-			turnOnWarningLight();
+			if(robotIsMoving)
+			{
+				toggleWarningLight();
+			}
+			else
+			{
+				turnOnWarningLight();
+			}
 		}
 	}
 }

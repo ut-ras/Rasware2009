@@ -55,7 +55,7 @@ void init()
 	drive_type = ACKERMANN;
 	steering_pider = COMPUTER;
 	drive_pider = COMPUTER;
-	paradigm = ADC_SLAVE;
+	paradigm = SERVO_SLAVE;
 	
 	if(paradigm == SERVO_SLAVE)
 	{
