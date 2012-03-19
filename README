@@ -1,0 +1,12 @@
+Here lies all existing code for the old RAS boards.
+
+Please append a description for any new projects you add to this readme.
+
+
+StellarisWare - The hardware level code for the ARM chips
+
+RASLib - Various drivers and stuff
+
+demos - Demo code for testing hardware and things
+
+TEMPLATE - A template for creating new projects
