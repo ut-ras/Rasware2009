@@ -1,1 +1,0 @@
-irdemo.o: IRDemo.c

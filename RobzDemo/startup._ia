@@ -1,1 +1,0 @@
---device DLM --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1" -I "C:\Keil\ARM\INC\Luminary" -o "Startup.o" "Startup.s"
