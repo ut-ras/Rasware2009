@@ -7,19 +7,19 @@
 ### List of Objects: adding '"linesensordemo.o"'
 ### List of Objects: adding '"irsensordemo.o"'
 ### List of Objects: adding '"encoderdemo.o"'
-### List of Objects: adding '"..\RASLib\Debug\raslib.lib"'
-### List of Objects: adding '"..\StellarisWare\driverlib\rvmdk\driverlib.lib"'
 ### List of Objects: adding '"uartstdio.o"'
+### List of Objects: adding '"..\..\RASLib\Debug\raslib.lib"'
+### List of Objects: adding '"..\..\StellarisWare\driverlib\rvmdk\driverlib.lib"'
 ### List of Objects: adding '"startup.o"'
 ### List of Objects: adding '"robzdemo.o"'
 ### ADS-LD Command completed:
---device DLM "uartdemo.o" "motordemo.o" "servodemo.o" "linesensordemo.o" "irsensordemo.o" "encoderdemo.o" "..\RASLib\Debug\raslib.lib" "..\StellarisWare\driverlib\rvmdk\driverlib.lib" "uartstdio.o" "startup.o" "robzdemo.o" --library_type=microlib --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--cpu Cortex-M3 "uartdemo.o" "motordemo.o" "servodemo.o" "linesensordemo.o" "irsensordemo.o" "encoderdemo.o" "uartstdio.o" "..\..\RASLib\Debug\raslib.lib" "..\..\StellarisWare\driverlib\rvmdk\driverlib.lib" "startup.o" "robzdemo.o" --library_type=microlib --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\RobzDemo.map" -o "RobzDemo.axf"### Preparing Environment (PrepEnvAds)
 ### ADS-LD Output File: 'RobzDemo.axf'
 ### ADS-LD Command File: 'RobzDemo.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'RobzDemo.lnp', Handle=0x0000046C
+### Creating CmdFile 'RobzDemo.lnp', Handle=0x00000238
 ### Writing '.lnp' file
 ### ADS-LD Command file 'RobzDemo.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

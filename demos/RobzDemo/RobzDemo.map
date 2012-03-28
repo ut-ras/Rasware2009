@@ -1,4 +1,4 @@
-ARM Linker, RVCT4.0 [Build 524] for uVision [Evaluation]
+ARM Linker, 4.1 [Build 481] [Standard]
 
 ==============================================================================
 
@@ -8,17 +8,17 @@ Section Cross References
     uartdemo.o(.text) refers to gpio.o(i.GPIOPinTypeUART) for GPIOPinTypeUART
     uartdemo.o(.text) refers to uartstdio.o(.text) for UARTStdioInit
     uartdemo.o(.text) refers to uart.o(i.UARTCharsAvail) for UARTCharsAvail
-    motordemo.o(.text) refers to motor.obj(.text:InitializeMotors) for InitializeMotors
+    motordemo.o(.text) refers to motor.o(i.InitializeMotors) for InitializeMotors
     motordemo.o(.text) refers to uartstdio.o(.text) for UARTprintf
     motordemo.o(.text) refers to uartdemo.o(.text) for getc
-    motordemo.o(.text) refers to motor.obj(.text:SetMotorPowers) for SetMotorPowers
-    servodemo.o(.text) refers to servo.obj(.text:InitializeServos) for InitializeServos
+    motordemo.o(.text) refers to motor.o(i.SetMotorPowers) for SetMotorPowers
+    servodemo.o(.text) refers to servo.o(i.InitializeServos) for InitializeServos
     servodemo.o(.text) refers to uartstdio.o(.text) for UARTprintf
     servodemo.o(.text) refers to uartdemo.o(.text) for getc
-    servodemo.o(.text) refers to servo.obj(.text:SetServoPosition) for SetServoPosition
-    linesensordemo.o(.text) refers to linesensor.obj(.text:InitializeLineSensor) for InitializeLineSensor
+    servodemo.o(.text) refers to servo.o(i.SetServoPosition) for SetServoPosition
+    linesensordemo.o(.text) refers to linesensor.o(i.InitializeLineSensor) for InitializeLineSensor
     linesensordemo.o(.text) refers to uartstdio.o(.text) for UARTprintf
-    linesensordemo.o(.text) refers to linesensor.obj(.text:ReadLineSensor) for ReadLineSensor
+    linesensordemo.o(.text) refers to linesensor.o(i.ReadLineSensor) for ReadLineSensor
     linesensordemo.o(.text) refers to uartdemo.o(.text) for keyWasPressed
     irsensordemo.o(.text) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     irsensordemo.o(.text) refers to adc.o(i.ADCSequenceConfigure) for ADCSequenceConfigure
@@ -29,11 +29,11 @@ Section Cross References
     irsensordemo.o(.text) refers to adc.o(i.ADCSequenceDataGet) for ADCSequenceDataGet
     irsensordemo.o(.text) refers to uartstdio.o(.text) for UARTprintf
     irsensordemo.o(.text) refers to uartdemo.o(.text) for keyWasPressed
-    encoderdemo.o(.text) refers to encoder.obj(.text:InitializeEncoders) for InitializeEncoders
+    encoderdemo.o(.text) refers to encoder.o(i.InitializeEncoders) for InitializeEncoders
     encoderdemo.o(.text) refers to uartstdio.o(.text) for UARTprintf
-    encoderdemo.o(.text) refers to encoder.obj(.text:PresetEncoderCounts) for PresetEncoderCounts
-    encoderdemo.o(.text) refers to encoder.obj(.text:GetEncoderCount) for GetEncoderCount
-    encoderdemo.o(.text) refers to encoder.obj(.text:GetEncoderCounts) for GetEncoderCounts
+    encoderdemo.o(.text) refers to encoder.o(i.PresetEncoderCounts) for PresetEncoderCounts
+    encoderdemo.o(.text) refers to encoder.o(i.GetEncoderCount) for GetEncoderCount
+    encoderdemo.o(.text) refers to encoder.o(i.GetEncoderCounts) for GetEncoderCounts
     encoderdemo.o(.text) refers to uartdemo.o(.text) for keyWasPressed
     uartstdio.o(.text) refers to sysctl.o(i.SysCtlPeripheralPresent) for SysCtlPeripheralPresent
     uartstdio.o(.text) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
@@ -42,15 +42,15 @@ Section Cross References
     uartstdio.o(.text) refers to uart.o(i.UARTEnable) for UARTEnable
     uartstdio.o(.text) refers to uart.o(i.UARTCharPut) for UARTCharPut
     uartstdio.o(.text) refers to uart.o(i.UARTCharGet) for UARTCharGet
-    uartstdio.o(.text) refers to uartstdio.o(.constdata) for .constdata
-    uartstdio.o(.text) refers to uartstdio.o(.data) for .data
+    uartstdio.o(.text) refers to uartstdio.o(.constdata) for g_ulUARTPeriph
+    uartstdio.o(.text) refers to uartstdio.o(.data) for g_ulBase
     uartstdio.o(.constdata) refers to uartstdio.o(.conststring) for .conststring
     startup.o(RESET) refers to startup.o(STACK) for StackMem
-    startup.o(RESET) refers to encoder.obj(.text:EncoderInterruptHandler) for EncoderInterruptHandler
-    startup.o(RESET) refers to linesensor.obj(.text:LSIntHandler) for LSIntHandler
+    startup.o(RESET) refers to encoder.o(i.EncoderInterruptHandler) for EncoderInterruptHandler
+    startup.o(RESET) refers to linesensor.o(i.LSIntHandler) for LSIntHandler
     startup.o(RESET) refers to entry.o(.ARM.Collect$$$$00000000) for __main
-    robzdemo.o(.text) refers to init.obj(.text:LockoutProtection) for LockoutProtection
-    robzdemo.o(.text) refers to init.obj(.text:InitializeMCU) for InitializeMCU
+    robzdemo.o(.text) refers to init.o(i.LockoutProtection) for LockoutProtection
+    robzdemo.o(.text) refers to init.o(i.InitializeMCU) for InitializeMCU
     robzdemo.o(.text) refers to uartdemo.o(.text) for initUART
     robzdemo.o(.text) refers to uartstdio.o(.text) for UARTprintf
     robzdemo.o(.text) refers to motordemo.o(.text) for initMotors
@@ -58,83 +58,84 @@ Section Cross References
     robzdemo.o(.text) refers to linesensordemo.o(.text) for initLineSensor
     robzdemo.o(.text) refers to irsensordemo.o(.text) for initIRSensor
     robzdemo.o(.text) refers to encoderdemo.o(.text) for initEncoders
-    servo.obj(.text:SetServoPosition) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    servo.obj(.text:SetServoPosition) refers to servo.obj(.bss) for us600
-    servo.obj(.text:InitializeServos) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    servo.obj(.text:InitializeServos) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
-    servo.obj(.text:InitializeServos) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
-    servo.obj(.text:InitializeServos) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
-    servo.obj(.text:InitializeServos) refers to pwm.o(i.PWMOutputState) for PWMOutputState
-    servo.obj(.text:InitializeServos) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
-    servo.obj(.text:InitializeServos) refers to servo.obj(.text:SetServoPosition) for SetServoPosition
-    servo.obj(.text:InitializeServos) refers to init.obj(.bss) for g_ulPWMTicksPerSecond
-    servo.obj(.text:InitializeServos) refers to servo.obj(.bss) for us600
-    motor.obj(.text:SetMotorPower) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    motor.obj(.text:SetMotorPowers) refers to motor.obj(.text:SetMotorPower) for SetMotorPower
-    motor.obj(.text:InitializeMotors) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    motor.obj(.text:InitializeMotors) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
-    motor.obj(.text:InitializeMotors) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
-    motor.obj(.text:InitializeMotors) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
-    motor.obj(.text:InitializeMotors) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
-    motor.obj(.text:InitializeMotors) refers to pwm.o(i.PWMOutputInvert) for PWMOutputInvert
-    motor.obj(.text:InitializeMotors) refers to pwm.o(i.PWMOutputState) for PWMOutputState
-    motor.obj(.text:InitializeMotors) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
-    motor.obj(.text:InitializeMotors) refers to motor.obj(.text:SetMotorPowers) for SetMotorPowers
-    motor.obj(.text:InitializeMotors) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
-    motor.obj(.text:InitializeMotors) refers to motor.obj(.bss) for s_ulMotorPeriod
-    linesensor.obj(.text:StartDischargingLS) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
-    linesensor.obj(.text:StartChargingLS) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
-    linesensor.obj(.text:StartChargingLS) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
-    linesensor.obj(.text:SetDischargeTime) refers to linesensor.obj(.bss) for ls_dischargeTime
-    linesensor.obj(.text:ReadLineSensorAsync) refers to linesensor.obj(.bss) for last_ls
-    linesensor.obj(.text:ReadLS) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
-    linesensor.obj(.text:ReadLineSensor) refers to linesensor.obj(.text:StartChargingLS) for StartChargingLS
-    linesensor.obj(.text:ReadLineSensor) refers to timer.obj(.text:WaitUS) for WaitUS
-    linesensor.obj(.text:ReadLineSensor) refers to linesensor.obj(.text:StartDischargingLS) for StartDischargingLS
-    linesensor.obj(.text:ReadLineSensor) refers to linesensor.obj(.text:ReadLS) for ReadLS
-    linesensor.obj(.text:ReadLineSensor) refers to linesensor.obj(.bss) for ls_dischargeTime
-    linesensor.obj(.text:LSIntHandler) refers to timer.o(i.TimerIntClear) for TimerIntClear
-    linesensor.obj(.text:LSIntHandler) refers to linesensor.obj(.text:StartDischargingLS) for StartDischargingLS
-    linesensor.obj(.text:LSIntHandler) refers to linesensor.obj(.text:ReadLS) for ReadLS
-    linesensor.obj(.text:LSIntHandler) refers to linesensor.obj(.text:StartChargingLS) for StartChargingLS
-    linesensor.obj(.text:LSIntHandler) refers to timer.o(i.TimerLoadSet) for TimerLoadSet
-    linesensor.obj(.text:LSIntHandler) refers to linesensor.obj(.data) for readyToRead$1
-    linesensor.obj(.text:LSIntHandler) refers to init.obj(.bss) for g_ulTicksPerUs
-    linesensor.obj(.text:LSIntHandler) refers to linesensor.obj(.bss) for ls_dischargeTime
-    linesensor.obj(.text:InitializeLineSensor) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    linesensor.obj(.text:InitializeLineSensor) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
-    linesensor.obj(.text:InitializeLineSensor) refers to linesensor.obj(.bss) for ls_dischargeTime
-    linesensor.obj(.text:InitializeLineSensorAsync) refers to linesensor.obj(.text:InitializeLineSensor) for InitializeLineSensor
-    linesensor.obj(.text:InitializeLineSensorAsync) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    linesensor.obj(.text:InitializeLineSensorAsync) refers to interrupt.o(i.IntMasterEnable) for IntMasterEnable
-    linesensor.obj(.text:InitializeLineSensorAsync) refers to interrupt.o(i.IntEnable) for IntEnable
-    linesensor.obj(.text:InitializeLineSensorAsync) refers to timer.o(i.TimerConfigure) for TimerConfigure
-    linesensor.obj(.text:InitializeLineSensorAsync) refers to linesensor.obj(.text:LSIntHandler) for LSIntHandler
-    linesensor.obj(.text:InitializeLineSensorAsync) refers to timer.o(i.TimerIntEnable) for TimerIntEnable
-    linesensor.obj(.text:InitializeLineSensorAsync) refers to timer.o(i.TimerEnable) for TimerEnable
-    init.obj(.text:LockoutProtection) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    init.obj(.text:LockoutProtection) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
-    init.obj(.text:LockoutProtection) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
-    init.obj(.text:InitializeMCU) refers to sysctl.o(i.SysCtlClockSet) for SysCtlClockSet
-    init.obj(.text:InitializeMCU) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
-    init.obj(.text:InitializeMCU) refers to sysctl.o(i.SysCtlClockGet) for SysCtlClockGet
-    init.obj(.text:InitializeMCU) refers to interrupt.o(i.IntMasterEnable) for IntMasterEnable
-    init.obj(.text:InitializeMCU) refers to init.obj(.bss) for g_ulTicksPerSecond
-    encoder.obj(.text:PresetEncoderCounts) refers to encoder.obj(.data) for enc0
-    encoder.obj(.text:PresetEncoderCount) refers to encoder.obj(.data) for enc1
-    encoder.obj(.text:InitializeEncoders) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    encoder.obj(.text:InitializeEncoders) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
-    encoder.obj(.text:InitializeEncoders) refers to interrupt.o(i.IntEnable) for IntEnable
-    encoder.obj(.text:InitializeEncoders) refers to gpio.o(i.GPIOIntTypeSet) for GPIOIntTypeSet
-    encoder.obj(.text:InitializeEncoders) refers to gpio.o(i.GPIOPinIntEnable) for GPIOPinIntEnable
-    encoder.obj(.text:InitializeEncoders) refers to encoder.obj(.bss) for dir0
-    encoder.obj(.text:GetEncoderCounts) refers to encoder.obj(.data) for enc0
-    encoder.obj(.text:GetEncoderCount) refers to encoder.obj(.data) for enc0
-    encoder.obj(.text:EncoderInterruptHandler) refers to gpio.o(i.GPIOPinIntStatus) for GPIOPinIntStatus
-    encoder.obj(.text:EncoderInterruptHandler) refers to gpio.o(i.GPIOPinIntClear) for GPIOPinIntClear
-    encoder.obj(.text:EncoderInterruptHandler) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
-    encoder.obj(.text:EncoderInterruptHandler) refers to encoder.obj(.bss) for dir0
-    encoder.obj(.text:EncoderInterruptHandler) refers to encoder.obj(.data) for enc0
+    init.o(i.InitializeMCU) refers to sysctl.o(i.SysCtlClockSet) for SysCtlClockSet
+    init.o(i.InitializeMCU) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
+    init.o(i.InitializeMCU) refers to sysctl.o(i.SysCtlClockGet) for SysCtlClockGet
+    init.o(i.InitializeMCU) refers to interrupt.o(i.IntMasterEnable) for IntMasterEnable
+    init.o(i.InitializeMCU) refers to init.o(.data) for .data
+    init.o(i.LockoutProtection) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    init.o(i.LockoutProtection) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
+    init.o(i.LockoutProtection) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
+    linesensor.o(i.InitializeLineSensor) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    linesensor.o(i.InitializeLineSensor) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
+    linesensor.o(i.InitializeLineSensor) refers to linesensor.o(.data) for .data
+    linesensor.o(i.InitializeLineSensorAsync) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    linesensor.o(i.InitializeLineSensorAsync) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
+    linesensor.o(i.InitializeLineSensorAsync) refers to interrupt.o(i.IntMasterEnable) for IntMasterEnable
+    linesensor.o(i.InitializeLineSensorAsync) refers to interrupt.o(i.IntEnable) for IntEnable
+    linesensor.o(i.InitializeLineSensorAsync) refers to timer.o(i.TimerConfigure) for TimerConfigure
+    linesensor.o(i.InitializeLineSensorAsync) refers to linesensor.o(i.LSIntHandler) for LSIntHandler
+    linesensor.o(i.InitializeLineSensorAsync) refers to timer.o(i.TimerIntEnable) for TimerIntEnable
+    linesensor.o(i.InitializeLineSensorAsync) refers to timer.o(i.TimerEnable) for TimerEnable
+    linesensor.o(i.InitializeLineSensorAsync) refers to linesensor.o(.data) for .data
+    linesensor.o(i.LSIntHandler) refers to timer.o(i.TimerIntClear) for TimerIntClear
+    linesensor.o(i.LSIntHandler) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
+    linesensor.o(i.LSIntHandler) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
+    linesensor.o(i.LSIntHandler) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    linesensor.o(i.LSIntHandler) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
+    linesensor.o(i.LSIntHandler) refers to timer.o(i.TimerLoadSet) for TimerLoadSet
+    linesensor.o(i.LSIntHandler) refers to linesensor.o(.data) for .data
+    linesensor.o(i.LSIntHandler) refers to init.o(.data) for g_ulTicksPerUs
+    linesensor.o(i.ReadLS) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
+    linesensor.o(i.ReadLineSensor) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
+    linesensor.o(i.ReadLineSensor) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    linesensor.o(i.ReadLineSensor) refers to timer.o(i.WaitUS) for WaitUS
+    linesensor.o(i.ReadLineSensor) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
+    linesensor.o(i.ReadLineSensor) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
+    linesensor.o(i.ReadLineSensor) refers to linesensor.o(.data) for .data
+    linesensor.o(i.ReadLineSensorAsync) refers to linesensor.o(.data) for .data
+    linesensor.o(i.SetDischargeTime) refers to linesensor.o(.data) for .data
+    linesensor.o(i.StartChargingLS) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
+    linesensor.o(i.StartChargingLS) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    linesensor.o(i.StartDischargingLS) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
+    motor.o(i.InitializeMotors) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    motor.o(i.InitializeMotors) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
+    motor.o(i.InitializeMotors) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
+    motor.o(i.InitializeMotors) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
+    motor.o(i.InitializeMotors) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    motor.o(i.InitializeMotors) refers to pwm.o(i.PWMOutputInvert) for PWMOutputInvert
+    motor.o(i.InitializeMotors) refers to pwm.o(i.PWMOutputState) for PWMOutputState
+    motor.o(i.InitializeMotors) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
+    motor.o(i.InitializeMotors) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    motor.o(i.InitializeMotors) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    motor.o(i.InitializeMotors) refers to motor.o(.data) for .data
+    motor.o(i.SetMotorPower) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    motor.o(i.SetMotorPowers) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    servo.o(i.InitializeServos) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    servo.o(i.InitializeServos) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
+    servo.o(i.InitializeServos) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
+    servo.o(i.InitializeServos) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    servo.o(i.InitializeServos) refers to pwm.o(i.PWMOutputState) for PWMOutputState
+    servo.o(i.InitializeServos) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
+    servo.o(i.InitializeServos) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    servo.o(i.InitializeServos) refers to init.o(.data) for g_ulPWMTicksPerSecond
+    servo.o(i.InitializeServos) refers to servo.o(.data) for .data
+    servo.o(i.SetServoPosition) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    servo.o(i.SetServoPosition) refers to servo.o(.data) for .data
+    encoder.o(i.EncoderInterruptHandler) refers to gpio.o(i.GPIOPinIntStatus) for GPIOPinIntStatus
+    encoder.o(i.EncoderInterruptHandler) refers to gpio.o(i.GPIOPinIntClear) for GPIOPinIntClear
+    encoder.o(i.EncoderInterruptHandler) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
+    encoder.o(i.EncoderInterruptHandler) refers to encoder.o(.data) for .data
+    encoder.o(i.GetEncoderCount) refers to encoder.o(.data) for .data
+    encoder.o(i.GetEncoderCounts) refers to encoder.o(.data) for .data
+    encoder.o(i.InitializeEncoders) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    encoder.o(i.InitializeEncoders) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
+    encoder.o(i.InitializeEncoders) refers to interrupt.o(i.IntEnable) for IntEnable
+    encoder.o(i.InitializeEncoders) refers to gpio.o(i.GPIOIntTypeSet) for GPIOIntTypeSet
+    encoder.o(i.InitializeEncoders) refers to gpio.o(i.GPIOPinIntEnable) for GPIOPinIntEnable
+    encoder.o(i.InitializeEncoders) refers to encoder.o(.data) for .data
+    encoder.o(i.PresetEncoderCount) refers to encoder.o(.data) for .data
+    encoder.o(i.PresetEncoderCounts) refers to encoder.o(.data) for .data
     adc.o(i.ADCIntRegister) refers to interrupt.o(i.IntRegister) for IntRegister
     adc.o(i.ADCIntRegister) refers to interrupt.o(i.IntEnable) for IntEnable
     adc.o(i.ADCIntUnregister) refers to interrupt.o(i.IntDisable) for IntDisable
@@ -204,15 +205,22 @@ Section Cross References
     uart.o(i.UARTIntRegister) refers to interrupt.o(i.IntEnable) for IntEnable
     uart.o(i.UARTIntUnregister) refers to interrupt.o(i.IntDisable) for IntDisable
     uart.o(i.UARTIntUnregister) refers to interrupt.o(i.IntUnregister) for IntUnregister
-    timer.obj(.text:WaitUS) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    timer.obj(.text:WaitUS) refers to timer.o(i.TimerConfigure) for TimerConfigure
-    timer.obj(.text:WaitUS) refers to timer.o(i.TimerLoadSet) for TimerLoadSet
-    timer.obj(.text:WaitUS) refers to timer.o(i.TimerEnable) for TimerEnable
-    timer.obj(.text:WaitUS) refers to timer.o(i.TimerValueGet) for TimerValueGet
-    timer.obj(.text:WaitUS) refers to timer.o(i.TimerDisable) for TimerDisable
-    timer.obj(.text:WaitUS) refers to timer.obj(.data) for isTimerInitialized$1
-    timer.obj(.text:WaitUS) refers to init.obj(.bss) for g_ulTicksPerUs
-    timer.obj(.text:Wait) refers to timer.obj(.text:WaitUS) for WaitUS
+    timer.o(i.Wait) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    timer.o(i.Wait) refers to timer.o(i.TimerConfigure) for TimerConfigure
+    timer.o(i.Wait) refers to timer.o(i.TimerLoadSet) for TimerLoadSet
+    timer.o(i.Wait) refers to timer.o(i.TimerEnable) for TimerEnable
+    timer.o(i.Wait) refers to timer.o(i.TimerValueGet) for TimerValueGet
+    timer.o(i.Wait) refers to timer.o(i.TimerDisable) for TimerDisable
+    timer.o(i.Wait) refers to timer.o(.data) for .data
+    timer.o(i.Wait) refers to init.o(.data) for g_ulTicksPerUs
+    timer.o(i.WaitUS) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    timer.o(i.WaitUS) refers to timer.o(i.TimerConfigure) for TimerConfigure
+    timer.o(i.WaitUS) refers to timer.o(i.TimerLoadSet) for TimerLoadSet
+    timer.o(i.WaitUS) refers to timer.o(i.TimerEnable) for TimerEnable
+    timer.o(i.WaitUS) refers to timer.o(i.TimerValueGet) for TimerValueGet
+    timer.o(i.WaitUS) refers to timer.o(i.TimerDisable) for TimerDisable
+    timer.o(i.WaitUS) refers to timer.o(.data) for .data
+    timer.o(i.WaitUS) refers to init.o(.data) for g_ulTicksPerUs
     interrupt.o(i.IntMasterDisable) refers to cpu.o(.emb_text) for CPUcpsid
     interrupt.o(i.IntMasterEnable) refers to cpu.o(.emb_text) for CPUcpsie
     interrupt.o(i.IntPriorityGet) refers to interrupt.o(.constdata) for .constdata
@@ -254,16 +262,15 @@ Removing Unused input sections from the image.
 
     Removing startup.o(HEAP), (0 bytes).
     Removing startup.o(.text), (0 bytes).
-    Removing servo.obj(.text), (0 bytes).
-    Removing motor.obj(.text), (0 bytes).
-    Removing linesensor.obj(.text), (0 bytes).
-    Removing linesensor.obj(.const), (8 bytes).
-    Removing linesensor.obj(.text:SetDischargeTime), (24 bytes).
-    Removing linesensor.obj(.text:ReadLineSensorAsync), (12 bytes).
-    Removing linesensor.obj(.text:InitializeLineSensorAsync), (64 bytes).
-    Removing init.obj(.text), (0 bytes).
-    Removing encoder.obj(.text), (0 bytes).
-    Removing encoder.obj(.text:PresetEncoderCount), (28 bytes).
+    Removing linesensor.o(i.InitializeLineSensorAsync), (116 bytes).
+    Removing linesensor.o(i.ReadLS), (36 bytes).
+    Removing linesensor.o(i.ReadLineSensorAsync), (12 bytes).
+    Removing linesensor.o(i.SetDischargeTime), (20 bytes).
+    Removing linesensor.o(i.StartChargingLS), (56 bytes).
+    Removing linesensor.o(i.StartDischargingLS), (32 bytes).
+    Removing motor.o(i.SetMotorPower), (24 bytes).
+    Removing servo.o(.data), (2 bytes).
+    Removing encoder.o(i.PresetEncoderCount), (24 bytes).
     Removing adc.o(i.ADCComparatorConfigure), (10 bytes).
     Removing adc.o(i.ADCComparatorIntClear), (4 bytes).
     Removing adc.o(i.ADCComparatorIntDisable), (18 bytes).
@@ -384,8 +391,7 @@ Removing Unused input sections from the image.
     Removing uart.o(i.UARTSpaceAvail), (10 bytes).
     Removing uart.o(i.UARTTxIntModeGet), (8 bytes).
     Removing uart.o(i.UARTTxIntModeSet), (12 bytes).
-    Removing timer.obj(.text), (0 bytes).
-    Removing timer.obj(.text:Wait), (12 bytes).
+    Removing timer.o(i.Wait), (104 bytes).
     Removing interrupt.o(i.IntDefaultHandler), (2 bytes).
     Removing interrupt.o(i.IntDisable), (104 bytes).
     Removing interrupt.o(i.IntMasterDisable), (10 bytes).
@@ -447,7 +453,7 @@ Removing Unused input sections from the image.
     Removing timer.o(i.TimerRTCDisable), (10 bytes).
     Removing timer.o(i.TimerRTCEnable), (10 bytes).
 
-194 unused section(s) (total 4965 bytes) removed from the image.
+192 unused section(s) (total 5243 bytes) removed from the image.
 
 ==============================================================================
 
@@ -458,17 +464,11 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      268  startup.o(RESET)
-    ../../microlib/init/entry.s              0x00000000   Number         0  entry2.o ABSOLUTE
-    ../../microlib/init/entry.s              0x00000000   Number         0  entry5.o ABSOLUTE
-    ../../microlib/init/entry.s              0x00000000   Number         0  entry7.o ABSOLUTE
     ../../microlib/init/entry.s              0x00000000   Number         0  entry.o ABSOLUTE
-    ..\StellarisWare\utils\uartstdio.c       0x00000000   Number         0  uartstdio.o ABSOLUTE
-    0431611                                  0x00000000   Number         0  motor.obj ABSOLUTE
-    0444811                                  0x00000000   Number         0  servo.obj ABSOLUTE
-    0464811                                  0x00000000   Number         0  timer.obj ABSOLUTE
-    0523611                                  0x00000000   Number         0  linesensor.obj ABSOLUTE
-    0598011                                  0x00000000   Number         0  encoder.obj ABSOLUTE
-    0611211                                  0x00000000   Number         0  init.obj ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry7.o ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry5.o ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry2.o ABSOLUTE
+    ..\..\StellarisWare\utils\uartstdio.c    0x00000000   Number         0  uartstdio.o ABSOLUTE
     EncoderDemo.c                            0x00000000   Number         0  encoderdemo.o ABSOLUTE
     IRSensorDemo.c                           0x00000000   Number         0  irsensordemo.o ABSOLUTE
     LineSensorDemo.c                         0x00000000   Number         0  linesensordemo.o ABSOLUTE
@@ -481,13 +481,19 @@ Image Symbol Table
     cpu.c                                    0x00000000   Number         0  cpu.o ABSOLUTE
     cpu.c                                    0x00000000   Number         0  cpu.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    encoder.c                                0x00000000   Number         0  encoder.o ABSOLUTE
     gpio.c                                   0x00000000   Number         0  gpio.o ABSOLUTE
     handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.c                                   0x00000000   Number         0  init.o ABSOLUTE
     init.s                                   0x00000000   Number         0  init.o ABSOLUTE
     interrupt.c                              0x00000000   Number         0  interrupt.o ABSOLUTE
+    linesensor.c                             0x00000000   Number         0  linesensor.o ABSOLUTE
+    motor.c                                  0x00000000   Number         0  motor.o ABSOLUTE
     pwm.c                                    0x00000000   Number         0  pwm.o ABSOLUTE
+    servo.c                                  0x00000000   Number         0  servo.o ABSOLUTE
     sysctl.c                                 0x00000000   Number         0  sysctl.o ABSOLUTE
     sysctl.c                                 0x00000000   Number         0  sysctl.o ABSOLUTE
+    timer.c                                  0x00000000   Number         0  timer.o ABSOLUTE
     timer.c                                  0x00000000   Number         0  timer.o ABSOLUTE
     uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
     NmiSR                                    0x00000105   Thumb Code     0  startup.o(RESET)
@@ -501,204 +507,107 @@ Image Symbol Table
     __lit__00000000                          0x0000011c   Data           4  entry2.o(.ARM.Collect$$$$00002712)
     .emb_text                                0x00000120   Section        6  sysctl.o(.emb_text)
     .emb_text                                0x00000128   Section       26  cpu.o(.emb_text)
-    .text                                    0x00000144   Section      208  uartdemo.o(.text)
-    .text                                    0x00000214   Section      236  motordemo.o(.text)
-    .text                                    0x00000300   Section      244  servodemo.o(.text)
-    .text                                    0x000003f4   Section      184  linesensordemo.o(.text)
-    .text                                    0x000004ac   Section      228  irsensordemo.o(.text)
-    .text                                    0x00000590   Section      188  encoderdemo.o(.text)
-    .text                                    0x0000064c   Section      896  uartstdio.o(.text)
-    .text                                    0x000009cc   Section      400  robzdemo.o(.text)
+    .text                                    0x00000144   Section        0  uartdemo.o(.text)
+    .text                                    0x00000214   Section        0  motordemo.o(.text)
+    .text                                    0x000002f8   Section        0  servodemo.o(.text)
+    .text                                    0x000003ec   Section        0  linesensordemo.o(.text)
+    .text                                    0x000004a4   Section        0  irsensordemo.o(.text)
+    .text                                    0x00000588   Section        0  encoderdemo.o(.text)
+    .text                                    0x00000644   Section        0  uartstdio.o(.text)
+    .text                                    0x000009cc   Section        0  robzdemo.o(.text)
     .text                                    0x00000b5c   Section       36  init.o(.text)
-    .text:EncoderInterruptHandler            0x00000b80   Section      208  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L11                                   0x00000bd5   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L12                                   0x00000bdf   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L13                                   0x00000bef   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L14                                   0x00000bfb   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L15                                   0x00000c0d   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L16                                   0x00000c1b   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L17                                   0x00000c25   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L18                                   0x00000c2d   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$L19                                   0x00000c33   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$CON15                                 0x00000c38   Data           0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$CON16                                 0x00000c3c   Data           0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$CON17                                 0x00000c40   Data           0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$CON18                                 0x00000c44   Data           0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$CON19                                 0x00000c48   Data           0  encoder.obj(.text:EncoderInterruptHandler)
-    $C$CON20                                 0x00000c4c   Data           0  encoder.obj(.text:EncoderInterruptHandler)
-    .text:GetEncoderCount                    0x00000c50   Section       36  encoder.obj(.text:GetEncoderCount)
-    $C$L7                                    0x00000c5b   Thumb Code     0  encoder.obj(.text:GetEncoderCount)
-    $C$L8                                    0x00000c61   Thumb Code     0  encoder.obj(.text:GetEncoderCount)
-    $C$L9                                    0x00000c67   Thumb Code     0  encoder.obj(.text:GetEncoderCount)
-    $C$L10                                   0x00000c69   Thumb Code     0  encoder.obj(.text:GetEncoderCount)
-    $C$CON13                                 0x00000c6c   Data           0  encoder.obj(.text:GetEncoderCount)
-    $C$CON14                                 0x00000c70   Data           0  encoder.obj(.text:GetEncoderCount)
-    .text:GetEncoderCounts                   0x00000c74   Section       24  encoder.obj(.text:GetEncoderCounts)
-    $C$CON11                                 0x00000c84   Data           0  encoder.obj(.text:GetEncoderCounts)
-    $C$CON12                                 0x00000c88   Data           0  encoder.obj(.text:GetEncoderCounts)
-    .text:InitializeEncoders                 0x00000c8c   Section      148  encoder.obj(.text:InitializeEncoders)
-    $C$L3                                    0x00000cf3   Thumb Code     0  encoder.obj(.text:InitializeEncoders)
-    $C$L4                                    0x00000cf9   Thumb Code     0  encoder.obj(.text:InitializeEncoders)
-    $C$L5                                    0x00000d03   Thumb Code     0  encoder.obj(.text:InitializeEncoders)
-    $C$L6                                    0x00000d09   Thumb Code     0  encoder.obj(.text:InitializeEncoders)
-    $C$CON6                                  0x00000d0c   Data           0  encoder.obj(.text:InitializeEncoders)
-    $C$CON7                                  0x00000d10   Data           0  encoder.obj(.text:InitializeEncoders)
-    $C$CON8                                  0x00000d14   Data           0  encoder.obj(.text:InitializeEncoders)
-    $C$CON9                                  0x00000d18   Data           0  encoder.obj(.text:InitializeEncoders)
-    $C$CON10                                 0x00000d1c   Data           0  encoder.obj(.text:InitializeEncoders)
-    .text:InitializeLineSensor               0x00000d20   Section       60  linesensor.obj(.text:InitializeLineSensor)
-    $C$CON16                                 0x00000d4c   Data           0  linesensor.obj(.text:InitializeLineSensor)
-    $C$CON17                                 0x00000d50   Data           0  linesensor.obj(.text:InitializeLineSensor)
-    $C$CON18                                 0x00000d54   Data           0  linesensor.obj(.text:InitializeLineSensor)
-    $C$CON19                                 0x00000d58   Data           0  linesensor.obj(.text:InitializeLineSensor)
-    .text:InitializeMCU                      0x00000d5c   Section       68  init.obj(.text:InitializeMCU)
-    $C$CON3                                  0x00000d8c   Data           0  init.obj(.text:InitializeMCU)
-    $C$CON4                                  0x00000d90   Data           0  init.obj(.text:InitializeMCU)
-    $C$CON5                                  0x00000d94   Data           0  init.obj(.text:InitializeMCU)
-    $C$CON6                                  0x00000d98   Data           0  init.obj(.text:InitializeMCU)
-    $C$CON7                                  0x00000d9c   Data           0  init.obj(.text:InitializeMCU)
-    .text:InitializeMotors                   0x00000da0   Section      192  motor.obj(.text:InitializeMotors)
-    $C$CON3                                  0x00000e48   Data           0  motor.obj(.text:InitializeMotors)
-    $C$CON5                                  0x00000e4c   Data           0  motor.obj(.text:InitializeMotors)
-    $C$CON6                                  0x00000e50   Data           0  motor.obj(.text:InitializeMotors)
-    $C$CON7                                  0x00000e54   Data           0  motor.obj(.text:InitializeMotors)
-    $C$CON8                                  0x00000e58   Data           0  motor.obj(.text:InitializeMotors)
-    $C$CON9                                  0x00000e5c   Data           0  motor.obj(.text:InitializeMotors)
-    .text:InitializeServos                   0x00000e60   Section      204  servo.obj(.text:InitializeServos)
-    $C$CON5                                  0x00000f10   Data           0  servo.obj(.text:InitializeServos)
-    $C$CON6                                  0x00000f14   Data           0  servo.obj(.text:InitializeServos)
-    $C$CON7                                  0x00000f18   Data           0  servo.obj(.text:InitializeServos)
-    $C$CON8                                  0x00000f1c   Data           0  servo.obj(.text:InitializeServos)
-    $C$CON9                                  0x00000f20   Data           0  servo.obj(.text:InitializeServos)
-    $C$CON10                                 0x00000f24   Data           0  servo.obj(.text:InitializeServos)
-    $C$CON11                                 0x00000f28   Data           0  servo.obj(.text:InitializeServos)
-    .text:LSIntHandler                       0x00000f2c   Section      100  linesensor.obj(.text:LSIntHandler)
-    $C$L2                                    0x00000f4f   Thumb Code     0  linesensor.obj(.text:LSIntHandler)
-    $C$L3                                    0x00000f63   Thumb Code     0  linesensor.obj(.text:LSIntHandler)
-    $C$L4                                    0x00000f77   Thumb Code     0  linesensor.obj(.text:LSIntHandler)
-    $C$CON10                                 0x00000f7c   Data           0  linesensor.obj(.text:LSIntHandler)
-    $C$CON11                                 0x00000f80   Data           0  linesensor.obj(.text:LSIntHandler)
-    $C$CON12                                 0x00000f84   Data           0  linesensor.obj(.text:LSIntHandler)
-    $C$CON13                                 0x00000f88   Data           0  linesensor.obj(.text:LSIntHandler)
-    $C$CON14                                 0x00000f8c   Data           0  linesensor.obj(.text:LSIntHandler)
-    .text:LockoutProtection                  0x00000f90   Section       40  init.obj(.text:LockoutProtection)
-    $C$DW$L$LockoutProtection$4$B            0x00000fad   Thumb Code     0  init.obj(.text:LockoutProtection)
-    $C$L1                                    0x00000fad   Thumb Code     0  init.obj(.text:LockoutProtection)
-    $C$DW$L$LockoutProtection$4$E            0x00000faf   Thumb Code     0  init.obj(.text:LockoutProtection)
-    $C$L2                                    0x00000faf   Thumb Code     0  init.obj(.text:LockoutProtection)
-    $C$CON1                                  0x00000fb0   Data           0  init.obj(.text:LockoutProtection)
-    $C$CON2                                  0x00000fb4   Data           0  init.obj(.text:LockoutProtection)
-    .text:PresetEncoderCounts                0x00000fb8   Section       20  encoder.obj(.text:PresetEncoderCounts)
-    $C$CON1                                  0x00000fc4   Data           0  encoder.obj(.text:PresetEncoderCounts)
-    $C$CON2                                  0x00000fc8   Data           0  encoder.obj(.text:PresetEncoderCounts)
-    .text:ReadLS                             0x00000fcc   Section       40  linesensor.obj(.text:ReadLS)
-    $C$CON7                                  0x00000fec   Data           0  linesensor.obj(.text:ReadLS)
-    $C$CON8                                  0x00000ff0   Data           0  linesensor.obj(.text:ReadLS)
-    .text:ReadLineSensor                     0x00000ff4   Section       36  linesensor.obj(.text:ReadLineSensor)
-    $C$CON9                                  0x00001014   Data           0  linesensor.obj(.text:ReadLineSensor)
-    .text:SetMotorPower                      0x00001018   Section       20  motor.obj(.text:SetMotorPower)
-    $C$CON1                                  0x00001028   Data           0  motor.obj(.text:SetMotorPower)
-    .text:SetMotorPowers                     0x0000102c   Section       22  motor.obj(.text:SetMotorPowers)
-    .text:SetServoPosition                   0x00001044   Section       40  servo.obj(.text:SetServoPosition)
-    $C$CON1                                  0x00001060   Data           0  servo.obj(.text:SetServoPosition)
-    $C$CON2                                  0x00001064   Data           0  servo.obj(.text:SetServoPosition)
-    $C$CON3                                  0x00001068   Data           0  servo.obj(.text:SetServoPosition)
-    .text:StartChargingLS                    0x0000106c   Section       52  linesensor.obj(.text:StartChargingLS)
-    $C$CON3                                  0x00001098   Data           0  linesensor.obj(.text:StartChargingLS)
-    $C$CON4                                  0x0000109c   Data           0  linesensor.obj(.text:StartChargingLS)
-    .text:StartDischargingLS                 0x000010a0   Section       28  linesensor.obj(.text:StartDischargingLS)
-    $C$CON1                                  0x000010b4   Data           0  linesensor.obj(.text:StartDischargingLS)
-    $C$CON2                                  0x000010b8   Data           0  linesensor.obj(.text:StartDischargingLS)
-    .text:WaitUS                             0x000010bc   Section       96  timer.obj(.text:WaitUS)
-    $C$L1                                    0x000010db   Thumb Code     0  timer.obj(.text:WaitUS)
-    $C$DW$L$WaitUS$7$B                       0x000010f3   Thumb Code     0  timer.obj(.text:WaitUS)
-    $C$L2                                    0x000010f3   Thumb Code     0  timer.obj(.text:WaitUS)
-    $C$DW$L$WaitUS$7$E                       0x000010fb   Thumb Code     0  timer.obj(.text:WaitUS)
-    $C$DW$L$WaitUS$8$B                       0x000010fb   Thumb Code     0  timer.obj(.text:WaitUS)
-    $C$DW$L$WaitUS$8$E                       0x000010ff   Thumb Code     0  timer.obj(.text:WaitUS)
-    $C$CON1                                  0x0000110c   Data           0  timer.obj(.text:WaitUS)
-    $C$CON2                                  0x00001110   Data           0  timer.obj(.text:WaitUS)
-    $C$CON3                                  0x00001114   Data           0  timer.obj(.text:WaitUS)
-    $C$CON4                                  0x00001118   Data           0  timer.obj(.text:WaitUS)
-    i.ADCIntStatus                           0x0000111c   Section       52  adc.o(i.ADCIntStatus)
-    i.ADCProcessorTrigger                    0x00001150   Section       26  adc.o(i.ADCProcessorTrigger)
-    i.ADCSequenceConfigure                   0x0000116a   Section       50  adc.o(i.ADCSequenceConfigure)
-    i.ADCSequenceDataGet                     0x0000119c   Section       36  adc.o(i.ADCSequenceDataGet)
-    i.ADCSequenceEnable                      0x000011c0   Section       14  adc.o(i.ADCSequenceEnable)
-    i.ADCSequenceStepConfigure               0x000011ce   Section      110  adc.o(i.ADCSequenceStepConfigure)
-    i.GPIODirModeSet                         0x0000123c   Section       40  gpio.o(i.GPIODirModeSet)
-    i.GPIOIntTypeSet                         0x00001264   Section       58  gpio.o(i.GPIOIntTypeSet)
-    i.GPIOPadConfigSet                       0x0000129e   Section      176  gpio.o(i.GPIOPadConfigSet)
-    i.GPIOPinIntClear                        0x0000134e   Section        6  gpio.o(i.GPIOPinIntClear)
-    i.GPIOPinIntEnable                       0x00001354   Section       12  gpio.o(i.GPIOPinIntEnable)
-    i.GPIOPinIntStatus                       0x00001360   Section       14  gpio.o(i.GPIOPinIntStatus)
-    i.GPIOPinRead                            0x0000136e   Section        6  gpio.o(i.GPIOPinRead)
-    i.GPIOPinTypeGPIOInput                   0x00001374   Section       28  gpio.o(i.GPIOPinTypeGPIOInput)
-    i.GPIOPinTypeGPIOOutput                  0x00001390   Section       28  gpio.o(i.GPIOPinTypeGPIOOutput)
-    i.GPIOPinTypePWM                         0x000013ac   Section       28  gpio.o(i.GPIOPinTypePWM)
-    i.GPIOPinTypeUART                        0x000013c8   Section       28  gpio.o(i.GPIOPinTypeUART)
-    i.GPIOPinWrite                           0x000013e4   Section        6  gpio.o(i.GPIOPinWrite)
-    i.IntEnable                              0x000013ea   Section      104  interrupt.o(i.IntEnable)
-    i.IntMasterEnable                        0x00001452   Section       10  interrupt.o(i.IntMasterEnable)
-    i.PWMGenConfigure                        0x0000145c   Section       38  pwm.o(i.PWMGenConfigure)
-    i.PWMGenEnable                           0x00001482   Section       10  pwm.o(i.PWMGenEnable)
-    i.PWMGenPeriodSet                        0x0000148c   Section       18  pwm.o(i.PWMGenPeriodSet)
-    i.PWMOutputInvert                        0x0000149e   Section       16  pwm.o(i.PWMOutputInvert)
-    i.PWMOutputState                         0x000014ae   Section       16  pwm.o(i.PWMOutputState)
-    i.PWMPulseWidthSet                       0x000014be   Section       32  pwm.o(i.PWMPulseWidthSet)
-    i.SysCtlClockGet                         0x000014e0   Section      484  sysctl.o(i.SysCtlClockGet)
-    i.SysCtlClockSet                         0x000016c4   Section      312  sysctl.o(i.SysCtlClockSet)
-    i.SysCtlPWMClockSet                      0x000017fc   Section       20  sysctl.o(i.SysCtlPWMClockSet)
-    i.SysCtlPeripheralEnable                 0x00001810   Section       32  sysctl.o(i.SysCtlPeripheralEnable)
-    i.SysCtlPeripheralPresent                0x00001830   Section       64  sysctl.o(i.SysCtlPeripheralPresent)
-    i.TimerConfigure                         0x00001870   Section       28  timer.o(i.TimerConfigure)
-    i.TimerDisable                           0x0000188c   Section       16  timer.o(i.TimerDisable)
-    i.TimerEnable                            0x0000189c   Section       14  timer.o(i.TimerEnable)
-    i.TimerIntClear                          0x000018aa   Section        4  timer.o(i.TimerIntClear)
-    i.TimerLoadSet                           0x000018ae   Section       18  timer.o(i.TimerLoadSet)
-    i.TimerValueGet                          0x000018c0   Section       10  timer.o(i.TimerValueGet)
-    i.UARTCharGet                            0x000018ca   Section       12  uart.o(i.UARTCharGet)
-    i.UARTCharPut                            0x000018d6   Section       12  uart.o(i.UARTCharPut)
-    i.UARTCharsAvail                         0x000018e2   Section       10  uart.o(i.UARTCharsAvail)
-    i.UARTConfigSetExpClk                    0x000018ec   Section      110  uart.o(i.UARTConfigSetExpClk)
-    i.UARTEnable                             0x0000195a   Section       20  uart.o(i.UARTEnable)
-    i.__scatterload_copy                     0x0000196e   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0000197c   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0000197e   Section       14  handlers.o(i.__scatterload_zeroinit)
-    .constdata                               0x0000198c   Section       28  uartstdio.o(.constdata)
-    g_pcHex                                  0x0000198c   Data           4  uartstdio.o(.constdata)
-    g_ulUARTBase                             0x00001990   Data          12  uartstdio.o(.constdata)
-    g_ulUARTPeriph                           0x0000199c   Data          12  uartstdio.o(.constdata)
-    .constdata                               0x000019a8   Section      156  sysctl.o(.constdata)
-    g_pulDCRegs                              0x000019a8   Data          16  sysctl.o(.constdata)
-    g_pulSRCRRegs                            0x000019b8   Data          12  sysctl.o(.constdata)
-    g_pulRCGCRegs                            0x000019c4   Data          12  sysctl.o(.constdata)
-    g_pulSCGCRegs                            0x000019d0   Data          12  sysctl.o(.constdata)
-    g_pulDCGCRegs                            0x000019dc   Data          12  sysctl.o(.constdata)
-    g_pulXtals                               0x000019e8   Data          92  sysctl.o(.constdata)
-    .conststring                             0x00001a44   Section       17  uartstdio.o(.conststring)
+    i.ADCIntStatus                           0x00000b80   Section        0  adc.o(i.ADCIntStatus)
+    i.ADCProcessorTrigger                    0x00000bb4   Section        0  adc.o(i.ADCProcessorTrigger)
+    i.ADCSequenceConfigure                   0x00000bce   Section        0  adc.o(i.ADCSequenceConfigure)
+    i.ADCSequenceDataGet                     0x00000c00   Section        0  adc.o(i.ADCSequenceDataGet)
+    i.ADCSequenceEnable                      0x00000c24   Section        0  adc.o(i.ADCSequenceEnable)
+    i.ADCSequenceStepConfigure               0x00000c32   Section        0  adc.o(i.ADCSequenceStepConfigure)
+    i.EncoderInterruptHandler                0x00000ca0   Section        0  encoder.o(i.EncoderInterruptHandler)
+    i.GPIODirModeSet                         0x00000d80   Section        0  gpio.o(i.GPIODirModeSet)
+    i.GPIOIntTypeSet                         0x00000da8   Section        0  gpio.o(i.GPIOIntTypeSet)
+    i.GPIOPadConfigSet                       0x00000de2   Section        0  gpio.o(i.GPIOPadConfigSet)
+    i.GPIOPinIntClear                        0x00000e92   Section        0  gpio.o(i.GPIOPinIntClear)
+    i.GPIOPinIntEnable                       0x00000e98   Section        0  gpio.o(i.GPIOPinIntEnable)
+    i.GPIOPinIntStatus                       0x00000ea4   Section        0  gpio.o(i.GPIOPinIntStatus)
+    i.GPIOPinRead                            0x00000eb2   Section        0  gpio.o(i.GPIOPinRead)
+    i.GPIOPinTypeGPIOInput                   0x00000eb8   Section        0  gpio.o(i.GPIOPinTypeGPIOInput)
+    i.GPIOPinTypeGPIOOutput                  0x00000ed4   Section        0  gpio.o(i.GPIOPinTypeGPIOOutput)
+    i.GPIOPinTypePWM                         0x00000ef0   Section        0  gpio.o(i.GPIOPinTypePWM)
+    i.GPIOPinTypeUART                        0x00000f0c   Section        0  gpio.o(i.GPIOPinTypeUART)
+    i.GPIOPinWrite                           0x00000f28   Section        0  gpio.o(i.GPIOPinWrite)
+    i.GetEncoderCount                        0x00000f30   Section        0  encoder.o(i.GetEncoderCount)
+    i.GetEncoderCounts                       0x00000f48   Section        0  encoder.o(i.GetEncoderCounts)
+    i.InitializeEncoders                     0x00000f58   Section        0  encoder.o(i.InitializeEncoders)
+    i.InitializeLineSensor                   0x00000fe4   Section        0  linesensor.o(i.InitializeLineSensor)
+    i.InitializeMCU                          0x00001020   Section        0  init.o(i.InitializeMCU)
+    i.InitializeMotors                       0x00001058   Section        0  motor.o(i.InitializeMotors)
+    i.InitializeServos                       0x00001128   Section        0  servo.o(i.InitializeServos)
+    i.IntEnable                              0x0000123c   Section        0  interrupt.o(i.IntEnable)
+    i.IntMasterEnable                        0x000012a4   Section        0  interrupt.o(i.IntMasterEnable)
+    i.LSIntHandler                           0x000012b0   Section        0  linesensor.o(i.LSIntHandler)
+    i.LockoutProtection                      0x00001360   Section        0  init.o(i.LockoutProtection)
+    i.PWMGenConfigure                        0x0000138c   Section        0  pwm.o(i.PWMGenConfigure)
+    i.PWMGenEnable                           0x000013b2   Section        0  pwm.o(i.PWMGenEnable)
+    i.PWMGenPeriodSet                        0x000013bc   Section        0  pwm.o(i.PWMGenPeriodSet)
+    i.PWMOutputInvert                        0x000013ce   Section        0  pwm.o(i.PWMOutputInvert)
+    i.PWMOutputState                         0x000013de   Section        0  pwm.o(i.PWMOutputState)
+    i.PWMPulseWidthSet                       0x000013ee   Section        0  pwm.o(i.PWMPulseWidthSet)
+    i.PresetEncoderCounts                    0x00001410   Section        0  encoder.o(i.PresetEncoderCounts)
+    i.ReadLineSensor                         0x0000141c   Section        0  linesensor.o(i.ReadLineSensor)
+    i.SetMotorPowers                         0x00001488   Section        0  motor.o(i.SetMotorPowers)
+    i.SetServoPosition                       0x000014c0   Section        0  servo.o(i.SetServoPosition)
+    i.SysCtlClockGet                         0x000014e4   Section        0  sysctl.o(i.SysCtlClockGet)
+    i.SysCtlClockSet                         0x000016c8   Section        0  sysctl.o(i.SysCtlClockSet)
+    i.SysCtlPWMClockSet                      0x00001800   Section        0  sysctl.o(i.SysCtlPWMClockSet)
+    i.SysCtlPeripheralEnable                 0x00001814   Section        0  sysctl.o(i.SysCtlPeripheralEnable)
+    i.SysCtlPeripheralPresent                0x00001834   Section        0  sysctl.o(i.SysCtlPeripheralPresent)
+    i.TimerConfigure                         0x00001874   Section        0  timer.o(i.TimerConfigure)
+    i.TimerDisable                           0x00001890   Section        0  timer.o(i.TimerDisable)
+    i.TimerEnable                            0x000018a0   Section        0  timer.o(i.TimerEnable)
+    i.TimerIntClear                          0x000018ae   Section        0  timer.o(i.TimerIntClear)
+    i.TimerLoadSet                           0x000018b2   Section        0  timer.o(i.TimerLoadSet)
+    i.TimerValueGet                          0x000018c4   Section        0  timer.o(i.TimerValueGet)
+    i.UARTCharGet                            0x000018ce   Section        0  uart.o(i.UARTCharGet)
+    i.UARTCharPut                            0x000018da   Section        0  uart.o(i.UARTCharPut)
+    i.UARTCharsAvail                         0x000018e6   Section        0  uart.o(i.UARTCharsAvail)
+    i.UARTConfigSetExpClk                    0x000018f0   Section        0  uart.o(i.UARTConfigSetExpClk)
+    i.UARTEnable                             0x0000195e   Section        0  uart.o(i.UARTEnable)
+    i.WaitUS                                 0x00001974   Section        0  timer.o(i.WaitUS)
+    i.__scatterload_copy                     0x000019d4   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000019e2   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000019e4   Section       14  handlers.o(i.__scatterload_zeroinit)
+    .constdata                               0x000019f4   Section       28  uartstdio.o(.constdata)
+    g_pcHex                                  0x000019f4   Data           4  uartstdio.o(.constdata)
+    g_ulUARTBase                             0x000019f8   Data          12  uartstdio.o(.constdata)
+    g_ulUARTPeriph                           0x00001a04   Data          12  uartstdio.o(.constdata)
+    .constdata                               0x00001a10   Section      156  sysctl.o(.constdata)
+    g_pulDCRegs                              0x00001a10   Data          16  sysctl.o(.constdata)
+    g_pulSRCRRegs                            0x00001a20   Data          12  sysctl.o(.constdata)
+    g_pulRCGCRegs                            0x00001a2c   Data          12  sysctl.o(.constdata)
+    g_pulSCGCRegs                            0x00001a38   Data          12  sysctl.o(.constdata)
+    g_pulDCGCRegs                            0x00001a44   Data          12  sysctl.o(.constdata)
+    g_pulXtals                               0x00001a50   Data          92  sysctl.o(.constdata)
+    .conststring                             0x00001aac   Section       17  uartstdio.o(.conststring)
     .data                                    0x20000000   Section        5  uartstdio.o(.data)
     g_ulBase                                 0x20000000   Data           4  uartstdio.o(.data)
     bLastWasCR                               0x20000004   Data           1  uartstdio.o(.data)
-    .data                                    0x20000008   Section        1  linesensor.obj(.data)
-    readyToRead$1                            0x20000008   Data           0  linesensor.obj(.data)
-    .data                                    0x2000000c   Section        8  encoder.obj(.data)
-    enc0                                     0x2000000c   Data           0  encoder.obj(.data)
-    enc1                                     0x20000010   Data           0  encoder.obj(.data)
-    .data                                    0x20000014   Section        1  timer.obj(.data)
-    isTimerInitialized$1                     0x20000014   Data           0  timer.obj(.data)
-    .bss                                     0x20000018   Section        8  servo.obj(.bss)
-    us600                                    0x20000018   Data           0  servo.obj(.bss)
-    us2400                                   0x2000001c   Data           0  servo.obj(.bss)
-    .bss                                     0x20000020   Section        4  motor.obj(.bss)
-    s_ulMotorPeriod                          0x20000020   Data           0  motor.obj(.bss)
-    .bss                                     0x20000024   Section        5  linesensor.obj(.bss)
-    ls_dischargeTime                         0x20000024   Data           0  linesensor.obj(.bss)
-    last_ls                                  0x20000028   Data           0  linesensor.obj(.bss)
-    .bss                                     0x2000002c   Section       12  init.obj(.bss)
-    .bss                                     0x20000038   Section        8  encoder.obj(.bss)
-    dir0                                     0x20000038   Data           0  encoder.obj(.bss)
-    dir1                                     0x2000003c   Data           0  encoder.obj(.bss)
+    .data                                    0x20000008   Section       12  init.o(.data)
+    .data                                    0x20000014   Section        8  linesensor.o(.data)
+    readyToRead                              0x20000014   Data           1  linesensor.o(.data)
+    last_ls                                  0x20000015   Data           1  linesensor.o(.data)
+    ls_dischargeTime                         0x20000018   Data           4  linesensor.o(.data)
+    .data                                    0x2000001c   Section        4  motor.o(.data)
+    s_ulMotorPeriod                          0x2000001c   Data           4  motor.o(.data)
+    .data                                    0x20000020   Section        8  servo.o(.data)
+    us600                                    0x20000020   Data           4  servo.o(.data)
+    us2400                                   0x20000024   Data           4  servo.o(.data)
+    .data                                    0x20000028   Section       16  encoder.o(.data)
+    enc0                                     0x20000028   Data           4  encoder.o(.data)
+    enc1                                     0x2000002c   Data           4  encoder.o(.data)
+    dir0                                     0x20000030   Data           4  encoder.o(.data)
+    dir1                                     0x20000034   Data           4  encoder.o(.data)
+    .data                                    0x20000038   Section        1  timer.o(.data)
+    isTimerInitialized                       0x20000038   Data           1  timer.o(.data)
     STACK                                    0x20000040   Section      256  startup.o(STACK)
     StackMem                                 0x20000040   Data           0  startup.o(STACK)
 
@@ -706,7 +615,7 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    BuildAttributes$$THM_ISAv4$P$D$K$B$S$PE$FZ_POSZERO$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    BuildAttributes$$THM_ISAv4$P$D$K$B$S$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __ARM_use_no_argv                        0x00000000   Number         0  robzdemo.o ABSOLUTE
     __Vectors                                0x00000000   Data           0  startup.o(RESET)
     __decompress                              - Undefined Weak Reference
@@ -727,94 +636,90 @@ Image Symbol Table
     uartDemo                                 0x00000179   Thumb Code    62  uartdemo.o(.text)
     keyWasPressed                            0x000001b7   Thumb Code    18  uartdemo.o(.text)
     initMotors                               0x00000215   Thumb Code    12  motordemo.o(.text)
-    motorDemo                                0x00000221   Thumb Code   140  motordemo.o(.text)
-    initServo                                0x00000301   Thumb Code     8  servodemo.o(.text)
-    servoDemo                                0x00000309   Thumb Code   134  servodemo.o(.text)
-    initLineSensor                           0x000003f5   Thumb Code     8  linesensordemo.o(.text)
-    lineSensorDemo                           0x000003fd   Thumb Code    94  linesensordemo.o(.text)
-    initIRSensor                             0x000004ad   Thumb Code    42  irsensordemo.o(.text)
-    getADCValue                              0x000004d7   Thumb Code    44  irsensordemo.o(.text)
-    IRSensorDemo                             0x00000503   Thumb Code    48  irsensordemo.o(.text)
-    initEncoders                             0x00000591   Thumb Code    12  encoderdemo.o(.text)
-    encoderDemo                              0x0000059d   Thumb Code    78  encoderdemo.o(.text)
-    UARTStdioInitExpClk                      0x0000064d   Thumb Code    72  uartstdio.o(.text)
-    UARTStdioInit                            0x00000695   Thumb Code    16  uartstdio.o(.text)
-    UARTwrite                                0x000006a5   Thumb Code    46  uartstdio.o(.text)
-    UARTgets                                 0x000006d3   Thumb Code   132  uartstdio.o(.text)
-    UARTgetc                                 0x00000757   Thumb Code    14  uartstdio.o(.text)
-    UARTprintf                               0x00000765   Thumb Code   588  uartstdio.o(.text)
-    main                                     0x000009cd   Thumb Code   180  robzdemo.o(.text)
+    motorDemo                                0x00000221   Thumb Code   132  motordemo.o(.text)
+    initServo                                0x000002f9   Thumb Code     8  servodemo.o(.text)
+    servoDemo                                0x00000301   Thumb Code   134  servodemo.o(.text)
+    initLineSensor                           0x000003ed   Thumb Code     8  linesensordemo.o(.text)
+    lineSensorDemo                           0x000003f5   Thumb Code    94  linesensordemo.o(.text)
+    initIRSensor                             0x000004a5   Thumb Code    42  irsensordemo.o(.text)
+    getADCValue                              0x000004cf   Thumb Code    44  irsensordemo.o(.text)
+    IRSensorDemo                             0x000004fb   Thumb Code    48  irsensordemo.o(.text)
+    initEncoders                             0x00000589   Thumb Code    12  encoderdemo.o(.text)
+    encoderDemo                              0x00000595   Thumb Code    78  encoderdemo.o(.text)
+    UARTStdioInitExpClk                      0x00000645   Thumb Code    72  uartstdio.o(.text)
+    UARTStdioInit                            0x0000068d   Thumb Code    16  uartstdio.o(.text)
+    UARTwrite                                0x0000069d   Thumb Code    46  uartstdio.o(.text)
+    UARTgets                                 0x000006cb   Thumb Code   126  uartstdio.o(.text)
+    UARTgetc                                 0x00000749   Thumb Code    14  uartstdio.o(.text)
+    UARTprintf                               0x00000757   Thumb Code   590  uartstdio.o(.text)
+    main                                     0x000009cd   Thumb Code   178  robzdemo.o(.text)
     __scatterload                            0x00000b5d   Thumb Code    28  init.o(.text)
     __scatterload_rt2                        0x00000b5d   Thumb Code     0  init.o(.text)
-    EncoderInterruptHandler                  0x00000b81   Thumb Code     0  encoder.obj(.text:EncoderInterruptHandler)
-    GetEncoderCount                          0x00000c51   Thumb Code     0  encoder.obj(.text:GetEncoderCount)
-    GetEncoderCounts                         0x00000c75   Thumb Code     0  encoder.obj(.text:GetEncoderCounts)
-    InitializeEncoders                       0x00000c8d   Thumb Code     0  encoder.obj(.text:InitializeEncoders)
-    InitializeLineSensor                     0x00000d21   Thumb Code     0  linesensor.obj(.text:InitializeLineSensor)
-    InitializeMCU                            0x00000d5d   Thumb Code     0  init.obj(.text:InitializeMCU)
-    InitializeMotors                         0x00000da1   Thumb Code     0  motor.obj(.text:InitializeMotors)
-    InitializeServos                         0x00000e61   Thumb Code     0  servo.obj(.text:InitializeServos)
-    LSIntHandler                             0x00000f2d   Thumb Code     0  linesensor.obj(.text:LSIntHandler)
-    LockoutProtection                        0x00000f91   Thumb Code     0  init.obj(.text:LockoutProtection)
-    PresetEncoderCounts                      0x00000fb9   Thumb Code     0  encoder.obj(.text:PresetEncoderCounts)
-    ReadLS                                   0x00000fcd   Thumb Code     0  linesensor.obj(.text:ReadLS)
-    ReadLineSensor                           0x00000ff5   Thumb Code     0  linesensor.obj(.text:ReadLineSensor)
-    SetMotorPower                            0x00001019   Thumb Code     0  motor.obj(.text:SetMotorPower)
-    SetMotorPowers                           0x0000102d   Thumb Code     0  motor.obj(.text:SetMotorPowers)
-    SetServoPosition                         0x00001045   Thumb Code     0  servo.obj(.text:SetServoPosition)
-    StartChargingLS                          0x0000106d   Thumb Code     0  linesensor.obj(.text:StartChargingLS)
-    StartDischargingLS                       0x000010a1   Thumb Code     0  linesensor.obj(.text:StartDischargingLS)
-    WaitUS                                   0x000010bd   Thumb Code     0  timer.obj(.text:WaitUS)
-    ADCIntStatus                             0x0000111d   Thumb Code    52  adc.o(i.ADCIntStatus)
-    ADCProcessorTrigger                      0x00001151   Thumb Code    26  adc.o(i.ADCProcessorTrigger)
-    ADCSequenceConfigure                     0x0000116b   Thumb Code    50  adc.o(i.ADCSequenceConfigure)
-    ADCSequenceDataGet                       0x0000119d   Thumb Code    36  adc.o(i.ADCSequenceDataGet)
-    ADCSequenceEnable                        0x000011c1   Thumb Code    14  adc.o(i.ADCSequenceEnable)
-    ADCSequenceStepConfigure                 0x000011cf   Thumb Code   110  adc.o(i.ADCSequenceStepConfigure)
-    GPIODirModeSet                           0x0000123d   Thumb Code    40  gpio.o(i.GPIODirModeSet)
-    GPIOIntTypeSet                           0x00001265   Thumb Code    58  gpio.o(i.GPIOIntTypeSet)
-    GPIOPadConfigSet                         0x0000129f   Thumb Code   176  gpio.o(i.GPIOPadConfigSet)
-    GPIOPinIntClear                          0x0000134f   Thumb Code     6  gpio.o(i.GPIOPinIntClear)
-    GPIOPinIntEnable                         0x00001355   Thumb Code    12  gpio.o(i.GPIOPinIntEnable)
-    GPIOPinIntStatus                         0x00001361   Thumb Code    14  gpio.o(i.GPIOPinIntStatus)
-    GPIOPinRead                              0x0000136f   Thumb Code     6  gpio.o(i.GPIOPinRead)
-    GPIOPinTypeGPIOInput                     0x00001375   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOInput)
-    GPIOPinTypeGPIOOutput                    0x00001391   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOOutput)
-    GPIOPinTypePWM                           0x000013ad   Thumb Code    28  gpio.o(i.GPIOPinTypePWM)
-    GPIOPinTypeUART                          0x000013c9   Thumb Code    28  gpio.o(i.GPIOPinTypeUART)
-    GPIOPinWrite                             0x000013e5   Thumb Code     6  gpio.o(i.GPIOPinWrite)
-    IntEnable                                0x000013eb   Thumb Code   104  interrupt.o(i.IntEnable)
-    IntMasterEnable                          0x00001453   Thumb Code    10  interrupt.o(i.IntMasterEnable)
-    PWMGenConfigure                          0x0000145d   Thumb Code    38  pwm.o(i.PWMGenConfigure)
-    PWMGenEnable                             0x00001483   Thumb Code    10  pwm.o(i.PWMGenEnable)
-    PWMGenPeriodSet                          0x0000148d   Thumb Code    18  pwm.o(i.PWMGenPeriodSet)
-    PWMOutputInvert                          0x0000149f   Thumb Code    16  pwm.o(i.PWMOutputInvert)
-    PWMOutputState                           0x000014af   Thumb Code    16  pwm.o(i.PWMOutputState)
-    PWMPulseWidthSet                         0x000014bf   Thumb Code    32  pwm.o(i.PWMPulseWidthSet)
-    SysCtlClockGet                           0x000014e1   Thumb Code   438  sysctl.o(i.SysCtlClockGet)
-    SysCtlClockSet                           0x000016c5   Thumb Code   288  sysctl.o(i.SysCtlClockSet)
-    SysCtlPWMClockSet                        0x000017fd   Thumb Code    14  sysctl.o(i.SysCtlPWMClockSet)
-    SysCtlPeripheralEnable                   0x00001811   Thumb Code    26  sysctl.o(i.SysCtlPeripheralEnable)
-    SysCtlPeripheralPresent                  0x00001831   Thumb Code    50  sysctl.o(i.SysCtlPeripheralPresent)
-    TimerConfigure                           0x00001871   Thumb Code    28  timer.o(i.TimerConfigure)
-    TimerDisable                             0x0000188d   Thumb Code    16  timer.o(i.TimerDisable)
-    TimerEnable                              0x0000189d   Thumb Code    14  timer.o(i.TimerEnable)
-    TimerIntClear                            0x000018ab   Thumb Code     4  timer.o(i.TimerIntClear)
-    TimerLoadSet                             0x000018af   Thumb Code    18  timer.o(i.TimerLoadSet)
-    TimerValueGet                            0x000018c1   Thumb Code    10  timer.o(i.TimerValueGet)
-    UARTCharGet                              0x000018cb   Thumb Code    12  uart.o(i.UARTCharGet)
-    UARTCharPut                              0x000018d7   Thumb Code    12  uart.o(i.UARTCharPut)
-    UARTCharsAvail                           0x000018e3   Thumb Code    10  uart.o(i.UARTCharsAvail)
-    UARTConfigSetExpClk                      0x000018ed   Thumb Code   110  uart.o(i.UARTConfigSetExpClk)
-    UARTEnable                               0x0000195b   Thumb Code    20  uart.o(i.UARTEnable)
-    __scatterload_copy                       0x0000196f   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0000197d   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0000197f   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x00001a58   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00001a78   Number         0  anon$$obj.o(Region$$Table)
-    g_ulTicksPerSecond                       0x2000002c   Data           0  init.obj(.bss)
-    g_ulTicksPerUs                           0x20000030   Data           0  init.obj(.bss)
-    g_ulPWMTicksPerSecond                    0x20000034   Data           0  init.obj(.bss)
+    ADCIntStatus                             0x00000b81   Thumb Code    52  adc.o(i.ADCIntStatus)
+    ADCProcessorTrigger                      0x00000bb5   Thumb Code    26  adc.o(i.ADCProcessorTrigger)
+    ADCSequenceConfigure                     0x00000bcf   Thumb Code    50  adc.o(i.ADCSequenceConfigure)
+    ADCSequenceDataGet                       0x00000c01   Thumb Code    36  adc.o(i.ADCSequenceDataGet)
+    ADCSequenceEnable                        0x00000c25   Thumb Code    14  adc.o(i.ADCSequenceEnable)
+    ADCSequenceStepConfigure                 0x00000c33   Thumb Code   110  adc.o(i.ADCSequenceStepConfigure)
+    EncoderInterruptHandler                  0x00000ca1   Thumb Code   206  encoder.o(i.EncoderInterruptHandler)
+    GPIODirModeSet                           0x00000d81   Thumb Code    40  gpio.o(i.GPIODirModeSet)
+    GPIOIntTypeSet                           0x00000da9   Thumb Code    58  gpio.o(i.GPIOIntTypeSet)
+    GPIOPadConfigSet                         0x00000de3   Thumb Code   176  gpio.o(i.GPIOPadConfigSet)
+    GPIOPinIntClear                          0x00000e93   Thumb Code     6  gpio.o(i.GPIOPinIntClear)
+    GPIOPinIntEnable                         0x00000e99   Thumb Code    12  gpio.o(i.GPIOPinIntEnable)
+    GPIOPinIntStatus                         0x00000ea5   Thumb Code    14  gpio.o(i.GPIOPinIntStatus)
+    GPIOPinRead                              0x00000eb3   Thumb Code     6  gpio.o(i.GPIOPinRead)
+    GPIOPinTypeGPIOInput                     0x00000eb9   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOInput)
+    GPIOPinTypeGPIOOutput                    0x00000ed5   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOOutput)
+    GPIOPinTypePWM                           0x00000ef1   Thumb Code    28  gpio.o(i.GPIOPinTypePWM)
+    GPIOPinTypeUART                          0x00000f0d   Thumb Code    28  gpio.o(i.GPIOPinTypeUART)
+    GPIOPinWrite                             0x00000f29   Thumb Code     6  gpio.o(i.GPIOPinWrite)
+    GetEncoderCount                          0x00000f31   Thumb Code    20  encoder.o(i.GetEncoderCount)
+    GetEncoderCounts                         0x00000f49   Thumb Code    12  encoder.o(i.GetEncoderCounts)
+    InitializeEncoders                       0x00000f59   Thumb Code   118  encoder.o(i.InitializeEncoders)
+    InitializeLineSensor                     0x00000fe5   Thumb Code    40  linesensor.o(i.InitializeLineSensor)
+    InitializeMCU                            0x00001021   Thumb Code    44  init.o(i.InitializeMCU)
+    InitializeMotors                         0x00001059   Thumb Code   176  motor.o(i.InitializeMotors)
+    InitializeServos                         0x00001129   Thumb Code   244  servo.o(i.InitializeServos)
+    IntEnable                                0x0000123d   Thumb Code   104  interrupt.o(i.IntEnable)
+    IntMasterEnable                          0x000012a5   Thumb Code    10  interrupt.o(i.IntMasterEnable)
+    LSIntHandler                             0x000012b1   Thumb Code   154  linesensor.o(i.LSIntHandler)
+    LockoutProtection                        0x00001361   Thumb Code    34  init.o(i.LockoutProtection)
+    PWMGenConfigure                          0x0000138d   Thumb Code    38  pwm.o(i.PWMGenConfigure)
+    PWMGenEnable                             0x000013b3   Thumb Code    10  pwm.o(i.PWMGenEnable)
+    PWMGenPeriodSet                          0x000013bd   Thumb Code    18  pwm.o(i.PWMGenPeriodSet)
+    PWMOutputInvert                          0x000013cf   Thumb Code    16  pwm.o(i.PWMOutputInvert)
+    PWMOutputState                           0x000013df   Thumb Code    16  pwm.o(i.PWMOutputState)
+    PWMPulseWidthSet                         0x000013ef   Thumb Code    32  pwm.o(i.PWMPulseWidthSet)
+    PresetEncoderCounts                      0x00001411   Thumb Code     8  encoder.o(i.PresetEncoderCounts)
+    ReadLineSensor                           0x0000141d   Thumb Code    96  linesensor.o(i.ReadLineSensor)
+    SetMotorPowers                           0x00001489   Thumb Code    52  motor.o(i.SetMotorPowers)
+    SetServoPosition                         0x000014c1   Thumb Code    26  servo.o(i.SetServoPosition)
+    SysCtlClockGet                           0x000014e5   Thumb Code   438  sysctl.o(i.SysCtlClockGet)
+    SysCtlClockSet                           0x000016c9   Thumb Code   288  sysctl.o(i.SysCtlClockSet)
+    SysCtlPWMClockSet                        0x00001801   Thumb Code    14  sysctl.o(i.SysCtlPWMClockSet)
+    SysCtlPeripheralEnable                   0x00001815   Thumb Code    26  sysctl.o(i.SysCtlPeripheralEnable)
+    SysCtlPeripheralPresent                  0x00001835   Thumb Code    50  sysctl.o(i.SysCtlPeripheralPresent)
+    TimerConfigure                           0x00001875   Thumb Code    28  timer.o(i.TimerConfigure)
+    TimerDisable                             0x00001891   Thumb Code    16  timer.o(i.TimerDisable)
+    TimerEnable                              0x000018a1   Thumb Code    14  timer.o(i.TimerEnable)
+    TimerIntClear                            0x000018af   Thumb Code     4  timer.o(i.TimerIntClear)
+    TimerLoadSet                             0x000018b3   Thumb Code    18  timer.o(i.TimerLoadSet)
+    TimerValueGet                            0x000018c5   Thumb Code    10  timer.o(i.TimerValueGet)
+    UARTCharGet                              0x000018cf   Thumb Code    12  uart.o(i.UARTCharGet)
+    UARTCharPut                              0x000018db   Thumb Code    12  uart.o(i.UARTCharPut)
+    UARTCharsAvail                           0x000018e7   Thumb Code    10  uart.o(i.UARTCharsAvail)
+    UARTConfigSetExpClk                      0x000018f1   Thumb Code   110  uart.o(i.UARTConfigSetExpClk)
+    UARTEnable                               0x0000195f   Thumb Code    20  uart.o(i.UARTEnable)
+    WaitUS                                   0x00001975   Thumb Code    80  timer.o(i.WaitUS)
+    __scatterload_copy                       0x000019d5   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000019e3   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000019e5   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x00001ac0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001ae0   Number         0  anon$$obj.o(Region$$Table)
+    g_ulTicksPerSecond                       0x20000008   Data           4  init.o(.data)
+    g_ulTicksPerUs                           0x2000000c   Data           4  init.o(.data)
+    g_ulPWMTicksPerSecond                    0x20000010   Data           4  init.o(.data)
     __initial_sp                             0x20000140   Data           0  startup.o(STACK)
 
 
@@ -825,126 +730,122 @@ Memory Map of the image
 
   Image Entry point : 0x00000101
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00001a90, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00001b1c, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00001a78, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00001ae0, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x0000010c   Code   RO          159  * RESET               startup.o
-    0x0000010c   0x00000000   Code   RO         1831  * .ARM.Collect$$$$00000000  entry.o(mc_w.l)
-    0x0000010c   0x00000004   Code   RO         1834    .ARM.Collect$$$$00000001  entry2.o(mc_w.l)
-    0x00000110   0x00000004   Code   RO         1837    .ARM.Collect$$$$00000004  entry5.o(mc_w.l)
-    0x00000114   0x00000008   Code   RO         1838    .ARM.Collect$$$$00000007  entry7.o(mc_w.l)
-    0x0000011c   0x00000004   Code   RO         1835    .ARM.Collect$$$$00002712  entry2.o(mc_w.l)
-    0x00000120   0x00000006   Code   RO          814    .emb_text           sysctl.o(driverlib.lib)
+    0x0000010c   0x00000000   Code   RO         1850  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)(mc_w.l)
+    0x0000010c   0x00000004   Code   RO         1853    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)(mc_w.l)
+    0x00000110   0x00000004   Code   RO         1856    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)(mc_w.l)
+    0x00000114   0x00000008   Code   RO         1857    .ARM.Collect$$$$00000007  mc_w.l(entry7.o)(mc_w.l)
+    0x0000011c   0x00000004   Code   RO         1854    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)(mc_w.l)
+    0x00000120   0x00000006   Code   RO          829    .emb_text           driverlib.lib(sysctl.o)(driverlib.lib)
     0x00000126   0x00000002   PAD
-    0x00000128   0x0000001a   Code   RO         1357    .emb_text           cpu.o(driverlib.lib)
+    0x00000128   0x0000001a   Code   RO         1376    .emb_text           driverlib.lib(cpu.o)(driverlib.lib)
     0x00000142   0x00000002   PAD
     0x00000144   0x000000d0   Code   RO            1    .text               uartdemo.o
-    0x00000214   0x000000ec   Code   RO           33    .text               motordemo.o
-    0x00000300   0x000000f4   Code   RO           51    .text               servodemo.o
-    0x000003f4   0x000000b8   Code   RO           66    .text               linesensordemo.o
-    0x000004ac   0x000000e4   Code   RO           96    .text               irsensordemo.o
-    0x00000590   0x000000bc   Code   RO          111    .text               encoderdemo.o
-    0x0000064c   0x00000380   Code   RO          126    .text               uartstdio.o
+    0x00000214   0x000000e4   Code   RO           33    .text               motordemo.o
+    0x000002f8   0x000000f4   Code   RO           51    .text               servodemo.o
+    0x000003ec   0x000000b8   Code   RO           66    .text               linesensordemo.o
+    0x000004a4   0x000000e4   Code   RO           96    .text               irsensordemo.o
+    0x00000588   0x000000bc   Code   RO          111    .text               encoderdemo.o
+    0x00000644   0x00000388   Code   RO          126    .text               uartstdio.o
     0x000009cc   0x00000190   Code   RO          166    .text               robzdemo.o
-    0x00000b5c   0x00000024   Code   RO         1839    .text               init.o(mc_w.l)
-    0x00000b80   0x000000d0   Code   RO          343    .text:EncoderInterruptHandler  encoder.obj(raslib.lib)
-    0x00000c50   0x00000024   Code   RO          342    .text:GetEncoderCount  encoder.obj(raslib.lib)
-    0x00000c74   0x00000018   Code   RO          341    .text:GetEncoderCounts  encoder.obj(raslib.lib)
-    0x00000c8c   0x00000094   Code   RO          340    .text:InitializeEncoders  encoder.obj(raslib.lib)
-    0x00000d20   0x0000003c   Code   RO          258    .text:InitializeLineSensor  linesensor.obj(raslib.lib)
-    0x00000d5c   0x00000044   Code   RO          316    .text:InitializeMCU  init.obj(raslib.lib)
-    0x00000da0   0x000000c0   Code   RO          220    .text:InitializeMotors  motor.obj(raslib.lib)
-    0x00000e60   0x000000cc   Code   RO          185    .text:InitializeServos  servo.obj(raslib.lib)
-    0x00000f2c   0x00000064   Code   RO          257    .text:LSIntHandler  linesensor.obj(raslib.lib)
-    0x00000f90   0x00000028   Code   RO          315    .text:LockoutProtection  init.obj(raslib.lib)
-    0x00000fb8   0x00000014   Code   RO          338    .text:PresetEncoderCounts  encoder.obj(raslib.lib)
-    0x00000fcc   0x00000028   Code   RO          255    .text:ReadLS        linesensor.obj(raslib.lib)
-    0x00000ff4   0x00000024   Code   RO          256    .text:ReadLineSensor  linesensor.obj(raslib.lib)
-    0x00001018   0x00000014   Code   RO          218    .text:SetMotorPower  motor.obj(raslib.lib)
-    0x0000102c   0x00000016   Code   RO          219    .text:SetMotorPowers  motor.obj(raslib.lib)
-    0x00001042   0x00000002   PAD
-    0x00001044   0x00000028   Code   RO          184    .text:SetServoPosition  servo.obj(raslib.lib)
-    0x0000106c   0x00000034   Code   RO          252    .text:StartChargingLS  linesensor.obj(raslib.lib)
-    0x000010a0   0x0000001c   Code   RO          251    .text:StartDischargingLS  linesensor.obj(raslib.lib)
-    0x000010bc   0x00000060   Code   RO         1340    .text:WaitUS        timer.obj(raslib.lib)
-    0x0000111c   0x00000034   Code   RO          397    i.ADCIntStatus      adc.o(driverlib.lib)
-    0x00001150   0x0000001a   Code   RO          401    i.ADCProcessorTrigger  adc.o(driverlib.lib)
-    0x0000116a   0x00000032   Code   RO          404    i.ADCSequenceConfigure  adc.o(driverlib.lib)
-    0x0000119c   0x00000024   Code   RO          405    i.ADCSequenceDataGet  adc.o(driverlib.lib)
-    0x000011c0   0x0000000e   Code   RO          407    i.ADCSequenceEnable  adc.o(driverlib.lib)
-    0x000011ce   0x0000006e   Code   RO          410    i.ADCSequenceStepConfigure  adc.o(driverlib.lib)
-    0x0000123c   0x00000028   Code   RO          601    i.GPIODirModeSet    gpio.o(driverlib.lib)
-    0x00001264   0x0000003a   Code   RO          604    i.GPIOIntTypeSet    gpio.o(driverlib.lib)
-    0x0000129e   0x000000b0   Code   RO          606    i.GPIOPadConfigSet  gpio.o(driverlib.lib)
-    0x0000134e   0x00000006   Code   RO          608    i.GPIOPinIntClear   gpio.o(driverlib.lib)
-    0x00001354   0x0000000c   Code   RO          610    i.GPIOPinIntEnable  gpio.o(driverlib.lib)
-    0x00001360   0x0000000e   Code   RO          611    i.GPIOPinIntStatus  gpio.o(driverlib.lib)
-    0x0000136e   0x00000006   Code   RO          612    i.GPIOPinRead       gpio.o(driverlib.lib)
-    0x00001374   0x0000001c   Code   RO          618    i.GPIOPinTypeGPIOInput  gpio.o(driverlib.lib)
-    0x00001390   0x0000001c   Code   RO          619    i.GPIOPinTypeGPIOOutput  gpio.o(driverlib.lib)
-    0x000013ac   0x0000001c   Code   RO          623    i.GPIOPinTypePWM    gpio.o(driverlib.lib)
-    0x000013c8   0x0000001c   Code   RO          627    i.GPIOPinTypeUART   gpio.o(driverlib.lib)
-    0x000013e4   0x00000006   Code   RO          630    i.GPIOPinWrite      gpio.o(driverlib.lib)
-    0x000013ea   0x00000068   Code   RO         1369    i.IntEnable         interrupt.o(driverlib.lib)
-    0x00001452   0x0000000a   Code   RO         1371    i.IntMasterEnable   interrupt.o(driverlib.lib)
-    0x0000145c   0x00000026   Code   RO         1459    i.PWMGenConfigure   pwm.o(driverlib.lib)
-    0x00001482   0x0000000a   Code   RO         1461    i.PWMGenEnable      pwm.o(driverlib.lib)
-    0x0000148c   0x00000012   Code   RO         1474    i.PWMGenPeriodSet   pwm.o(driverlib.lib)
-    0x0000149e   0x00000010   Code   RO         1480    i.PWMOutputInvert   pwm.o(driverlib.lib)
-    0x000014ae   0x00000010   Code   RO         1481    i.PWMOutputState    pwm.o(driverlib.lib)
-    0x000014be   0x00000020   Code   RO         1483    i.PWMPulseWidthSet  pwm.o(driverlib.lib)
-    0x000014de   0x00000002   PAD
-    0x000014e0   0x000001e4   Code   RO          819    i.SysCtlClockGet    sysctl.o(driverlib.lib)
-    0x000016c4   0x00000138   Code   RO          820    i.SysCtlClockSet    sysctl.o(driverlib.lib)
-    0x000017fc   0x00000014   Code   RO          839    i.SysCtlPWMClockSet  sysctl.o(driverlib.lib)
-    0x00001810   0x00000020   Code   RO          844    i.SysCtlPeripheralEnable  sysctl.o(driverlib.lib)
-    0x00001830   0x00000040   Code   RO          845    i.SysCtlPeripheralPresent  sysctl.o(driverlib.lib)
-    0x00001870   0x0000001c   Code   RO         1663    i.TimerConfigure    timer.o(driverlib.lib)
-    0x0000188c   0x00000010   Code   RO         1669    i.TimerDisable      timer.o(driverlib.lib)
-    0x0000189c   0x0000000e   Code   RO         1670    i.TimerEnable       timer.o(driverlib.lib)
-    0x000018aa   0x00000004   Code   RO         1671    i.TimerIntClear     timer.o(driverlib.lib)
-    0x000018ae   0x00000012   Code   RO         1678    i.TimerLoadSet      timer.o(driverlib.lib)
-    0x000018c0   0x0000000a   Code   RO         1688    i.TimerValueGet     timer.o(driverlib.lib)
-    0x000018ca   0x0000000c   Code   RO         1089    i.UARTCharGet       uart.o(driverlib.lib)
-    0x000018d6   0x0000000c   Code   RO         1091    i.UARTCharPut       uart.o(driverlib.lib)
-    0x000018e2   0x0000000a   Code   RO         1093    i.UARTCharsAvail    uart.o(driverlib.lib)
-    0x000018ec   0x0000006e   Code   RO         1095    i.UARTConfigSetExpClk  uart.o(driverlib.lib)
-    0x0000195a   0x00000014   Code   RO         1100    i.UARTEnable        uart.o(driverlib.lib)
-    0x0000196e   0x0000000e   Code   RO         1843    i.__scatterload_copy  handlers.o(mc_w.l)
-    0x0000197c   0x00000002   Code   RO         1844    i.__scatterload_null  handlers.o(mc_w.l)
-    0x0000197e   0x0000000e   Code   RO         1845    i.__scatterload_zeroinit  handlers.o(mc_w.l)
-    0x0000198c   0x0000001c   Data   RO          127    .constdata          uartstdio.o
-    0x000019a8   0x0000009c   Data   RO          857    .constdata          sysctl.o(driverlib.lib)
-    0x00001a44   0x00000011   Data   RO          128    .conststring        uartstdio.o
-    0x00001a55   0x00000003   PAD
-    0x00001a58   0x00000020   Data   RO         1841    Region$$Table       anon$$obj.o
+    0x00000b5c   0x00000024   Code   RO         1858    .text               mc_w.l(init.o)(mc_w.l)
+    0x00000b80   0x00000034   Code   RO          412    i.ADCIntStatus      driverlib.lib(adc.o)(driverlib.lib)
+    0x00000bb4   0x0000001a   Code   RO          416    i.ADCProcessorTrigger  driverlib.lib(adc.o)(driverlib.lib)
+    0x00000bce   0x00000032   Code   RO          419    i.ADCSequenceConfigure  driverlib.lib(adc.o)(driverlib.lib)
+    0x00000c00   0x00000024   Code   RO          420    i.ADCSequenceDataGet  driverlib.lib(adc.o)(driverlib.lib)
+    0x00000c24   0x0000000e   Code   RO          422    i.ADCSequenceEnable  driverlib.lib(adc.o)(driverlib.lib)
+    0x00000c32   0x0000006e   Code   RO          425    i.ADCSequenceStepConfigure  driverlib.lib(adc.o)(driverlib.lib)
+    0x00000ca0   0x000000e0   Code   RO          353    i.EncoderInterruptHandler  raslib.lib(encoder.o)(raslib.lib)
+    0x00000d80   0x00000028   Code   RO          616    i.GPIODirModeSet    driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000da8   0x0000003a   Code   RO          619    i.GPIOIntTypeSet    driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000de2   0x000000b0   Code   RO          621    i.GPIOPadConfigSet  driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000e92   0x00000006   Code   RO          623    i.GPIOPinIntClear   driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000e98   0x0000000c   Code   RO          625    i.GPIOPinIntEnable  driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000ea4   0x0000000e   Code   RO          626    i.GPIOPinIntStatus  driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000eb2   0x00000006   Code   RO          627    i.GPIOPinRead       driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000eb8   0x0000001c   Code   RO          633    i.GPIOPinTypeGPIOInput  driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000ed4   0x0000001c   Code   RO          634    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000ef0   0x0000001c   Code   RO          638    i.GPIOPinTypePWM    driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000f0c   0x0000001c   Code   RO          642    i.GPIOPinTypeUART   driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000f28   0x00000006   Code   RO          645    i.GPIOPinWrite      driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000f2e   0x00000002   PAD
+    0x00000f30   0x00000018   Code   RO          354    i.GetEncoderCount   raslib.lib(encoder.o)(raslib.lib)
+    0x00000f48   0x00000010   Code   RO          355    i.GetEncoderCounts  raslib.lib(encoder.o)(raslib.lib)
+    0x00000f58   0x0000008c   Code   RO          356    i.InitializeEncoders  raslib.lib(encoder.o)(raslib.lib)
+    0x00000fe4   0x0000003c   Code   RO          218    i.InitializeLineSensor  raslib.lib(linesensor.o)(raslib.lib)
+    0x00001020   0x00000038   Code   RO          182    i.InitializeMCU     raslib.lib(init.o)(raslib.lib)
+    0x00001058   0x000000d0   Code   RO          297    i.InitializeMotors  raslib.lib(motor.o)(raslib.lib)
+    0x00001128   0x00000114   Code   RO          328    i.InitializeServos  raslib.lib(servo.o)(raslib.lib)
+    0x0000123c   0x00000068   Code   RO         1388    i.IntEnable         driverlib.lib(interrupt.o)(driverlib.lib)
+    0x000012a4   0x0000000a   Code   RO         1390    i.IntMasterEnable   driverlib.lib(interrupt.o)(driverlib.lib)
+    0x000012ae   0x00000002   PAD
+    0x000012b0   0x000000b0   Code   RO          220    i.LSIntHandler      raslib.lib(linesensor.o)(raslib.lib)
+    0x00001360   0x0000002c   Code   RO          183    i.LockoutProtection  raslib.lib(init.o)(raslib.lib)
+    0x0000138c   0x00000026   Code   RO         1478    i.PWMGenConfigure   driverlib.lib(pwm.o)(driverlib.lib)
+    0x000013b2   0x0000000a   Code   RO         1480    i.PWMGenEnable      driverlib.lib(pwm.o)(driverlib.lib)
+    0x000013bc   0x00000012   Code   RO         1493    i.PWMGenPeriodSet   driverlib.lib(pwm.o)(driverlib.lib)
+    0x000013ce   0x00000010   Code   RO         1499    i.PWMOutputInvert   driverlib.lib(pwm.o)(driverlib.lib)
+    0x000013de   0x00000010   Code   RO         1500    i.PWMOutputState    driverlib.lib(pwm.o)(driverlib.lib)
+    0x000013ee   0x00000020   Code   RO         1502    i.PWMPulseWidthSet  driverlib.lib(pwm.o)(driverlib.lib)
+    0x0000140e   0x00000002   PAD
+    0x00001410   0x0000000c   Code   RO          358    i.PresetEncoderCounts  raslib.lib(encoder.o)(raslib.lib)
+    0x0000141c   0x0000006c   Code   RO          222    i.ReadLineSensor    raslib.lib(linesensor.o)(raslib.lib)
+    0x00001488   0x00000038   Code   RO          299    i.SetMotorPowers    raslib.lib(motor.o)(raslib.lib)
+    0x000014c0   0x00000024   Code   RO          329    i.SetServoPosition  raslib.lib(servo.o)(raslib.lib)
+    0x000014e4   0x000001e4   Code   RO          834    i.SysCtlClockGet    driverlib.lib(sysctl.o)(driverlib.lib)
+    0x000016c8   0x00000138   Code   RO          835    i.SysCtlClockSet    driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00001800   0x00000014   Code   RO          854    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00001814   0x00000020   Code   RO          859    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00001834   0x00000040   Code   RO          860    i.SysCtlPeripheralPresent  driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00001874   0x0000001c   Code   RO         1682    i.TimerConfigure    driverlib.lib(timer.o)(driverlib.lib)
+    0x00001890   0x00000010   Code   RO         1688    i.TimerDisable      driverlib.lib(timer.o)(driverlib.lib)
+    0x000018a0   0x0000000e   Code   RO         1689    i.TimerEnable       driverlib.lib(timer.o)(driverlib.lib)
+    0x000018ae   0x00000004   Code   RO         1690    i.TimerIntClear     driverlib.lib(timer.o)(driverlib.lib)
+    0x000018b2   0x00000012   Code   RO         1697    i.TimerLoadSet      driverlib.lib(timer.o)(driverlib.lib)
+    0x000018c4   0x0000000a   Code   RO         1707    i.TimerValueGet     driverlib.lib(timer.o)(driverlib.lib)
+    0x000018ce   0x0000000c   Code   RO         1105    i.UARTCharGet       driverlib.lib(uart.o)(driverlib.lib)
+    0x000018da   0x0000000c   Code   RO         1107    i.UARTCharPut       driverlib.lib(uart.o)(driverlib.lib)
+    0x000018e6   0x0000000a   Code   RO         1109    i.UARTCharsAvail    driverlib.lib(uart.o)(driverlib.lib)
+    0x000018f0   0x0000006e   Code   RO         1111    i.UARTConfigSetExpClk  driverlib.lib(uart.o)(driverlib.lib)
+    0x0000195e   0x00000014   Code   RO         1116    i.UARTEnable        driverlib.lib(uart.o)(driverlib.lib)
+    0x00001972   0x00000002   PAD
+    0x00001974   0x00000060   Code   RO         1355    i.WaitUS            raslib.lib(timer.o)(raslib.lib)
+    0x000019d4   0x0000000e   Code   RO         1862    i.__scatterload_copy  mc_w.l(handlers.o)(mc_w.l)
+    0x000019e2   0x00000002   Code   RO         1863    i.__scatterload_null  mc_w.l(handlers.o)(mc_w.l)
+    0x000019e4   0x0000000e   Code   RO         1864    i.__scatterload_zeroinit  mc_w.l(handlers.o)(mc_w.l)
+    0x000019f2   0x00000002   PAD
+    0x000019f4   0x0000001c   Data   RO          127    .constdata          uartstdio.o
+    0x00001a10   0x0000009c   Data   RO          872    .constdata          driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00001aac   0x00000011   Data   RO          128    .conststring        uartstdio.o
+    0x00001abd   0x00000003   PAD
+    0x00001ac0   0x00000020   Data   RO         1860    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000018, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Base: 0x20000000, Size: 0x0000003c, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000   0x00000005   Data   RW          129    .data               uartstdio.o
     0x20000005   0x00000003   PAD
-    0x20000008   0x00000001   Data   RW          250    .data               linesensor.obj(raslib.lib)
-    0x20000009   0x00000003   PAD
-    0x2000000c   0x00000008   Data   RW          336    .data               encoder.obj(raslib.lib)
-    0x20000014   0x00000001   Data   RW         1339    .data               timer.obj(raslib.lib)
+    0x20000008   0x0000000c   Data   RW          184    .data               raslib.lib(init.o)(raslib.lib)
+    0x20000014   0x00000008   Data   RW          227    .data               raslib.lib(linesensor.o)(raslib.lib)
+    0x2000001c   0x00000004   Data   RW          300    .data               raslib.lib(motor.o)(raslib.lib)
+    0x20000020   0x00000008   Data   RW          330    .data               raslib.lib(servo.o)(raslib.lib)
+    0x20000028   0x00000010   Data   RW          359    .data               raslib.lib(encoder.o)(raslib.lib)
+    0x20000038   0x00000001   Data   RW         1356    .data               raslib.lib(timer.o)(raslib.lib)
 
 
-    Execution Region ER_ZI (Base: 0x20000018, Size: 0x00000128, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Base: 0x2000003c, Size: 0x00000104, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000018   0x00000008   Zero   RW          183    .bss                servo.obj(raslib.lib)
-    0x20000020   0x00000004   Zero   RW          217    .bss                motor.obj(raslib.lib)
-    0x20000024   0x00000005   Zero   RW          248    .bss                linesensor.obj(raslib.lib)
-    0x20000029   0x00000003   PAD
-    0x2000002c   0x0000000c   Zero   RW          314    .bss                init.obj(raslib.lib)
-    0x20000038   0x00000008   Zero   RW          337    .bss                encoder.obj(raslib.lib)
+    0x2000003c   0x00000004   PAD
     0x20000040   0x00000100   Zero   RW          157    STACK               startup.o
 
 
@@ -955,60 +856,60 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       188         98          0          0          0        603   encoderdemo.o
-       228         94          0          0          0        784   irsensordemo.o
-       184         82          0          0          0        772   linesensordemo.o
-       236         84          0          0          0        715   motordemo.o
-       400        220          0          0          0        579   robzdemo.o
-       244        102          0          0          0        670   servodemo.o
-       268        258          0          0        256        188   startup.o
-       208         76          0          0          0       2552   uartdemo.o
-       896         28         45          5          0       3795   uartstdio.o
+       188         98          0          0          0          0   encoderdemo.o
+       228         94          0          0          0          0   irsensordemo.o
+       184         82          0          0          0          0   linesensordemo.o
+       228         84          0          0          0          0   motordemo.o
+       400        222          0          0          0          0   robzdemo.o
+       244        102          0          0          0          0   servodemo.o
+       268        258          0          0        256          0   startup.o
+       208         76          0          0          0          0   uartdemo.o
+       904         40         45          5          0          0   uartstdio.o
 
     ----------------------------------------------------------------------
-      2852       1042         80          8        256      10658   Object Totals
+      2852       1056         80          8        256          0   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         0          0          3          3          0          0   (incl. Padding)
+         0          0          3          3          0          2   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
 
-       288          0          0          0          0       6092   adc.o
-        26          0          0          0          0        316   cpu.o
-       436         68          0          8          8       6996   encoder.obj
+       288          0          0          0          0          0   adc.o
+        26          0          0          0          0          0   cpu.o
+       430          0          0          0          0          0   gpio.o
+       114          0          0          0          0          0   interrupt.o
+       130          0          0          0          0          0   pwm.o
+       918         96        156          0          0          0   sysctl.o
+        90          0          0          0          0          0   timer.o
+       164          0          0          0          0          0   uart.o
          0          0          0          0          0          0   entry.o
          8          4          0          0          0          0   entry2.o
          4          0          0          0          0          0   entry5.o
          8          4          0          0          0          0   entry7.o
-       430          0          0          0          0       6936   gpio.o
         30          0          0          0          0          0   handlers.o
-        36          8          0          0          0         68   init.o
-       108         28          0          0         12       1962   init.obj
-       114          0          0          0          0        994   interrupt.o
-       316         64          0          1          5       7134   linesensor.obj
-       234         28          0          0          4       5057   motor.obj
-       130          0          0          0          0       3021   pwm.o
-       244         40          0          0          8       3279   servo.obj
-       918         96        156          0          0       4713   sysctl.o
-        90          0          0          0          0       2797   timer.o
-        96         16          0          1          0       2519   timer.obj
-       164          0          0          0          0       3048   uart.o
+        36          8          0          0          0          0   init.o
+       416         52          0         16          0          0   encoder.o
+       100         22          0         12          0          0   init.o
+       344         54          0          8          0          0   linesensor.o
+       264         36          0          4          0          0   motor.o
+       312         42          0          8          0          0   servo.o
+        96         16          0          1          0          0   timer.o
 
     ----------------------------------------------------------------------
-      3688        356        156         16         40      54932   Library Totals
-         8          0          0          6          3          2   (incl. Padding)
+      3792        334        156         52          4          0   Library Totals
+        14          0          0          3          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      2160         96        156          0          0      27917   driverlib.lib
+      2160         96        156          0          0      27937   driverlib.lib
         86         16          0          0          0         68   mc_w.l
-      1434        244          0         10         37      26947   raslib.lib
+      1532        222          0         49          0      15225   raslib.lib
 
     ----------------------------------------------------------------------
-      3688        356        156         16         40      54932   Library Totals
+      3792        334        156         52          4          0   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1017,15 +918,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6540       1398        236         24        296      60800   Grand Totals
-      6540       1398        236         24        296      60800   ELF Image Totals
-      6540       1398        236         24          0          0   ROM Totals
+      6644       1390        236         60        260      51448   Grand Totals
+      6644       1390        236         60        260      51448   ELF Image Totals
+      6644       1390        236         60          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 6776 (   6.62kB)
+    Total RO  Size (Code + RO Data)                 6880 (   6.72kB)
     Total RW  Size (RW Data + ZI Data)               320 (   0.31kB)
-    Total ROM Size (Code + RO Data + RW Data)       6800 (   6.64kB)
+    Total ROM Size (Code + RO Data + RW Data)       6940 (   6.78kB)
 
 ==============================================================================
 
