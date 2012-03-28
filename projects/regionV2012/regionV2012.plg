@@ -1,0 +1,126 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Documents and Settings\RAS\Desktop\Rasware2009\projects\regionV2012\regionV2012.uvproj
+Project File Date:  03/28/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling regionV2012.c...
+regionV2012.h(2): warning:  #1-D: last line of file ends without a newline
+regionV2012.h:   void followWall(void);
+regionV2012.h:                         ^
+regionV2012.c(24): warning:  #223-D: function "initUART" declared implicitly
+regionV2012.c:          initUART();     
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 2 warnings, 0 errors
+assembling Startup.s...
+linking...
+regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol initUART (referred from regionv2012.o).
+regionV2012.axf: Not enough information to list image symbols.
+regionV2012.axf: Finished: 1 information, 0 warning and 4 error messages.
+Target not created
+Build target 'Target 1'
+compiling regionV2012.c...
+regionV2012.h(2): warning:  #1-D: last line of file ends without a newline
+regionV2012.h:   void followWall(void);
+regionV2012.h:                         ^
+regionV2012.c(24): warning:  #223-D: function "initUART" declared implicitly
+regionV2012.c:          initUART();     
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 2 warnings, 0 errors
+assembling Startup.s...
+linking...
+regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol initUART (referred from regionv2012.o).
+regionV2012.axf: Not enough information to list image symbols.
+regionV2012.axf: Finished: 1 information, 0 warning and 4 error messages.
+Target not created
+Build target 'Target 1'
+compiling regionV2012.c...
+regionV2012.c(24): warning:  #223-D: function "initUART" declared implicitly
+regionV2012.c:          initUART();     
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 1 warning, 0 errors
+assembling Startup.s...
+linking...
+regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol initUART (referred from regionv2012.o).
+regionV2012.axf: Not enough information to list image symbols.
+regionV2012.axf: Finished: 1 information, 0 warning and 4 error messages.
+Target not created
+Build target 'Target 1'
+compiling regionV2012.c...
+regionV2012.c(26): warning:  #223-D: function "GPIOPinTypeUART" declared implicitly
+regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
+regionV2012.c:       ^
+regionV2012.c(26): error:  #20: identifier "GPIO_PORTA_BASE" is undefined
+regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
+regionV2012.c:                       ^
+regionV2012.c(26): error:  #20: identifier "GPIO_PIN_0" is undefined
+regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
+regionV2012.c:                                        ^
+regionV2012.c(26): error:  #20: identifier "GPIO_PIN_1" is undefined
+regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
+regionV2012.c:                                                     ^
+regionV2012.c: regionV2012.c: 1 warning, 3 errors
+assembling Startup.s...
+Target not created
+Build target 'Target 1'
+compiling regionV2012.c...
+regionV2012.c(27): error:  #20: identifier "GPIO_PORTA_BASE" is undefined
+regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
+regionV2012.c:                       ^
+regionV2012.c: regionV2012.c: 0 warnings, 1 error
+assembling Startup.s...
+Target not created
+Build target 'Target 1'
+compiling regionV2012.c...
+regionV2012.c(28): error:  #20: identifier "GPIO_PORTA_BASE" is undefined
+regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
+regionV2012.c:                       ^
+regionV2012.c: regionV2012.c: 0 warnings, 1 error
+assembling Startup.s...
+Target not created
+Build target 'Target 1'
+compiling regionV2012.c...
+assembling Startup.s...
+linking...
+regionV2012.axf: Error: L6218E: Undefined symbol GPIOPinTypeUART (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol SysCtlPeripheralEnable (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol UARTStdioInit (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
+regionV2012.axf: Not enough information to list image symbols.
+regionV2012.axf: Finished: 1 information, 0 warning and 6 error messages.
+Target not created
+Build target 'Target 1'
+compiling regionV2012.c...
+assembling Startup.s...
+linking...
+regionV2012.axf: Error: L6218E: Undefined symbol GPIOPinTypeUART (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol SysCtlPeripheralEnable (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol UARTStdioInit (referred from regionv2012.o).
+regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
+regionV2012.axf: Not enough information to list image symbols.
+regionV2012.axf: Finished: 1 information, 0 warning and 6 error messages.
+Target not created
+Build target 'Target 1'
+compiling regionV2012.c...
+assembling Startup.s...
+compiling uartstdio.c...
+linking...
+Program Size: Code=3064 RO-data=236 RW-data=20 ZI-data=356  
+"regionV2012.axf" - 0 Error(s), 0 Warning(s).

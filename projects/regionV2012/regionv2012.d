@@ -1,0 +1,9 @@
+regionv2012.o: regionV2012.c
+regionv2012.o: ..\..\StellarisWare\inc/hw_types.h
+regionv2012.o: regionV2012.h
+regionv2012.o: ..\..\StellarisWare\utils/uartstdio.h
+regionv2012.o: ..\..\StellarisWare\driverlib/uart.h
+regionv2012.o: ..\..\StellarisWare\driverlib/sysctl.h
+regionv2012.o: ..\..\StellarisWare\driverlib/gpio.h
+regionv2012.o: ..\..\StellarisWare\inc/hw_memmap.h
+regionv2012.o: ..\..\RASLib\include\RASLib/init.h

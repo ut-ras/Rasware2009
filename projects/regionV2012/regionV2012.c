@@ -2,7 +2,11 @@
 #include "regionV2012.h"
 #include "utils/uartstdio.h"	// input/output over UART
 #include "driverlib/uart.h"		// input/output over UART
+#include "driverlib/gpio.h"
+#include "driverlib/sysctl.h"
+#include "inc/hw_memmap.h"
 #include "RASLib/init.h"
+
 
 //
 //Follow Wall method?
@@ -21,7 +25,10 @@ void init(void) {
 	InitializeMCU();
 	
 	//Various driver inits
-	initUART();	
+	//initUART
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				
+    GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	
+	UARTStdioInit(0);	
 }
 
 //
@@ -44,3 +51,5 @@ int main(void) {
 	init();
 	run();
 }
+
+
