@@ -15,6 +15,11 @@ void followWall(void) {
 	//TODO figure out what exactly should go here
 }
 
+void moveForward(void) {
+	//-128 to 127
+	SetMotorPowers(127,127);
+}
+
 
 //
 //Initialization method
@@ -27,18 +32,22 @@ void init(void) {
 	//Various driver inits
 	//initUART
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				
-    GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	
+	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	
 	UARTStdioInit(0);	
+
+	//motors
+	InitializeMotors(false, false);
 }
 
 //
 //Run method
 //
 void run(void) {
-	while (1) {
-		//Put actual game code here
-		UARTprintf("Hello World\n");
-	}
+	//Put actual game code here
+	UARTprintf("Hello World\n");
+
+	//Temp
+	moveForward();
 }
 
 //
@@ -49,7 +58,9 @@ void run(void) {
 //
 int main(void) {	
 	init();
-	run();
+	while(1){
+		run();
+	}
 }
 
 
