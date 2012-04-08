@@ -10,40 +10,32 @@
 
 // Definitions of corners
 #define FLAG 0
-#define DIRECT 1 //couldn't remember name of this one
-#define LIGHT 2
-#define FAN 3
+#define FAN 1 //couldn't remember name of this one
+#define ELECTRIC 2
+#define LIGHT 3
 #define TREE -1
 
 // Order of sources
 // The order indicates which one we want first
-#define SOURCE_1 LIGHT
-#define SOURCE_2 FAN
-#define SOURCE_3 DIRECT
+#define BEST_SOURCE ELECTRIC
 
 // Current location of robot
 signed char currentCorner = TREE;
 
-// These functions are up in the air at this point
-//
-//void followWall(void) {
-//	//TODO figure out what exactly should go here
-//}
-//
-//void moveForward(void) {
-//	//-128 to 127
-//	SetMotorPowers(127,127);
-//}
-//
-//
-
 //
 // Goes to location
 //
-void gotoCorner(dest) {
-	if (dest==TREE || dest==currentCorner) return; //return if invalid
+void gotoCorner(signed char dest) {
+	if (dest<0 || dest==currentCorner) return;
 
-	//TODO move to robot to this corner
+	if (currentCorner==TREE) {
+		//just move to electric source
+		currentCorner = ELECTRIC;
+		if (dest != currentCorner) gotoCorner(dest);
+		return;
+	}
+	
+	//TODO go there	
 
 	currentCorner = dest;
 }
@@ -85,7 +77,7 @@ void run(void) {
 	}
 
 	//then when they are all on
-	gotoCorner(SOURCE_1);
+	gotoCorner(BEST_SOURCE);
 		//TODO charge
 	gotoCorner(FLAG);
 		//TODO discharge
@@ -99,9 +91,7 @@ void run(void) {
 //
 int main(void) {	
 	init();
-	while(1){
-		run();
-	}
+	for (;;) run();
 }
 
 
