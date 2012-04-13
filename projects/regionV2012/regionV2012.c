@@ -46,6 +46,8 @@ int charging(void){
 	//1 if charging
 	//2 if fully charged
 	
+	
+	//tesetsetsettest
 	return 0;	
 }
 
