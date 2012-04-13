@@ -7,6 +7,7 @@
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
 #include "travel.h"
+#include "charging.h"
 
 
 
@@ -19,17 +20,6 @@
 //
 // Goes to location
 //
-
-
-int charging(void){
-	//returns 0 if not charging (source is not on) 
-	//1 if charging
-	//2 if fully charged
-	
-	
-	//tesetsetsettest
-	return 0;	
-}
 
 
 //
