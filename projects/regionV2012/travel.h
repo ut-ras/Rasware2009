@@ -11,3 +11,6 @@
 void travelInit(void);
 void gotoCorner(signed char);
 
+
+
+unsigned short *readSensors(void);

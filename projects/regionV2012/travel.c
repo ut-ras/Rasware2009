@@ -6,6 +6,13 @@
 // Current location of robot
 signed char currentCorner = TREE;
 
+
+unsigned short *readSensors(void) {
+  static unsigned short values[8] = {100,100,100,100,100,100,100,100};
+  //return an array of short values for the sensors
+  return &values[0];
+}
+
 void travelInit(void) {
     //motors
 	InitializeMotors(false,false);

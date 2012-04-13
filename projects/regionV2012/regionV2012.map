@@ -5,14 +5,13 @@ ARM Linker, 4.1 [Build 481] [Standard]
 Section Cross References
 
     travel.o(.text) refers to motor.o(i.InitializeMotors) for InitializeMotors
-    travel.o(.text) refers to travel.o(.data) for currentCorner
+    travel.o(.text) refers to travel.o(.data) for values
     regionv2012.o(.text) refers to init.o(i.LockoutProtection) for LockoutProtection
     regionv2012.o(.text) refers to init.o(i.InitializeMCU) for InitializeMCU
     regionv2012.o(.text) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     regionv2012.o(.text) refers to gpio.o(i.GPIOPinTypeUART) for GPIOPinTypeUART
     regionv2012.o(.text) refers to uartstdio.o(.text) for UARTStdioInit
     regionv2012.o(.text) refers to travel.o(.text) for travelInit
-    regionv2012.o(.text) refers to charging.o(.text) for charging
     startup.o(RESET) refers to startup.o(STACK) for StackMem
     startup.o(RESET) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     uartstdio.o(.text) refers to sysctl.o(i.SysCtlPeripheralPresent) for SysCtlPeripheralPresent
@@ -141,6 +140,7 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
+    Removing charging.o(.text), (4 bytes).
     Removing startup.o(HEAP), (0 bytes).
     Removing startup.o(.text), (0 bytes).
     Removing motor.o(i.SetMotorPower), (24 bytes).
@@ -286,7 +286,7 @@ Removing Unused input sections from the image.
     Removing pwm.o(i.PWMSyncTimeBase), (4 bytes).
     Removing pwm.o(i.PWMSyncUpdate), (4 bytes).
 
-144 unused section(s) (total 3978 bytes) removed from the image.
+145 unused section(s) (total 3982 bytes) removed from the image.
 
 ==============================================================================
 
@@ -297,10 +297,10 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      268  startup.o(RESET)
-    ../../microlib/init/entry.s              0x00000000   Number         0  entry.o ABSOLUTE
     ../../microlib/init/entry.s              0x00000000   Number         0  entry2.o ABSOLUTE
     ../../microlib/init/entry.s              0x00000000   Number         0  entry5.o ABSOLUTE
     ../../microlib/init/entry.s              0x00000000   Number         0  entry7.o ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry.o ABSOLUTE
     ..\..\StellarisWare\utils\uartstdio.c    0x00000000   Number         0  uartstdio.o ABSOLUTE
     Startup.s                                0x00000000   Number         0  startup.o ABSOLUTE
     charging.c                               0x00000000   Number         0  charging.o ABSOLUTE
@@ -331,61 +331,61 @@ Image Symbol Table
     .emb_text                                0x00000120   Section        6  sysctl.o(.emb_text)
     .emb_text                                0x00000128   Section       26  cpu.o(.emb_text)
     .text                                    0x00000144   Section        0  travel.o(.text)
-    .text                                    0x00000194   Section        0  charging.o(.text)
-    .text                                    0x00000198   Section        0  regionv2012.o(.text)
-    .text                                    0x000001f0   Section        0  uartstdio.o(.text)
-    .text                                    0x00000578   Section       36  init.o(.text)
-    i.GPIODirModeSet                         0x0000059c   Section        0  gpio.o(i.GPIODirModeSet)
-    i.GPIOPadConfigSet                       0x000005c4   Section        0  gpio.o(i.GPIOPadConfigSet)
-    i.GPIOPinRead                            0x00000674   Section        0  gpio.o(i.GPIOPinRead)
-    i.GPIOPinTypeGPIOInput                   0x0000067a   Section        0  gpio.o(i.GPIOPinTypeGPIOInput)
-    i.GPIOPinTypeGPIOOutput                  0x00000696   Section        0  gpio.o(i.GPIOPinTypeGPIOOutput)
-    i.GPIOPinTypePWM                         0x000006b2   Section        0  gpio.o(i.GPIOPinTypePWM)
-    i.GPIOPinTypeUART                        0x000006ce   Section        0  gpio.o(i.GPIOPinTypeUART)
-    i.GPIOPinWrite                           0x000006ea   Section        0  gpio.o(i.GPIOPinWrite)
-    i.InitializeMCU                          0x000006f0   Section        0  init.o(i.InitializeMCU)
-    i.InitializeMotors                       0x00000728   Section        0  motor.o(i.InitializeMotors)
-    i.IntMasterEnable                        0x000007f8   Section        0  interrupt.o(i.IntMasterEnable)
-    i.LockoutProtection                      0x00000804   Section        0  init.o(i.LockoutProtection)
-    i.PWMGenConfigure                        0x00000830   Section        0  pwm.o(i.PWMGenConfigure)
-    i.PWMGenEnable                           0x00000856   Section        0  pwm.o(i.PWMGenEnable)
-    i.PWMGenPeriodSet                        0x00000860   Section        0  pwm.o(i.PWMGenPeriodSet)
-    i.PWMOutputInvert                        0x00000872   Section        0  pwm.o(i.PWMOutputInvert)
-    i.PWMOutputState                         0x00000882   Section        0  pwm.o(i.PWMOutputState)
-    i.PWMPulseWidthSet                       0x00000892   Section        0  pwm.o(i.PWMPulseWidthSet)
-    i.SysCtlClockGet                         0x000008b4   Section        0  sysctl.o(i.SysCtlClockGet)
-    i.SysCtlClockSet                         0x00000a98   Section        0  sysctl.o(i.SysCtlClockSet)
-    i.SysCtlPWMClockSet                      0x00000bd0   Section        0  sysctl.o(i.SysCtlPWMClockSet)
-    i.SysCtlPeripheralEnable                 0x00000be4   Section        0  sysctl.o(i.SysCtlPeripheralEnable)
-    i.SysCtlPeripheralPresent                0x00000c04   Section        0  sysctl.o(i.SysCtlPeripheralPresent)
-    i.UARTCharGet                            0x00000c44   Section        0  uart.o(i.UARTCharGet)
-    i.UARTCharPut                            0x00000c50   Section        0  uart.o(i.UARTCharPut)
-    i.UARTConfigSetExpClk                    0x00000c5c   Section        0  uart.o(i.UARTConfigSetExpClk)
-    i.UARTEnable                             0x00000cca   Section        0  uart.o(i.UARTEnable)
-    i.__scatterload_copy                     0x00000cde   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00000cec   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00000cee   Section       14  handlers.o(i.__scatterload_zeroinit)
-    .constdata                               0x00000cfc   Section       28  uartstdio.o(.constdata)
-    g_pcHex                                  0x00000cfc   Data           4  uartstdio.o(.constdata)
-    g_ulUARTBase                             0x00000d00   Data          12  uartstdio.o(.constdata)
-    g_ulUARTPeriph                           0x00000d0c   Data          12  uartstdio.o(.constdata)
-    .constdata                               0x00000d18   Section      156  sysctl.o(.constdata)
-    g_pulDCRegs                              0x00000d18   Data          16  sysctl.o(.constdata)
-    g_pulSRCRRegs                            0x00000d28   Data          12  sysctl.o(.constdata)
-    g_pulRCGCRegs                            0x00000d34   Data          12  sysctl.o(.constdata)
-    g_pulSCGCRegs                            0x00000d40   Data          12  sysctl.o(.constdata)
-    g_pulDCGCRegs                            0x00000d4c   Data          12  sysctl.o(.constdata)
-    g_pulXtals                               0x00000d58   Data          92  sysctl.o(.constdata)
-    .conststring                             0x00000db4   Section       17  uartstdio.o(.conststring)
-    .data                                    0x20000000   Section        1  travel.o(.data)
-    .data                                    0x20000004   Section        5  uartstdio.o(.data)
-    g_ulBase                                 0x20000004   Data           4  uartstdio.o(.data)
-    bLastWasCR                               0x20000008   Data           1  uartstdio.o(.data)
-    .data                                    0x2000000c   Section       12  init.o(.data)
-    .data                                    0x20000018   Section        4  motor.o(.data)
-    s_ulMotorPeriod                          0x20000018   Data           4  motor.o(.data)
-    STACK                                    0x20000020   Section      256  startup.o(STACK)
-    StackMem                                 0x20000020   Data           0  startup.o(STACK)
+    .text                                    0x0000019c   Section        0  regionv2012.o(.text)
+    .text                                    0x000001dc   Section        0  uartstdio.o(.text)
+    .text                                    0x00000564   Section       36  init.o(.text)
+    i.GPIODirModeSet                         0x00000588   Section        0  gpio.o(i.GPIODirModeSet)
+    i.GPIOPadConfigSet                       0x000005b0   Section        0  gpio.o(i.GPIOPadConfigSet)
+    i.GPIOPinRead                            0x00000660   Section        0  gpio.o(i.GPIOPinRead)
+    i.GPIOPinTypeGPIOInput                   0x00000666   Section        0  gpio.o(i.GPIOPinTypeGPIOInput)
+    i.GPIOPinTypeGPIOOutput                  0x00000682   Section        0  gpio.o(i.GPIOPinTypeGPIOOutput)
+    i.GPIOPinTypePWM                         0x0000069e   Section        0  gpio.o(i.GPIOPinTypePWM)
+    i.GPIOPinTypeUART                        0x000006ba   Section        0  gpio.o(i.GPIOPinTypeUART)
+    i.GPIOPinWrite                           0x000006d6   Section        0  gpio.o(i.GPIOPinWrite)
+    i.InitializeMCU                          0x000006dc   Section        0  init.o(i.InitializeMCU)
+    i.InitializeMotors                       0x00000714   Section        0  motor.o(i.InitializeMotors)
+    i.IntMasterEnable                        0x000007e4   Section        0  interrupt.o(i.IntMasterEnable)
+    i.LockoutProtection                      0x000007f0   Section        0  init.o(i.LockoutProtection)
+    i.PWMGenConfigure                        0x0000081c   Section        0  pwm.o(i.PWMGenConfigure)
+    i.PWMGenEnable                           0x00000842   Section        0  pwm.o(i.PWMGenEnable)
+    i.PWMGenPeriodSet                        0x0000084c   Section        0  pwm.o(i.PWMGenPeriodSet)
+    i.PWMOutputInvert                        0x0000085e   Section        0  pwm.o(i.PWMOutputInvert)
+    i.PWMOutputState                         0x0000086e   Section        0  pwm.o(i.PWMOutputState)
+    i.PWMPulseWidthSet                       0x0000087e   Section        0  pwm.o(i.PWMPulseWidthSet)
+    i.SysCtlClockGet                         0x000008a0   Section        0  sysctl.o(i.SysCtlClockGet)
+    i.SysCtlClockSet                         0x00000a84   Section        0  sysctl.o(i.SysCtlClockSet)
+    i.SysCtlPWMClockSet                      0x00000bbc   Section        0  sysctl.o(i.SysCtlPWMClockSet)
+    i.SysCtlPeripheralEnable                 0x00000bd0   Section        0  sysctl.o(i.SysCtlPeripheralEnable)
+    i.SysCtlPeripheralPresent                0x00000bf0   Section        0  sysctl.o(i.SysCtlPeripheralPresent)
+    i.UARTCharGet                            0x00000c30   Section        0  uart.o(i.UARTCharGet)
+    i.UARTCharPut                            0x00000c3c   Section        0  uart.o(i.UARTCharPut)
+    i.UARTConfigSetExpClk                    0x00000c48   Section        0  uart.o(i.UARTConfigSetExpClk)
+    i.UARTEnable                             0x00000cb6   Section        0  uart.o(i.UARTEnable)
+    i.__scatterload_copy                     0x00000cca   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00000cd8   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00000cda   Section       14  handlers.o(i.__scatterload_zeroinit)
+    .constdata                               0x00000ce8   Section       28  uartstdio.o(.constdata)
+    g_pcHex                                  0x00000ce8   Data           4  uartstdio.o(.constdata)
+    g_ulUARTBase                             0x00000cec   Data          12  uartstdio.o(.constdata)
+    g_ulUARTPeriph                           0x00000cf8   Data          12  uartstdio.o(.constdata)
+    .constdata                               0x00000d04   Section      156  sysctl.o(.constdata)
+    g_pulDCRegs                              0x00000d04   Data          16  sysctl.o(.constdata)
+    g_pulSRCRRegs                            0x00000d14   Data          12  sysctl.o(.constdata)
+    g_pulRCGCRegs                            0x00000d20   Data          12  sysctl.o(.constdata)
+    g_pulSCGCRegs                            0x00000d2c   Data          12  sysctl.o(.constdata)
+    g_pulDCGCRegs                            0x00000d38   Data          12  sysctl.o(.constdata)
+    g_pulXtals                               0x00000d44   Data          92  sysctl.o(.constdata)
+    .conststring                             0x00000da0   Section       17  uartstdio.o(.conststring)
+    .data                                    0x20000000   Section       18  travel.o(.data)
+    values                                   0x20000002   Data          16  travel.o(.data)
+    .data                                    0x20000014   Section        5  uartstdio.o(.data)
+    g_ulBase                                 0x20000014   Data           4  uartstdio.o(.data)
+    bLastWasCR                               0x20000018   Data           1  uartstdio.o(.data)
+    .data                                    0x2000001c   Section       12  init.o(.data)
+    .data                                    0x20000028   Section        4  motor.o(.data)
+    s_ulMotorPeriod                          0x20000028   Data           4  motor.o(.data)
+    STACK                                    0x20000030   Section      256  startup.o(STACK)
+    StackMem                                 0x20000030   Data           0  startup.o(STACK)
 
     Global Symbols
 
@@ -406,57 +406,57 @@ Image Symbol Table
     CPUprimask                               0x00000131   Thumb Code     6  cpu.o(.emb_text)
     CPUcpsie                                 0x00000137   Thumb Code     8  cpu.o(.emb_text)
     CPUwfi                                   0x0000013f   Thumb Code     4  cpu.o(.emb_text)
-    travelInit                               0x00000145   Thumb Code    12  travel.o(.text)
-    gotoCorner                               0x00000151   Thumb Code    62  travel.o(.text)
-    charging                                 0x00000195   Thumb Code     4  charging.o(.text)
-    init                                     0x00000199   Thumb Code    38  regionv2012.o(.text)
-    run                                      0x000001bf   Thumb Code    26  regionv2012.o(.text)
-    main                                     0x000001d9   Thumb Code    14  regionv2012.o(.text)
-    UARTStdioInitExpClk                      0x000001f1   Thumb Code    72  uartstdio.o(.text)
-    UARTStdioInit                            0x00000239   Thumb Code    16  uartstdio.o(.text)
-    UARTwrite                                0x00000249   Thumb Code    46  uartstdio.o(.text)
-    UARTgets                                 0x00000277   Thumb Code   126  uartstdio.o(.text)
-    UARTgetc                                 0x000002f5   Thumb Code    14  uartstdio.o(.text)
-    UARTprintf                               0x00000303   Thumb Code   590  uartstdio.o(.text)
-    __scatterload                            0x00000579   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00000579   Thumb Code     0  init.o(.text)
-    GPIODirModeSet                           0x0000059d   Thumb Code    40  gpio.o(i.GPIODirModeSet)
-    GPIOPadConfigSet                         0x000005c5   Thumb Code   176  gpio.o(i.GPIOPadConfigSet)
-    GPIOPinRead                              0x00000675   Thumb Code     6  gpio.o(i.GPIOPinRead)
-    GPIOPinTypeGPIOInput                     0x0000067b   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOInput)
-    GPIOPinTypeGPIOOutput                    0x00000697   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOOutput)
-    GPIOPinTypePWM                           0x000006b3   Thumb Code    28  gpio.o(i.GPIOPinTypePWM)
-    GPIOPinTypeUART                          0x000006cf   Thumb Code    28  gpio.o(i.GPIOPinTypeUART)
-    GPIOPinWrite                             0x000006eb   Thumb Code     6  gpio.o(i.GPIOPinWrite)
-    InitializeMCU                            0x000006f1   Thumb Code    44  init.o(i.InitializeMCU)
-    InitializeMotors                         0x00000729   Thumb Code   176  motor.o(i.InitializeMotors)
-    IntMasterEnable                          0x000007f9   Thumb Code    10  interrupt.o(i.IntMasterEnable)
-    LockoutProtection                        0x00000805   Thumb Code    34  init.o(i.LockoutProtection)
-    PWMGenConfigure                          0x00000831   Thumb Code    38  pwm.o(i.PWMGenConfigure)
-    PWMGenEnable                             0x00000857   Thumb Code    10  pwm.o(i.PWMGenEnable)
-    PWMGenPeriodSet                          0x00000861   Thumb Code    18  pwm.o(i.PWMGenPeriodSet)
-    PWMOutputInvert                          0x00000873   Thumb Code    16  pwm.o(i.PWMOutputInvert)
-    PWMOutputState                           0x00000883   Thumb Code    16  pwm.o(i.PWMOutputState)
-    PWMPulseWidthSet                         0x00000893   Thumb Code    32  pwm.o(i.PWMPulseWidthSet)
-    SysCtlClockGet                           0x000008b5   Thumb Code   438  sysctl.o(i.SysCtlClockGet)
-    SysCtlClockSet                           0x00000a99   Thumb Code   288  sysctl.o(i.SysCtlClockSet)
-    SysCtlPWMClockSet                        0x00000bd1   Thumb Code    14  sysctl.o(i.SysCtlPWMClockSet)
-    SysCtlPeripheralEnable                   0x00000be5   Thumb Code    26  sysctl.o(i.SysCtlPeripheralEnable)
-    SysCtlPeripheralPresent                  0x00000c05   Thumb Code    50  sysctl.o(i.SysCtlPeripheralPresent)
-    UARTCharGet                              0x00000c45   Thumb Code    12  uart.o(i.UARTCharGet)
-    UARTCharPut                              0x00000c51   Thumb Code    12  uart.o(i.UARTCharPut)
-    UARTConfigSetExpClk                      0x00000c5d   Thumb Code   110  uart.o(i.UARTConfigSetExpClk)
-    UARTEnable                               0x00000ccb   Thumb Code    20  uart.o(i.UARTEnable)
-    __scatterload_copy                       0x00000cdf   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00000ced   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00000cef   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x00000dc8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000de8   Number         0  anon$$obj.o(Region$$Table)
+    readSensors                              0x00000145   Thumb Code     4  travel.o(.text)
+    travelInit                               0x00000149   Thumb Code    12  travel.o(.text)
+    gotoCorner                               0x00000155   Thumb Code    62  travel.o(.text)
+    init                                     0x0000019d   Thumb Code    38  regionv2012.o(.text)
+    run                                      0x000001c3   Thumb Code     2  regionv2012.o(.text)
+    main                                     0x000001c5   Thumb Code    14  regionv2012.o(.text)
+    UARTStdioInitExpClk                      0x000001dd   Thumb Code    72  uartstdio.o(.text)
+    UARTStdioInit                            0x00000225   Thumb Code    16  uartstdio.o(.text)
+    UARTwrite                                0x00000235   Thumb Code    46  uartstdio.o(.text)
+    UARTgets                                 0x00000263   Thumb Code   126  uartstdio.o(.text)
+    UARTgetc                                 0x000002e1   Thumb Code    14  uartstdio.o(.text)
+    UARTprintf                               0x000002ef   Thumb Code   590  uartstdio.o(.text)
+    __scatterload                            0x00000565   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000565   Thumb Code     0  init.o(.text)
+    GPIODirModeSet                           0x00000589   Thumb Code    40  gpio.o(i.GPIODirModeSet)
+    GPIOPadConfigSet                         0x000005b1   Thumb Code   176  gpio.o(i.GPIOPadConfigSet)
+    GPIOPinRead                              0x00000661   Thumb Code     6  gpio.o(i.GPIOPinRead)
+    GPIOPinTypeGPIOInput                     0x00000667   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOInput)
+    GPIOPinTypeGPIOOutput                    0x00000683   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOOutput)
+    GPIOPinTypePWM                           0x0000069f   Thumb Code    28  gpio.o(i.GPIOPinTypePWM)
+    GPIOPinTypeUART                          0x000006bb   Thumb Code    28  gpio.o(i.GPIOPinTypeUART)
+    GPIOPinWrite                             0x000006d7   Thumb Code     6  gpio.o(i.GPIOPinWrite)
+    InitializeMCU                            0x000006dd   Thumb Code    44  init.o(i.InitializeMCU)
+    InitializeMotors                         0x00000715   Thumb Code   176  motor.o(i.InitializeMotors)
+    IntMasterEnable                          0x000007e5   Thumb Code    10  interrupt.o(i.IntMasterEnable)
+    LockoutProtection                        0x000007f1   Thumb Code    34  init.o(i.LockoutProtection)
+    PWMGenConfigure                          0x0000081d   Thumb Code    38  pwm.o(i.PWMGenConfigure)
+    PWMGenEnable                             0x00000843   Thumb Code    10  pwm.o(i.PWMGenEnable)
+    PWMGenPeriodSet                          0x0000084d   Thumb Code    18  pwm.o(i.PWMGenPeriodSet)
+    PWMOutputInvert                          0x0000085f   Thumb Code    16  pwm.o(i.PWMOutputInvert)
+    PWMOutputState                           0x0000086f   Thumb Code    16  pwm.o(i.PWMOutputState)
+    PWMPulseWidthSet                         0x0000087f   Thumb Code    32  pwm.o(i.PWMPulseWidthSet)
+    SysCtlClockGet                           0x000008a1   Thumb Code   438  sysctl.o(i.SysCtlClockGet)
+    SysCtlClockSet                           0x00000a85   Thumb Code   288  sysctl.o(i.SysCtlClockSet)
+    SysCtlPWMClockSet                        0x00000bbd   Thumb Code    14  sysctl.o(i.SysCtlPWMClockSet)
+    SysCtlPeripheralEnable                   0x00000bd1   Thumb Code    26  sysctl.o(i.SysCtlPeripheralEnable)
+    SysCtlPeripheralPresent                  0x00000bf1   Thumb Code    50  sysctl.o(i.SysCtlPeripheralPresent)
+    UARTCharGet                              0x00000c31   Thumb Code    12  uart.o(i.UARTCharGet)
+    UARTCharPut                              0x00000c3d   Thumb Code    12  uart.o(i.UARTCharPut)
+    UARTConfigSetExpClk                      0x00000c49   Thumb Code   110  uart.o(i.UARTConfigSetExpClk)
+    UARTEnable                               0x00000cb7   Thumb Code    20  uart.o(i.UARTEnable)
+    __scatterload_copy                       0x00000ccb   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00000cd9   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00000cdb   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x00000db4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000dd4   Number         0  anon$$obj.o(Region$$Table)
     currentCorner                            0x20000000   Data           1  travel.o(.data)
-    g_ulTicksPerSecond                       0x2000000c   Data           4  init.o(.data)
-    g_ulTicksPerUs                           0x20000010   Data           4  init.o(.data)
-    g_ulPWMTicksPerSecond                    0x20000014   Data           4  init.o(.data)
-    __initial_sp                             0x20000120   Data           0  startup.o(STACK)
+    g_ulTicksPerSecond                       0x2000001c   Data           4  init.o(.data)
+    g_ulTicksPerUs                           0x20000020   Data           4  init.o(.data)
+    g_ulPWMTicksPerSecond                    0x20000024   Data           4  init.o(.data)
+    __initial_sp                             0x20000130   Data           0  startup.o(STACK)
 
 
 
@@ -466,9 +466,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000010d
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00000e04, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00000e00, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00000de8, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00000dd4, Max: 0x00010000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -482,62 +482,61 @@ Memory Map of the image
     0x00000126   0x00000002   PAD
     0x00000128   0x0000001a   Code   RO          944    .emb_text           driverlib.lib(cpu.o)(driverlib.lib)
     0x00000142   0x00000002   PAD
-    0x00000144   0x00000050   Code   RO            1    .text               travel.o
-    0x00000194   0x00000004   Code   RO           30    .text               charging.o
-    0x00000198   0x00000058   Code   RO           39    .text               regionv2012.o
-    0x000001f0   0x00000388   Code   RO           79    .text               uartstdio.o
-    0x00000578   0x00000024   Code   RO         1258    .text               mc_w.l(init.o)(mc_w.l)
-    0x0000059c   0x00000028   Code   RO          191    i.GPIODirModeSet    driverlib.lib(gpio.o)(driverlib.lib)
-    0x000005c4   0x000000b0   Code   RO          196    i.GPIOPadConfigSet  driverlib.lib(gpio.o)(driverlib.lib)
-    0x00000674   0x00000006   Code   RO          202    i.GPIOPinRead       driverlib.lib(gpio.o)(driverlib.lib)
-    0x0000067a   0x0000001c   Code   RO          208    i.GPIOPinTypeGPIOInput  driverlib.lib(gpio.o)(driverlib.lib)
-    0x00000696   0x0000001c   Code   RO          209    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)(driverlib.lib)
-    0x000006b2   0x0000001c   Code   RO          213    i.GPIOPinTypePWM    driverlib.lib(gpio.o)(driverlib.lib)
-    0x000006ce   0x0000001c   Code   RO          217    i.GPIOPinTypeUART   driverlib.lib(gpio.o)(driverlib.lib)
-    0x000006ea   0x00000006   Code   RO          220    i.GPIOPinWrite      driverlib.lib(gpio.o)(driverlib.lib)
-    0x000006f0   0x00000038   Code   RO          116    i.InitializeMCU     raslib.lib(init.o)(raslib.lib)
-    0x00000728   0x000000d0   Code   RO          152    i.InitializeMotors  raslib.lib(motor.o)(raslib.lib)
-    0x000007f8   0x0000000a   Code   RO          958    i.IntMasterEnable   driverlib.lib(interrupt.o)(driverlib.lib)
-    0x00000802   0x00000002   PAD
-    0x00000804   0x0000002c   Code   RO          117    i.LockoutProtection  raslib.lib(init.o)(raslib.lib)
-    0x00000830   0x00000026   Code   RO         1046    i.PWMGenConfigure   driverlib.lib(pwm.o)(driverlib.lib)
-    0x00000856   0x0000000a   Code   RO         1048    i.PWMGenEnable      driverlib.lib(pwm.o)(driverlib.lib)
-    0x00000860   0x00000012   Code   RO         1061    i.PWMGenPeriodSet   driverlib.lib(pwm.o)(driverlib.lib)
-    0x00000872   0x00000010   Code   RO         1067    i.PWMOutputInvert   driverlib.lib(pwm.o)(driverlib.lib)
-    0x00000882   0x00000010   Code   RO         1068    i.PWMOutputState    driverlib.lib(pwm.o)(driverlib.lib)
-    0x00000892   0x00000020   Code   RO         1070    i.PWMPulseWidthSet  driverlib.lib(pwm.o)(driverlib.lib)
-    0x000008b2   0x00000002   PAD
-    0x000008b4   0x000001e4   Code   RO          424    i.SysCtlClockGet    driverlib.lib(sysctl.o)(driverlib.lib)
-    0x00000a98   0x00000138   Code   RO          425    i.SysCtlClockSet    driverlib.lib(sysctl.o)(driverlib.lib)
-    0x00000bd0   0x00000014   Code   RO          444    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)(driverlib.lib)
-    0x00000be4   0x00000020   Code   RO          449    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)(driverlib.lib)
-    0x00000c04   0x00000040   Code   RO          450    i.SysCtlPeripheralPresent  driverlib.lib(sysctl.o)(driverlib.lib)
-    0x00000c44   0x0000000c   Code   RO          695    i.UARTCharGet       driverlib.lib(uart.o)(driverlib.lib)
-    0x00000c50   0x0000000c   Code   RO          697    i.UARTCharPut       driverlib.lib(uart.o)(driverlib.lib)
-    0x00000c5c   0x0000006e   Code   RO          701    i.UARTConfigSetExpClk  driverlib.lib(uart.o)(driverlib.lib)
-    0x00000cca   0x00000014   Code   RO          706    i.UARTEnable        driverlib.lib(uart.o)(driverlib.lib)
-    0x00000cde   0x0000000e   Code   RO         1262    i.__scatterload_copy  mc_w.l(handlers.o)(mc_w.l)
-    0x00000cec   0x00000002   Code   RO         1263    i.__scatterload_null  mc_w.l(handlers.o)(mc_w.l)
-    0x00000cee   0x0000000e   Code   RO         1264    i.__scatterload_zeroinit  mc_w.l(handlers.o)(mc_w.l)
-    0x00000cfc   0x0000001c   Data   RO           80    .constdata          uartstdio.o
-    0x00000d18   0x0000009c   Data   RO          462    .constdata          driverlib.lib(sysctl.o)(driverlib.lib)
-    0x00000db4   0x00000011   Data   RO           81    .conststring        uartstdio.o
-    0x00000dc5   0x00000003   PAD
-    0x00000dc8   0x00000020   Data   RO         1260    Region$$Table       anon$$obj.o
+    0x00000144   0x00000058   Code   RO            1    .text               travel.o
+    0x0000019c   0x00000040   Code   RO           39    .text               regionv2012.o
+    0x000001dc   0x00000388   Code   RO           79    .text               uartstdio.o
+    0x00000564   0x00000024   Code   RO         1258    .text               mc_w.l(init.o)(mc_w.l)
+    0x00000588   0x00000028   Code   RO          191    i.GPIODirModeSet    driverlib.lib(gpio.o)(driverlib.lib)
+    0x000005b0   0x000000b0   Code   RO          196    i.GPIOPadConfigSet  driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000660   0x00000006   Code   RO          202    i.GPIOPinRead       driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000666   0x0000001c   Code   RO          208    i.GPIOPinTypeGPIOInput  driverlib.lib(gpio.o)(driverlib.lib)
+    0x00000682   0x0000001c   Code   RO          209    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)(driverlib.lib)
+    0x0000069e   0x0000001c   Code   RO          213    i.GPIOPinTypePWM    driverlib.lib(gpio.o)(driverlib.lib)
+    0x000006ba   0x0000001c   Code   RO          217    i.GPIOPinTypeUART   driverlib.lib(gpio.o)(driverlib.lib)
+    0x000006d6   0x00000006   Code   RO          220    i.GPIOPinWrite      driverlib.lib(gpio.o)(driverlib.lib)
+    0x000006dc   0x00000038   Code   RO          116    i.InitializeMCU     raslib.lib(init.o)(raslib.lib)
+    0x00000714   0x000000d0   Code   RO          152    i.InitializeMotors  raslib.lib(motor.o)(raslib.lib)
+    0x000007e4   0x0000000a   Code   RO          958    i.IntMasterEnable   driverlib.lib(interrupt.o)(driverlib.lib)
+    0x000007ee   0x00000002   PAD
+    0x000007f0   0x0000002c   Code   RO          117    i.LockoutProtection  raslib.lib(init.o)(raslib.lib)
+    0x0000081c   0x00000026   Code   RO         1046    i.PWMGenConfigure   driverlib.lib(pwm.o)(driverlib.lib)
+    0x00000842   0x0000000a   Code   RO         1048    i.PWMGenEnable      driverlib.lib(pwm.o)(driverlib.lib)
+    0x0000084c   0x00000012   Code   RO         1061    i.PWMGenPeriodSet   driverlib.lib(pwm.o)(driverlib.lib)
+    0x0000085e   0x00000010   Code   RO         1067    i.PWMOutputInvert   driverlib.lib(pwm.o)(driverlib.lib)
+    0x0000086e   0x00000010   Code   RO         1068    i.PWMOutputState    driverlib.lib(pwm.o)(driverlib.lib)
+    0x0000087e   0x00000020   Code   RO         1070    i.PWMPulseWidthSet  driverlib.lib(pwm.o)(driverlib.lib)
+    0x0000089e   0x00000002   PAD
+    0x000008a0   0x000001e4   Code   RO          424    i.SysCtlClockGet    driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00000a84   0x00000138   Code   RO          425    i.SysCtlClockSet    driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00000bbc   0x00000014   Code   RO          444    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00000bd0   0x00000020   Code   RO          449    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00000bf0   0x00000040   Code   RO          450    i.SysCtlPeripheralPresent  driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00000c30   0x0000000c   Code   RO          695    i.UARTCharGet       driverlib.lib(uart.o)(driverlib.lib)
+    0x00000c3c   0x0000000c   Code   RO          697    i.UARTCharPut       driverlib.lib(uart.o)(driverlib.lib)
+    0x00000c48   0x0000006e   Code   RO          701    i.UARTConfigSetExpClk  driverlib.lib(uart.o)(driverlib.lib)
+    0x00000cb6   0x00000014   Code   RO          706    i.UARTEnable        driverlib.lib(uart.o)(driverlib.lib)
+    0x00000cca   0x0000000e   Code   RO         1262    i.__scatterload_copy  mc_w.l(handlers.o)(mc_w.l)
+    0x00000cd8   0x00000002   Code   RO         1263    i.__scatterload_null  mc_w.l(handlers.o)(mc_w.l)
+    0x00000cda   0x0000000e   Code   RO         1264    i.__scatterload_zeroinit  mc_w.l(handlers.o)(mc_w.l)
+    0x00000ce8   0x0000001c   Data   RO           80    .constdata          uartstdio.o
+    0x00000d04   0x0000009c   Data   RO          462    .constdata          driverlib.lib(sysctl.o)(driverlib.lib)
+    0x00000da0   0x00000011   Data   RO           81    .conststring        uartstdio.o
+    0x00000db1   0x00000003   PAD
+    0x00000db4   0x00000020   Data   RO         1260    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000120, Max: 0x00002000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000130, Max: 0x00002000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000001   Data   RW            2    .data               travel.o
-    0x20000001   0x00000003   PAD
-    0x20000004   0x00000005   Data   RW           82    .data               uartstdio.o
-    0x20000009   0x00000003   PAD
-    0x2000000c   0x0000000c   Data   RW          118    .data               raslib.lib(init.o)(raslib.lib)
-    0x20000018   0x00000004   Data   RW          155    .data               raslib.lib(motor.o)(raslib.lib)
-    0x2000001c   0x00000004   PAD
-    0x20000020   0x00000100   Zero   RW           70    STACK               startup.o
+    0x20000000   0x00000012   Data   RW            2    .data               travel.o
+    0x20000012   0x00000002   PAD
+    0x20000014   0x00000005   Data   RW           82    .data               uartstdio.o
+    0x20000019   0x00000003   PAD
+    0x2000001c   0x0000000c   Data   RW          118    .data               raslib.lib(init.o)(raslib.lib)
+    0x20000028   0x00000004   Data   RW          155    .data               raslib.lib(motor.o)(raslib.lib)
+    0x2000002c   0x00000004   PAD
+    0x20000030   0x00000100   Zero   RW           70    STACK               startup.o
 
 
 ==============================================================================
@@ -547,16 +546,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-         4          0          0          0          0          0   charging.o
-        88         10          0          0          0          0   regionv2012.o
+        64         10          0          0          0          0   regionv2012.o
        268        258          0          0        256          0   startup.o
-        80          6          0          1          0          0   travel.o
+        88         10          0         18          0          0   travel.o
        904         40         45          5          0          0   uartstdio.o
 
     ----------------------------------------------------------------------
-      1344        314         80         12        256          0   Object Totals
+      1324        318         80         28        256          0   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         0          0          3          6          0          2   (incl. Padding)
+         0          0          3          5          0          1   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -599,15 +597,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      3324        480        236         28        260      30084   Grand Totals
-      3324        480        236         28        260      30084   ELF Image Totals
-      3324        480        236         28          0          0   ROM Totals
+      3304        484        236         44        260      29912   Grand Totals
+      3304        484        236         44        260      29912   ELF Image Totals
+      3304        484        236         44          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 3560 (   3.48kB)
-    Total RW  Size (RW Data + ZI Data)               288 (   0.28kB)
-    Total ROM Size (Code + RO Data + RW Data)       3588 (   3.50kB)
+    Total RO  Size (Code + RO Data)                 3540 (   3.46kB)
+    Total RW  Size (RW Data + ZI Data)               304 (   0.30kB)
+    Total ROM Size (Code + RO Data + RW Data)       3584 (   3.50kB)
 
 ==============================================================================
 

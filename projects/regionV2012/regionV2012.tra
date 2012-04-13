@@ -16,7 +16,7 @@
 ### ADS-LD Output File: 'regionV2012.axf'
 ### ADS-LD Command File: 'regionV2012.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'regionV2012.lnp', Handle=0x0000026C
+### Creating CmdFile 'regionV2012.lnp', Handle=0x000002B4
 ### Writing '.lnp' file
 ### ADS-LD Command file 'regionV2012.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

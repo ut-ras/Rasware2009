@@ -43,6 +43,8 @@ void init(void) {
 //Run method
 //
 void run(void) {
+	//I need to comment this to compile
+
 	/*signed char randoms = 3;
 
 	//first when they are randomly on
@@ -58,7 +60,7 @@ void run(void) {
 		//TODO charge
 	gotoCorner(FLAG);
 		//TODO discharge*/
-		
+	/*	
 		
 	int sourcesVisited = 0;
 	//assuming we find each source during its on period
@@ -70,14 +72,14 @@ void run(void) {
 	
 		while(sourcesVisited<3){//only one source on
 
-			goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+			gotoCorner(ELECTRIC);//go to the electric source, this is the default place to go
 			if(charging()==1){
 				sourcesVisited++;
 				while(charging()==1);//does nothing but charge so long as the source is on and not fully charged
 			}
 
 			if(light source on){
-				goToCorner(LIGHT);
+				gotoCorner(LIGHT);
 				
 				if(charging()==1){
 					sourcesVisited++;
@@ -87,7 +89,7 @@ void run(void) {
 
 
 			else{
-				goToCorner(FAN);
+				gotoCorner(FAN);
 				
 				if(charging()==1){
 					sourcesVisited++;
@@ -106,6 +108,7 @@ void run(void) {
 	
 	//fully charged
 	gotoCorner(FLAG);
+	*/
 
 }
 
