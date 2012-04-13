@@ -10,19 +10,11 @@
 
 
 
-// Definitions of corners
-#define FLAG 0
-#define FAN 1 //couldn't remember name of this one
-#define ELECTRIC 2
-#define LIGHT 3
-#define TREE -1
+
 
 // Order of sources
 // The order indicates which one we want first
 #define BEST_SOURCE ELECTRIC
-
-// Current location of robot
-signed char currentCorner = TREE;
 
 //
 // Goes to location
@@ -121,7 +113,7 @@ void run(void) {
 //
 int main(void) {	
 	init();
-	for (;;) run();
+	for (;;) UARTprintf("HI");//run();
 }
 
 

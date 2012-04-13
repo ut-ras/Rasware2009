@@ -1,3 +1,3 @@
---cpu Cortex-M3 "charging.o" "C:\working_dir\Robotathon2010\RASLib\Debug\raslib.lib" "C:\working_dir\Robotathon2010\StellarisWare\driverlib\rvmdk\driverlib.lib" "uartstdio.o" "startup.o" "regionv2012.o" --library_type=microlib --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--cpu Cortex-M3 "charging.o" "travel.o" "C:\working_dir\Robotathon2010\RASLib\Debug\raslib.lib" "C:\working_dir\Robotathon2010\StellarisWare\driverlib\rvmdk\driverlib.lib" "uartstdio.o" "startup.o" "regionv2012.o" --library_type=microlib --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\TEMPLATE.map" -o "TEMPLATE.axf"

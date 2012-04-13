@@ -1,9 +1,14 @@
+#include "inc/hw_types.h"		// tBoolean
 #include "RASLib/motor.h"
 #include "travel.h"
 
+
+// Current location of robot
+signed char currentCorner = TREE;
+
 void travelInit(void) {
     //motors
-	InitializeMotors(false, false);
+	InitializeMotors(false,false);
 }
 
 void gotoCorner(signed char dest) {
