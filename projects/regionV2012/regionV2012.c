@@ -70,7 +70,7 @@ void init(void) {
 //Run method
 //
 void run(void) {
-	signed char randoms = 3;
+	/*signed char randoms = 3;
 
 	//first when they are randomly on
 	for (;randoms>=0;randoms--) {
@@ -84,7 +84,48 @@ void run(void) {
 	gotoCorner(BEST_SOURCE);
 		//TODO charge
 	gotoCorner(FLAG);
-		//TODO discharge
+		//TODO discharge*/
+		
+		
+		
+	//timer thingy
+	
+	while(not fully charged){
+	
+		while(time<=180s){//only one source on
+
+			goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+			while(charging());
+
+
+			if(light source on){
+				goToCorner(LIGHT);
+				while(charging());
+			}
+
+			else{
+				goToCorner(FAN);
+				while(charging());
+			}
+		}
+
+		//3 minutes have passed, all sources on
+		//want to go to the best
+	
+	if(at the best && charging()){
+		//do nothing, wait until fully charged
+	}
+	
+	else{
+		wall follow to best source;
+		while(charging());
+	}
+		
+	}
+	
+	//fully charged
+	goToCorner(FLAG);
+
 }
 
 //
