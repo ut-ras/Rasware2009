@@ -43,6 +43,9 @@ void gotoCorner(signed char dest) {
 boolean charging(void){
 	//returns true if capacitor is charging
 	//aka the source is on
+	
+	//possibly return false if fully charged
+	
 	return;	
 }
 
@@ -112,16 +115,9 @@ void run(void) {
 		//3 minutes have passed, all sources on
 		//want to go to the best
 	
-	if(at the best && charging()){
-		//do nothing, wait until fully charged
-	}
+	goToCorner(BEST_SOURCE);
+	while(charging());
 	
-	else{
-		wall follow to best source;
-		while(charging());
-	}
-		
-	}
 	
 	//fully charged
 	goToCorner(FLAG);
