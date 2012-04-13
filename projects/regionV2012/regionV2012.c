@@ -6,7 +6,7 @@
 #include "driverlib/sysctl.h"
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
-#define ;; ever
+
 
 // Definitions of corners
 #define FLAG 0
@@ -95,7 +95,7 @@ void run(void) {
 //
 int main(void) {	
 	init();
-	for (ever) run();
+	for (;;) run();
 }
 
 
