@@ -61,30 +61,44 @@ void run(void) {
 		//TODO discharge*/
 		
 		
-		
-	//timer thingy
+	int sourcesVisited = 0;
+	//assuming we find each source during its on period
+	//after we have found three different sources on
+	//the three minutes should be up and we can go to
+	//the best source
 	
-/*	while(charging()!=2){
+	while(charging()!=2){
 	
-		while(time<=180s){//only one source on
+		while(sourcesVisited<3){//only one source on
 
 			goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
-			while(charging()==1);//does nothing but charge so long as the source is on and not fully charged
-
+			if(charging()==1){
+				sourcesVisited++;
+				while(charging()==1);//does nothing but charge so long as the source is on and not fully charged
+			}
 
 			if(light source on){
 				goToCorner(LIGHT);
-				while(charging()==1);
+				
+				if(charging()==1){
+					sourcesVisited++;
+					while(charging()==1);
+					}
 			}
+
 
 			else{
 				goToCorner(FAN);
-				while(charging())==1;
+				
+				if(charging()==1){
+					sourcesVisited++;
+					while(charging())==1;
+				}
 			}
 		}
-*/
-		//3 minutes have passed, all sources on
-		//want to go to the best
+	
+	//3 minutes have passed, all sources on
+	//want to go to the best
 	
 	gotoCorner(BEST_SOURCE);
 	while(charging()!=2);//charge until fully charged
