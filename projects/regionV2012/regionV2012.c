@@ -40,11 +40,10 @@ void gotoCorner(signed char dest) {
 	currentCorner = dest;
 }
 
-boolean charging(void){
-	//returns true if capacitor is charging
-	//aka the source is on
-	
-	//possibly return false if fully charged
+int charging(void){
+	//returns 0 if not charging (source is not on) 
+	//1 if charging
+	//2 if fully charged
 	
 	return;	
 }
@@ -93,22 +92,22 @@ void run(void) {
 		
 	//timer thingy
 	
-	while(not fully charged){
+	while(charging()!=2){
 	
 		while(time<=180s){//only one source on
 
 			goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
-			while(charging());
+			while(charging()==1);//does nothing but charge so long as the source is on and not fully charged
 
 
 			if(light source on){
 				goToCorner(LIGHT);
-				while(charging());
+				while(charging()==1);
 			}
 
 			else{
 				goToCorner(FAN);
-				while(charging());
+				while(charging())==1;
 			}
 		}
 
@@ -116,7 +115,7 @@ void run(void) {
 		//want to go to the best
 	
 	goToCorner(BEST_SOURCE);
-	while(charging());
+	while(charging()!=2);//charge until fully charged
 	
 	
 	//fully charged
