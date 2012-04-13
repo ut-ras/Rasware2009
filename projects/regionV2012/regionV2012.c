@@ -6,7 +6,7 @@
 #include "driverlib/sysctl.h"
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
-#include "RASLib/motor.h"
+
 
 
 // Definitions of corners
@@ -26,20 +26,7 @@ signed char currentCorner = TREE;
 //
 // Goes to location
 //
-void gotoCorner(signed char dest) {
-	if (dest<0 || dest==currentCorner) return;
 
-	if (currentCorner==TREE) {
-		//just move to electric source
-		currentCorner = ELECTRIC;
-		if (dest != currentCorner) gotoCorner(dest);
-		return;
-	}
-	
-	//TODO go there	
-
-	currentCorner = dest;
-}
 
 int charging(void){
 	//returns 0 if not charging (source is not on) 
@@ -64,10 +51,9 @@ void init(void) {
 	//initUART
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	
-	UARTStdioInit(0);	
-
-	//motors
-	InitializeMotors(false, false);
+	UARTStdioInit(0);
+	
+	travelInit();	
 }
 
 

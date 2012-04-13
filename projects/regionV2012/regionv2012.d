@@ -7,5 +7,3 @@ regionv2012.o: C:\working_dir\Robotathon2010\StellarisWare\driverlib/sysctl.h
 regionv2012.o: C:\working_dir\Robotathon2010\StellarisWare\driverlib/gpio.h
 regionv2012.o: C:\working_dir\Robotathon2010\StellarisWare\inc/hw_memmap.h
 regionv2012.o: C:\working_dir\Robotathon2010\RASLib\include\RASLib/init.h
-regionv2012.o: C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h
-regionv2012.o: C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h
