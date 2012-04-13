@@ -83,7 +83,7 @@ void run(void) {
 				if(charging()==1){
 					sourcesVisited++;
 					while(charging()==1);
-					}
+				}
 			}
 
 
@@ -96,6 +96,7 @@ void run(void) {
 				}
 			}
 		}
+	}
 	
 	//3 minutes have passed, all sources on
 	//want to go to the best
