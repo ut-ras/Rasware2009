@@ -40,7 +40,11 @@ void gotoCorner(signed char dest) {
 	currentCorner = dest;
 }
 
-
+boolean charging(void){
+	//returns true if capacitor is charging
+	//aka the source is on
+	return;	
+}
 
 
 //
