@@ -43,7 +43,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>TEMPLATE</OutputName>
+          <OutputName>regionV2012</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -149,7 +149,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver></Driver>
+            <Driver>BIN\AGDIRDI.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -157,11 +157,11 @@
             <UseTargetDll>1</UseTargetDll>
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
-            <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
+            <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4099</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
-          <Flash2>BIN\lmidk-agdi.dll</Flash2>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
@@ -179,8 +179,8 @@
             <ldmm>1</ldmm>
             <ldXref>1</ldXref>
             <BigEnd>0</BigEnd>
-            <AdsALst>0</AdsALst>
-            <AdsACrf>0</AdsACrf>
+            <AdsALst>1</AdsALst>
+            <AdsACrf>1</AdsACrf>
             <AdsANop>0</AdsANop>
             <AdsANot>0</AdsANot>
             <AdsLLst>1</AdsLLst>
@@ -207,7 +207,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>1</useUlib>
+            <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <RoSelD>3</RoSelD>
@@ -345,7 +345,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>C:\working_dir\Robotathon2010\StellarisWare;C:\working_dir\Robotathon2010\RASLib\include</IncludePath>
+              <IncludePath>..\..\StellarisWare;..\..\RASLib\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -364,7 +364,7 @@
             </VariousControls>
           </Aads>
           <LDads>
-            <umfTarg>0</umfTarg>
+            <umfTarg>1</umfTarg>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <noStLib>0</noStLib>
@@ -372,7 +372,7 @@
             <useFile>0</useFile>
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <ScatterFile></ScatterFile>
+            <ScatterFile>regionV2012.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -384,24 +384,16 @@
       <Groups>
         <Group>
           <GroupName>Source</GroupName>
-        </Group>
-        <Group>
-          <GroupName>External</GroupName>
           <Files>
             <File>
-              <FileName>raslib.lib</FileName>
-              <FileType>4</FileType>
-              <FilePath>C:\working_dir\Robotathon2010\RASLib\Debug\raslib.lib</FilePath>
-            </File>
-            <File>
-              <FileName>driverlib.lib</FileName>
-              <FileType>4</FileType>
-              <FilePath>C:\working_dir\Robotathon2010\StellarisWare\driverlib\rvmdk\driverlib.lib</FilePath>
-            </File>
-            <File>
-              <FileName>uartstdio.c</FileName>
+              <FileName>travel.c</FileName>
               <FileType>1</FileType>
-              <FilePath>C:\working_dir\Robotathon2010\StellarisWare\utils\uartstdio.c</FilePath>
+              <FilePath>.\travel.c</FilePath>
+            </File>
+            <File>
+              <FileName>charging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\charging.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -409,19 +401,49 @@
           <GroupName>Main</GroupName>
           <Files>
             <File>
-              <FileName>Startup.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Startup.s</FilePath>
-            </File>
-            <File>
               <FileName>regionV2012.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\regionV2012.c</FilePath>
             </File>
             <File>
-              <FileName>regionV2012.h</FileName>
+              <FileName>Startup.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Startup.s</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Header</GroupName>
+          <Files>
+            <File>
+              <FileName>charging.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\regionV2012.h</FilePath>
+              <FilePath>.\charging.h</FilePath>
+            </File>
+            <File>
+              <FileName>travel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\travel.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Lib</GroupName>
+          <Files>
+            <File>
+              <FileName>raslib.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\RASLib\Debug\raslib.lib</FilePath>
+            </File>
+            <File>
+              <FileName>uartstdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\StellarisWare\utils\uartstdio.c</FilePath>
+            </File>
+            <File>
+              <FileName>driverlib.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\StellarisWare\driverlib\rvmdk\driverlib.lib</FilePath>
             </File>
           </Files>
         </Group>

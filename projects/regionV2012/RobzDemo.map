@@ -6,15 +6,6 @@ Section Cross References
 
     travel.o(.text) refers to motor.o(i.InitializeMotors) for InitializeMotors
     travel.o(.text) refers to travel.o(.data) for currentCorner
-    regionv2012.o(.text) refers to init.o(i.LockoutProtection) for LockoutProtection
-    regionv2012.o(.text) refers to init.o(i.InitializeMCU) for InitializeMCU
-    regionv2012.o(.text) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    regionv2012.o(.text) refers to gpio.o(i.GPIOPinTypeUART) for GPIOPinTypeUART
-    regionv2012.o(.text) refers to uartstdio.o(.text) for UARTStdioInit
-    regionv2012.o(.text) refers to travel.o(.text) for travelInit
-    regionv2012.o(.text) refers to charging.o(.text) for charging
-    startup.o(RESET) refers to startup.o(STACK) for StackMem
-    startup.o(RESET) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     uartstdio.o(.text) refers to sysctl.o(i.SysCtlPeripheralPresent) for SysCtlPeripheralPresent
     uartstdio.o(.text) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     uartstdio.o(.text) refers to sysctl.o(i.SysCtlClockGet) for SysCtlClockGet
@@ -25,6 +16,15 @@ Section Cross References
     uartstdio.o(.text) refers to uartstdio.o(.constdata) for g_ulUARTPeriph
     uartstdio.o(.text) refers to uartstdio.o(.data) for g_ulBase
     uartstdio.o(.constdata) refers to uartstdio.o(.conststring) for .conststring
+    regionv2012.o(.text) refers to init.o(i.LockoutProtection) for LockoutProtection
+    regionv2012.o(.text) refers to init.o(i.InitializeMCU) for InitializeMCU
+    regionv2012.o(.text) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    regionv2012.o(.text) refers to gpio.o(i.GPIOPinTypeUART) for GPIOPinTypeUART
+    regionv2012.o(.text) refers to uartstdio.o(.text) for UARTStdioInit
+    regionv2012.o(.text) refers to travel.o(.text) for travelInit
+    regionv2012.o(.text) refers to charging.o(.text) for charging
+    startup.o(RESET) refers to startup.o(STACK) for StackMem
+    startup.o(RESET) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     init.o(i.InitializeMCU) refers to sysctl.o(i.SysCtlClockSet) for SysCtlClockSet
     init.o(i.InitializeMCU) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
     init.o(i.InitializeMCU) refers to sysctl.o(i.SysCtlClockGet) for SysCtlClockGet
@@ -332,8 +332,8 @@ Image Symbol Table
     .emb_text                                0x00000128   Section       26  cpu.o(.emb_text)
     .text                                    0x00000144   Section        0  travel.o(.text)
     .text                                    0x00000194   Section        0  charging.o(.text)
-    .text                                    0x00000198   Section        0  regionv2012.o(.text)
-    .text                                    0x000001f0   Section        0  uartstdio.o(.text)
+    .text                                    0x00000198   Section        0  uartstdio.o(.text)
+    .text                                    0x00000520   Section        0  regionv2012.o(.text)
     .text                                    0x00000578   Section       36  init.o(.text)
     i.GPIODirModeSet                         0x0000059c   Section        0  gpio.o(i.GPIODirModeSet)
     i.GPIOPadConfigSet                       0x000005c4   Section        0  gpio.o(i.GPIOPadConfigSet)
@@ -409,15 +409,15 @@ Image Symbol Table
     travelInit                               0x00000145   Thumb Code    12  travel.o(.text)
     gotoCorner                               0x00000151   Thumb Code    62  travel.o(.text)
     charging                                 0x00000195   Thumb Code     4  charging.o(.text)
-    init                                     0x00000199   Thumb Code    38  regionv2012.o(.text)
-    run                                      0x000001bf   Thumb Code    26  regionv2012.o(.text)
-    main                                     0x000001d9   Thumb Code    14  regionv2012.o(.text)
-    UARTStdioInitExpClk                      0x000001f1   Thumb Code    72  uartstdio.o(.text)
-    UARTStdioInit                            0x00000239   Thumb Code    16  uartstdio.o(.text)
-    UARTwrite                                0x00000249   Thumb Code    46  uartstdio.o(.text)
-    UARTgets                                 0x00000277   Thumb Code   126  uartstdio.o(.text)
-    UARTgetc                                 0x000002f5   Thumb Code    14  uartstdio.o(.text)
-    UARTprintf                               0x00000303   Thumb Code   590  uartstdio.o(.text)
+    UARTStdioInitExpClk                      0x00000199   Thumb Code    72  uartstdio.o(.text)
+    UARTStdioInit                            0x000001e1   Thumb Code    16  uartstdio.o(.text)
+    UARTwrite                                0x000001f1   Thumb Code    46  uartstdio.o(.text)
+    UARTgets                                 0x0000021f   Thumb Code   126  uartstdio.o(.text)
+    UARTgetc                                 0x0000029d   Thumb Code    14  uartstdio.o(.text)
+    UARTprintf                               0x000002ab   Thumb Code   590  uartstdio.o(.text)
+    init                                     0x00000521   Thumb Code    38  regionv2012.o(.text)
+    run                                      0x00000547   Thumb Code    26  regionv2012.o(.text)
+    main                                     0x00000561   Thumb Code    14  regionv2012.o(.text)
     __scatterload                            0x00000579   Thumb Code    28  init.o(.text)
     __scatterload_rt2                        0x00000579   Thumb Code     0  init.o(.text)
     GPIODirModeSet                           0x0000059d   Thumb Code    40  gpio.o(i.GPIODirModeSet)
@@ -464,15 +464,15 @@ Image Symbol Table
 
 Memory Map of the image
 
-  Image Entry point : 0x0000010d
+  Image Entry point : 0x00000101
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00000e04, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000e04, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00000de8, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00000de8, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x0000010c   Code   RO           72    RESET               startup.o
+    0x00000000   0x0000010c   Code   RO          109  * RESET               startup.o
     0x0000010c   0x00000000   Code   RO         1250  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)(mc_w.l)
     0x0000010c   0x00000004   Code   RO         1253    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)(mc_w.l)
     0x00000110   0x00000004   Code   RO         1256    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)(mc_w.l)
@@ -484,8 +484,8 @@ Memory Map of the image
     0x00000142   0x00000002   PAD
     0x00000144   0x00000050   Code   RO            1    .text               travel.o
     0x00000194   0x00000004   Code   RO           30    .text               charging.o
-    0x00000198   0x00000058   Code   RO           39    .text               regionv2012.o
-    0x000001f0   0x00000388   Code   RO           79    .text               uartstdio.o
+    0x00000198   0x00000388   Code   RO           39    .text               uartstdio.o
+    0x00000520   0x00000058   Code   RO           88    .text               regionv2012.o
     0x00000578   0x00000024   Code   RO         1258    .text               mc_w.l(init.o)(mc_w.l)
     0x0000059c   0x00000028   Code   RO          191    i.GPIODirModeSet    driverlib.lib(gpio.o)(driverlib.lib)
     0x000005c4   0x000000b0   Code   RO          196    i.GPIOPadConfigSet  driverlib.lib(gpio.o)(driverlib.lib)
@@ -519,25 +519,31 @@ Memory Map of the image
     0x00000cde   0x0000000e   Code   RO         1262    i.__scatterload_copy  mc_w.l(handlers.o)(mc_w.l)
     0x00000cec   0x00000002   Code   RO         1263    i.__scatterload_null  mc_w.l(handlers.o)(mc_w.l)
     0x00000cee   0x0000000e   Code   RO         1264    i.__scatterload_zeroinit  mc_w.l(handlers.o)(mc_w.l)
-    0x00000cfc   0x0000001c   Data   RO           80    .constdata          uartstdio.o
+    0x00000cfc   0x0000001c   Data   RO           40    .constdata          uartstdio.o
     0x00000d18   0x0000009c   Data   RO          462    .constdata          driverlib.lib(sysctl.o)(driverlib.lib)
-    0x00000db4   0x00000011   Data   RO           81    .conststring        uartstdio.o
+    0x00000db4   0x00000011   Data   RO           41    .conststring        uartstdio.o
     0x00000dc5   0x00000003   PAD
     0x00000dc8   0x00000020   Data   RO         1260    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000120, Max: 0x00002000, ABSOLUTE)
+    Execution Region ER_RW (Base: 0x20000000, Size: 0x0000001c, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000   0x00000001   Data   RW            2    .data               travel.o
     0x20000001   0x00000003   PAD
-    0x20000004   0x00000005   Data   RW           82    .data               uartstdio.o
+    0x20000004   0x00000005   Data   RW           42    .data               uartstdio.o
     0x20000009   0x00000003   PAD
     0x2000000c   0x0000000c   Data   RW          118    .data               raslib.lib(init.o)(raslib.lib)
     0x20000018   0x00000004   Data   RW          155    .data               raslib.lib(motor.o)(raslib.lib)
+
+
+    Execution Region ER_ZI (Base: 0x2000001c, Size: 0x00000104, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
     0x2000001c   0x00000004   PAD
-    0x20000020   0x00000100   Zero   RW           70    STACK               startup.o
+    0x20000020   0x00000100   Zero   RW          107    STACK               startup.o
 
 
 ==============================================================================

@@ -1,1 +1,0 @@
--c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -IC:\working_dir\Robotathon2010\StellarisWare -IC:\working_dir\Robotathon2010\RASLib\include -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Luminary" -o "regionv2012.o" --omf_browse "regionv2012.crf" --depend "regionv2012.d" "regionV2012.c"

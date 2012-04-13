@@ -1,20 +1,22 @@
 *** Creating Trace Output File 'regionV2012.tra' Ok.
 ### Preparing for ADS-LD.
 ### Creating ADS-LD Command Line
+### List of Objects: adding '"travel.o"'
+### List of Objects: adding '"charging.o"'
 ### List of Objects: adding '"regionv2012.o"'
 ### List of Objects: adding '"startup.o"'
 ### List of Objects: adding '"..\..\RASLib\Debug\raslib.lib"'
-### List of Objects: adding '"..\..\StellarisWare\driverlib\rvmdk\driverlib.lib"'
 ### List of Objects: adding '"uartstdio.o"'
+### List of Objects: adding '"..\..\StellarisWare\driverlib\rvmdk\driverlib.lib"'
 ### ADS-LD Command completed:
---cpu Cortex-M3 "regionv2012.o" "startup.o" "..\..\RASLib\Debug\raslib.lib" "..\..\StellarisWare\driverlib\rvmdk\driverlib.lib" "uartstdio.o" --strict --scatter "regionV2012.sct" 
+--cpu Cortex-M3 "travel.o" "charging.o" "regionv2012.o" "startup.o" "..\..\RASLib\Debug\raslib.lib" "uartstdio.o" "..\..\StellarisWare\driverlib\rvmdk\driverlib.lib" --library_type=microlib --strict --scatter "regionV2012.sct" 
 --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\regionV2012.map" -o "regionV2012.axf"### Preparing Environment (PrepEnvAds)
 ### ADS-LD Output File: 'regionV2012.axf'
 ### ADS-LD Command File: 'regionV2012.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'regionV2012.lnp', Handle=0x00000458
+### Creating CmdFile 'regionV2012.lnp', Handle=0x0000026C
 ### Writing '.lnp' file
 ### ADS-LD Command file 'regionV2012.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

@@ -1,5 +1,4 @@
 #include "inc/hw_types.h"		// tBoolean
-#include "regionV2012.h"
 #include "utils/uartstdio.h"	// input/output over UART
 #include "driverlib/uart.h"		// input/output over UART
 #include "driverlib/gpio.h"
