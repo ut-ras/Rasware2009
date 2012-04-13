@@ -40,7 +40,10 @@ void gotoCorner(signed char dest) {
 	currentCorner = dest;
 }
 
-
+ boolean charging(){
+ 	//determine if it cap is charging (aka source is on)
+ 	return;
+ }
 
 
 //
