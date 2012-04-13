@@ -1,4 +1,4 @@
 void gotoCorner(signed char dest);
-boolean charging(void);
+int charging(void);
 void init(void);
 void run(void);
