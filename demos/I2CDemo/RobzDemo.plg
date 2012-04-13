@@ -3,20 +3,7 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\Cruz Monrreal II\Desktop\rasware\I2CDemo\I2CDemo.uvproj
-Project File Date:  02/11/2011
+C:\Documents and Settings\RAS\Desktop\Rasware2009\demos\I2CDemo\I2CDemo.uvproj
+Project File Date:  03/28/2012
 
 <h2>Output:</h2>
-Build target 'Target 1'
-compiling uartstdio.c...
-assembling Startup.s...
-compiling I2CDemo.c...
-linking...
-Program Size: Code=6172 RO-data=236 RW-data=60 ZI-data=292  
-"RobzDemo.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\Cruz Monrreal II\\Desktop\\rasware\\I2CDemo\\RobzDemo.AXF" 
-Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
-Connecting: Mode=JTAG, Speed=600000Hz
-Erase Done.
-Programming Done.
-Verify OK.
