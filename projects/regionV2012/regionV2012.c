@@ -6,6 +6,7 @@
 #include "driverlib/sysctl.h"
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
+#include "RASLib/motor.h"
 
 
 // Definitions of corners
@@ -45,7 +46,7 @@ int charging(void){
 	//1 if charging
 	//2 if fully charged
 	
-	return;	
+	return 0;	
 }
 
 
@@ -92,7 +93,7 @@ void run(void) {
 		
 	//timer thingy
 	
-	while(charging()!=2){
+/*	while(charging()!=2){
 	
 		while(time<=180s){//only one source on
 
@@ -110,16 +111,16 @@ void run(void) {
 				while(charging())==1;
 			}
 		}
-
+*/
 		//3 minutes have passed, all sources on
 		//want to go to the best
 	
-	goToCorner(BEST_SOURCE);
+	gotoCorner(BEST_SOURCE);
 	while(charging()!=2);//charge until fully charged
 	
 	
 	//fully charged
-	goToCorner(FLAG);
+	gotoCorner(FLAG);
 
 }
 
