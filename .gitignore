@@ -18,3 +18,4 @@
 *.uvopt
 *.xls
 *.uvgui.*
+.DS_Store
