@@ -1,4 +1,0 @@
---cpu Cortex-M3 "travel.o" "charging.o" "regionv2012.o" "startup.o" "..\..\RASLib\Debug\raslib.lib" "uartstdio.o" "..\..\StellarisWare\driverlib\rvmdk\driverlib.lib" --library_type=microlib --strict --scatter "regionV2012.sct" 
---autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
---info sizes --info totals --info unused --info veneers 
- --list ".\regionV2012.map" -o "regionV2012.axf"
