@@ -1,6 +1,0 @@
-Dependencies for Project 'I2CDemo', Target 'Target 1': (DO NOT MODIFY !)
-F (..\StellarisWare\driverlib\rvmdk\driverlib.lib)(0x00000000)()
-F (..\StellarisWare\utils\uartstdio.c)(0x00000000)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\StellarisWare -I..\RASLib\include -I "C:\Program Files (x86)\Keil\ARM\INC" -I "C:\Program Files (x86)\Keil\ARM\INC\Luminary" -o "uartstdio.o" --omf_browse "uartstdio.crf" --depend "uartstdio.d")
-F (..\RASLib\Debug\RASLib.lib)(0x00000000)()
-F (.\Startup.s)(0x4F7368B7)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Luminary" -o "Startup.o" --depend "Startup.d")
-F (.\I2CDemo.c)(0x4F7368B7)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\StellarisWare -I..\RASLib\include -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Luminary" -o "i2cdemo.o" --omf_browse "i2cdemo.crf" --depend "i2cdemo.d")
