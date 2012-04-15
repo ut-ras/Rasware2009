@@ -1,1 +1,4 @@
-int charging(void);
+int charge(void);
+int discharge(void);
+
+
