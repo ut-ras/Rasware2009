@@ -9,7 +9,13 @@
 
 
 void travelInit(void);
-void gotoCorner(signed char);
+
+//corner to goto, and boolean value for turning backwards to use fan
+void goForward(void);
+void goBackward(void);
+void goCorner(char source);
+void goWall(void);
+void gotoDest(char,bool);
 
 void testSensors(void);
 
