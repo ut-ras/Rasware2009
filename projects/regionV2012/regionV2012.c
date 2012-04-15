@@ -5,11 +5,15 @@
 #include "driverlib/sysctl.h"
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
+<<<<<<< HEAD
+#define ;; ever
+=======
 #include "travel.h"
 #include "charging.h"
 
 #include "ADS7830.h"
 
+>>>>>>> 60ecd2ff0a09f357b8881ea362ae24911ae57353
 
 
 // Order of sources
@@ -120,7 +124,11 @@ void run(void) {
 //
 int main(void) {	
 	init();
+<<<<<<< HEAD
+	for(ever) run();
+=======
 	for (;;) UARTprintf("HI");//run();
+>>>>>>> 60ecd2ff0a09f357b8881ea362ae24911ae57353
 }
 
 
