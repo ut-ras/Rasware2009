@@ -10,7 +10,7 @@
 =======
 #include "travel.h"
 #include "charging.h"
-
+#include "panelServos.h"
 #include "ADS7830.h"
 
 >>>>>>> 60ecd2ff0a09f357b8881ea362ae24911ae57353
@@ -84,11 +84,14 @@ void run(void) {
 
 			if(light source on){
 				gotoCorner(LIGHT);
+				lowerPanel();//lower solar panel
 				
 				if(charging()==1){
 					sourcesVisited++;
 					while(charging()==1);
 				}
+				
+				raisePanel();
 			}
 
 
