@@ -1,54 +1,28 @@
 #include "inc/hw_types.h"		// tBoolean
-#include "regionV2012.h"
 #include "utils/uartstdio.h"	// input/output over UART
 #include "driverlib/uart.h"		// input/output over UART
 #include "driverlib/gpio.h"
 #include "driverlib/sysctl.h"
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
+<<<<<<< HEAD
+#define ;; ever
+=======
+#include "travel.h"
+#include "charging.h"
 
+#include "ADS7830.h"
 
-// Definitions of corners
-#define FLAG 0
-#define DIRECT 1 //couldn't remember name of this one
-#define LIGHT 2
-#define FAN 3
-#define TREE -1
+>>>>>>> 60ecd2ff0a09f357b8881ea362ae24911ae57353
+
 
 // Order of sources
 // The order indicates which one we want first
-#define SOURCE_1 LIGHT
-#define SOURCE_2 FAN
-#define SOURCE_3 DIRECT
-
-// Current location of robot
-signed char currentCorner = TREE;
-
-// These functions are up in the air at this point
-//
-//void followWall(void) {
-//	//TODO figure out what exactly should go here
-//}
-//
-//void moveForward(void) {
-//	//-128 to 127
-//	SetMotorPowers(127,127);
-//}
-//
-//
+#define BEST_SOURCE ELECTRIC
 
 //
 // Goes to location
 //
-void gotoCorner(dest) {
-	if (dest==TREE || dest==currentCorner) return; //return if invalid
-
-	//TODO move to robot to this corner
-
-	currentCorner = dest;
-}
-
-
 
 
 //
@@ -63,10 +37,9 @@ void init(void) {
 	//initUART
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	
-	UARTStdioInit(0);	
-
-	//motors
-	InitializeMotors(false, false);
+	UARTStdioInit(0);
+	
+	travelInit();
 }
 
 
@@ -74,7 +47,9 @@ void init(void) {
 //Run method
 //
 void run(void) {
-	signed char randoms = 3;
+	//I need to comment this to compile
+
+	/*signed char randoms = 3;
 
 	//first when they are randomly on
 	for (;randoms>=0;randoms--) {
@@ -85,10 +60,60 @@ void run(void) {
 	}
 
 	//then when they are all on
-	gotoCorner(SOURCE_1);
+	gotoCorner(BEST_SOURCE);
 		//TODO charge
 	gotoCorner(FLAG);
-		//TODO discharge
+		//TODO discharge*/
+	/*	
+		
+	int sourcesVisited = 0;
+	//assuming we find each source during its on period
+	//after we have found three different sources on
+	//the three minutes should be up and we can go to
+	//the best source
+	
+	while(charging()!=2){
+	
+		while(sourcesVisited<3){//only one source on
+
+			gotoCorner(ELECTRIC);//go to the electric source, this is the default place to go
+			if(charging()==1){
+				sourcesVisited++;
+				while(charging()==1);//does nothing but charge so long as the source is on and not fully charged
+			}
+
+			if(light source on){
+				gotoCorner(LIGHT);
+				
+				if(charging()==1){
+					sourcesVisited++;
+					while(charging()==1);
+				}
+			}
+
+
+			else{
+				gotoCorner(FAN);
+				
+				if(charging()==1){
+					sourcesVisited++;
+					while(charging())==1;
+				}
+			}
+		}
+	}
+	
+	//3 minutes have passed, all sources on
+	//want to go to the best
+	
+	gotoCorner(BEST_SOURCE);
+	while(charging()!=2);//charge until fully charged
+	
+	
+	//fully charged
+	gotoCorner(FLAG);
+	*/
+
 }
 
 //
@@ -99,9 +124,11 @@ void run(void) {
 //
 int main(void) {	
 	init();
-	while(1){
-		run();
-	}
+<<<<<<< HEAD
+	for(ever) run();
+=======
+	for (;;) UARTprintf("HI");//run();
+>>>>>>> 60ecd2ff0a09f357b8881ea362ae24911ae57353
 }
 
 
