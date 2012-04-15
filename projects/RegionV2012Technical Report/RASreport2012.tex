@@ -17,11 +17,12 @@
 \setlength{\headheight}{15pt}
 
 \begin{document}
-\fancyhead[LO]{Kaarthik Rajendran and everyone else  \today}
+\fancyhead[LO]{Kaarthik Rajendran \today}
 
 
-
+\begin{center}
 {\Huge 2012 IEEE Region V Robotics Technical Paper}\\[\baselineskip]
+\end{center}
 {\large\itshape Kaarthik Rajendran }\\[\baselineskip]
 \today 
 
@@ -42,8 +43,8 @@ The challenge was to harvest energy from three different energy sources and deli
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=3in]{Robotics2012PlayingField} 
-   \caption{example caption}
-   \label{fig:example}
+   \caption{Playing Field Diagram}
+   \label{fig:playing field}
 \end{figure}
 
 \begin{itemize}
@@ -55,17 +56,17 @@ The challenge was to harvest energy from three different energy sources and deli
 		\end{enumerate} 
 \end{itemize}
 \begin{itemize}
-	\item Delivery Flag (Quadrant 4): Essentially, a gear motor (Part No. 1094, Pololu Robotics) raises and lowers a small block. TO BE DONE. 
+	\item Delivery Flag (Quadrant 4): Essentially, a gear motor (Part No. 1094, Pololu Robotics) raises and lowers a small block. There will be a zener diode (approx. 6 V) in parallel with the motor to prevent motor damage. TO BE DONE. 
 \end{itemize}
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=3in]{Robotics2012Flag} 
-   \caption{example caption}
-   \label{fig:example}
+   \caption{Flag Mechanism}
+   \label{fig:flagmechanism}
 \end{figure}
 \begin{itemize}
-	\item Starting Tree (Center): TO BE DONE.
-	\item Source Switching. TO BE DONE.  
+	\item Starting Tree (Center): The robot will start from the center of the field. In the center is a tree inside a five gallon bucket. Some part of the robot must touch the outside diameter of the bucket as its starting position. 
+	\item Source Switching. Sources will be turned on and off throughout the round. 
 	\item Robot Limitations
 		\begin {enumerate}
 			\item The robot could not cross the perimeter to harvest light energy or wind energy. 
