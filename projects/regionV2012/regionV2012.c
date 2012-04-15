@@ -11,7 +11,7 @@
 #include "travel.h"
 #include "charging.h"
 
-
+#include "ADS7830.h"
 
 >>>>>>> 60ecd2ff0a09f357b8881ea362ae24911ae57353
 
@@ -39,7 +39,7 @@ void init(void) {
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	
 	UARTStdioInit(0);
 	
-	travelInit();	
+	travelInit();
 }
 
 
