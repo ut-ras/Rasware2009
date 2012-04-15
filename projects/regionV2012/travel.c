@@ -16,20 +16,33 @@ unsigned char rMotorSpeed = 0;
 #define BACK_RIGHT 4
 #define BACK 5
 
+#define LOWER 0
+#define HIGHER 1
+
 #define BACK_OFFSET (backwards?3:0)
-#define till(x) for(ADS7830_BurstRead(x);sensors[x]<sensor_bounds[x];ADS7830_BurstRead(x))
-#define tillnot(x) for(ADS7830_BurstRead(x);!(sensors[x]<sensor_bounds[x]);ADS7830_BurstRead(x))
+#define till(x,y) for(ADS7830_BurstRead(sensors);sensors[backwards?((x)+3)%6:(x)]<bounds[y][backwards?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
+#define tillnot(x,y) for(ADS7830_BurstRead(sensors);sensors[backwards?((x)+3)%6:(x)]>bounds[y][backwards?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
+#define tillsource() for(ADS7830_BurstRead(sensors);true;ADS7830_BurstRead(sensors)) //TODO
+
 
 // Array for reading sensors
 unsigned char[8] sensors;
 
-const unsigned char[6] sensor_bounds = {400,400,400,400,400,400};
+//TODO experimentally determine these
+const unsigned char[2][8] bounds = {
+	{400,400,400,400,400,400,400,400},
+	{600,600,600,600,600,600,600,600},
+};
 
 
 void travelInit(void) {
 	//motors
 	InitializeMotors(false,false);
 	ADS7830_Init();
+}
+
+void stop(void) {
+	SetMotorPowers(0,0);
 }
 
 void goForward(void) {
@@ -49,17 +62,46 @@ void goWall(void) {
 
 }
 
-void gotoCorner(signed char dest) {
+void gotoCorner(char dest,bool flip) {
+	char offdest;
 	if (dest<0 || dest==currentCorner) return;
 
 	if (currentCorner==TREE) {
-		till(FRONT) goForward();
+		till(FRONT,LOWER) goForward();
+		//rotate right
+		till(FRONT_RIGHT,LOWER) goWall();
+		tillsource() goCorner();
 		currentCorner = ELECTRIC;
 		if (dest != currentCorner) gotoCorner(dest);
 		return;
 	}
 	
-	//TODO go there	
+	
+	offdest = currentCorner - dest;
+	if (offdest < 0) offdest = offdest+4;
+	
+	switch(offdest) {
+		case 1:
+			tillnot(FRONT_RIGHT,LOWER) goBackwards();
+			//rotate right or flip
+			//asymptote drive?
+			till(FRONT,LOWER) goForwards();
+			break;
+		case 2:
+			till(BACK,LOWER) goBackwards();
+			//rotate right
+			till(FRONT,LOWER) goForwards();
+			//rotate right and flip
+			break;
+		case 3:
+			till(BACK,HIGHER) goBackwards();
+			//rotate left
+			till(BACK,LOWER) goBackwards();
+			//rotate left or flip
+			break;
+	}
+	
+	tillsource() goCorner();	
 
 	currentCorner = dest;
 }

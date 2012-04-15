@@ -11,6 +11,7 @@
 void travelInit(void);
 
 //corner to goto, and boolean value for turning backwards to use fan
+void stop(void);
 void goForward(void);
 void goBackward(void);
 void goCorner(char source);
