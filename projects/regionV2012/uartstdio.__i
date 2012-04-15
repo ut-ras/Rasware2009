@@ -1,1 +1,1 @@
--c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\..\StellarisWare -I..\..\RASLib\include -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Luminary" -o "uartstdio.o" --omf_browse "uartstdio.crf" --depend "uartstdio.d" "..\..\StellarisWare\utils\uartstdio.c"
+-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\StellarisWare -I..\..\RASLib\include -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Luminary" -o "uartstdio.o" --omf_browse "uartstdio.crf" --depend "uartstdio.d" "..\..\StellarisWare\utils\uartstdio.c"

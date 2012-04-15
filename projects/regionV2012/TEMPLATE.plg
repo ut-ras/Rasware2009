@@ -1,0 +1,750 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Documents and Settings\RAS\Desktop\Rasware2009\projects\regionV2012\regionV2012.uvproj
+Project File Date:  04/12/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.h(1): warning:  #1-D: last line of file ends without a newline
+regionV2012.h:   void gotoCorner(signed char);
+regionV2012.h:                                ^
+regionV2012.c(48): warning:  #117-D: non-void function "charging" should return a value
+regionV2012.c:          return; 
+regionV2012.c:                ^
+regionV2012.c(67): warning:  #223-D: function "InitializeMotors" declared implicitly
+regionV2012.c:          InitializeMotors(false, false);
+regionV2012.c:          ^
+regionV2012.c(97): error:  #20: identifier "time" is undefined
+regionV2012.c:                  while(time<=180s){//only one source on
+regionV2012.c:                        ^
+regionV2012.c(97): error:  #18: expected a ")"
+regionV2012.c:                  while(time<=180s){//only one source on
+regionV2012.c:                                 ^
+regionV2012.c(99): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(103): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(103): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(110): error:  #29: expected an expression
+regionV2012.c:                                  while(charging())==1;
+regionV2012.c:                                                   ^
+regionV2012.c(117): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:          goToCorner(BEST_SOURCE);
+regionV2012.c:          ^
+regionV2012.c(132): error:  #268: declaration may not appear after executable statement in block
+regionV2012.c:   int main(void) {       
+regionV2012.c:   ^
+regionV2012.c(132): error:  #67: expected a "}"
+regionV2012.c:   int main(void) {       
+regionV2012.c:   ^
+regionV2012.c: regionV2012.c: 5 warnings, 7 errors
+Target not created
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\TEMPLATE.AXF" 
+_____^
+*** error 56: cant open file
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(48): warning:  #117-D: non-void function "charging" should return a value
+regionV2012.c:          return; 
+regionV2012.c:                ^
+regionV2012.c(67): warning:  #223-D: function "InitializeMotors" declared implicitly
+regionV2012.c:          InitializeMotors(false, false);
+regionV2012.c:          ^
+regionV2012.c(97): error:  #20: identifier "time" is undefined
+regionV2012.c:                  while(time<=180s){//only one source on
+regionV2012.c:                        ^
+regionV2012.c(97): error:  #18: expected a ")"
+regionV2012.c:                  while(time<=180s){//only one source on
+regionV2012.c:                                 ^
+regionV2012.c(99): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(103): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(103): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(110): error:  #29: expected an expression
+regionV2012.c:                                  while(charging())==1;
+regionV2012.c:                                                   ^
+regionV2012.c(117): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:          goToCorner(BEST_SOURCE);
+regionV2012.c:          ^
+regionV2012.c(132): error:  #268: declaration may not appear after executable statement in block
+regionV2012.c:   int main(void) {       
+regionV2012.c:   ^
+regionV2012.c(132): error:  #67: expected a "}"
+regionV2012.c:   int main(void) {       
+regionV2012.c:   ^
+regionV2012.c: regionV2012.c: 4 warnings, 7 errors
+Target not created
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\TEMPLATE.AXF" 
+_____^
+*** error 56: cant open file
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(67): warning:  #223-D: function "InitializeMotors" declared implicitly
+regionV2012.c:          InitializeMotors(false, false);
+regionV2012.c:          ^
+regionV2012.c(97): error:  #20: identifier "time" is undefined
+regionV2012.c:                  while(time<=180s){//only one source on
+regionV2012.c:                        ^
+regionV2012.c(97): error:  #18: expected a ")"
+regionV2012.c:                  while(time<=180s){//only one source on
+regionV2012.c:                                 ^
+regionV2012.c(99): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(103): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(103): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(110): error:  #29: expected an expression
+regionV2012.c:                                  while(charging())==1;
+regionV2012.c:                                                   ^
+regionV2012.c(117): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:          goToCorner(BEST_SOURCE);
+regionV2012.c:          ^
+regionV2012.c(132): error:  #268: declaration may not appear after executable statement in block
+regionV2012.c:   int main(void) {       
+regionV2012.c:   ^
+regionV2012.c(132): error:  #67: expected a "}"
+regionV2012.c:   int main(void) {       
+regionV2012.c:   ^
+regionV2012.c: regionV2012.c: 3 warnings, 7 errors
+Target not created
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(67): warning:  #223-D: function "InitializeMotors" declared implicitly
+regionV2012.c:          InitializeMotors(false, false);
+regionV2012.c:          ^
+regionV2012.c(117): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:          goToCorner(BEST_SOURCE);
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 2 warnings, 0 errors
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol goToCorner (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 1 error messages.
+Target not created
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(118): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:          goToCorner(BEST_SOURCE);
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 1 warning, 0 errors
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol goToCorner (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 1 error messages.
+Target not created
+Build target 'Target 1'
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3340 RO-data=236 RW-data=8 ZI-data=272  
+"TEMPLATE.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\TEMPLATE.AXF" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Failed!
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(70): warning:  #223-D: function "InitializeMotors" declared implicitly
+regionV2012.c:          InitializeMotors(false, false);
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 1 warning, 0 errors
+linking...
+Program Size: Code=3340 RO-data=236 RW-data=8 ZI-data=272  
+"TEMPLATE.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(56): warning:  #223-D: function "travelInit" declared implicitly
+regionV2012.c:          travelInit();   
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 1 warning, 0 errors
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol gotoCorner (referred from regionv2012.o).
+TEMPLATE.axf: Error: L6218E: Undefined symbol travelInit (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 2 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(56): warning:  #223-D: function "travelInit" declared implicitly
+regionV2012.c:          travelInit();   
+regionV2012.c:          ^
+regionV2012.c(106): warning:  #223-D: function "gotoCorner" declared implicitly
+regionV2012.c:          gotoCorner(BEST_SOURCE);
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 2 warnings, 0 errors
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol gotoCorner (referred from regionv2012.o).
+TEMPLATE.axf: Error: L6218E: Undefined symbol travelInit (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 2 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+travel.h(2): warning:  #1-D: last line of file ends without a newline
+travel.h:   void gotoCorner(signed char);
+travel.h:                                ^
+travel.h: regionV2012.c: 1 warning, 0 errors
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol gotoCorner (referred from regionv2012.o).
+TEMPLATE.axf: Error: L6218E: Undefined symbol travelInit (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 2 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol gotoCorner (referred from regionv2012.o).
+TEMPLATE.axf: Error: L6218E: Undefined symbol travelInit (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 2 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(126): warning:  #111-D: statement is unreachable
+regionV2012.c:          UARTPrintf("Hi");
+regionV2012.c:          ^
+regionV2012.c(126): warning:  #223-D: function "UARTPrintf" declared implicitly
+regionV2012.c:          UARTPrintf("Hi");
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 2 warnings, 0 errors
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol gotoCorner (referred from regionv2012.o).
+TEMPLATE.axf: Error: L6218E: Undefined symbol travelInit (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 2 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(126): warning:  #111-D: statement is unreachable
+regionV2012.c:          UARTprintf("Hi");
+regionV2012.c:          ^
+regionV2012.c: regionV2012.c: 1 warning, 0 errors
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol gotoCorner (referred from regionv2012.o).
+TEMPLATE.axf: Error: L6218E: Undefined symbol travelInit (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 2 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol gotoCorner (referred from regionv2012.o).
+TEMPLATE.axf: Error: L6218E: Undefined symbol travelInit (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 2 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+TEMPLATE.axf: Error: L6218E: Undefined symbol gotoCorner (referred from regionv2012.o).
+TEMPLATE.axf: Error: L6218E: Undefined symbol travelInit (referred from regionv2012.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Finished: 1 information, 0 warning and 2 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(230): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bEnable);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(232): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               tBoolean bInvert);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(235): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   tBoolean bDriveHigh);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(237): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bFaultSuppress);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(249): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(255): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:   extern unsigned long PWMIntStatus(unsigned long ulBase, tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                                           ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                                  ^
+travel.c(6): error:  #20: identifier "false" is undefined
+travel.c:       InitializeMotors(false, false);
+travel.c:                        ^
+travel.c(10): error:  #20: identifier "currentCorner" is undefined
+travel.c:       if (dest<0 || dest==currentCorner) return;
+travel.c:                           ^
+travel.c(12): error:  #20: identifier "TREE" is undefined
+travel.c:       if (currentCorner==TREE) {
+travel.c:                          ^
+travel.c(14): error:  #20: identifier "ELECTRIC" is undefined
+travel.c:               currentCorner = ELECTRIC;
+travel.c:                               ^
+travel.c(22): warning:  #1-D: last line of file ends without a newline
+travel.c:   }
+travel.c:    ^
+travel.c: travel.c: 1 warning, 12 errors
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(230): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bEnable);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(232): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               tBoolean bInvert);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(235): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   tBoolean bDriveHigh);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(237): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bFaultSuppress);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(249): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(255): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:   extern unsigned long PWMIntStatus(unsigned long ulBase, tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                                           ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                                  ^
+travel.c(6): error:  #20: identifier "false" is undefined
+travel.c:       InitializeMotors(false, false);
+travel.c:                        ^
+travel.c(10): error:  #20: identifier "currentCorner" is undefined
+travel.c:       if (dest<0 || dest==currentCorner) return;
+travel.c:                           ^
+travel.c(22): warning:  #1-D: last line of file ends without a newline
+travel.c:   }
+travel.c:    ^
+travel.c: travel.c: 1 warning, 10 errors
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(230): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bEnable);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(232): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               tBoolean bInvert);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(235): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   tBoolean bDriveHigh);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(237): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bFaultSuppress);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(249): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(255): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:   extern unsigned long PWMIntStatus(unsigned long ulBase, tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                                           ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                                  ^
+travel.c(10): error:  #20: identifier "currentCorner" is undefined
+travel.c:       if (dest<0 || dest==currentCorner) return;
+travel.c:                           ^
+travel.c(22): warning:  #1-D: last line of file ends without a newline
+travel.c:   }
+travel.c:    ^
+travel.c: travel.c: 1 warning, 9 errors
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(230): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bEnable);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(232): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               tBoolean bInvert);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(235): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   tBoolean bDriveHigh);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(237): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bFaultSuppress);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(249): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(255): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:   extern unsigned long PWMIntStatus(unsigned long ulBase, tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                                           ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                                  ^
+travel.c(10): error:  #20: identifier "currentCorner" is undefined
+travel.c:       if (dest<0 || dest==currentCorner) return;
+travel.c:                           ^
+travel.c: travel.c: 0 warnings, 9 errors
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(230): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bEnable);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(232): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               tBoolean bInvert);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(235): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   tBoolean bDriveHigh);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(237): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bFaultSuppress);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(249): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(255): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:   extern unsigned long PWMIntStatus(unsigned long ulBase, tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                                           ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                                  ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h: travel.c: 0 warnings, 8 errors
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(230): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bEnable);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(232): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               tBoolean bInvert);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(235): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   tBoolean bDriveHigh);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(237): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bFaultSuppress);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(249): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(255): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:   extern unsigned long PWMIntStatus(unsigned long ulBase, tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                                           ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                                  ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h: travel.c: 0 warnings, 8 errors
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(230): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bEnable);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(232): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               tBoolean bInvert);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                               ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(235): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   tBoolean bDriveHigh);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                   ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(237): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              tBoolean bFaultSuppress);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                              ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(249): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                        ^
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h(255): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:   extern unsigned long PWMIntStatus(unsigned long ulBase, tBoolean bMasked);
+C:\working_dir\Robotathon2010\StellarisWare\driverlib/pwm.h:                                                           ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h(31): error:  #20: identifier "tBoolean" is undefined
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:   extern void InitializeMotors(tBoolean invert0, tBoolean invert1);
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h:                                                  ^
+C:\working_dir\Robotathon2010\RASLib\include\RASLib/motor.h: travel.c: 0 warnings, 8 errors
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+charging.c(1): warning:  #1-D: last line of file ends without a newline
+charging.c:   #include "inc/hw_types.h"         // tBoolean
+charging.c:                                                ^
+charging.c: charging.c: 1 warning, 0 errors
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\TEMPLATE.AXF" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Failed!
+Build target 'Target 1'
+compiling charging.c...
+charging.c(5): warning:  #117-D: non-void function "charging" should return a value
+charging.c:     return; 
+charging.c:           ^
+charging.c(6): warning:  #1-D: last line of file ends without a newline
+charging.c:   }
+charging.c:    ^
+charging.c: charging.c: 2 warnings, 0 errors
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+TEMPLATE.axf: Error: L6200E: Symbol charging multiply defined (by regionv2012.o and charging.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Not enough information to list the image map.
+TEMPLATE.axf: Finished: 2 information, 0 warning and 1 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+charging.c(6): warning:  #1-D: last line of file ends without a newline
+charging.c:   }
+charging.c:    ^
+charging.c: charging.c: 1 warning, 0 errors
+linking...
+TEMPLATE.axf: Error: L6200E: Symbol charging multiply defined (by regionv2012.o and charging.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Not enough information to list the image map.
+TEMPLATE.axf: Finished: 2 information, 0 warning and 1 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+charging.c(6): warning:  #1-D: last line of file ends without a newline
+charging.c:   }
+charging.c:    ^
+charging.c: charging.c: 1 warning, 0 errors
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+TEMPLATE.axf: Error: L6200E: Symbol charging multiply defined (by regionv2012.o and charging.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Not enough information to list the image map.
+TEMPLATE.axf: Finished: 2 information, 0 warning and 1 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+TEMPLATE.axf: Error: L6200E: Symbol charging multiply defined (by regionv2012.o and charging.o).
+TEMPLATE.axf: Not enough information to list image symbols.
+TEMPLATE.axf: Not enough information to list the image map.
+TEMPLATE.axf: Finished: 2 information, 0 warning and 1 error messages.
+Target not created
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(89): warning:  #223-D: function "charging" declared implicitly
+regionV2012.c:          while(charging()!=2);//charge until fully charged
+regionV2012.c:                ^
+regionV2012.c: regionV2012.c: 1 warning, 0 errors
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+regionV2012.c(89): warning:  #223-D: function "charging" declared implicitly
+regionV2012.c:          while(charging()!=2);//charge until fully charged
+regionV2012.c:                ^
+regionV2012.c: regionV2012.c: 1 warning, 0 errors
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling regionV2012.c...
+charging.h(1): warning:  #1-D: last line of file ends without a newline
+charging.h:   int charging(void);
+charging.h:                      ^
+charging.h: regionV2012.c: 1 warning, 0 errors
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+charging.h(1): warning:  #1-D: last line of file ends without a newline
+charging.h:   int charging(void);
+charging.h:                      ^
+charging.h: regionV2012.c: 1 warning, 0 errors
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\TEMPLATE.AXF" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Failed!
+Build target 'Target 1'
+compiling charging.c...
+compiling travel.c...
+compiling uartstdio.c...
+assembling Startup.s...
+compiling regionV2012.c...
+linking...
+Program Size: Code=3356 RO-data=236 RW-data=12 ZI-data=276  
+"TEMPLATE.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\TEMPLATE.AXF" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Failed!

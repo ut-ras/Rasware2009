@@ -4,123 +4,639 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Documents and Settings\RAS\Desktop\Rasware2009\projects\regionV2012\regionV2012.uvproj
-Project File Date:  03/28/2012
+Project File Date:  04/12/2012
 
 <h2>Output:</h2>
 Build target 'Target 1'
-compiling regionV2012.c...
-regionV2012.h(2): warning:  #1-D: last line of file ends without a newline
-regionV2012.h:   void followWall(void);
-regionV2012.h:                         ^
-regionV2012.c(24): warning:  #223-D: function "initUART" declared implicitly
-regionV2012.c:          initUART();     
-regionV2012.c:          ^
-regionV2012.c: regionV2012.c: 2 warnings, 0 errors
-assembling Startup.s...
-linking...
-regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol initUART (referred from regionv2012.o).
-regionV2012.axf: Not enough information to list image symbols.
-regionV2012.axf: Finished: 1 information, 0 warning and 4 error messages.
-Target not created
-Build target 'Target 1'
-compiling regionV2012.c...
-regionV2012.h(2): warning:  #1-D: last line of file ends without a newline
-regionV2012.h:   void followWall(void);
-regionV2012.h:                         ^
-regionV2012.c(24): warning:  #223-D: function "initUART" declared implicitly
-regionV2012.c:          initUART();     
-regionV2012.c:          ^
-regionV2012.c: regionV2012.c: 2 warnings, 0 errors
-assembling Startup.s...
-linking...
-regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol initUART (referred from regionv2012.o).
-regionV2012.axf: Not enough information to list image symbols.
-regionV2012.axf: Finished: 1 information, 0 warning and 4 error messages.
-Target not created
-Build target 'Target 1'
-compiling regionV2012.c...
-regionV2012.c(24): warning:  #223-D: function "initUART" declared implicitly
-regionV2012.c:          initUART();     
-regionV2012.c:          ^
-regionV2012.c: regionV2012.c: 1 warning, 0 errors
-assembling Startup.s...
-linking...
-regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol initUART (referred from regionv2012.o).
-regionV2012.axf: Not enough information to list image symbols.
-regionV2012.axf: Finished: 1 information, 0 warning and 4 error messages.
-Target not created
-Build target 'Target 1'
-compiling regionV2012.c...
-regionV2012.c(26): warning:  #223-D: function "GPIOPinTypeUART" declared implicitly
-regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
-regionV2012.c:       ^
-regionV2012.c(26): error:  #20: identifier "GPIO_PORTA_BASE" is undefined
-regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
-regionV2012.c:                       ^
-regionV2012.c(26): error:  #20: identifier "GPIO_PIN_0" is undefined
-regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
-regionV2012.c:                                        ^
-regionV2012.c(26): error:  #20: identifier "GPIO_PIN_1" is undefined
-regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
-regionV2012.c:                                                     ^
-regionV2012.c: regionV2012.c: 1 warning, 3 errors
-assembling Startup.s...
-Target not created
-Build target 'Target 1'
-compiling regionV2012.c...
-regionV2012.c(27): error:  #20: identifier "GPIO_PORTA_BASE" is undefined
-regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
-regionV2012.c:                       ^
-regionV2012.c: regionV2012.c: 0 warnings, 1 error
-assembling Startup.s...
-Target not created
-Build target 'Target 1'
-compiling regionV2012.c...
-regionV2012.c(28): error:  #20: identifier "GPIO_PORTA_BASE" is undefined
-regionV2012.c:       GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1); 
-regionV2012.c:                       ^
-regionV2012.c: regionV2012.c: 0 warnings, 1 error
-assembling Startup.s...
-Target not created
-Build target 'Target 1'
-compiling regionV2012.c...
-assembling Startup.s...
-linking...
-regionV2012.axf: Error: L6218E: Undefined symbol GPIOPinTypeUART (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol SysCtlPeripheralEnable (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol UARTStdioInit (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
-regionV2012.axf: Not enough information to list image symbols.
-regionV2012.axf: Finished: 1 information, 0 warning and 6 error messages.
-Target not created
-Build target 'Target 1'
-compiling regionV2012.c...
-assembling Startup.s...
-linking...
-regionV2012.axf: Error: L6218E: Undefined symbol GPIOPinTypeUART (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol InitializeMCU (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol LockoutProtection (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol SysCtlPeripheralEnable (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol UARTStdioInit (referred from regionv2012.o).
-regionV2012.axf: Error: L6218E: Undefined symbol UARTprintf (referred from regionv2012.o).
-regionV2012.axf: Not enough information to list image symbols.
-regionV2012.axf: Finished: 1 information, 0 warning and 6 error messages.
-Target not created
-Build target 'Target 1'
+compiling travel.c...
+compiling charging.c...
 compiling regionV2012.c...
 assembling Startup.s...
 compiling uartstdio.c...
 linking...
-Program Size: Code=3064 RO-data=236 RW-data=20 ZI-data=356  
+Program Size: Code=3564 RO-data=236 RW-data=28 ZI-data=356  
+"regionV2012.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\regionV2012.AXF" 
+USB Communication Failure
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\regionV2012.AXF" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Failed!
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\regionV2012.AXF" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Failed!
+Build target 'Target 1'
+compiling travel.c...
+compiling charging.c...
+compiling regionV2012.c...
+assembling Startup.s...
+compiling uartstdio.c...
+linking...
+Program Size: Code=3324 RO-data=236 RW-data=28 ZI-data=260  
+"regionV2012.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\regionV2012.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                    ^
+travel.c(11): warning:  #940-D: missing return statement at end of non-void function "readSensors"
+travel.c:   }
+travel.c:   ^
+travel.c: travel.c: 1 warning, 2 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                    ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                    ^
+travel.c(9): error:  #40: expected an identifier
+travel.c:   unsigned short[] readSensors(void) {
+travel.c:                 ^
+travel.c(9): error:  #65: expected a ";"
+travel.c:   unsigned short[] readSensors(void) {
+travel.c:                    ^
+travel.c(31): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+travel.c: travel.c: 1 warning, 4 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                    ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                    ^
+travel.c(9): error:  #40: expected an identifier
+travel.c:   unsigned short[] readSensors(void) {
+travel.c:                 ^
+travel.c(9): error:  #65: expected a ";"
+travel.c:   unsigned short[] readSensors(void) {
+travel.c:                    ^
+travel.c(31): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+travel.c: travel.c: 1 warning, 4 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                    ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                    ^
+travel.c(11): warning:  #940-D: missing return statement at end of non-void function "readSensors"
+travel.c:   }
+travel.c:   ^
+travel.c: travel.c: 1 warning, 2 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[] readSensors(void);
+travel.h:                    ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.c(11): warning:  #940-D: missing return statement at end of non-void function "readSensors"
+travel.c:   }
+travel.c:   ^
+travel.c: travel.c: 1 warning, 0 errors
+compiling charging.c...
+compiling regionV2012.c...
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 3 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.c(11): error:  #20: identifier "null" is undefined
+travel.c:     return null;
+travel.c:            ^
+travel.c: travel.c: 0 warnings, 1 error
+compiling charging.c...
+compiling regionV2012.c...
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 3 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.c(11): error:  #70: incomplete type is not allowed
+travel.c:     return (unsigned short[])*void;
+travel.c:             ^
+travel.c(11): error:  #29: expected an expression
+travel.c:     return (unsigned short[])*void;
+travel.c:                               ^
+travel.c: travel.c: 0 warnings, 2 errors
+compiling charging.c...
+compiling regionV2012.c...
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 3 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+travel.c(9): error:  #40: expected an identifier
+travel.c:   unsigned short[8] readSensors(void) {
+travel.c:                 ^
+travel.c(9): error:  #65: expected a ";"
+travel.c:   unsigned short[8] readSensors(void) {
+travel.c:                     ^
+travel.c(32): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+travel.c: travel.c: 1 warning, 4 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+travel.c(9): error:  #40: expected an identifier
+travel.c:   unsigned short[8] readSensors(void) {
+travel.c:                 ^
+travel.c(9): error:  #65: expected a ";"
+travel.c:   unsigned short[8] readSensors(void) {
+travel.c:                     ^
+travel.c(32): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+travel.c: travel.c: 1 warning, 4 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+travel.c(9): error:  #40: expected an identifier
+travel.c:   unsigned short[8] readSensors(void) {
+travel.c:                 ^
+travel.c(9): error:  #65: expected a ";"
+travel.c:   unsigned short[8] readSensors(void) {
+travel.c:                     ^
+travel.c(32): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+travel.c: travel.c: 1 warning, 4 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\regionV2012.AXF" 
+_____^
+*** error 56: cant open file
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+travel.c(9): error:  #40: expected an identifier
+travel.c:   unsigned short[8] readSensors(void) {
+travel.c:                 ^
+travel.c(9): error:  #65: expected a ";"
+travel.c:   unsigned short[8] readSensors(void) {
+travel.c:                     ^
+travel.c(32): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+travel.c: travel.c: 1 warning, 4 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+travel.h: travel.c: 0 warnings, 2 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+travel.h: travel.c: 0 warnings, 2 errors
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #40: expected an identifier
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                 ^
+travel.h(16): error:  #65: expected a ";"
+travel.h:   unsigned short[8] readSensors(void);
+travel.h:                     ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 5 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+travel.h(16): error:  #88: array of functions is not allowed
+travel.h:   unsigned short readSensors[8](void);
+travel.h:                                 ^
+travel.h: travel.c: 0 warnings, 1 error
+compiling charging.c...
+compiling regionV2012.c...
+travel.h(16): error:  #88: array of functions is not allowed
+travel.h:   unsigned short readSensors[8](void);
+travel.h:                                 ^
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 4 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+compiling charging.c...
+compiling regionV2012.c...
+regionV2012.c(73): warning:  #223-D: function "goToCorner" declared implicitly
+regionV2012.c:                          goToCorner(ELECTRIC);//go to the electric source, this is the default place to go
+regionV2012.c:                          ^
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 1 warning, 3 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+compiling charging.c...
+compiling regionV2012.c...
+regionV2012.c(79): error:  #20: identifier "light" is undefined
+regionV2012.c:                          if(light source on){
+regionV2012.c:                             ^
+regionV2012.c(79): error:  #18: expected a ")"
+regionV2012.c:                          if(light source on){
+regionV2012.c:                                   ^
+regionV2012.c(94): error:  #29: expected an expression
+regionV2012.c:                                          while(charging())==1;
+regionV2012.c:                                                           ^
+regionV2012.c: regionV2012.c: 0 warnings, 3 errors
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+compiling charging.c...
+compiling regionV2012.c...
+assembling Startup.s...
+compiling uartstdio.c...
+linking...
+Program Size: Code=3296 RO-data=236 RW-data=28 ZI-data=260  
+"regionV2012.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\regionV2012.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling travel.c...
+travel.c(13): warning:  #940-D: missing return statement at end of non-void function "readSensors"
+travel.c:   }
+travel.c:   ^
+travel.c: travel.c: 1 warning, 0 errors
+compiling charging.c...
+compiling regionV2012.c...
+assembling Startup.s...
+compiling uartstdio.c...
+linking...
+Program Size: Code=3296 RO-data=236 RW-data=28 ZI-data=260  
+"regionV2012.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling travel.c...
+travel.c(13): warning:  #940-D: missing return statement at end of non-void function "readSensors"
+travel.c:   }
+travel.c:   ^
+travel.c: travel.c: 1 warning, 0 errors
+compiling charging.c...
+compiling regionV2012.c...
+assembling Startup.s...
+compiling uartstdio.c...
+linking...
+Program Size: Code=3296 RO-data=236 RW-data=28 ZI-data=260  
+"regionV2012.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\regionV2012.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Load "C:\\Documents and Settings\\RAS\\Desktop\\Rasware2009\\projects\\regionV2012\\regionV2012.AXF" 
+Warning: OSC to JTAG clock ratio violation - JTAG clock has been automatically adjusted to comply.
+Connecting: Mode=JTAG, Speed=600000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling travel.c...
+travel.c(11): error:  #40: expected an identifier
+travel.c:     static unsigned short[8] values = {100,100,100,100,100,100,100,100};
+travel.c:                          ^
+travel.c(11): error:  #65: expected a ";"
+travel.c:     static unsigned short[8] values = {100,100,100,100,100,100,100,100};
+travel.c:                              ^
+travel.c(13): error:  #20: identifier "values" is undefined
+travel.c:     return &values[0];
+travel.c:             ^
+travel.c: travel.c: 0 warnings, 3 errors
+compiling charging.c...
+compiling regionV2012.c...
+assembling Startup.s...
+compiling uartstdio.c...
+Target not created
+Build target 'Target 1'
+compiling travel.c...
+compiling charging.c...
+compiling regionV2012.c...
+assembling Startup.s...
+compiling uartstdio.c...
+linking...
+Program Size: Code=3304 RO-data=236 RW-data=44 ZI-data=260  
 "regionV2012.axf" - 0 Error(s), 0 Warning(s).

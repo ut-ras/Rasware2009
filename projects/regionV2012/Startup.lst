@@ -352,39 +352,32 @@ ARM Macro Assembler    Page 6
   219 00000000         ;*******************************************************
                        ***********************
   220 00000000                 IF               :DEF: __MICROLIB
-  225 00000000                 IMPORT           __use_two_region_memory
-  226 00000000                 EXPORT           __user_initial_stackheap
-  227 00000000         __user_initial_stackheap
-  228 00000000 4802            LDR              R0, =HeapMem
-  229 00000002 4903            LDR              R1, =(StackMem + Stack)
-  230 00000004 4A01            LDR              R2, =(HeapMem + Heap)
-  231 00000006 4B03            LDR              R3, =StackMem
-  232 00000008 4770            BX               LR
-  233 0000000A                 ENDIF
-  234 0000000A         
-  235 0000000A         ;*******************************************************
+  221 00000000                 EXPORT           __initial_sp
+  222 00000000                 EXPORT           __heap_base
+  223 00000000                 EXPORT           __heap_limit
+  224 00000000                 ELSE
+  233                          ENDIF
+  234 00000000         
+  235 00000000         ;*******************************************************
                        ***********************
-  236 0000000A         ;
-  237 0000000A         ; Make sure the end of this section is aligned.
-  238 0000000A         ;
-  239 0000000A         ;*******************************************************
+  236 00000000         ;
+  237 00000000         ; Make sure the end of this section is aligned.
+  238 00000000         ;
+  239 00000000         ;*******************************************************
                        ***********************
-  240 0000000A 00 00           ALIGN
-  241 0000000C         
-  242 0000000C         ;*******************************************************
+  240 00000000                 ALIGN
+  241 00000000         
+  242 00000000         ;*******************************************************
                        ***********************
-  243 0000000C         ;
-  244 0000000C         ; Tell the assembler that we're done.
-  245 0000000C         ;
-  246 0000000C         ;*******************************************************
+  243 00000000         ;
+  244 00000000         ; Tell the assembler that we're done.
+  245 00000000         ;
+  246 00000000         ;*******************************************************
                        ***********************
-  247 0000000C                 END
-              00000000 
-              00000100 
-              00000000 
+  247 00000000                 END
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Startup.
-d -oStartup.o -IC:\Keil\ARM\INC -IC:\Keil\ARM\INC\Luminary --list=Startup.lst S
-tartup.s
+d -oStartup.o -IC:\Keil\ARM\INC -IC:\Keil\ARM\INC\Luminary --predefine="__MICRO
+LIB SETA 1" --list=Startup.lst Startup.s
 
 
 
@@ -406,17 +399,15 @@ Symbol: StackMem
       At line 50 in file Startup.s
    Uses
       At line 87 in file Startup.s
-      At line 229 in file Startup.s
-      At line 231 in file Startup.s
-
+Comment: StackMem used once
 __initial_sp 00000100
 
 Symbol: __initial_sp
    Definitions
       At line 52 in file Startup.s
    Uses
-      None
-Comment: __initial_sp unused
+      At line 221 in file Startup.s
+Comment: __initial_sp used once
 3 symbols
 
 
@@ -438,25 +429,24 @@ Symbol: HeapMem
    Definitions
       At line 61 in file Startup.s
    Uses
-      At line 228 in file Startup.s
-      At line 230 in file Startup.s
-
+      None
+Comment: HeapMem unused
 __heap_base 00000000
 
 Symbol: __heap_base
    Definitions
       At line 60 in file Startup.s
    Uses
-      None
-Comment: __heap_base unused
+      At line 222 in file Startup.s
+Comment: __heap_base used once
 __heap_limit 00000000
 
 Symbol: __heap_limit
    Definitions
       At line 63 in file Startup.s
    Uses
-      None
-Comment: __heap_limit unused
+      At line 223 in file Startup.s
+Comment: __heap_limit used once
 4 symbols
 
 
@@ -591,15 +581,7 @@ Symbol: .text
    Uses
       None
 Comment: .text unused
-__user_initial_stackheap 00000000
-
-Symbol: __user_initial_stackheap
-   Definitions
-      At line 227 in file Startup.s
-   Uses
-      At line 226 in file Startup.s
-Comment: __user_initial_stackheap used once
-2 symbols
+1 symbol
 
 
 
@@ -613,8 +595,7 @@ Symbol: Heap
       At line 42 in file Startup.s
    Uses
       At line 62 in file Startup.s
-      At line 230 in file Startup.s
-
+Comment: Heap used once
 Stack 00000100
 
 Symbol: Stack
@@ -623,7 +604,6 @@ Symbol: Stack
    Uses
       At line 51 in file Startup.s
       At line 87 in file Startup.s
-      At line 229 in file Startup.s
 
 2 symbols
 
@@ -640,13 +620,5 @@ Symbol: __main
    Uses
       At line 166 in file Startup.s
 Comment: __main used once
-__use_two_region_memory 00000000
-
-Symbol: __use_two_region_memory
-   Definitions
-      At line 225 in file Startup.s
-   Uses
-      None
-Comment: __use_two_region_memory unused
-2 symbols
-347 symbols in table
+1 symbol
+342 symbols in table
