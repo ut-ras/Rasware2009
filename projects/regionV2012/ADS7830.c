@@ -38,22 +38,9 @@ void I2CIntHandler(void) {
 	I2CMasterIntClear(I2C0_MASTER_BASE);
 }
 
-/*
-* data: pointer to varaible (char)
-* num:  port to read (0-7)
-*/
-void ADS7830_Read(unsigned char* data, unsigned char num)
-{									   
-    I2CSend(ADS7830, 1, 0x84 | (0x10*num));	 
-	WaitUS(1000);
-    I2CRecieve(ADS7830, data, 1);			 
-	WaitUS(1000);
-}
 
-/*
-* data: pointer to 8 element array (type char)
-*/
-void ADS7830_BurstRead(void) {
+
+void ADS7830_Read(void) {
 	index = 0;   
 	I2CSend(ADS7830, 1, 0x84);
 	while (index < 8);
