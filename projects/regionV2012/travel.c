@@ -24,8 +24,8 @@ unsigned char rMotorSpeed = 0;
 #define LOWER 0
 #define HIGHER 1
 
-#define till(x,y) for(ADS7830_Read();ADS7830_Values[currentFacing?((x)+3)%6:(x)]<bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_Read(sensors))
-#define tillnot(x,y) for(ADS7830_Read(sensors);ADS7830_Values[currentFacing?((x)+3)%6:(x)]>bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_Read(sensors))
+#define till(x,y) for(ADS7830_Read();ADS7830_Values[currentFacing?((x)+3)%6:(x)]<bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_Read())
+#define tillnot(x,y) for(ADS7830_Read();ADS7830_Values[currentFacing?((x)+3)%6:(x)]>bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_Read())
 
 
 //TODO experimentally determine these
@@ -127,7 +127,7 @@ void gotoCorner(signed char dest,char flip) {
 
 void testSensors(void) {
 	ADS7830_Read();
-	UARTprintf("[%3d %3d %3d %3d %3d %3d %3d %3d]\n",sensors[0],sensors[1],sensors[2],sensors[3],sensors[4],sensors[5],sensors[6],sensors[7]);
+	UARTprintf("[%3d %3d %3d %3d %3d %3d %3d %3d]\n",ADS7830_Values[0],ADS7830_Values[1],ADS7830_Values[2],ADS7830_Values[3],ADS7830_Values[4],ADS7830_Values[5],ADS7830_Values[6],ADS7830_Values[7]);
 }
 
 
