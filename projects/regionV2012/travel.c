@@ -67,6 +67,11 @@ void goWall(void) {
 void goRotate(signed char degrees) {
 	
 }
+
+//rotate to align with wall using IR sensors
+void goAlignWall(char rightSensors, char goRight) {
+	
+}
 						   
 void gotoCorner(signed char dest,char flip) {
 	signed char offdest;
@@ -74,7 +79,7 @@ void gotoCorner(signed char dest,char flip) {
 
 	if (currentCorner==TREE) {
 		till(FRONT,LOWER) goForward();
-		goRotate(90);
+		goAlignWall(false,true);
 		till(FRONT_RIGHT,LOWER) goWall();
 		goEngageCorner();
 		currentCorner = ELECTRIC;
@@ -90,27 +95,32 @@ void gotoCorner(signed char dest,char flip) {
 	switch(offdest) {
 		case 1:
 			tillnot(FRONT_RIGHT,LOWER) goBackward();
-			if (flip) goRotate(-135); else goRotate(45);
+			goRotate(flip?-135:45); 
+			currentFacing ^= flip;
 			till(FRONT,LOWER) goForward();
-			goRotate(45);
+			goAlignWall(false,true);
 			till(FRONT_RIGHT,LOWER) goForward();
 			break;
 		case 2:
 			till(BACK,LOWER) goBackward();
-			if (flip) goRotate(-90); else goRotate(90);
+			goRotate(45);
+			goAlignWall(true,true);
 			till(FRONT,LOWER) goForward();
-			if (flip) goRotate
+			goRotate(flip?-45:45);
+			goAlignWall(flip,!flip);
+			currentFacing ^= flip;
 			break;
 		case 3:
 			till(BACK,HIGHER) goBackward();
 			goRotate(-45);
 			till(BACK,LOWER) goBackward();
-			if (flip) goRotate(135); else goRotate(-45);
+			goRotate(flip?90:0);
+			goAlignWall(flip,flip);
+			currentFacing ^= flip;
 			break;
 	}
 	
-	goEngageCorner();	
-	if (flip) currentFacing = !currentFacing;
+	goEngageCorner();
 
 	currentCorner = dest;
 }

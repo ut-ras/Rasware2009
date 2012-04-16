@@ -17,6 +17,7 @@ void goBackward(void);
 void goCorner(void);
 void goWall(void);
 void goRotate(signed char);
+void goAlignWall(char,char);
 void gotoDest(signed char,char);
 
 void testSensors(void);
