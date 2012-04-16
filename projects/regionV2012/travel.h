@@ -14,9 +14,9 @@ void travelInit(void);
 void stop(void);
 void goForward(void);
 void goBackward(void);
-void goCorner(char source);
+void goCorner(void);
 void goWall(void);
-void gotoDest(char,bool);
+void gotoDest(signed char,char);
 
 void testSensors(void);
 

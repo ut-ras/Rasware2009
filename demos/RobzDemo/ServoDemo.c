@@ -10,6 +10,8 @@
 
 void initServo(void) {
 	InitializeServos();
+	SetServoPosition(SERVO_0,0);
+	SetServoPosition(SERVO_1,255);
 }
 
 void servoDemo(void) {
@@ -26,10 +28,12 @@ void servoDemo(void) {
 		UARTprintf("position2: %u\n  ",position2);
 		ch = getc();
 		while(ch != newline) {
-			if (ch == 'w')
+			if (ch == 'w'){
 				position++;
-			else if (ch == 's')
-				position--;	 
+				position2--;}
+			else if (ch == 's'){
+				position--;
+				position2++;}	 
 			else if (ch == 'a')
 			{
 				position+=10;

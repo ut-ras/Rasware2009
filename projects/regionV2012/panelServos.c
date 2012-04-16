@@ -2,7 +2,6 @@
 #include "inc/hw_memmap.h"
 #include "utils/uartstdio.h"
 #include "driverlib/gpio.h"
-#include "driverlib/sysct1.h"
 #include "RASLib/servo.h"
 
 //these, and most of the code really, is from servoDemo
@@ -27,12 +26,12 @@ void initPanelServos(void){//same code from servoDemo
 
 void raisePanel(void){
 	//sets servo positions to the servo values of the panel in the raised condition
-	SetServoPosition(SERVO_0, int servo_0_hi);
-	SetServoPosition(SERVO_1, int servo_1_hi);
+	SetServoPosition(SERVO_0, servo_0_hi);
+	SetServoPosition(SERVO_1, servo_1_hi);
 }
 
 void lowerPanel(void){
 	//sets servo positions to the servo values of the panel in the lower, light-collecting condition
-	SetServoPosition(SERVO_0, int servo_0_lo);
-	SetServoPosition(SERVO_1, int servo_1_lo);
-}	
+	SetServoPosition(SERVO_0, servo_0_lo);
+	SetServoPosition(SERVO_1, servo_1_lo);
+}
