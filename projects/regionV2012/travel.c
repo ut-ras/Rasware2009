@@ -24,12 +24,9 @@ unsigned char rMotorSpeed = 0;
 #define LOWER 0
 #define HIGHER 1
 
-#define till(x,y) for(ADS7830_BurstRead(sensors);sensors[currentFacing?((x)+3)%6:(x)]<bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
-#define tillnot(x,y) for(ADS7830_BurstRead(sensors);sensors[currentFacing?((x)+3)%6:(x)]>bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
+#define till(x,y) for(ADS7830_Read();ADS7830_Values[currentFacing?((x)+3)%6:(x)]<bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_Read(sensors))
+#define tillnot(x,y) for(ADS7830_Read(sensors);ADS7830_Values[currentFacing?((x)+3)%6:(x)]>bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_Read(sensors))
 
-
-// Array for reading sensors
-unsigned char sensors[8];
 
 //TODO experimentally determine these
 const unsigned short bounds[2][8] = {
@@ -129,8 +126,8 @@ void gotoCorner(signed char dest,char flip) {
 }
 
 void testSensors(void) {
-	ADS7830_BurstRead(sensors);
-	UARTprintf("[%d %d %d %d %d %d %d %d]\n",sensors[0],sensors[1],sensors[2],sensors[3],sensors[4],sensors[5],sensors[6],sensors[7]);
+	ADS7830_Read();
+	UARTprintf("[%3d %3d %3d %3d %3d %3d %3d %3d]\n",sensors[0],sensors[1],sensors[2],sensors[3],sensors[4],sensors[5],sensors[6],sensors[7]);
 }
 
 

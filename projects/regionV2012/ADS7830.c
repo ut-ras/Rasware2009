@@ -14,7 +14,7 @@
 #include "../src/i2c.c"
 
 unsigned char ADS7830_Values[8];
-unsigned char index = 0;
+unsigned char index;
 
 void ADS7830_Init() {
     // Init I2C Bus
@@ -34,7 +34,7 @@ void ADS7830_Init() {
 
 void I2CIntHandler(void) {
 	I2CRecieve(ADS7830, &ADS7830_Values[index++], 1);
-	if (index >= 8) index = 0;
+	if (index < 8) I2CSend(ADS7830, 1, 0x84 | (index<<8)); 
 	I2CMasterIntClear(I2C0_MASTER_BASE);
 }
 
@@ -53,14 +53,8 @@ void ADS7830_Read(unsigned char* data, unsigned char num)
 /*
 * data: pointer to 8 element array (type char)
 */
-void ADS7830_BurstRead(unsigned char* data)  // data: Pointer to array
-{
-    unsigned char i;
-    
-    for(i=0; i<0x80; i+=0x10){
-        I2CSend(ADS7830, 1, 0x84 | i);
-		WaitUS(1000);
-        I2CRecieve(ADS7830, data++, 1);
-		WaitUS(1000);
-    }
+void ADS7830_BurstRead(void) {
+	index = 0;   
+	I2CSend(ADS7830, 1, 0x84);
+	while (index < 8);
 }
