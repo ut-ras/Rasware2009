@@ -127,7 +127,7 @@ void gotoCorner(signed char dest,char flip) {
 
 void testSensors(void) {
 	ADS7830_BurstRead(sensors);
-	UARTprintf("[%d %d %d %d %d %d %d %d]",sensors[0],sensors[1],sensors[2],sensors[3],sensors[4],sensors[5],sensors[6],sensors[7]);
+	UARTprintf("[%d %d %d %d %d %d %d %d]\n",sensors[0],sensors[1],sensors[2],sensors[3],sensors[4],sensors[5],sensors[6],sensors[7]);
 }
 
 

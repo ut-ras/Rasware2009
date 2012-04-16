@@ -131,8 +131,10 @@ void run(void) {
 //
 //For competition main should simply call init and run
 //
-int main(void) {	
-	let the monkeys roll
+int main(void) {
+	UARTprintf("uh... go?");	
+	let the monkeys testSensors();
+	//UARTprintf("you shouldn't get here..");
 }
 
 

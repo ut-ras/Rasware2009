@@ -10,6 +10,7 @@
 #include "driverlib/i2c.h"
 
 #include "RASLib/i2c.h"
+#include "RASLib/timer.h"
 #include "../src/i2c.c"
 
 void ADS7830_Init() {
@@ -21,17 +22,20 @@ void ADS7830_Init() {
     I2CMasterInitExpClk(I2C0_MASTER_BASE, SysCtlClockGet(), false);
     
     // 0x84: 1 CH# 01 XX for request conversion. e.g 1 010 01 00 is for channel 2
-    I2CSend(ADS7830 << 1, 1, 0x84);
+    I2CSend(ADS7830, 1, 0x84);
 }
+
 
 /*
 * data: pointer to varaible (char)
 * num:  port to read (0-7)
 */
-void ADS7830_Read(unsigned char* data,unsigned char num)
-{
-    I2CSend(ADS7830 << 1, 0x84 | (0x10*num), 1);
-    I2CRecieve(ADS7830 << 1, data, 1);
+void ADS7830_Read(unsigned char* data, unsigned char num)
+{									   
+    I2CSend(ADS7830, 1, 0x84 | (0x10*num));	 
+	WaitUS(1);
+    I2CRecieve(ADS7830, data, 1);			 
+	WaitUS(1000);
 }
 
 /*
@@ -39,10 +43,12 @@ void ADS7830_Read(unsigned char* data,unsigned char num)
 */
 void ADS7830_BurstRead(unsigned char* data)  // data: Pointer to array
 {
-    char i;
+    unsigned char i;
     
     for(i=0; i<0x80; i+=0x10){
-        I2CSend(ADS7830 << 1, 0x84 | i, 1);
-        I2CRecieve(ADS7830 << 1, data++, 1);
+        I2CSend(ADS7830, 1, 0x84 | i);
+		WaitUS(1);
+        I2CRecieve(ADS7830, data++, 1);
+		WaitUS(1000);
     }
 }
