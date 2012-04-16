@@ -7,7 +7,7 @@
 
 // Current location of robot
 signed char currentCorner = TREE;
-unsigned char backwards = 0;
+unsigned char currentFacing = false;
 unsigned char lMotorSpeed = 0;
 unsigned char rMotorSpeed = 0;
 
@@ -21,10 +21,8 @@ unsigned char rMotorSpeed = 0;
 #define LOWER 0
 #define HIGHER 1
 
-#define BACK_OFFSET (backwards?3:0)
-#define till(x,y) for(ADS7830_BurstRead(sensors);sensors[backwards?((x)+3)%6:(x)]<bounds[y][backwards?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
-#define tillnot(x,y) for(ADS7830_BurstRead(sensors);sensors[backwards?((x)+3)%6:(x)]>bounds[y][backwards?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
-#define tillsource() for(ADS7830_BurstRead(sensors);false;ADS7830_BurstRead(sensors)) //TODO
+#define till(x,y) for(ADS7830_BurstRead(sensors);sensors[currentFacing?((x)+3)%6:(x)]<bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
+#define tillnot(x,y) for(ADS7830_BurstRead(sensors);sensors[currentFacing?((x)+3)%6:(x)]>bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
 
 
 // Array for reading sensors
@@ -55,13 +53,19 @@ void goBackward(void) {
 	SetMotorPowers(-128,-128);
 }
 
-void goCorner(void) {
+void goEngageCorner(void) {
 	goWall();
 }
 
 void goWall(void) {
 	SetMotorPowers(-128,-128);
 
+}
+
+
+//rotates clockwise by degrees
+void goRotate(signed char degrees) {
+	
 }
 						   
 void gotoCorner(signed char dest,char flip) {
@@ -70,10 +74,11 @@ void gotoCorner(signed char dest,char flip) {
 
 	if (currentCorner==TREE) {
 		till(FRONT,LOWER) goForward();
-		//rotate right
+		goRotate(90);
 		till(FRONT_RIGHT,LOWER) goWall();
-		tillsource() goCorner();
+		goEngageCorner();
 		currentCorner = ELECTRIC;
+		currentFacing = false;
 		if (dest != currentCorner) gotoCorner(dest,flip);
 		return;
 	}
@@ -85,25 +90,27 @@ void gotoCorner(signed char dest,char flip) {
 	switch(offdest) {
 		case 1:
 			tillnot(FRONT_RIGHT,LOWER) goBackward();
-			//rotate right or flip
-			//asymptote drive?
+			if (flip) goRotate(-135); else goRotate(45);
 			till(FRONT,LOWER) goForward();
+			goRotate(45);
+			till(FRONT_RIGHT,LOWER) goForward();
 			break;
 		case 2:
 			till(BACK,LOWER) goBackward();
-			//rotate right
+			if (flip) goRotate(-90); else goRotate(90);
 			till(FRONT,LOWER) goForward();
-			//rotate right and flip
+			if (flip) goRotate
 			break;
 		case 3:
 			till(BACK,HIGHER) goBackward();
-			//rotate left
+			goRotate(-45);
 			till(BACK,LOWER) goBackward();
-			//rotate left or flip
+			if (flip) goRotate(135); else goRotate(-45);
 			break;
 	}
 	
-	tillsource() goCorner();	
+	goEngageCorner();	
+	if (flip) currentFacing = !currentFacing;
 
 	currentCorner = dest;
 }
