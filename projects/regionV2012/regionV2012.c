@@ -13,7 +13,8 @@
 
 #include "travel.h"
 #include "charging.h"
-#include "panelServos.h"
+#include "panel.h"
+#include "fan.h"
 #include "ADS7830.h"
 
 
@@ -39,6 +40,9 @@ void init(void) {
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	
 	UARTStdioInit(0);
+
+	//Initialize Franks interrupt
+	InitializeGPIOIntTest();
 	
 	initPanelServos();
 	travelInit();

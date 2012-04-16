@@ -16,6 +16,5 @@
 *.opt
 *.plg
 *.tra
-*.uvopt
 *.uvgui.*
 *.xls

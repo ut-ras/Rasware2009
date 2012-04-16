@@ -79,6 +79,7 @@ __heap_limit
 
 		EXTERN	LSIntHandler
 		EXTERN	EncoderInterruptHandler
+		EXTERN  GPIOAIntHandler
 
 ;******************************************************************************
 ;
@@ -103,7 +104,7 @@ __Vectors
         DCD     0                           ; Reserved
         DCD     IntDefaultHandler           ; PendSV Handler
         DCD     IntDefaultHandler           ; SysTick Handler
-        DCD     IntDefaultHandler           ; GPIO Port A
+        DCD     GPIOAIntHandler           ; GPIO Port A
         DCD     EncoderInterruptHandler           ; GPIO Port B
         DCD     EncoderInterruptHandler           ; GPIO Port C
         DCD     IntDefaultHandler           ; GPIO Port D
