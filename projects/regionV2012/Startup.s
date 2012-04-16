@@ -80,6 +80,7 @@ __heap_limit
 		EXTERN	LSIntHandler
 		EXTERN	EncoderInterruptHandler
 		EXTERN  GPIOAIntHandler
+		EXTERN  I2CIntHandler
 
 ;******************************************************************************
 ;
@@ -141,7 +142,7 @@ __Vectors
         DCD     IntDefaultHandler           ; SSI1 Rx and Tx
         DCD     IntDefaultHandler           ; Timer 3 subtimer A
         DCD     IntDefaultHandler           ; Timer 3 subtimer B
-        DCD     IntDefaultHandler           ; I2C1 Master and Slave
+        DCD     I2CIntHandler           ; I2C1 Master and Slave
         DCD     IntDefaultHandler           ; Quadrature Encoder 1
         DCD     IntDefaultHandler           ; CAN0
         DCD     IntDefaultHandler           ; CAN1

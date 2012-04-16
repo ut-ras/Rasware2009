@@ -13,6 +13,9 @@
 #include "RASLib/timer.h"
 #include "../src/i2c.c"
 
+unsigned char ADS7830_Values[8];
+unsigned char index = 0;
+
 void ADS7830_Init() {
     // Init I2C Bus
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
@@ -23,8 +26,17 @@ void ADS7830_Init() {
     
     // 0x84: 1 CH# 01 XX for request conversion. e.g 1 010 01 00 is for channel 2
     I2CSend(ADS7830, 1, 0x84);
+
+	I2CMasterIntEnable(I2C0_MASTER_BASE);
 }
 
+
+
+void I2CIntHandler(void) {
+	I2CRecieve(ADS7830, &ADS7830_Values[index++], 1);
+	if (index >= 8) index = 0;
+	I2CMasterIntClear(I2C0_MASTER_BASE);
+}
 
 /*
 * data: pointer to varaible (char)
@@ -33,7 +45,7 @@ void ADS7830_Init() {
 void ADS7830_Read(unsigned char* data, unsigned char num)
 {									   
     I2CSend(ADS7830, 1, 0x84 | (0x10*num));	 
-	WaitUS(1);
+	WaitUS(1000);
     I2CRecieve(ADS7830, data, 1);			 
 	WaitUS(1000);
 }
@@ -47,7 +59,7 @@ void ADS7830_BurstRead(unsigned char* data)  // data: Pointer to array
     
     for(i=0; i<0x80; i+=0x10){
         I2CSend(ADS7830, 1, 0x84 | i);
-		WaitUS(1);
+		WaitUS(1000);
         I2CRecieve(ADS7830, data++, 1);
 		WaitUS(1000);
     }

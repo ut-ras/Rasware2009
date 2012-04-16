@@ -2,7 +2,10 @@
 #include "RASLib/motor.h"
 #include "ADS7830.h"
 #include "utils/uartstdio.h"
+#include "driverlib/i2c.h"
+#include "inc/hw_memmap.h"
 #include "travel.h"
+
 
 
 // Current location of robot
