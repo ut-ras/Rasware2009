@@ -14,7 +14,7 @@ void travelInit(void);
 void stop(void);
 void goForward(void);
 void goBackward(void);
-void goCorner(void);
+void goEngageCorner(signed char);
 void goWall(void);
 void goRotate(signed char);
 void goAlignWall(char,char);
