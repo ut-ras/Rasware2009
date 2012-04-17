@@ -105,15 +105,15 @@ __Vectors
         DCD     0                           ; Reserved
         DCD     IntDefaultHandler           ; PendSV Handler
         DCD     IntDefaultHandler           ; SysTick Handler
-        DCD     GPIOAIntHandler           ; GPIO Port A
-        DCD     EncoderInterruptHandler           ; GPIO Port B
-        DCD     EncoderInterruptHandler           ; GPIO Port C
+        DCD     GPIOAIntHandler             ; GPIO Port A
+        DCD     EncoderInterruptHandler     ; GPIO Port B
+        DCD     EncoderInterruptHandler     ; GPIO Port C
         DCD     IntDefaultHandler           ; GPIO Port D
         DCD     IntDefaultHandler           ; GPIO Port E
         DCD     IntDefaultHandler           ; UART0
         DCD     IntDefaultHandler           ; UART1
         DCD     IntDefaultHandler           ; SSI
-        DCD     IntDefaultHandler           ; I2C
+        DCD     I2CIntHandler               ; I2C
         DCD     IntDefaultHandler           ; PWM Fault
         DCD     IntDefaultHandler           ; PWM Generator 0
         DCD     IntDefaultHandler           ; PWM Generator 1
@@ -124,7 +124,7 @@ __Vectors
         DCD     IntDefaultHandler           ; ADC Sequence 2
         DCD     IntDefaultHandler           ; ADC Sequence 3
         DCD     IntDefaultHandler           ; Watchdog
-        DCD     LSIntHandler           ; Timer 0A
+        DCD     LSIntHandler                ; Timer 0A
         DCD     IntDefaultHandler           ; Timer 0B
         DCD     IntDefaultHandler           ; Timer 1A
         DCD     IntDefaultHandler           ; Timer 1B
@@ -142,7 +142,7 @@ __Vectors
         DCD     IntDefaultHandler           ; SSI1 Rx and Tx
         DCD     IntDefaultHandler           ; Timer 3 subtimer A
         DCD     IntDefaultHandler           ; Timer 3 subtimer B
-        DCD     I2CIntHandler           ; I2C1 Master and Slave
+        DCD     IntDefaultHandler           ; I2C1 Master and Slave
         DCD     IntDefaultHandler           ; Quadrature Encoder 1
         DCD     IntDefaultHandler           ; CAN0
         DCD     IntDefaultHandler           ; CAN1
