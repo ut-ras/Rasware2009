@@ -1,7 +1,11 @@
 #define ADS7830 (0x90)
 
-void ADS7830_Init( void );
+extern unsigned char ADS7830_Values[8];
 
-void ADS7830_Read(unsigned char*,unsigned char );
+unsigned char I2CGet(void);
+void I2CRequest(unsigned char);
 
-void ADS7830_BurstRead(unsigned char* );
+void ADS7830_Init(void);
+void ADS7830_Read(void);
+
+void I2CIntHandler(void);

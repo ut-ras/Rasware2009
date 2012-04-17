@@ -34,7 +34,7 @@ void init(void) {
 	//Necessary inits for chip
 	LockoutProtection();
 	InitializeMCU();
-	
+	//InitializeUART();
 	//Various driver inits
 	//initUART
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				
@@ -131,8 +131,11 @@ void run(void) {
 //
 //For competition main should simply call init and run
 //
-int main(void) {	
-	let the monkeys roll
+int main(void) {
+	let
+	UARTprintf("uh... go?\n");	
+	the monkeys testSensors();
+	//UARTprintf("you shouldn't get here..");
 }
 
 

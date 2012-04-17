@@ -2,14 +2,19 @@
 #include "RASLib/motor.h"
 #include "ADS7830.h"
 #include "utils/uartstdio.h"
+#include "driverlib/i2c.h"
+#include "inc/hw_memmap.h"
 #include "travel.h"
+
+#include "RASLib/timer.h"
+
 
 
 // Current location of robot
 signed char currentCorner = TREE;
 unsigned char currentFacing = false;
-unsigned char lMotorSpeed = 0;
-unsigned char rMotorSpeed = 0;
+unsigned char motor_L = 0;
+unsigned char motor_R = 0;
 
 #define BACK_LEFT 0
 #define FRONT_LEFT 1
@@ -21,17 +26,17 @@ unsigned char rMotorSpeed = 0;
 #define LOWER 0
 #define HIGHER 1
 
-#define till(x,y) for(ADS7830_BurstRead(sensors);sensors[currentFacing?((x)+3)%6:(x)]<bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
-#define tillnot(x,y) for(ADS7830_BurstRead(sensors);sensors[currentFacing?((x)+3)%6:(x)]>bounds[y][currentFacing?((x)+3)%6:(x)];ADS7830_BurstRead(sensors))
+#define MOTOR_L_MAX 127
+#define MOTOR_R_MAX 127
 
+#define till(t) for(ADS7830_Read();t;ADS7830_Read(),SetMotorPowers(motor_L,motor_R))
+#define tripped(x,y) (tilltrue(ADS7830_Values[currentFacing?((x)+3)%6:(x)]<bounds[y][currentFacing?((x)+3)%6:(x)]))
 
-// Array for reading sensors
-unsigned char sensors[8];
 
 //TODO experimentally determine these
-const unsigned short bounds[2][8] = {
-	{400,400,400,400,400,400,400,400},
-	{600,600,600,600,600,600,600,600},
+const unsigned char bounds[2][6] = {
+	{60,60,60,60,60,60},
+	{100,100,100,100,100,100},
 };
 
 
@@ -42,23 +47,28 @@ void travelInit(void) {
 }
 
 void stop(void) {
-	SetMotorPowers(0,0);
+	motor_L = 0;
+	motor_R = 0;
 }
 
 void goForward(void) {
-	SetMotorPowers(127,127);
+	motor_L = MOTOR_L_MAX;
+	motor_R = MOTOR_R_MAX;
 }
 
 void goBackward(void) {
-	SetMotorPowers(-128,-128);
+	motor_L = -MOTOR_L_MAX;
+	motor_R = -MOTOR_R_MAX;
 }
 
-void goEngageCorner(void) {
-	goWall();
+void goEngageCorner(signed char sourcetype) {
+	till((sourcetype==ELECTRIC||sourcetype==FLAG) && false || tripped(FRONT,LOWER)) { //replace false with switch that needs to be switched
+		//approach wall
+	}
 }
 
 void goWall(void) {
-	SetMotorPowers(-128,-128);
+	//TODO
 
 }
 
@@ -78,9 +88,9 @@ void gotoCorner(signed char dest,char flip) {
 	if (dest<0 || dest==currentCorner) return;
 
 	if (currentCorner==TREE) {
-		till(FRONT,LOWER) goForward();
+		till(tripped(FRONT,LOWER)) goForward();
 		goAlignWall(false,true);
-		till(FRONT_RIGHT,LOWER) goWall();
+		till(tripped(FRONT_RIGHT,LOWER)) goWall();
 		goEngageCorner();
 		currentCorner = ELECTRIC;
 		currentFacing = false;
@@ -94,26 +104,26 @@ void gotoCorner(signed char dest,char flip) {
 	
 	switch(offdest) {
 		case 1:
-			tillnot(FRONT_RIGHT,LOWER) goBackward();
+			till(!tripped(FRONT_RIGHT,LOWER)) goBackward();
 			goRotate(flip?-135:45); 
 			currentFacing ^= flip;
-			till(FRONT,LOWER) goForward();
+			till(tripped(FRONT,LOWER)) goForward();
 			goAlignWall(false,true);
-			till(FRONT_RIGHT,LOWER) goForward();
+			till(tripped(FRONT_RIGHT,LOWER)) goForward();
 			break;
 		case 2:
-			till(BACK,LOWER) goBackward();
+			till(tripped(BACK,LOWER)) goBackward();
 			goRotate(45);
 			goAlignWall(true,true);
-			till(FRONT,LOWER) goForward();
+			till(tripped(FRONT,LOWER)) goForward();
 			goRotate(flip?-45:45);
 			goAlignWall(flip,!flip);
 			currentFacing ^= flip;
 			break;
 		case 3:
-			till(BACK,HIGHER) goBackward();
+			till(tripped(BACK,HIGHER)) goBackward();
 			goRotate(-45);
-			till(BACK,LOWER) goBackward();
+			till(tripped(BACK,LOWER)) goBackward();
 			goRotate(flip?90:0);
 			goAlignWall(flip,flip);
 			currentFacing ^= flip;
@@ -126,8 +136,9 @@ void gotoCorner(signed char dest,char flip) {
 }
 
 void testSensors(void) {
-	ADS7830_BurstRead(sensors);
-	UARTprintf("[%d %d %d %d %d %d %d %d]",sensors[0],sensors[1],sensors[2],sensors[3],sensors[4],sensors[5],sensors[6],sensors[7]);
+	ADS7830_Read();
+	UARTprintf("[%3d %3d %3d %3d %3d %3d %3d %3d]\n",ADS7830_Values[0],ADS7830_Values[1],ADS7830_Values[2],ADS7830_Values[3],ADS7830_Values[4],ADS7830_Values[5],ADS7830_Values[6],ADS7830_Values[7]);
+	WaitUS(10000);
 }
 
 
