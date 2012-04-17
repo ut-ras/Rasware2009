@@ -24,7 +24,7 @@ void ADS7830_Init() {
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
 
 	GPIOPinTypeI2C(GPIO_PORTB_BASE, GPIO_PIN_2 | GPIO_PIN_3);	
-	I2CMasterInitExpClk(I2C0_MASTER_BASE, SysCtlClockGet(), false);
+	I2CMasterInitExpClk(I2C0_MASTER_BASE, SysCtlClockGet(), true);
     I2CMasterEnable(I2C0_MASTER_BASE);
 
     // 0x84: 1 CH# 01 XX for request conversion. e.g 1 010 01 00 is for channel 2

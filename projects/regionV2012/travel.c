@@ -6,6 +6,8 @@
 #include "inc/hw_memmap.h"
 #include "travel.h"
 
+#include "RASLib/timer.h"
+
 
 
 // Current location of robot
@@ -128,6 +130,7 @@ void gotoCorner(signed char dest,char flip) {
 void testSensors(void) {
 	ADS7830_Read();
 	UARTprintf("[%3d %3d %3d %3d %3d %3d %3d %3d]\n",ADS7830_Values[0],ADS7830_Values[1],ADS7830_Values[2],ADS7830_Values[3],ADS7830_Values[4],ADS7830_Values[5],ADS7830_Values[6],ADS7830_Values[7]);
+	WaitUS(10000);
 }
 
 
