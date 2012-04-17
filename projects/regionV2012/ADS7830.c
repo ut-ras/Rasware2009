@@ -13,7 +13,7 @@
 
 #include "RASLib/i2c.h"
 #include "RASLib/timer.h"
-#include "../src/i2c.c"
+//#include "../src/i2c.c"
 
 unsigned char ADS7830_Values[8];
 unsigned char index;
@@ -31,23 +31,34 @@ void ADS7830_Init() {
 	I2CMasterIntEnable(I2C0_MASTER_BASE);
 	IntEnable(INT_I2C0);
 	IntMasterEnable();
-	
-	I2CSend(ADS7830, 1, 0x84);
+}
+
+unsigned char I2CGet(void) {
+	I2CMasterSlaveAddrSet(I2C0_MASTER_BASE, ADS7830 >> 1, true);
+	I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_SINGLE_RECEIVE);
+	while(I2CMasterBusy(I2C0_MASTER_BASE));
+	return I2CMasterDataGet(I2C0_MASTER_BASE);
+}
+
+void I2CRequest(unsigned char index) {
+	I2CMasterSlaveAddrSet(I2C0_MASTER_BASE, ADS7830 >> 1, false);
+	I2CMasterDataPut(I2C0_MASTER_BASE, 0x84 | (index<<4));
+	I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_SINGLE_SEND);
+	while(I2CMasterBusy(I2C0_MASTER_BASE));
 }
 
 
 
 void I2CIntHandler(void) {
-	UARTprintf("!!!");
-	//I2CRecieve(ADS7830, &ADS7830_Values[index++], 1);
-	//if (index < 8) I2CSend(ADS7830, 1, 0x84 | (index<<8)); 
+	ADS7830_Values[index] = I2CGet();
 	I2CMasterIntClear(I2C0_MASTER_BASE);
+	if (++index < 8) I2CRequest(index);
 }
 
 
 
 void ADS7830_Read(void) {
-	index = 0;   
-	I2CSend(ADS7830, 1, 0x84);
-	//while (index < 8);
+	I2CRequest(index = 0);
+
+	while (index < 8);
 }

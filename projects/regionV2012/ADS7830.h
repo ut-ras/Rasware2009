@@ -2,8 +2,10 @@
 
 extern unsigned char ADS7830_Values[8];
 
-void ADS7830_Init(void);
+unsigned char I2CGet(void);
+void I2CRequest(unsigned char);
 
+void ADS7830_Init(void);
 void ADS7830_Read(void);
 
 void I2CIntHandler(void);
