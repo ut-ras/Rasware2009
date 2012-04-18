@@ -26,8 +26,10 @@ signed char motor_R = 0;
 #define LOWER 0
 #define HIGHER 1
 
-#define MOTOR_L_MAX 127
-#define MOTOR_R_MAX 127
+#define MOTOR_L_MAX 60
+#define MOTOR_R_MAX 60
+
+#define WALL_CONSTANT 10
 
 #define offset(x) (currentFacing?((x)+3)%6:(x))
 
@@ -79,17 +81,29 @@ void goEngageCorner(signed char sourcetype) {
 }
 
 void goWall(void) {
-	signed char p = PID(ADS7830_Values[offset(FRONT_LEFT)],bounds[LOWER][offset(FRONT_LEFT)],500,100);
-	if (motor_L+p > 127) {
-		motor_L = 127;	
-	} else if (motor_L+p < -128) {
-		motor_L = -128;
-	} else {
-	    motor_L+=p;
+	//temp for debug
+	till(true) {
+		//testSensors();
+	 	if (ADS7830_Values[offset(FRONT_LEFT)]<bounds[LOWER][offset(FRONT_LEFT)]) {
+			if (motor_L-WALL_CONSTANT > 0) motor_L -= WALL_CONSTANT;
+		} else if (ADS7830_Values[offset(BACK_LEFT)]<bounds[LOWER][offset(FRONT_LEFT)]){
+			if (motor_L+WALL_CONSTANT < MOTOR_L_MAX) motor_L += WALL_CONSTANT;
+		}
+	
 	}
-	UARTprintf("diff : %d ",p);
-	UARTprintf("<%4d %4d>\n",motor_L,motor_R);
-	testSensors();
+
+
+	/*signed char p = PID(ADS7830_Values[offset(FRONT_LEFT)],bounds[LOWER][offset(FRONT_LEFT)],100,0);
+	if (motor_L+p > MOTOR_L_MAX) {
+		motor_L = MOTOR_L_MAX;	
+	} else if (motor_L+p < 0) {
+		motor_L = 0;
+	} else {
+	   motor_L+=p;
+	}*/
+	//UARTprintf("diff : %d ",p);
+	//UARTprintf("<%4d %4d>\n",motor_L,motor_R);
+	//testSensors();
 //	WaitUS(900000);
 }
 
@@ -157,8 +171,8 @@ void gotoCorner(signed char dest,char flip) {
 }
 
 void testSensors(void) {
-	SetMotorPowers(motor_L,motor_R);
-	ADS7830_Read();
+	//SetMotorPowers(motor_L,motor_R);
+	//ADS7830_Read();
 	UARTprintf("[%3d %3d %3d %3d %3d %3d %3d %3d]\n",ADS7830_Values[0],ADS7830_Values[1],ADS7830_Values[2],ADS7830_Values[3],ADS7830_Values[4],ADS7830_Values[5],ADS7830_Values[6],ADS7830_Values[7]);
 	WaitUS(100000);
 }
