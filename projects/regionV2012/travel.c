@@ -29,14 +29,23 @@ unsigned char motor_R = 0;
 #define MOTOR_L_MAX 127
 #define MOTOR_R_MAX 127
 
-#define till(t) for(ADS7830_Read();t;ADS7830_Read(),SetMotorPowers(motor_L,motor_R))
-#define tripped(x,y) (tilltrue(ADS7830_Values[currentFacing?((x)+3)%6:(x)]<bounds[y][currentFacing?((x)+3)%6:(x)]))
+#define offset(x) (currentFacing?((x)+3)%6:(x))
 
+#define till(t) for(ADS7830_Read();t;ADS7830_Read(),SetMotorPowers(motor_L,motor_R))
+#define tripped(x,y) (ADS7830_Values[offset(x)]<bounds[y][offset(x)])
+
+signed short piderror;	
+
+unsigned char PID(unsigned char val,unsigned char goal,signed short Pk,signed short Dk) {
+	unsigned char temp = piderror;
+	piderror = (goal-val);
+	return (unsigned char)((Pk*piderror + Dk*(piderror-temp))>>8);
+}
 
 //TODO experimentally determine these
 const unsigned char bounds[2][6] = {
 	{60,60,60,60,60,60},
-	{100,100,100,100,100,100},
+	{80,80,80,80,80,80},
 };
 
 
@@ -54,11 +63,13 @@ void stop(void) {
 void goForward(void) {
 	motor_L = MOTOR_L_MAX;
 	motor_R = MOTOR_R_MAX;
+	piderror = 0;
 }
 
 void goBackward(void) {
 	motor_L = -MOTOR_L_MAX;
 	motor_R = -MOTOR_R_MAX;
+	piderror = 0;
 }
 
 void goEngageCorner(signed char sourcetype) {
@@ -68,8 +79,7 @@ void goEngageCorner(signed char sourcetype) {
 }
 
 void goWall(void) {
-	//TODO
-
+	motor_L + PID(ADS7830_Values[offset(FRONT_LEFT)],bounds[HIGHER][offset(FRONT_LEFT)],200,100);
 }
 
 
@@ -91,7 +101,7 @@ void gotoCorner(signed char dest,char flip) {
 		till(tripped(FRONT,LOWER)) goForward();
 		goAlignWall(false,true);
 		till(tripped(FRONT_RIGHT,LOWER)) goWall();
-		goEngageCorner();
+		goEngageCorner(ELECTRIC);
 		currentCorner = ELECTRIC;
 		currentFacing = false;
 		if (dest != currentCorner) gotoCorner(dest,flip);
@@ -130,7 +140,7 @@ void gotoCorner(signed char dest,char flip) {
 			break;
 	}
 	
-	goEngageCorner();
+	goEngageCorner(dest);
 
 	currentCorner = dest;
 }

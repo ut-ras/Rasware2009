@@ -10,6 +10,9 @@
 
 void travelInit(void);
 
+//calculates PD based on constants given
+unsigned char PID(unsigned char,unsigned char,signed short,signed short);
+
 //corner to goto, and boolean value for turning backwards to use fan
 void stop(void);
 void goForward(void);

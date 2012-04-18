@@ -133,8 +133,8 @@ void run(void) {
 //
 int main(void) {
 	let
-	UARTprintf("uh... go?\n");	
-	the monkeys testSensors();
+	goForwards();
+	the monkeys goWall();
 	//UARTprintf("you shouldn't get here..");
 }
 
