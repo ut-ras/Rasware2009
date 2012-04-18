@@ -13,8 +13,8 @@
 // Current location of robot
 signed char currentCorner = TREE;
 unsigned char currentFacing = false;
-unsigned char motor_L = 0;
-unsigned char motor_R = 0;
+signed char motor_L = 0;
+signed char motor_R = 0;
 
 #define BACK_LEFT 0
 #define FRONT_LEFT 1
@@ -36,10 +36,10 @@ unsigned char motor_R = 0;
 
 signed short piderror;	
 
-unsigned char PID(unsigned char val,unsigned char goal,signed short Pk,signed short Dk) {
-	unsigned char temp = piderror;
-	piderror = (goal-val);
-	return (unsigned char)((Pk*piderror + Dk*(piderror-temp))>>8);
+signed char PID(unsigned char val,unsigned char goal,signed short Pk,signed short Dk) {
+	signed char temp = piderror;
+	piderror = (val-goal);
+	return (signed char)((Pk*piderror + Dk*(piderror-temp))>>8);
 }
 
 //TODO experimentally determine these
@@ -51,7 +51,7 @@ const unsigned char bounds[2][6] = {
 
 void travelInit(void) {
 	//motors
-	InitializeMotors(false,false);
+	InitializeMotors(true,false);
 	ADS7830_Init();
 }
 
@@ -79,7 +79,18 @@ void goEngageCorner(signed char sourcetype) {
 }
 
 void goWall(void) {
-	motor_L + PID(ADS7830_Values[offset(FRONT_LEFT)],bounds[HIGHER][offset(FRONT_LEFT)],200,100);
+	signed char p = PID(ADS7830_Values[offset(FRONT_LEFT)],bounds[LOWER][offset(FRONT_LEFT)],500,100);
+	if (motor_L+p > 127) {
+		motor_L = 127;	
+	} else if (motor_L+p < -128) {
+		motor_L = -128;
+	} else {
+	    motor_L+=p;
+	}
+	UARTprintf("diff : %d ",p);
+	UARTprintf("<%4d %4d>\n",motor_L,motor_R);
+	testSensors();
+//	WaitUS(900000);
 }
 
 
@@ -146,9 +157,10 @@ void gotoCorner(signed char dest,char flip) {
 }
 
 void testSensors(void) {
+	SetMotorPowers(motor_L,motor_R);
 	ADS7830_Read();
 	UARTprintf("[%3d %3d %3d %3d %3d %3d %3d %3d]\n",ADS7830_Values[0],ADS7830_Values[1],ADS7830_Values[2],ADS7830_Values[3],ADS7830_Values[4],ADS7830_Values[5],ADS7830_Values[6],ADS7830_Values[7]);
-	WaitUS(10000);
+	WaitUS(100000);
 }
 
 

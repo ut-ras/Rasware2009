@@ -133,7 +133,7 @@ void run(void) {
 //
 int main(void) {
 	let
-	goForwards();
+	goForward();
 	the monkeys goWall();
 	//UARTprintf("you shouldn't get here..");
 }
