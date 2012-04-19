@@ -30,6 +30,7 @@ signed char motor_R = 0;
 #define MOTOR_R_MAX 60
 
 #define WALL_CONSTANT 10
+#define TURN_CONSTANT 2
 
 #define offset(x) (currentFacing?((x)+3)%6:(x))
 
@@ -75,8 +76,14 @@ void goBackward(void) {
 }
 
 void goEngageCorner(signed char sourcetype) {
-	till((sourcetype==ELECTRIC||sourcetype==FLAG) && false || tripped(FRONT,LOWER)) { //replace false with switch that needs to be switched
+	if (sourcetype==ELECTRIC||sourcetype==FLAG) {
+		till(true) { //replace false with switch that needs to be switched
 		//approach wall
+		}
+	} else {
+		till(tripped(FRONT,LOWER)) { //replace false with switch that needs to be switched
+		//approach wall
+		}
 	}
 }
 
@@ -84,9 +91,9 @@ void goWall(void) {
 	//temp for debug
 	till(true) {
 		//testSensors();
-	 	if (ADS7830_Values[offset(FRONT_LEFT)]<bounds[LOWER][offset(FRONT_LEFT)]) {
+	 	if (tripped(FRONT_LEFT,LOWER)) {
 			if (motor_L-WALL_CONSTANT > 0) motor_L -= WALL_CONSTANT;
-		} else if (ADS7830_Values[offset(BACK_LEFT)]<bounds[LOWER][offset(FRONT_LEFT)]){
+		} else if (tripped(BACK_LEFT,LOWER)){
 			if (motor_L+WALL_CONSTANT < MOTOR_L_MAX) motor_L += WALL_CONSTANT;
 		}
 	
@@ -110,18 +117,21 @@ void goWall(void) {
 
 //rotates clockwise by degrees
 void goRotate(signed char degrees) {
+	SetMotorPowers(MOTOR_L_MAX,-MOTOR_R_MAX);
+	WaitUS(degrees/TIME_CONSTANT);
 	
 }
 
 //rotate to align with wall using IR sensors
 void goAlignWall(char rightSensors, char goRight) {
-	
+	SetMotorPowers(MOTOR_L_MAX,-MOTOR_R_MAX);
+	till(tripped(FRONT_LEFT,LOWER));
+	till(tripped(BACK_LEFT ,LOWER));
 }
 						   
 void gotoCorner(signed char dest,char flip) {
 	signed char offdest;
 	if (dest<0 || dest==currentCorner) return;
-
 	if (currentCorner==TREE) {
 		till(tripped(FRONT,LOWER)) goForward();
 		goAlignWall(false,true);
@@ -135,8 +145,7 @@ void gotoCorner(signed char dest,char flip) {
 	
 	
 	offdest = currentCorner - dest;
-	if (offdest < 0) offdest = offdest+4;
-	
+	if (offdest < 0) offdest = offdest+4
 	switch(offdest) {
 		case 1:
 			till(!tripped(FRONT_RIGHT,LOWER)) goBackward();
