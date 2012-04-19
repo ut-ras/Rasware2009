@@ -29,13 +29,14 @@ signed char motor_R = 0;
 #define MOTOR_L_MAX 60
 #define MOTOR_R_MAX 60
 
-#define WALL_CONSTANT 10
+#define WALL_CONSTANT 1
 #define TURN_CONSTANT 2
+#define TIME_CONSTANT 1000
 
 #define offset(x) (currentFacing?((x)+3)%6:(x))
 
-#define till(t) for(ADS7830_Read();t;ADS7830_Read(),SetMotorPowers(motor_L,motor_R))
-#define tripped(x,y) (ADS7830_Values[offset(x)]<bounds[y][offset(x)])
+#define till(t) for(ADS7830_Read();!(t);ADS7830_Read(),SetMotorPowers(motor_L,motor_R),WaitUS(TIME_CONSTANT))
+#define tripped(x,y) (ADS7830_Values[offset(x)]>bounds[y][offset(x)])
 
 signed short piderror;	
 
@@ -47,8 +48,8 @@ signed char PID(unsigned char val,unsigned char goal,signed short Pk,signed shor
 
 //TODO experimentally determine these
 const unsigned char bounds[2][6] = {
-	{60,60,60,60,60,60},
-	{80,80,80,80,80,80},
+	{50,100,60,60,60,60},
+	{30,60,80,80,80,80},
 };
 
 
@@ -89,12 +90,19 @@ void goEngageCorner(signed char sourcetype) {
 
 void goWall(void) {
 	//temp for debug
-	till(true) {
-		//testSensors();
-	 	if (tripped(FRONT_LEFT,LOWER)) {
-			if (motor_L-WALL_CONSTANT > 0) motor_L -= WALL_CONSTANT;
-		} else if (tripped(BACK_LEFT,LOWER)){
-			if (motor_L+WALL_CONSTANT < MOTOR_L_MAX) motor_L += WALL_CONSTANT;
+	till(false) {
+		if (tripped(FRONT_LEFT,HIGHER)) {
+			//testSensors();
+		 	if (!tripped(FRONT_LEFT,LOWER)) {
+				//UARTprintf("errrr");
+				if (motor_L-WALL_CONSTANT > 0) motor_L -= WALL_CONSTANT;
+			} else if (!tripped(BACK_LEFT,LOWER)){
+				//UARTprintf("ahhhh");
+				if (motor_L+WALL_CONSTANT < MOTOR_L_MAX) motor_L += WALL_CONSTANT;
+			}
+		} else {
+			motor_L = MOTOR_L_MAX;
+			motor_R = MOTOR_R_MAX;
 		}
 	
 	}
@@ -145,7 +153,7 @@ void gotoCorner(signed char dest,char flip) {
 	
 	
 	offdest = currentCorner - dest;
-	if (offdest < 0) offdest = offdest+4
+	if (offdest < 0) offdest = offdest+4;
 	switch(offdest) {
 		case 1:
 			till(!tripped(FRONT_RIGHT,LOWER)) goBackward();
@@ -181,7 +189,7 @@ void gotoCorner(signed char dest,char flip) {
 
 void testSensors(void) {
 	//SetMotorPowers(motor_L,motor_R);
-	//ADS7830_Read();
+	ADS7830_Read();
 	UARTprintf("[%3d %3d %3d %3d %3d %3d %3d %3d]\n",ADS7830_Values[0],ADS7830_Values[1],ADS7830_Values[2],ADS7830_Values[3],ADS7830_Values[4],ADS7830_Values[5],ADS7830_Values[6],ADS7830_Values[7]);
 	WaitUS(100000);
 }

@@ -5,6 +5,7 @@
 #include "driverlib/sysctl.h"
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
+#include "RASLib/motor.h"
 
 #define let init();
 #define the for
@@ -134,7 +135,8 @@ void run(void) {
 int main(void) {
 	let
 	goForward();
-	the monkeys goWall();
+	UARTprintf("go monkeys");
+	the monkeys SetMotorPowers(40,80);//testSensors();//goWall();
 	//UARTprintf("you shouldn't get here..");
 }
 
