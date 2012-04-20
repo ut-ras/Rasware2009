@@ -14,7 +14,7 @@
 
 #define clockFreq 1000
 
-static volatile unsigned long msEllapsed;
+unsigned long msEllapsed;
 
 void InitializeClock(void){
 	 	SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER2);
@@ -26,7 +26,7 @@ void InitializeClock(void){
 		msEllapsed = 0;
 }
 
-unsigned long GetTimems(void){
+unsigned long GetTimeMS(void){
 	    return msEllapsed;
 }
 
@@ -34,6 +34,6 @@ void Timer2InterruptHandler(void){
 		TimerIntClear(TIMER2_BASE, TimerIntStatus(TIMER2_BASE,0));
 		msEllapsed++;
 		UpdateCapState();
-		ADS7830_Read();
+		if(msEllapsed%50 == 0) ADS7830ReadNonBlocking();
 }
 

@@ -18,7 +18,7 @@
 #include "panel.h"
 #include "fan.h"
 #include "ADS7830.h"
-
+#include "clock.h"
 
 // Order of sources
 // The order indicates which one we want first
@@ -136,9 +136,15 @@ int main(void) {
 	init();
 	goForward();
 	UARTprintf("go monkeys");
-	for (;;) WallFollow(0,0);//goWall();	   
-	//isFanTripped();
+	InitializeCharge();
+	//ADS7830_Init();
+	InitializeClock();
 
+	WallFollow(2,10000,1);//goWall();	
+	BackOut(); 
+	WallFollow(0,0,1);  
+	//isFanTripped();
+	for (;;);
 	//UARTprintf("you shouldn't get here..");
 }
 

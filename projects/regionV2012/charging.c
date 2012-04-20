@@ -26,7 +26,7 @@ long GetAnalog(int port)
 	return ulADCValue;
 }
 
-
+#define CHARGING_THRESHOLD 20
 void UpdateCapState(void){
 	static int last3=0,last2=0,last1=0,last0=0;
 	last3=last2;
@@ -34,7 +34,6 @@ void UpdateCapState(void){
 	last1=last0;
 	last0=GetAnalog(0);
 
-	#define CHARGING_THRESHOLD 20
 	if( ( (last2-last3) + (last1-last2) + (last0-last1) ) > CHARGING_THRESHOLD ){
 		 charging = CHARGING;
 	}

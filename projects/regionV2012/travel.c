@@ -118,17 +118,74 @@ int WallFollowPID2(int in, int P , int I, int D, int divP, int divI, int divD){
 	return out;
 }
 
-enum {NEVER,STOP_CHARGING,TIMEOUT,EITHER}StopWallFollow;
+void SetMotorPowersBlocking(int left, int right){
+	 if(left < -128)
+	 	left = -128;
+	 if(left > 127)
+	 	left = 127;
+	 if(right < -128)
+	 	right = -128;
+	 if(right > 127)
+	 	right = 127;
+
+	 SetMotorPowers( left/4 , right );
+}
+
+enum {NEVER,CHARGING,TIMEOUT,EITHER} StopWallFollow;
+// inverse direction veers to the left - can look at again.
 #define IDEAL_DISTANCE 100
-void WallFollow(int mode, int time){
-	 int diff, close;
-	 //while(!Charging()){
-	 while(1){
-	 	 diff = WallFollowPID(  BACK_LEFT - FRONT_LEFT , 5 , 0 , 0 , 1, 0 , 0);
-	 	 close = WallFollowPID2( IDEAL_DISTANCE - FRONT_LEFT , 5 , 0 , 0, 1 , 0 , 0);
-		 SetMotorPowers( 127 + diff - close ,127 - diff );
+
+#define P9v 3	//PD values for 9v
+#define D9v	3
+#define divP9v 2
+#define divD9v 20
+
+#define P12v 5	  //PD values for 12v
+#define D12v 5
+#define divP12v 4
+#define divD12v 40
+
+void WallFollow(int mode, int time, int dir){
+	 int startTime, diff, close;
+	 switch(mode){
+		 case NEVER:
+		 while(1){
+		 	 diff = WallFollowPID(  ADS7830_Values[FRONT_LEFT] -  ADS7830_Values[BACK_LEFT], P12v , 0 , D12v , divP12v, 1 , divD12v);
+		 	 close = 0;//WallFollowPID2( IDEAL_DISTANCE - (ADS7830_Values[FRONT_LEFT] + ADS7830_Values[BACK_LEFT]) , 1 , 0 , 0, 1 , 0 , 0);
+			 UARTprintf("Back Left: %d Front_Left: %d, close: %d, diff: %d\n",ADS7830_Values[BACK_LEFT], ADS7830_Values[FRONT_LEFT], close, diff);
+			 SetMotorPowersBlocking( dir*(127 + diff + close) ,dir*(127 - diff - close));
+		 }
+		 //break;
+		 case CHARGING:
+		 while(!Charging()){
+		 	 diff = WallFollowPID(  ADS7830_Values[FRONT_LEFT] -  ADS7830_Values[BACK_LEFT], P12v , 0 , D12v , divP12v, 1 , divD12v);
+		 	 close = 0;//WallFollowPID2( IDEAL_DISTANCE - (ADS7830_Values[FRONT_LEFT] + ADS7830_Values[BACK_LEFT]) , 1 , 0 , 0, 1 , 0 , 0);
+			 UARTprintf("Back Left: %d Front_Left: %d, close: %d, diff: %d\n",ADS7830_Values[BACK_LEFT], ADS7830_Values[FRONT_LEFT], close, diff);
+			 SetMotorPowersBlocking( dir*(127 + diff + close) ,dir*(127 - diff - close));
+		 }
+		 break;
+		 case TIMEOUT:
+		 startTime = GetTimeMS();
+		 while(GetTimeMS()<startTime+time){
+		 	 diff = WallFollowPID(  ADS7830_Values[FRONT_LEFT] -  ADS7830_Values[BACK_LEFT], P12v , 0 , D12v , divP12v, 1 , divD12v);
+		 	 close = 0;//WallFollowPID2( IDEAL_DISTANCE - (ADS7830_Values[FRONT_LEFT] + ADS7830_Values[BACK_LEFT]) , 1 , 0 , 0, 1 , 0 , 0);
+			 UARTprintf("Back Left: %d Front_Left: %d, close: %d, diff: %d\n",ADS7830_Values[BACK_LEFT], ADS7830_Values[FRONT_LEFT], close, diff);
+			 SetMotorPowersBlocking( dir*(127 + diff + close) ,dir*(127 - diff - close));
+		 }
+		 break;
+
 	 }
 }
+
+void BackOut(void){
+	SetMotorPowers(-32,-128);
+	Wait(1000);
+	SetMotorPowers(127,127);
+	Wait(500);
+	SetMotorPowers(32,127);
+	Wait(500);
+}
+
 
 void goWall(void) {
 
