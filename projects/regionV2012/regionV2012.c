@@ -13,6 +13,8 @@
 #define the for
 #define monkeys (;;)
 #define roll run();
+#define CHARGING_THRESHOLD 20
+
 
 #include "travel.h"
 #include "charging.h"
@@ -58,9 +60,10 @@ void init(void) {
 //Run method
 //
 void run(void) {
-}
-	
 
+}
+
+	
 //
 //Don't put any important code in main
 //Use main freely to test functions and stuff
