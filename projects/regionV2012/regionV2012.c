@@ -6,6 +6,7 @@
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
 #include "RASLib/motor.h"
+#include "utils/uartstdio.h"
 
 #define let init();
 #define the for
@@ -35,7 +36,6 @@ void init(void) {
 	//Necessary inits for chip
 	LockoutProtection();
 	InitializeMCU();
-	//InitializeUART();
 	//Various driver inits
 	//initUART
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				
@@ -43,9 +43,9 @@ void init(void) {
 	UARTStdioInit(0);
 
 	//Initialize Franks interrupt
-	InitializeGPIOIntTest();
+	//InitializeGPIOIntTest();
 	
-	initPanelServos();
+	//initPanelServos();
 	travelInit();
 }
 
@@ -133,10 +133,12 @@ void run(void) {
 //For competition main should simply call init and run
 //
 int main(void) {
-	let
+	init();
 	goForward();
 	UARTprintf("go monkeys");
-	the monkeys SetMotorPowers(40,80);//testSensors();//goWall();
+	for (;;) WallFollow(0,0);//goWall();	   
+	//isFanTripped();
+
 	//UARTprintf("you shouldn't get here..");
 }
 

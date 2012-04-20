@@ -5,7 +5,8 @@
 #include "driverlib/i2c.h"
 #include "inc/hw_memmap.h"
 #include "travel.h"
-
+#include "clock.h"
+#include "charging.h"
 #include "RASLib/timer.h"
 
 
@@ -26,8 +27,8 @@ signed char motor_R = 0;
 #define LOWER 0
 #define HIGHER 1
 
-#define MOTOR_L_MAX 60
-#define MOTOR_R_MAX 60
+#define MOTOR_L_MAX 40
+#define MOTOR_R_MAX 80
 
 #define WALL_CONSTANT 1
 #define TURN_CONSTANT 2
@@ -35,8 +36,9 @@ signed char motor_R = 0;
 
 #define offset(x) (currentFacing?((x)+3)%6:(x))
 
-#define till(t) for(ADS7830_Read();!(t);ADS7830_Read(),SetMotorPowers(motor_L,motor_R),WaitUS(TIME_CONSTANT))
+#define till(t) for(ADS7830_Read();!(t);ADS7830_Read(),SetMotorPowers(motor_L,motor_R))
 #define tripped(x,y) (ADS7830_Values[offset(x)]>bounds[y][offset(x)])
+#define diff(x,y) (bounds[y][offset(x)]-ADS7830_Values[offset(x)])
 
 signed short piderror;	
 
@@ -88,20 +90,57 @@ void goEngageCorner(signed char sourcetype) {
 	}
 }
 
+
+
+
+int WallFollowPID(int in, int P , int I, int D, int divP, int divI, int divD){
+	static int prev = 0;
+	static int total = 0;
+	int out;
+	
+	out = ((P * in)/divP) + ((I * total)/divI) + ((D * (in-prev))/divD);
+
+	prev = in;
+	total += in;
+
+	return out;
+}
+int WallFollowPID2(int in, int P , int I, int D, int divP, int divI, int divD){
+	static int prev = 0;
+	static int total = 0;
+	int out;
+	
+	out = ((P * in)/divP) + ((I * total)/divI) + ((D * (in-prev))/divD);
+
+	prev = in;
+	total += in;
+
+	return out;
+}
+
+enum {NEVER,STOP_CHARGING,TIMEOUT,EITHER}StopWallFollow;
+#define IDEAL_DISTANCE 100
+void WallFollow(int mode, int time){
+	 int diff, close;
+	 //while(!Charging()){
+	 while(1){
+	 	 diff = WallFollowPID(  BACK_LEFT - FRONT_LEFT , 5 , 0 , 0 , 1, 0 , 0);
+	 	 close = WallFollowPID2( IDEAL_DISTANCE - FRONT_LEFT , 5 , 0 , 0, 1 , 0 , 0);
+		 SetMotorPowers( 127 + diff - close ,127 - diff );
+	 }
+}
+
 void goWall(void) {
+
+
+
 	//temp for debug
 	till(false) {
 		if (tripped(FRONT_LEFT,HIGHER)) {
-			//testSensors();
-		 	if (!tripped(FRONT_LEFT,LOWER)) {
-				//UARTprintf("errrr");
-				if (motor_L-WALL_CONSTANT > 0) motor_L -= WALL_CONSTANT;
-			} else if (!tripped(BACK_LEFT,LOWER)){
-				//UARTprintf("ahhhh");
-				if (motor_L+WALL_CONSTANT < MOTOR_L_MAX) motor_L += WALL_CONSTANT;
-			}
+			motor_L = MOTOR_L_MAX-diff(BACK_LEFT,LOWER);
+			motor_R = MOTOR_R_MAX-diff(FRONT_LEFT,LOWER);
 		} else {
-			motor_L = MOTOR_L_MAX;
+		 	motor_L = MOTOR_L_MAX;
 			motor_R = MOTOR_R_MAX;
 		}
 	
