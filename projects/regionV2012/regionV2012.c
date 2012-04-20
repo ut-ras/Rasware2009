@@ -12,6 +12,8 @@
 #define the for
 #define monkeys (;;)
 #define roll run();
+#define CHARGING_THRESHOLD 20
+
 
 #include "travel.h"
 #include "charging.h"
@@ -71,6 +73,8 @@ void run(void) {
 		//TODO charge
 	gotoCorner(FLAG);
 		//TODO discharge*/
+		
+		
 	/*	
 		
 	int sourcesVisited = 0;
@@ -79,52 +83,68 @@ void run(void) {
 	//the three minutes should be up and we can go to
 	//the best source
 	
-	while(charging()!=2){
+	int capCharge = GetCapacitorCharge();
 	
-		while(sourcesVisited<3){//only one source on
-
-			gotoCorner(ELECTRIC);//go to the electric source, this is the default place to go
-			if(charging()==1){
-				sourcesVisited++;
-				while(charging()==1);//does nothing but charge so long as the source is on and not fully charged
-			}
-
-			if(light source on){
-				gotoCorner(LIGHT);
-				lowerPanel();//lower solar panel
-				
-				if(charging()==1){
-					sourcesVisited++;
-					while(charging()==1);
-				}
-				
-				raisePanel();
-			}
-
-
-			else{
+	
+	while(sourcesVisited<2&&capCharge<CHARGING_THRESHOLD){
+		while(sourcesVisited<3){//first three minutes, only one source on
+			
+			//findWall
+			
+			
+			
+			if(NoiseDetection()){//NoiseDetection returns an int; not sure what value should be around when fan is on
 				gotoCorner(FAN);
-				
-				if(charging()==1){
+				charge(FAN);
+				if(capCharge<GetCapacitorCharge()){
 					sourcesVisited++;
-					while(charging())==1;
+					
+					while(capCharge<GetCapacitorCharge())//charge until source turns off
+						capCharge=GetCapacitorCharge();
 				}
 			}
+				
+			
+			else{
+				gotoCorner(ELECTRIC)
+				charge(ELECTRIC);
+				if(capCharge<GetCapacitorCharge()){
+					sourcesVisited++;
+					
+					while(capCharge<GetCapacitorCharge())
+						capCharge=GetCapacitorCharge();
+				}
+				
+				/*if(isLightOn()){
+					gotoCorner(LIGHT);
+					lowerPanel();
+					charge(LIGHT)
+					
+					if(capCharge<GetCapacitorCharge()){
+						sourcesVisited++;
+					
+						while(capCharge<GetCapacitorCharge())
+							capCharge=GetCapacitorCharge();
+					}
+					
+					raisePanel();
+				}*/	
+		/*	}
+	
+		//3 minutes have passed, all sources on
+		//want to go to the best
+		gotoCorner(BEST_SOURCE);
+		while(capCharge<GetCapacitorCharge())
+			capCharge=GetCapacitorCharge();
+		
+		
 		}
-	}
-	
-	//3 minutes have passed, all sources on
-	//want to go to the best
-	
-	gotoCorner(BEST_SOURCE);
-	while(charging()!=2);//charge until fully charged
-	
-	
-	//fully charged
-	gotoCorner(FLAG);
+		//fully charged
+		gotoCorner(FLAG);
+		charge(FLAG);
+		
 	*/
-
-}
+	}
 
 //
 //Don't put any important code in main
