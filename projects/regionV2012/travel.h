@@ -7,7 +7,10 @@
 #define TREE -1
 
  
-
+#define offset(x) (currentFacing?((x)+3)%6:(x))
+#define tripped(x,y) (ADS7830_Values[offset(x)]>bounds[y][offset(x)])
+#define till(t) for(;!(t);SetMotorPowers(motor_L,motor_R))
+#define diff(x,y) (bounds[y][offset(x)]-ADS7830_Values[offset(x)])
 
 void travelInit(void);
 
@@ -17,6 +20,7 @@ signed char PID(unsigned char,unsigned char,signed short,signed short);
 //corner to goto, and boolean value for turning backwards to use fan
 void stop(void);
 void goForward(void);
+void goForwardBlocking(void);
 void goBackward(void);
 void goEngageCorner(signed char);
 void goWall(void);

@@ -14,11 +14,11 @@
 
 
 
-int servo_0_hi = 127;//servo 0 value when the panel is in the up position
-int servo_1_hi = 128;//same as above but for servo 1
+int servo_0_hi = 104;//servo 0 value when the panel is in the up position
+int servo_1_hi = 151;//same as above but for servo 1
 
-int servo_0_lo = 10;//servo 0 value when the panel is down
-int servo_1_lo = 245;//same as above but for servo 1
+int servo_0_lo = 0;//servo 0 value when the panel is down
+int servo_1_lo = 255;//same as above but for servo 1
 
 void initPanelServos(void){//same code from servoDemo
 	InitializeServos();

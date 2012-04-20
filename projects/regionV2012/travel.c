@@ -27,18 +27,18 @@ signed char motor_R = 0;
 #define LOWER 0
 #define HIGHER 1
 
-#define MOTOR_L_MAX 40
+#define MOTOR_L_MAX 60
 #define MOTOR_R_MAX 80
 
 #define WALL_CONSTANT 1
 #define TURN_CONSTANT 2
 #define TIME_CONSTANT 1000
 
-#define offset(x) (currentFacing?((x)+3)%6:(x))
+#define LEFT_MOTOR_OFFSET 2
 
-#define till(t) for(ADS7830_Read();!(t);ADS7830_Read(),SetMotorPowers(motor_L,motor_R))
-#define tripped(x,y) (ADS7830_Values[offset(x)]>bounds[y][offset(x)])
-#define diff(x,y) (bounds[y][offset(x)]-ADS7830_Values[offset(x)])
+
+
+
 
 signed short piderror;	
 
@@ -50,8 +50,8 @@ signed char PID(unsigned char val,unsigned char goal,signed short Pk,signed shor
 
 //TODO experimentally determine these
 const unsigned char bounds[2][6] = {
-	{50,100,60,60,60,60},
-	{30,60,80,80,80,80},
+	{130, 80, 60,150, 60, 150},
+	{ 70, 60, 40, 70, 40, 70},
 };
 
 
@@ -71,6 +71,14 @@ void goForward(void) {
 	motor_R = MOTOR_R_MAX;
 	piderror = 0;
 }
+
+void goForwardBlocking(void) {
+	motor_L = 85;
+	motor_R = 120;
+	SetMotorPowers(motor_L, motor_R);
+	piderror = 0;
+}
+
 
 void goBackward(void) {
 	motor_L = -MOTOR_L_MAX;
@@ -118,6 +126,7 @@ int WallFollowPID2(int in, int P , int I, int D, int divP, int divI, int divD){
 	return out;
 }
 
+
 void SetMotorPowersBlocking(int left, int right){
 	 if(left < -128)
 	 	left = -128;
@@ -128,10 +137,10 @@ void SetMotorPowersBlocking(int left, int right){
 	 if(right > 127)
 	 	right = 127;
 
-	 SetMotorPowers( left/4 , right );
+	 SetMotorPowers( left/LEFT_MOTOR_OFFSET , right );
 }
 
-enum {NEVER,CHARGING,TIMEOUT,EITHER} StopWallFollow;
+enum {NEVER,CHARGING,TIMEOUT,EITHER,TRIP} StopWallFollow;
 // inverse direction veers to the left - can look at again.
 #define IDEAL_DISTANCE 100
 
@@ -145,6 +154,8 @@ enum {NEVER,CHARGING,TIMEOUT,EITHER} StopWallFollow;
 #define divP12v 4
 #define divD12v 40
 
+
+//use time for IR sensor value if using TRIP
 void WallFollow(int mode, int time, int dir){
 	 int startTime, diff, close;
 	 switch(mode){
@@ -173,17 +184,25 @@ void WallFollow(int mode, int time, int dir){
 			 SetMotorPowersBlocking( dir*(127 + diff + close) ,dir*(127 - diff - close));
 		 }
 		 break;
+		 case TRIP:
+		 while(!tripped(time,LOWER)){
+		 	 diff = WallFollowPID(  ADS7830_Values[FRONT_LEFT] -  ADS7830_Values[BACK_LEFT], P12v , 0 , D12v , divP12v, 1 , divD12v);
+		 	 close = 0;//WallFollowPID2( IDEAL_DISTANCE - (ADS7830_Values[FRONT_LEFT] + ADS7830_Values[BACK_LEFT]) , 1 , 0 , 0, 1 , 0 , 0);
+			 UARTprintf("Back Left: %d Front_Left: %d, close: %d, diff: %d\n",ADS7830_Values[BACK_LEFT], ADS7830_Values[FRONT_LEFT], close, diff);
+			 SetMotorPowersBlocking( dir*(127 + diff + close) ,dir*(127 - diff - close));
+		 }
+		 break;
 
 	 }
 }
 
 void BackOut(void){
-	SetMotorPowers(-32,-128);
-	Wait(1000);
-	SetMotorPowers(127,127);
+	SetMotorPowers(-40,-128);
 	Wait(500);
 	SetMotorPowers(32,127);
 	Wait(500);
+	SetMotorPowers(127,127);
+	Wait(300);
 }
 
 
@@ -200,10 +219,10 @@ void goWall(void) {
 		 	motor_L = MOTOR_L_MAX;
 			motor_R = MOTOR_R_MAX;
 		}
-	
+		SetMotorPowers(motor_L, motor_R); //add by Stephen, unless it would be set elsewhere
 	}
 
-
+	
 	/*signed char p = PID(ADS7830_Values[offset(FRONT_LEFT)],bounds[LOWER][offset(FRONT_LEFT)],100,0);
 	if (motor_L+p > MOTOR_L_MAX) {
 		motor_L = MOTOR_L_MAX;	
@@ -233,18 +252,21 @@ void goAlignWall(char rightSensors, char goRight) {
 	till(tripped(BACK_LEFT ,LOWER));
 }
 						   
-void gotoCorner(signed char dest) {
+void gotoDest(signed char dest) {
 	char flip = (dest==FAN && currentCorner!=FAN)||(dest!=FAN && currentCorner==FAN);
 	signed char offdest;
+
+	UARTprintf("At %d, goint to %d, fliping %d\n",currentCorner,dest,flip);
+
 	if (dest<0 || dest==currentCorner) return;
 	if (currentCorner==TREE) {
-		till(tripped(FRONT,LOWER)) goForward();
+		till(tripped(FRONT,LOWER)) {UARTprintf("ah %d\n",ADS7830_Values[FRONT]);goForward();}
+		UARTprintf("uhhhh");
 		goAlignWall(false,true);
-		till(tripped(FRONT_RIGHT,LOWER)) goWall();
-		goEngageCorner(ELECTRIC);
+		WallFollow(TRIP,FRONT,1);
 		currentCorner = ELECTRIC;
 		currentFacing = false;
-		if (dest != currentCorner) gotoCorner(dest);
+		if (dest != currentCorner) gotoDest(dest);
 		return;
 	}
 	
