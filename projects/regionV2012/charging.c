@@ -54,7 +54,7 @@ int GetCapacitorCharge(void){
 }
 
 
-void charge(unsigned char source){
+void charge(unsigned char source) {
 	switch(source) {
 		case FLAG:
 			//just sit and discharge

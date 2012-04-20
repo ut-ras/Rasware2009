@@ -21,7 +21,7 @@ void goEngageCorner(signed char);
 void goWall(void);
 void goRotate(signed char);
 void goAlignWall(char,char);
-void gotoDest(signed char,char);
+void gotoDest(signed char);
 void WallFollow(int mode, int time);
 void testSensors(void);
 

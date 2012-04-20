@@ -176,7 +176,8 @@ void goAlignWall(char rightSensors, char goRight) {
 	till(tripped(BACK_LEFT ,LOWER));
 }
 						   
-void gotoCorner(signed char dest,char flip) {
+void gotoCorner(signed char dest) {
+	char flip = (dest==WIND && currentCorner!=WIND)||(dest==WIND && currentCorner!=WIND);
 	signed char offdest;
 	if (dest<0 || dest==currentCorner) return;
 	if (currentCorner==TREE) {
