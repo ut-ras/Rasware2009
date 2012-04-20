@@ -5,6 +5,9 @@
 #include "charging.h"
 #include "driverlib/sysctl.h"
 
+#include "travel.h"
+#include "relays.h"
+
 enum {NOT_CHARGING,CHARGING} charging;
 
 
@@ -51,12 +54,43 @@ int GetCapacitorCharge(void){
 }
 
 
-int charge(void){
-  //returns 0 if not charging (source is not on) 
-	//1 if fully charged
-	return 0;	
+void charge(unsigned char source) {
+	switch(source) {
+		case FLAG:
+			//just sit and discharge
+			//forever
+			CapacitorsSeries();
+			for(;;);
+			//break;
+		case FAN:
+			CapacitorsParalell();
+			WindOn();
+			while(Charging());
+			WindOff();
+			CapacitorsSeries();
+			break;
+		case ELECTRIC:
+			CapacitorsParalell();
+			while(Charging());
+			CapacitorsSeries();
+			break;
+		case LIGHT:
+			CapacitorsParalell();
+			SolarOn();
+			while(Charging());
+			SolarOff();
+			CapacitorsSeries();
+			break;
+	}	
 }
 
+void InitializeRelays(void);
+void CapacitorsSeries(void);
+void CapacitorsParalell(void);
+void WindOn(void);
+void WindOff(void);
+void SolarOn(void);
+void SolarOff(void);
 
 
 

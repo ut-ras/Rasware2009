@@ -233,7 +233,8 @@ void goAlignWall(char rightSensors, char goRight) {
 	till(tripped(BACK_LEFT ,LOWER));
 }
 						   
-void gotoCorner(signed char dest,char flip) {
+void gotoCorner(signed char dest) {
+	char flip = (dest==FAN && currentCorner!=FAN)||(dest!=FAN && currentCorner==FAN);
 	signed char offdest;
 	if (dest<0 || dest==currentCorner) return;
 	if (currentCorner==TREE) {
@@ -243,7 +244,7 @@ void gotoCorner(signed char dest,char flip) {
 		goEngageCorner(ELECTRIC);
 		currentCorner = ELECTRIC;
 		currentFacing = false;
-		if (dest != currentCorner) gotoCorner(dest,flip);
+		if (dest != currentCorner) gotoCorner(dest);
 		return;
 	}
 	

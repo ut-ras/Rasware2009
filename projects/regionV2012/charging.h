@@ -3,6 +3,7 @@ long GetAnalog(int port)	 ;
 void UpdateCapState(void);
 tBoolean Charging(void);
 int GetCapacitorCharge(void)  ;
-int charge(void);			   
+void charge(unsigned char);			   
+
 
 
