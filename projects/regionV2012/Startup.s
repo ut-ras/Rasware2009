@@ -77,6 +77,12 @@ __heap_limit
         AREA    RESET, CODE, READONLY
         THUMB
 
+		EXTERN	LSIntHandler
+		EXTERN	EncoderInterruptHandler
+		EXTERN  GPIOAIntHandler
+		EXTERN  I2CIntHandler
+		EXTERN  Timer2InterruptHandler
+
 ;******************************************************************************
 ;
 ; The vector table.
@@ -100,15 +106,15 @@ __Vectors
         DCD     0                           ; Reserved
         DCD     IntDefaultHandler           ; PendSV Handler
         DCD     IntDefaultHandler           ; SysTick Handler
-        DCD     IntDefaultHandler           ; GPIO Port A
-        DCD     IntDefaultHandler           ; GPIO Port B
-        DCD     IntDefaultHandler           ; GPIO Port C
+        DCD     GPIOAIntHandler             ; GPIO Port A
+        DCD     EncoderInterruptHandler     ; GPIO Port B
+        DCD     EncoderInterruptHandler     ; GPIO Port C
         DCD     IntDefaultHandler           ; GPIO Port D
         DCD     IntDefaultHandler           ; GPIO Port E
         DCD     IntDefaultHandler           ; UART0
         DCD     IntDefaultHandler           ; UART1
         DCD     IntDefaultHandler           ; SSI
-        DCD     IntDefaultHandler           ; I2C
+        DCD     I2CIntHandler               ; I2C
         DCD     IntDefaultHandler           ; PWM Fault
         DCD     IntDefaultHandler           ; PWM Generator 0
         DCD     IntDefaultHandler           ; PWM Generator 1
@@ -119,11 +125,11 @@ __Vectors
         DCD     IntDefaultHandler           ; ADC Sequence 2
         DCD     IntDefaultHandler           ; ADC Sequence 3
         DCD     IntDefaultHandler           ; Watchdog
-        DCD     IntDefaultHandler           ; Timer 0A
+        DCD     LSIntHandler                ; Timer 0A
         DCD     IntDefaultHandler           ; Timer 0B
         DCD     IntDefaultHandler           ; Timer 1A
         DCD     IntDefaultHandler           ; Timer 1B
-        DCD     IntDefaultHandler           ; Timer 2A
+        DCD     Timer2InterruptHandler      ; Timer 2A
         DCD     IntDefaultHandler           ; Timer 2B
         DCD     IntDefaultHandler           ; Comp 0
         DCD     IntDefaultHandler           ; Comp 1
