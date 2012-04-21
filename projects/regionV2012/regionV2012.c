@@ -5,18 +5,23 @@
 #include "driverlib/sysctl.h"
 #include "inc/hw_memmap.h"
 #include "RASLib/init.h"
+#include "RASLib/motor.h"
+#include "utils/uartstdio.h"
+#include "RASLib/timer.h"
 
 #define let init();
 #define the for
 #define monkeys (;;)
 #define roll run();
+#define CHARGING_THRESHOLD 20
+
 
 #include "travel.h"
 #include "charging.h"
 #include "panel.h"
 #include "fan.h"
 #include "ADS7830.h"
-
+#include "clock.h"
 
 // Order of sources
 // The order indicates which one we want first
@@ -34,7 +39,6 @@ void init(void) {
 	//Necessary inits for chip
 	LockoutProtection();
 	InitializeMCU();
-	//InitializeUART();
 	//Various driver inits
 	//initUART
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				
@@ -42,89 +46,24 @@ void init(void) {
 	UARTStdioInit(0);
 
 	//Initialize Franks interrupt
-	InitializeGPIOIntTest();
+	//InitializeGPIOIntTest();
 	
 	initPanelServos();
 	travelInit();
-}
+	InitializeCharge();
+	InitializeClock();
 
+	raisePanel();
+}
 
 //
 //Run method
 //
 void run(void) {
-	//I need to comment this to compile
-
-	/*signed char randoms = 3;
-
-	//first when they are randomly on
-	for (;randoms>=0;randoms--) {
-		gotoCorner(nextSource());
-			//TODO charge for some time?
-		gotoCorner(FLAG);
-			//TODO discharge?
-	}
-
-	//then when they are all on
-	gotoCorner(BEST_SOURCE);
-		//TODO charge
-	gotoCorner(FLAG);
-		//TODO discharge*/
-	/*	
-		
-	int sourcesVisited = 0;
-	//assuming we find each source during its on period
-	//after we have found three different sources on
-	//the three minutes should be up and we can go to
-	//the best source
-	
-	while(charging()!=2){
-	
-		while(sourcesVisited<3){//only one source on
-
-			gotoCorner(ELECTRIC);//go to the electric source, this is the default place to go
-			if(charging()==1){
-				sourcesVisited++;
-				while(charging()==1);//does nothing but charge so long as the source is on and not fully charged
-			}
-
-			if(light source on){
-				gotoCorner(LIGHT);
-				lowerPanel();//lower solar panel
-				
-				if(charging()==1){
-					sourcesVisited++;
-					while(charging()==1);
-				}
-				
-				raisePanel();
-			}
-
-
-			else{
-				gotoCorner(FAN);
-				
-				if(charging()==1){
-					sourcesVisited++;
-					while(charging())==1;
-				}
-			}
-		}
-	}
-	
-	//3 minutes have passed, all sources on
-	//want to go to the best
-	
-	gotoCorner(BEST_SOURCE);
-	while(charging()!=2);//charge until fully charged
-	
-	
-	//fully charged
-	gotoCorner(FLAG);
-	*/
 
 }
 
+	
 //
 //Don't put any important code in main
 //Use main freely to test functions and stuff
@@ -132,9 +71,22 @@ void run(void) {
 //For competition main should simply call init and run
 //
 int main(void) {
-	let
-	UARTprintf("uh... go?\n");	
-	the monkeys testSensors();
+	init();
+		//TODO:connect something to the adc
+	
+	//gotoDest(ELECTRIC);
+	//goForwardBlocking();
+	//Wait(800);
+	//while( ADS7830_Values[2] < 60); //Front IR sensor
+	//SetMotorPowers(-85, -120);
+	//wait(500);
+	//UARTprintf("following");
+	//WallFollow(2,10000,1);// TimeOUT 10 sec FORWARD
+	//BackOut(); 
+	WallFollow(0,0,1); // WallFollow Forever, FORWARD
+	//isFanTripped();
+	lowerPanel();
+	for (;;); //testSensors();
 	//UARTprintf("you shouldn't get here..");
 }
 

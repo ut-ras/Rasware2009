@@ -81,6 +81,7 @@ __heap_limit
 		EXTERN	EncoderInterruptHandler
 		EXTERN  GPIOAIntHandler
 		EXTERN  I2CIntHandler
+		EXTERN  Timer2InterruptHandler
 
 ;******************************************************************************
 ;
@@ -128,7 +129,7 @@ __Vectors
         DCD     IntDefaultHandler           ; Timer 0B
         DCD     IntDefaultHandler           ; Timer 1A
         DCD     IntDefaultHandler           ; Timer 1B
-        DCD     IntDefaultHandler           ; Timer 2A
+        DCD     Timer2InterruptHandler      ; Timer 2A
         DCD     IntDefaultHandler           ; Timer 2B
         DCD     IntDefaultHandler           ; Comp 0
         DCD     IntDefaultHandler           ; Comp 1

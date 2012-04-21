@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  14 APR 2012 20:01
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  20 APR 2012 17:03
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -205,20 +205,20 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 (./RASreport2012.aux)
 \openout1 = `RASreport2012.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -258,7 +258,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 19.
+Package hyperref Info: Link coloring ON on input line 21.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -268,9 +268,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count107
 )
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \ref on input line 21.
+LaTeX Info: Redefining \pageref on input line 21.
+LaTeX Info: Redefining \nameref on input line 21.
 
 (./RASreport2012.out) (./RASreport2012.out)
 \@outlinefile=\write3
@@ -311,56 +311,48 @@ LaTeX Info: Redefining \nameref on input line 19.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 35.
-(/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 35.
+[1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-<Robotics2012PlayingField.jpg, id=20, 388.8126pt x 357.4956pt>
-File: Robotics2012PlayingField.jpg Graphic file (type jpg)
+]
+[2] <Relays.jpg, id=78, 597.432pt x 794.97pt>
+File: Relays.jpg Graphic file (type jpg)
+ <use Relays.jpg>
+Package pdftex.def Info: Relays.jpg used on input line 157.
+(pdftex.def)             Requested size: 467.0252pt x 621.44482pt.
 
-<use Robotics2012PlayingField.jpg>
-Package pdftex.def Info: Robotics2012PlayingField.jpg used on input line 45.
-(pdftex.def)             Requested size: 216.81pt x 199.35065pt.
- [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
- <./Robotics2012PlayingField.jpg>]
-<Robotics2012Flag.jpg, id=33, 415.3116pt x 412.9026pt>
-File: Robotics2012Flag.jpg Graphic file (type jpg)
-
-<use Robotics2012Flag.jpg>
-Package pdftex.def Info: Robotics2012Flag.jpg used on input line 63.
-(pdftex.def)             Requested size: 216.81pt x 215.55482pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
- [2 <./Robotics2012Flag.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
+<SolarPanels.jpg, id=79, 722.7pt x 542.025pt>
+File: SolarPanels.jpg Graphic file (type jpg)
+ <use SolarPanels.jpg>
+Package pdftex.def Info: SolarPanels.jpg used on input line 168.
+(pdftex.def)             Requested size: 361.3491pt x 271.01183pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 178.
+ [3]
+[4 <./Relays.jpg>] [5 <./SolarPanels.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 178.
  (./RASreport2012.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 178.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 178.
 Package rerunfilecheck Info: File `RASreport2012.out' has not changed.
-(rerunfilecheck)             Checksum: 2CD64D3795BBBDF501F8A768CD3F0CA1;220.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
+(rerunfilecheck)             Checksum: 1FDE351C0039C92CF709F1201EC28A4B;898.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 178.
  ) 
 Here is how much of TeX's memory you used:
- 5555 strings out of 493633
- 82391 string characters out of 3143378
- 168976 words of memory out of 3000000
- 8819 multiletter control sequences out of 15000+200000
- 6404 words of font info for 23 fonts, out of 3000000 for 9000
+ 5558 strings out of 493633
+ 82208 string characters out of 3143378
+ 170988 words of memory out of 3000000
+ 8815 multiletter control sequences out of 15000+200000
+ 6147 words of font info for 22 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 29i,11n,43p,332b,459s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,11n,43p,1342b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
 /usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
 sr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></us
-r/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on RASreport2012.pdf (2 pages, 281534 bytes).
+r/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on RASreport2012.pdf (5 pages, 1400893 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 119 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

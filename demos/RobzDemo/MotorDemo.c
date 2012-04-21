@@ -9,7 +9,7 @@
 #include "RobzDemo.h"
 
 void initMotors(void) {
-	InitializeMotors(false, false);
+	InitializeMotors(true, false);
 }
 
 void motorDemo(void) {
@@ -25,9 +25,12 @@ void motorDemo(void) {
 			ch = getc();
 			putc(ch);
 			if (ch == 'w') {
-				left = maxSpeed;
-				right = -maxSpeed;
-			} else if (ch == 's') {
+				left = left++;
+				UARTprintf("%d", left);
+			} else if (ch == 'e') {
+				right = right++;
+				UARTprintf("%d", right);
+			}else if (ch == 's') {
 				left = -maxSpeed;
 				right = maxSpeed;
 			} else if (ch == 'a') {

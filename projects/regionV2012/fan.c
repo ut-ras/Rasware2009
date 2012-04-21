@@ -36,5 +36,10 @@ void resetFanTrip(void) {
 }
 
 char isFanTripped(void) {
+//code to take 1 sec of data
+//analog read into array
+//do root mean square
+//int arr[1024];
+    UARTprintf("ping");
 	return isTripped;
 }

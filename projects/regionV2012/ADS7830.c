@@ -56,6 +56,9 @@ void I2CIntHandler(void) {
 }
 
 
+void ADS7830ReadNonBlocking(void) {
+	I2CRequest(index = 0);
+}
 
 void ADS7830_Read(void) {
 	I2CRequest(index = 0);
