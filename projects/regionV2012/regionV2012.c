@@ -22,6 +22,7 @@
 #include "fan.h"
 #include "ADS7830.h"
 #include "clock.h"
+#include "relays.h"
 
 // Order of sources
 // The order indicates which one we want first
@@ -52,8 +53,8 @@ void init(void) {
 	travelInit();
 	InitializeCharge();
 	InitializeClock();
-
-	raisePanel();
+	InitializeRelays();
+	//raisePanel();
 }
 
 //
@@ -83,10 +84,13 @@ int main(void) {
 	//UARTprintf("following");
 	//WallFollow(2,10000,1);// TimeOUT 10 sec FORWARD
 	//BackOut(); 
-	WallFollow(0,0,1); // WallFollow Forever, FORWARD
+	
 	//isFanTripped();
-	lowerPanel();
-	for (;;); //testSensors();
+	SolarOn();
+	for (;;) ;
+	//WallFollow(0,0,1); // WallFollow Forever, FORWARD
+	//lowerPanel();
+	 //testSensors();
 	//UARTprintf("you shouldn't get here..");
 }
 
