@@ -6,7 +6,7 @@
 #include "driverlib/timer.h"
 #include "driverlib/sysctl.h"
 #include "driverlib/interrupt.h"
-#include "timer.h"
+//#include "timer.h"
 #include "charging.h"
 #include "clock.h"
 #include "ADS7830.h"

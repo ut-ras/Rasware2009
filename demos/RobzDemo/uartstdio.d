@@ -1,5 +1,5 @@
 uartstdio.o: ..\..\StellarisWare\utils\uartstdio.c
-uartstdio.o: C:\Keil\ARM\RV31\INC\stdarg.h
+uartstdio.o: D:\Program Files\Keil\ARM\RV31\Inc\stdarg.h
 uartstdio.o: ..\..\StellarisWare\inc/hw_ints.h
 uartstdio.o: ..\..\StellarisWare\inc/hw_memmap.h
 uartstdio.o: ..\..\StellarisWare\inc/hw_types.h

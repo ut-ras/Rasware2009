@@ -61,7 +61,8 @@ void init(void) {
 //Run method
 //
 void run(void) {
-
+	UARTprintf("and?");
+	testSensors();
 }
 
 	
@@ -86,8 +87,8 @@ int main(void) {
 	//BackOut(); 
 	
 	//isFanTripped();
-	SolarOn();
-	for (;;) ;
+	//SolarOn();
+	for (;;) run();
 	//WallFollow(0,0,1); // WallFollow Forever, FORWARD
 	//lowerPanel();
 	 //testSensors();
