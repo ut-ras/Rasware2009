@@ -19,7 +19,7 @@
 ### ADS-LD Output File: 'RobzDemo.axf'
 ### ADS-LD Command File: 'RobzDemo.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'RobzDemo.lnp', Handle=0x00000348
+### Creating CmdFile 'RobzDemo.lnp', Handle=0x00000788
 ### Writing '.lnp' file
 ### ADS-LD Command file 'RobzDemo.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

@@ -78,7 +78,7 @@ __heap_limit
         THUMB
 
 		EXTERN	LSIntHandler
-		EXTERN	EncoderInterruptHandler
+		EXTERN	EncoderIntHandler
 		EXTERN  I2CIntHandler
 		EXTERN  SonarGPIOIntHandler
 		EXTERN  SonarTimerIntHandler
@@ -107,8 +107,8 @@ __Vectors
         DCD     IntDefaultHandler           ; PendSV Handler
         DCD     IntDefaultHandler           ; SysTick Handler
         DCD     IntDefaultHandler           ; GPIO Port A
-        DCD     EncoderInterruptHandler     ; GPIO Port B
-        DCD     EncoderInterruptHandler     ; GPIO Port C
+        DCD     EncoderIntHandler           ; GPIO Port B
+        DCD     EncoderIntHandler           ; GPIO Port C
         DCD     SonarGPIOIntHandler         ; GPIO Port D
         DCD     IntDefaultHandler           ; GPIO Port E
         DCD     IntDefaultHandler           ; UART0

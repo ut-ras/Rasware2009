@@ -1,7 +1,7 @@
-#include "cb_i2c.h"
-
 #include "inc/hw_types.h"
 #include "utils/uartstdio.h"
+
+#include "cb_i2c.h"
 
 #include "inc/hw_memmap.h"
 #include "inc/hw_ints.h"
@@ -11,16 +11,16 @@
 
 
 volatile status_t I2C_Status = DONE;
-volatile unsigned char i2cdata;
-unsigned char i2caddress;
-status_t (*i2ccallback)(unsigned char) = 0;
+static volatile unsigned char data;
+static unsigned char address;
+static status_t (*callback)(unsigned char) = 0;
 
 
 void I2CIntHandler(void) {
-	i2cdata = I2C_Get(i2caddress);
+	data = I2C_Get(address);
 	I2C_Status = DONE;
 	I2CMasterIntClear(I2C0_MASTER_BASE);
-	if (i2ccallback) I2C_Status = (*i2ccallback)(i2cdata);
+	if (callback) I2C_Status = (*callback)(data);
 }
 
 void I2C_Init() {
@@ -53,13 +53,13 @@ void I2C_Put(unsigned char address, unsigned char value) {
 unsigned char I2C_Request(unsigned char address, unsigned char value) {
 	I2C_Background_Request(address, value, 0);
 	while(I2C_Status == BUSY);
-	return i2cdata;
+	return data;
 }
 
 void I2C_Background_Request(unsigned char address, unsigned char value, status_t (*cb)(unsigned char)) {
 	while(I2C_Status == BUSY);
-	i2ccallback = cb;
-	i2caddress = address;
+	callback = cb;
+	address = address;
 	I2C_Status = BUSY;
 	I2C_Put(address,value);
 }

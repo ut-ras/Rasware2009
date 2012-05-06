@@ -1,7 +1,7 @@
-#include "cb_sonar.h"
-
 #include "inc/hw_types.h"
 #include "utils/uartstdio.h"
+
+#include "cb_sonar.h"
 
 #include "inc/hw_memmap.h"
 #include "inc/hw_ints.h"
@@ -22,44 +22,44 @@
 }
 
 volatile unsigned long Sonar_Value = 0;
-volatile enum {READY,PULSE,WAIT,TIMING,DELAY} sonarstatus;
-volatile tBoolean sonarwaiting = false;
-void (*sonarcallback)(unsigned long);
+static volatile enum {READY,PULSE,WAIT,TIMING,DELAY} status;
+static volatile tBoolean waiting = false;
+static void (*callback)(unsigned long);
 
-void BeginSonarSequence(void) {
-	sonarwaiting = false;
-	sonarstatus = PULSE;
+static void BeginSonarSequence(void) {
+	waiting = false;
+	status = PULSE;
 	GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2, GPIO_PIN_2);
 	TIME(US(8));
 }
 
 void SonarTimerIntHandler(void) {
 	TimerIntClear(TIMER2_BASE, TIMER_TIMA_TIMEOUT);
-	if (sonarstatus == PULSE) {
-		sonarstatus = WAIT;
+	if (status == PULSE) {
+		status = WAIT;
 		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2, 0);
 		TIME(MAX_SONAR_TIME);
-	} else if (sonarstatus == DELAY) {
-		sonarstatus = READY;
-		if (sonarwaiting)
+	} else if (status == DELAY) {
+		status = READY;
+		if (waiting)
 			BeginSonarSequence();
 	} else {
 		UARTprintf("er");
 		Sonar_Value = (unsigned long)-1;
-		sonarstatus = READY;
-		if (sonarcallback) (*sonarcallback)(Sonar_Value);
+		status = READY;
+		if (callback) (*callback)(Sonar_Value);
 	}
 }
 
 void SonarGPIOIntHandler(void) {
 	GPIOPinIntClear(GPIO_PORTD_BASE, GPIO_PIN_3);
 	if (GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_3)) {
-		sonarstatus = TIMING;
+		status = TIMING;
 		TIME(MAX_SONAR_TIME);
 	} else {
 		Sonar_Value = TimerValueGet(TIMER2_BASE, TIMER_A);
-		sonarstatus = DELAY;
-		if (sonarcallback) (*sonarcallback)(Sonar_Value);
+		status = DELAY;
+		if (callback) (*callback)(Sonar_Value);
 		TIME(MS(10));
 	}
 }
@@ -82,20 +82,20 @@ void Sonar_Init(void) {
 	IntEnable(INT_TIMER2A);
 	TimerIntEnable(TIMER2_BASE, TIMER_TIMA_TIMEOUT);
 	
-	sonarstatus = READY;
+	status = READY;
 }
 
 unsigned long Sonar_Read(void) {
 	Sonar_Background_Read(0);
-	while(sonarstatus != DELAY && sonarstatus != READY);
+	while(status != DELAY && status != READY);
 	return Sonar_Value;
 }
 
 void Sonar_Background_Read(void (*cb)(unsigned long)) {
-	sonarcallback = cb;
-	if (sonarstatus == READY) {
+	callback = cb;
+	if (status == READY) {
 		BeginSonarSequence();
-	} else if (sonarstatus == DELAY) {
-		sonarwaiting = true;
+	} else if (status == DELAY) {
+		waiting = true;
 	}
 }

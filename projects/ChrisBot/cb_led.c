@@ -1,7 +1,7 @@
 #include "inc/hw_types.h"
-#include "cb_led.h"
-
 #include "utils/uartstdio.h"
+
+#include "cb_led.h"
 
 #include "inc/hw_memmap.h"
 #include "driverlib/gpio.h"
@@ -10,7 +10,7 @@
 #include "RASLib/init.h"
 
 
-unsigned long ulServoPeriod;
+static unsigned long ulServoPeriod;
 
 void LED_Init(void) {
 	

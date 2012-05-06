@@ -473,6 +473,16 @@
               <FileType>5</FileType>
               <FilePath>.\cb_sonar.h</FilePath>
             </File>
+            <File>
+              <FileName>cb_encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\cb_encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>cb_encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\cb_encoder.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
