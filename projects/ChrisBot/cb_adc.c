@@ -7,8 +7,10 @@
 
 volatile unsigned char ADC_Values[8] = {0,0,0,0,0,0,0,0};
 static volatile unsigned char index;
-static void * callback;
 static tBoolean single;
+
+static void nocallback() {}
+static void (*callback)() = &nocallback;
 
 void ADC_Init(void) {
 	I2C_Init();
@@ -17,12 +19,12 @@ void ADC_Init(void) {
 status_t ADCReadHandler(unsigned char val) {
 	ADC_Values[index] = val;
 	if (single) {
-		if (callback) (*((void (*)(unsigned char))callback))(val);
+		(*callback)(val);
 	} else {
 		if (++index < 8) {
 			I2C_Background_Request(ADS7830,0x84|(index<<4),&ADCReadHandler);
 		} else {
-			if (callback) (*((void (*)(unsigned char *))callback))((unsigned char *)ADC_Values);
+			(*callback)((unsigned char *)ADC_Values);
 		}
 	}
 	
@@ -34,7 +36,7 @@ unsigned char ADC_Single_Read(unsigned char i) {
 }
 
 void ADC_Background_Single_Read(unsigned char i,void (*cb)(unsigned char)) {
-	callback = cb;
+	callback = cb ? (void (*)())cb : &nocallback;
 	single = true;
 	I2C_Background_Request(ADS7830,0x84|((index=i)<<4),&ADCReadHandler);
 }
@@ -46,7 +48,7 @@ unsigned char * ADC_Read(void) {
 }
 
 void ADC_Background_Read(void (*cb)(unsigned char *)) {
-	callback = cb;
+	callback = cb ? (void (*)())cb : &nocallback;
 	single = false;
 	I2C_Background_Request(ADS7830,0x84|((index=0)<<4),&ADCReadHandler);
 }

@@ -24,7 +24,9 @@
 volatile unsigned long Sonar_Value = 0;
 static volatile enum {READY,PULSE,WAIT,TIMING,DELAY} status;
 static volatile tBoolean waiting = false;
-static void (*callback)(unsigned long);
+
+static void nocallback(unsigned long eh) {}
+static void (*callback)(unsigned long) = &nocallback;
 
 static void BeginSonarSequence(void) {
 	waiting = false;
@@ -44,10 +46,9 @@ void SonarTimerIntHandler(void) {
 		if (waiting)
 			BeginSonarSequence();
 	} else {
-		UARTprintf("er");
 		Sonar_Value = (unsigned long)-1;
 		status = READY;
-		if (callback) (*callback)(Sonar_Value);
+		(*callback)(Sonar_Value);
 	}
 }
 
@@ -59,7 +60,7 @@ void SonarGPIOIntHandler(void) {
 	} else {
 		Sonar_Value = TimerValueGet(TIMER2_BASE, TIMER_A);
 		status = DELAY;
-		if (callback) (*callback)(Sonar_Value);
+		(*callback)(Sonar_Value);
 		TIME(MS(10));
 	}
 }
@@ -92,7 +93,7 @@ unsigned long Sonar_Read(void) {
 }
 
 void Sonar_Background_Read(void (*cb)(unsigned long)) {
-	callback = cb;
+	callback = cb ? cb : &nocallback;
 	if (status == READY) {
 		BeginSonarSequence();
 	} else if (status == DELAY) {

@@ -1,4 +1,7 @@
 
+#define LED_OFF 1
+#define LED_ON  255
+
 #include "driverlib/pwm.h"
 
 typedef enum {

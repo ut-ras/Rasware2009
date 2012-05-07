@@ -7,7 +7,9 @@
 
 volatile unsigned char Compass_Values[2] = {0,0};
 static volatile unsigned char index = 0;
-static void (*callback)(unsigned char *);
+
+static void nocallback(unsigned char *eh) {}
+static void (*callback)(unsigned char *) = &nocallback;
 
 void Compass_Init(void) {
 	I2C_Init();
@@ -18,7 +20,7 @@ status_t CompassReadHandler(unsigned char val) {
 	if (++index < 2) {
 		return BUSY;
 	} else {
-		if (callback) (*callback)((unsigned char *)Compass_Values);
+		(*callback)((unsigned char *)Compass_Values);
 		return I2C_Status;
 	}
 }
@@ -30,6 +32,7 @@ unsigned char * Compass_Read(void) {
 }
 
 void Compass_Background_Read(void (*cb)(unsigned char *)) {
+	cb = cb ? cb : &nocallback;
 	index = 0;
 	I2C_Background_Request(HMC6352,0x41,&CompassReadHandler);
 }

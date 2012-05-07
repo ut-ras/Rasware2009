@@ -14,16 +14,18 @@ volatile signed long Encoder_Values[2];
 
 static signed dir0,dir1;
 static signed long stopval0,stopval1;
-static void (*callback0)(void);
-static void (*callback1)(void);
+
+static void nocallback(void) {}
+static void (*callback0)(void) = &nocallback;
+static void (*callback1)(void) = &nocallback;
+static void (*constantcallback)(signed long *) = (void (*)(signed long *))&nocallback;
 
 #define ENCODE(enc,op,pina,pinb) {				\
-	Encoder_Values[enc] op##=								\
+	if((Encoder_Values[enc] op##=						\
 	((!GPIOPinRead(GPIO_PORTC_BASE,pina)^  	\
 		!GPIOPinRead(GPIO_PORTB_BASE,pinb))		\
-			 ? -dir##enc : dir##enc);						\
-	if (callback##enc && 										\
-		Encoder_Values[enc]==stopval##enc)		\
+			 ? -dir##enc : dir##enc))						\
+					==stopval##enc)									\
 			(*callback##enc)();									\
 }
 
@@ -46,6 +48,8 @@ void EncoderIntHandler(void) {
 		ENCODE(1,-,GPIO_PIN_6,GPIO_PIN_6);
 		
 	}
+	
+	(*constantcallback)((signed long *)Encoder_Values);
 }
 
 void Encoder_Init(tBoolean inv0, tBoolean inv1) {
@@ -71,6 +75,10 @@ signed long * Encoder_Read(void) {
 	return (signed long *)Encoder_Values;
 }
 
+void Encoder_Background_Read(void (*cb)(signed long *)) {
+	constantcallback = cb ? cb : (void (*)(signed long *))nocallback;
+}
+
 void Encoder_Preset(signed long val0, signed long val1) {
 	Encoder_Values[0] = val0;
 	Encoder_Values[1] = val1;
@@ -79,9 +87,9 @@ void Encoder_Preset(signed long val0, signed long val1) {
 void Encoder_Callback(unsigned char enc, signed long stopval, void (*cb)(void)) {
 	if (enc) {
 		stopval1 = stopval;
-		callback1 = cb;
+		callback1 = cb ? cb : &nocallback;
 	} else {
 		stopval0 = stopval;
-		callback0 = cb;
+		callback0 = cb ? cb : &nocallback;
 	}
 }

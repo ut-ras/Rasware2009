@@ -12,15 +12,25 @@
 
 volatile status_t I2C_Status = DONE;
 static volatile unsigned char data;
+static volatile tBoolean receive;
 static unsigned char address;
-static status_t (*callback)(unsigned char) = 0;
+
+static status_t nocallback(unsigned char eh) {return DONE;}
+static status_t (*callback)(unsigned char) = &nocallback;
 
 
 void I2CIntHandler(void) {
-	data = I2C_Get(address);
-	I2C_Status = DONE;
-	I2CMasterIntClear(I2C0_MASTER_BASE);
-	if (callback) I2C_Status = (*callback)(data);
+	//while(I2CMasterBusy(I2C0_MASTER_BASE));
+	I2CMasterIntClear(I2C0_MASTER_BASE);	
+	
+	if (receive) {
+		data = I2CMasterDataGet(I2C0_MASTER_BASE);
+		I2C_Status = DONE;
+		I2C_Status = (*callback)(data);
+	} else {
+		I2CMasterSlaveAddrSet(I2C0_MASTER_BASE, address>>1, receive=true);
+		I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_SINGLE_RECEIVE);
+	}
 }
 
 void I2C_Init() {
@@ -36,30 +46,18 @@ void I2C_Init() {
 	IntEnable(INT_I2C0);
 }
 
-unsigned char I2C_Get(unsigned char address) {
-	I2CMasterSlaveAddrSet(I2C0_MASTER_BASE, address>>1, true);
-	I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_SINGLE_RECEIVE);
-	while(I2CMasterBusy(I2C0_MASTER_BASE));
-	return I2CMasterDataGet(I2C0_MASTER_BASE);
-}
-
-void I2C_Put(unsigned char address, unsigned char value) {
-	I2CMasterSlaveAddrSet(I2C0_MASTER_BASE, address>>1, false);
-	I2CMasterDataPut(I2C0_MASTER_BASE, value);
-	I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_SINGLE_SEND);
-	while(I2CMasterBusy(I2C0_MASTER_BASE));
-}
-
-unsigned char I2C_Request(unsigned char address, unsigned char value) {
-	I2C_Background_Request(address, value, 0);
+unsigned char I2C_Request(unsigned char a, unsigned char value) {
+	I2C_Background_Request(a, value, 0);
 	while(I2C_Status == BUSY);
 	return data;
 }
 
-void I2C_Background_Request(unsigned char address, unsigned char value, status_t (*cb)(unsigned char)) {
+void I2C_Background_Request(unsigned char a, unsigned char value, status_t (*cb)(unsigned char)) {
 	while(I2C_Status == BUSY);
-	callback = cb;
-	address = address;
+	callback = cb ? cb : &nocallback;
 	I2C_Status = BUSY;
-	I2C_Put(address,value);
+	
+	I2CMasterSlaveAddrSet(I2C0_MASTER_BASE, (address = a)>>1, receive = false);
+	I2CMasterDataPut(I2C0_MASTER_BASE, value);
+	I2CMasterControl(I2C0_MASTER_BASE, I2C_MASTER_CMD_SINGLE_SEND);
 }
