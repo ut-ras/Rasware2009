@@ -1,13 +1,13 @@
 
-//MOTOR_TYPE determines how the motor runs
-//can be PWM or BINARY
+//MOTOR_TYPE determines how the motor is controlled
+//can be PWM, BINARY, or RASLIB
 #ifndef MOTOR_TYPE
-#define MOTOR_TYPE PWM
+#define MOTOR_TYPE BINARY
 #endif
 
-#define MOTOR_FORWARD 1
+#define MOTOR_FORWARD 127
 #define MOTOR_STOP 0
-#define MOTOR_BACKWARD -1
+#define MOTOR_BACKWARD -128
 
-void Motor_Init(tBoolean,tBoolean,tBoolean);
+void Motor_Init(tBoolean,tBoolean);
 void Motor_Set(signed char, signed char);

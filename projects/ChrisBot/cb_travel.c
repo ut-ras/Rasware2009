@@ -7,11 +7,11 @@
 #include "cb_motor.h"
 
 void ForwardHandler(signed long * data) {
-	Motor_Set(data[0] <= data[1] ? 127 : 0, data[1] <= data[0] ? 127 : 0);
+	Motor_Set(data[0]<=data[1]?127:127-(16*(data[0]-data[1])), data[1]<=data[0]?127:127-(16*(data[1]-data[0])));
 }
 
 void Travel_Init(void) {
-	Motor_Init(false,true,true);
+	Motor_Init(false,true);
 	Encoder_Init(true,false);
 }
 

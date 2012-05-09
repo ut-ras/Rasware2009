@@ -13,6 +13,7 @@
 #include "cb_led.h"
 #include "cb_encoder.h"
 #include "cb_motor.h"
+#include "cb_jumper.h"
 
 #include "cb_travel.h"
 
@@ -68,10 +69,11 @@ int main(void) {
 	//Encoder_Callback(0,40,&Ah);
 	
 	for (;;) {
-		UARTprintf("ADC[%3d %3d %3d %3d %3d %3d %3d %3d]  S[%7d]  E[%3d %3d]  c:%d\n",
+		UARTprintf("ADC[%3d %3d %3d %3d %3d %3d %3d %3d]  S[%7d]  E[%3d %3d]  J[%1x] c:%d\n",
 			ADC_Values[0],ADC_Values[1],ADC_Values[2],ADC_Values[3],ADC_Values[4],ADC_Values[5],ADC_Values[6],ADC_Values[7],
 			Sonar_Value,
 			Encoder_Values[0],Encoder_Values[1],
+			Jumper_Value,
 			c
 		);
 		LED_Set(LED_0,c);

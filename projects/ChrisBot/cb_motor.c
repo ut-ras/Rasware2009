@@ -10,14 +10,19 @@
 #include "driverlib/pwm.h"
 #include "driverlib/sysctl.h"
 
+#if MOTOR_TYPE == RASLIB
 #include "RASLib/motor.h"
 
-#if MOTOR_TYPE != PWM
+#elif MOTOR_TYPE != PWM
 static tBoolean inv0,inv1;
 #endif
 
-void Motor_Init(tBoolean i0, tBoolean i1, tBoolean usePWM) {
+void Motor_Init(tBoolean i0, tBoolean i1) {
 
+#if MOTOR_TYPE == RASLIB
+	InitializeMotors(i0,i1);
+#else
+	
 #if MOTOR_TYPE != PWM	
 	inv0 = i0;
 	inv1 = i1;
@@ -48,10 +53,13 @@ void Motor_Init(tBoolean i0, tBoolean i1, tBoolean usePWM) {
 
 	GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7, 0x00);
 	GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, 0x00);
+#endif
 }
 
 void Motor_Set(signed char m0, signed char m1) {
-#if MOTOR_TYPE == PWM
+#if MOTOR_TYPE == RASLIB
+		SetMotorPowers(m0,m1);
+#elif MOTOR_TYPE == PWM
 		PWMPulseWidthSet(PWM_BASE, PWM_OUT_4, m0+128);
 		PWMPulseWidthSet(PWM_BASE, PWM_OUT_5, m1+128);
 #else
