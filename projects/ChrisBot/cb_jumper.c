@@ -14,9 +14,9 @@ unsigned char Jumper_Value;
 
 void Jumper_Init(void) {
 	GPIOPinTypeGPIOInput(GPIO_PORTD_BASE, GPIO_PIN_7 | GPIO_PIN_6 | GPIO_PIN_5 | GPIO_PIN_4);
-	Jumper_State();
+	Jumper_Read();
 }
 
-unsigned char Jumper_State(void) {
+unsigned char Jumper_Read(void) {
 	return Jumper_Value = GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_7 | GPIO_PIN_6 | GPIO_PIN_5 | GPIO_PIN_4) >> 4;
 }

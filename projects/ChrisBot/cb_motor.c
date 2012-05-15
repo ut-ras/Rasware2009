@@ -10,20 +10,23 @@
 #include "driverlib/pwm.h"
 #include "driverlib/sysctl.h"
 
-#if MOTOR_TYPE == RASLIB
+#if MOTOR_TYPE == MOTOR_RASLIB
 #include "RASLib/motor.h"
+#endif
 
-#elif MOTOR_TYPE != PWM
+#if MOTOR_TYPE == MOTOR_BINARY
 static tBoolean inv0,inv1;
 #endif
 
 void Motor_Init(tBoolean i0, tBoolean i1) {
 
-#if MOTOR_TYPE == RASLIB
+#if MOTOR_TYPE == MOTOR_RASLIB
 	InitializeMotors(i0,i1);
-#else
+#endif
 	
-#if MOTOR_TYPE != PWM	
+#if (MOTOR_TYPE == MOTOR_BINARY || MOTOR_TYPE == MOTOR_PWM)
+	
+#if MOTOR_TYPE == MOTOR_BINARY
 	inv0 = i0;
 	inv1 = i1;
 #endif
@@ -32,7 +35,7 @@ void Motor_Init(tBoolean i0, tBoolean i1) {
   SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);
   SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
 	
-#if MOTOR_TYPE == PWM
+#if MOTOR_TYPE == MOTOR_PWM
 		SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM);
 		GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 		
@@ -54,15 +57,16 @@ void Motor_Init(tBoolean i0, tBoolean i1) {
 	GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7, 0x00);
 	GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, 0x00);
 #endif
+	Motor_Set(0,0);
 }
 
 void Motor_Set(signed char m0, signed char m1) {
-#if MOTOR_TYPE == RASLIB
+#if MOTOR_TYPE == MOTOR_RASLIB
 		SetMotorPowers(m0,m1);
-#elif MOTOR_TYPE == PWM
+#elif MOTOR_TYPE == MOTOR_PWM
 		PWMPulseWidthSet(PWM_BASE, PWM_OUT_4, m0+128);
 		PWMPulseWidthSet(PWM_BASE, PWM_OUT_5, m1+128);
-#else
+#elif MOTOR_TYPE == MOTOR_BINARY
 		GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7, m0? 0:GPIO_PIN_7);
 		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, m1? 0:GPIO_PIN_5);
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1, 

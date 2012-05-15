@@ -6,4 +6,4 @@
 extern unsigned char Jumper_Value;
 
 void Jumper_Init(void);
-unsigned char Jumper_State(void);
+unsigned char Jumper_Read(void);

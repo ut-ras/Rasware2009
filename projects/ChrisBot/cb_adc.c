@@ -35,7 +35,7 @@ unsigned char ADC_Single_Read(unsigned char i) {
 	return ADC_Values[i] = I2C_Request(ADS7830,0x84|(i<<4));
 }
 
-void ADC_Background_Single_Read(unsigned char i,void (*cb)(unsigned char)) {
+void ADC_Single_Background_Read(unsigned char i,void (*cb)(unsigned char)) {
 	callback = cb ? (void (*)())cb : &nocallback;
 	single = true;
 	I2C_Background_Request(ADS7830,0x84|((index=i)<<4),&ADCReadHandler);

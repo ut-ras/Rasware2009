@@ -478,6 +478,26 @@
               <FileType>5</FileType>
               <FilePath>.\cb_encoder.h</FilePath>
             </File>
+            <File>
+              <FileName>cb_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\cb_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>cb_motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\cb_motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>cb_jumper.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\cb_jumper.c</FilePath>
+            </File>
+            <File>
+              <FileName>cb_jumper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\cb_jumper.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -6,28 +6,40 @@
 #include "cb_encoder.h"
 #include "cb_motor.h"
 
+static tBoolean usemotors;
+static signed char speed;
+
 void ForwardHandler(signed long * data) {
-	Motor_Set(data[0]<=data[1]?127:127-(16*(data[0]-data[1])), data[1]<=data[0]?127:127-(16*(data[1]-data[0])));
+	if (usemotors) 
+		Motor_Set(
+			data[0]<=data[1] ? speed : speed-(16*(data[0]-data[1])), 
+			data[1]<=data[0] ? speed : speed-(16*(data[1]-data[0]))
+		);
 }
 
-void Travel_Init(void) {
-	Motor_Init(false,true);
+void Travel_Init(tBoolean motors) {
+	usemotors = motors;
+	if (usemotors) Motor_Init(false,true);
 	Encoder_Init(true,false);
 }
 
-void Travel_Forward(signed long dist) {
-	Encoder_Background_Read(&ForwardHandler);
-	Encoder_Callback(0,0,0);
-	Encoder_Callback(1,0,0);
-	Motor_Set(MOTOR_FORWARD,MOTOR_FORWARD);
-}
-
-void Travel_Turn(signed long dist) {
-	Encoder_Background_Read(0);
+void Travel_Go(signed char s) {
+	speed = s;
+	if (s >= 0) Encoder_Background_Read(&ForwardHandler);
+	if (usemotors) Motor_Set(speed,speed);
 }
 
 void Travel_Stop(void) {
 	Encoder_Background_Read(0);
-	Encoder_Callback(0,0,0);
-	Encoder_Callback(1,0,0);
+	if (usemotors) Motor_Set(0,0);
+}
+
+
+void Travel_Offset(signed char off) {
+	Encoder_Values[0] += off;
+}
+
+void Travel_Spin(signed char speed) {
+	Encoder_Background_Read(0);
+	if (usemotors) Motor_Set(-speed,speed);
 }
