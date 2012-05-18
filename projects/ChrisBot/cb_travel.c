@@ -36,7 +36,7 @@ void Travel_Stop(void) {
 
 
 void Travel_Offset(signed char off) {
-	Encoder_Values[0] += off;
+	Encoder_Values[0] -= off;
 }
 
 void Travel_Spin(signed char speed) {

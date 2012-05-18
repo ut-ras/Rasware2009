@@ -7,7 +7,7 @@
 #define MOTOR_RASLIB 3
 
 #ifndef MOTOR_TYPE
-#define MOTOR_TYPE MOTOR_PWM
+#define MOTOR_TYPE MOTOR_RASLIB
 #endif
 
 #define MOTOR_FORWARD 127

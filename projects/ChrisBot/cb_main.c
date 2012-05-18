@@ -25,38 +25,69 @@
 #define IR_LONG_RIGHT  0
 #define IR_FRONT       1
 
-unsigned char c;
+unsigned char c,d;
+tBoolean usemotors;
+unsigned char filtered_ir[7];
+unsigned long filtered_sonar;
+unsigned char panic_sensor;
 
-void panicir(unsigned char);
-void avoidir(unsigned char * adc) {
-	unsigned char offset = 
-		(adc[IR_FRONT_LEFT]- adc[IR_FRONT_RIGHT])/80 + 
-		(adc[IR_LONG_LEFT] - adc[IR_LONG_RIGHT] )/50;
-	Travel_Offset(offset);
-	LED_Set(LED_3,offset);
+void panic_ir(unsigned char);
+void avoid_ir(unsigned char * adc) {
+	signed char offset;
+	for(c=0; c<7; c++)
+		filtered_ir[c] = (adc[c]+filtered_ir[c]*9)/10;
+
+	offset =
+		(filtered_ir[IR_FRONT_LEFT]- filtered_ir[IR_FRONT_RIGHT])/100 + 
+		(filtered_ir[IR_LONG_LEFT] - filtered_ir[IR_LONG_RIGHT] )/50;
+	LED_Set(LED_0,offset+1);
+	LED_Set(LED_1,1-offset);
 	
-	LED_Set(LED_0,Sonar_Value/10000);
-	LED_Set(LED_1,adc[IR_FRONT]);
-	
-	if (adc[IR_FRONT] > 100 || Sonar_Value > 1700000)
-		panicir(255);
+	if (offset > 0)
+		Motor_Set(127,127-offset);
 	else
-		ADC_Background_Read(&avoidir);
+		Motor_Set(127+offset,127);
+	
+	if (filtered_ir[IR_FRONT] > 100 || Sonar_Value > 1750000) {
+		if (usemotors) {
+			if (filtered_ir[IR_FRONT_LEFT] > filtered_ir[IR_FRONT_RIGHT])
+				Motor_Set(-127,127);
+			else
+				Motor_Set(127,-127);
+		}
+		ADC_Single_Background_Read(panic_sensor=IR_FRONT,&panic_ir);
+	} else if (filtered_ir[IR_FRONT_LEFT] > 100) {
+		if (usemotors) Motor_Set(-127,127);
+		ADC_Single_Background_Read(panic_sensor=IR_FRONT_LEFT,&panic_ir);
+	} else if (filtered_ir[IR_FRONT_RIGHT] > 100) {
+		if (usemotors) Motor_Set(127,-127);
+		ADC_Single_Background_Read(panic_sensor=IR_FRONT_RIGHT,&panic_ir);
+	} else {
+		ADC_Background_Read(&avoid_ir);
+	}
+	
+	LED_Set(LED_3,d++);
+	if (d==0) UARTprintf("off-->%d sonar-->%d d->%d\n",offset,filtered_sonar,d);
+}
+
+void avoid_sonar(unsigned long eh) {
+	filtered_sonar = (eh + filtered_sonar*9)/10;
+	Sonar_Background_Read(&avoid_sonar);
+}
+	
+void panic_ir(unsigned char val) {
+	
+	filtered_ir[panic_sensor] = (val+filtered_ir[panic_sensor]*9)/10;
+	
+	if (filtered_ir[panic_sensor] < 100 && filtered_sonar < 1750000) {
+		if (usemotors) Motor_Set(127,127);
+		ADC_Background_Read(&avoid_ir);
+	} else {
+		ADC_Single_Background_Read(panic_sensor,&panic_ir);
+	}
 	
 	LED_Set(LED_2,c++);
-}
-
-void avoidsonar(unsigned long eh) {
-	Sonar_Background_Read(&avoidsonar);
-}
-	
-void panicir(unsigned char val) {
-	if (val < 100 && Sonar_Value < 1700000) {
-		Travel_Go(FULL_SPEED);
-		avoidir(0);
-	} else {
-		ADC_Single_Background_Read(IR_FRONT,&panicir);
-	}
+	if (c==0) UARTprintf("ir==>%d sonar==>%d sensor==>%d c=>%d\n",filtered_ir[panic_sensor],filtered_sonar,panic_sensor,c);
 }
 
 
@@ -76,16 +107,35 @@ int main(void) {
 	ADC_Init();
 	Sonar_Init();
 	
-	Travel_Init(Jumper_Value & 0x8);
+	usemotors = Jumper_Value & 0x8;
 	
 	if ((Jumper_Value & 0x7) == 0x1) {
+		if (usemotors) {
+			Motor_Init(false,true);
+			Motor_Set(127,127);
+		}
+		avoid_sonar(0);
+		avoid_ir(filtered_ir);
+		for (;;);
+	}
+	
+	if ((Jumper_Value & 0x7) == 0x2) {
+		Travel_Init(usemotors);
 		Travel_Go(FULL_SPEED);
-		avoidsonar(0);
-		avoidir(0);
+		for (;;);
+	}
+	
+	if ((Jumper_Value & 0x7) == 0x3) {
+		if (usemotors) {
+			Motor_Init(false,true);
+			Motor_Set(127,127);
+		}
 		for (;;);
 	}
 	
 	//if no jumpers are set, enter debug mode
+	Encoder_Init(true,false);
+	
 	
 	for (;;c++) {
 		ADC_Background_Read(0);
