@@ -79,6 +79,8 @@ __heap_limit
 
 		EXTERN	LSIntHandler
 		EXTERN	EncoderInterruptHandler
+		
+		EXTERN  input_handler
 
 ;******************************************************************************
 ;
@@ -117,7 +119,7 @@ __Vectors
         DCD     IntDefaultHandler           ; PWM Generator 1
         DCD     IntDefaultHandler           ; PWM Generator 2
         DCD     IntDefaultHandler           ; Quadrature Encoder
-        DCD     IntDefaultHandler           ; ADC Sequence 0
+        DCD     input_handler           ; ADC Sequence 0
         DCD     IntDefaultHandler           ; ADC Sequence 1
         DCD     IntDefaultHandler           ; ADC Sequence 2
         DCD     IntDefaultHandler           ; ADC Sequence 3

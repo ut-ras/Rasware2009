@@ -386,7 +386,22 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>source</GroupName>
+          <GroupName>lib</GroupName>
+          <Files>
+            <File>
+              <FileName>raslib.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\RASLib\Debug\raslib.lib</FilePath>
+            </File>
+            <File>
+              <FileName>driverlib.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\StellarisWare\driverlib\rvmdk\driverlib.lib</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>src</GroupName>
           <Files>
             <File>
               <FileName>couch.c</FileName>
@@ -397,6 +412,11 @@
               <FileName>Startup.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\Startup.s</FilePath>
+            </File>
+            <File>
+              <FileName>uartstdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\StellarisWare\utils\uartstdio.c</FilePath>
             </File>
           </Files>
         </Group>
