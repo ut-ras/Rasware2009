@@ -80,7 +80,8 @@ __heap_limit
 		EXTERN	LSIntHandler
 		EXTERN	EncoderInterruptHandler
 		
-		EXTERN  input_handler
+		EXTERN  gpiod_handler
+		EXTERN  adc_handler
 
 ;******************************************************************************
 ;
@@ -108,7 +109,7 @@ __Vectors
         DCD     IntDefaultHandler           ; GPIO Port A
         DCD     EncoderInterruptHandler           ; GPIO Port B
         DCD     EncoderInterruptHandler           ; GPIO Port C
-        DCD     IntDefaultHandler           ; GPIO Port D
+        DCD     gpiod_handler           ; GPIO Port D
         DCD     IntDefaultHandler           ; GPIO Port E
         DCD     IntDefaultHandler           ; UART0
         DCD     IntDefaultHandler           ; UART1
@@ -119,7 +120,7 @@ __Vectors
         DCD     IntDefaultHandler           ; PWM Generator 1
         DCD     IntDefaultHandler           ; PWM Generator 2
         DCD     IntDefaultHandler           ; Quadrature Encoder
-        DCD     input_handler           ; ADC Sequence 0
+        DCD     adc_handler           ; ADC Sequence 0
         DCD     IntDefaultHandler           ; ADC Sequence 1
         DCD     IntDefaultHandler           ; ADC Sequence 2
         DCD     IntDefaultHandler           ; ADC Sequence 3

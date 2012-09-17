@@ -13,21 +13,21 @@
 #include "RASLib/init.h"
 
 
-#define InitializeUART()  																		\
+#define InitializeUART()																			\
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);								\
-  GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	\
+	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	\
 	UARTStdioInit(0);
 	
 	
-tBoolean power;
-unsigned long forward;
-unsigned long sideward;
+volatile tBoolean power;
+volatile unsigned long forward;
+volatile unsigned long sideward;
 
 
 void init_motors(tBoolean inv0, tBoolean inv1) {
-  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
-  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);
-  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM);
 	GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 	
@@ -52,25 +52,36 @@ void set_motors(signed char m0, signed char m1) {
 }
 
 void init_input() {
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
 	GPIOPinTypeGPIOInput(GPIO_PORTD_BASE, GPIO_PIN_7);
+	GPIOIntTypeSet(GPIO_PORTD_BASE, GPIO_PIN_7, GPIO_BOTH_EDGES);
+	GPIOPinIntEnable(GPIO_PORTD_BASE, GPIO_PIN_7);
+	IntEnable(INT_GPIOD);
 	
-	ADCSequenceConfigure(ADC_BASE, 0, ADC_TRIGGER_ALWAYS, 0);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC);
+	ADCSequenceConfigure(ADC_BASE, 0, ADC_TRIGGER_PROCESSOR, 0);
 	ADCSequenceStepConfigure(ADC_BASE, 0, 0, ADC_CTL_CH0);
 	ADCSequenceStepConfigure(ADC_BASE, 0, 1, ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH1);
 	ADCIntEnable(ADC_BASE, 0);
 	IntEnable(INT_ADC0SS0);
 	ADCSequenceEnable(ADC_BASE, 0);
+	ADCProcessorTrigger(ADC_BASE, 0);
 }
 
-void input_handler() {
-	ADCIntClear(ADC_BASE, 0);
-	ADCSequenceDataGet(ADC_BASE, 0, &forward);
-	ADCSequenceDataGet(ADC_BASE, 1, &sideward);
-}
-
-void read_input() {
+void gpiod_handler() {
+	GPIOPinIntClear(GPIO_PORTD_BASE, GPIO_PIN_7);
 	power = GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_7) >> 7;
-	//the other inputs are updated through interrupts
+}
+
+void adc_handler() {
+	unsigned long temp[8];
+	
+	ADCIntClear(ADC_BASE, 0);
+	ADCSequenceDataGet(ADC_BASE, 0, temp);
+	forward = temp[0];
+	sideward = temp[1];
+	
+	ADCProcessorTrigger(ADC_BASE, 0);
 }
 
 
@@ -83,14 +94,20 @@ int main() {
 	init_motors(true, true);
 	init_input();
 	
+	UARTprintf("- Hi I am Couch! -");
+	
 	for (;;) {
-		read_input();
+#ifdef DEBUG
+		UARTprintf("!%d:%d:%d!\n",forward,sideward,power);
+#endif
 		
 		if (power) {
-			set_motors(0,0);
-			UARTprintf("!%d:%d!",forward,sideward);
-			//UARTprintf("- Hi I am Couch! -");
-			//TODO check the inputs range
+			//input range is 0 to 1024
+			//TODO set up turning
+			set_motors(
+				(forward>>2)-128,
+				(forward>>2)-128
+			);
 		} else {
 			set_motors(0,0);
 		}
