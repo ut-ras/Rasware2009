@@ -1,1 +1,1 @@
--c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\..\StellarisWare -I..\..\RASLib\include -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Luminary" -o "robzdemo.o" --omf_browse "robzdemo.crf" --depend "robzdemo.d" "RobzDemo.c"
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\StellarisWare -I..\..\RASLib\include -I "D:\Program Files\Keil\ARM\RV31\Inc" -I "D:\Program Files\Keil\ARM\CMSIS\Include" -I "D:\Program Files\Keil\ARM\Inc\Luminary" -o "robzdemo.o" --omf_browse "robzdemo.crf" --depend "robzdemo.d" "RobzDemo.c"

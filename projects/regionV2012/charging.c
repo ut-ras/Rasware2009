@@ -5,6 +5,7 @@
 #include "charging.h"
 #include "driverlib/sysctl.h"
 
+#include "utils/uartstdio.h"
 #include "travel.h"
 #include "relays.h"
 
@@ -14,9 +15,9 @@ enum {NOT_CHARGING,CHARGING} charging;
 void InitializeCharge(void)
 {
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC);
-	ADCSequenceConfigure(ADC_BASE,0, ADC_TRIGGER_PROCESSOR, 1);
-	ADCSequenceStepConfigure(ADC_BASE, 0, 0, ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH0);
-	ADCSequenceEnable(ADC_BASE, 0);
+	ADCSequenceConfigure(ADC_BASE,2, ADC_TRIGGER_PROCESSOR, 1);
+	ADCSequenceStepConfigure(ADC_BASE, 2, 0, ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH2);
+	ADCSequenceEnable(ADC_BASE, 2);
 	charging = NOT_CHARGING;
 }
 
@@ -35,8 +36,9 @@ void UpdateCapState(void){
 	last3=last2;
 	last2=last1;
 	last1=last0;
-	last0=GetAnalog(0);
-
+	last0=GetAnalog(2);
+	/*UARTprintf("New Data: %d\n", last0);
+	UARTprintf("Charging? %d \n", Charging());	*/
 	if( ( (last2-last3) + (last1-last2) + (last0-last1) ) > CHARGING_THRESHOLD ){
 		 charging = CHARGING;
 	}
@@ -59,6 +61,7 @@ void charge(unsigned char source) {
 		case FLAG:
 			//just sit and discharge
 			//forever
+			Discharge();
 			CapacitorsSeries();
 			for(;;);
 			//break;
@@ -66,31 +69,26 @@ void charge(unsigned char source) {
 			CapacitorsParalell();
 			WindOn();
 			while(Charging());
-			WindOff();
+			Discharge();
 			CapacitorsSeries();
 			break;
-		case ELECTRIC:
+		case ELECTRIC:	  
 			CapacitorsParalell();
+			ElectricOn();
 			while(Charging());
+			Discharge();
 			CapacitorsSeries();
 			break;
 		case LIGHT:
 			CapacitorsParalell();
 			SolarOn();
 			while(Charging());
-			SolarOff();
+			Discharge();
 			CapacitorsSeries();
 			break;
 	}	
 }
 
-void InitializeRelays(void);
-void CapacitorsSeries(void);
-void CapacitorsParalell(void);
-void WindOn(void);
-void WindOff(void);
-void SolarOn(void);
-void SolarOff(void);
 
 
 
