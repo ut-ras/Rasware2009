@@ -27,7 +27,11 @@ void UART0IntHandler(void){
   UARTIntClear(UART0_BASE, ulStatus);
 }
 
-void UART0Write(unsigned char c){ UARTCharPut(UART0_BASE, c); }
+void UART0WriteChar(unsigned char c){ UARTCharPut(UART0_BASE, c); }
+void UART0Write(const unsigned char* buff, int len){
+	while(len--)
+		UARTCharPut(UART0_BASE, *buff++);
+}
 
 
 void UART1IntHandler(void){
@@ -39,34 +43,55 @@ void UART1IntHandler(void){
 	UARTIntClear(UART1_BASE, ulStatus);
 }
 
-void UART1Write(unsigned char c){ UARTCharPut(UART1_BASE, c); }
-
 void PrintHexToAscii(unsigned char c){
-		UART0Write('0');
-		UART0Write('x');
-		UART0Write((c >> 4) <= 9 ? (c>>4) + 0x30 : (c>>4) + 0x41 - 10);
-		UART0Write((c & 0xF) < 0xA ? (c&0xF) + 0x30 : (c&0xF) + 0x41 - 10);
+		UART0WriteChar('0');
+		UART0WriteChar('x');
+		UART0WriteChar((c >> 4) <= 9 ? (c>>4) + 0x30 : (c>>4) + 0x41 - 10);
+		UART0WriteChar((c & 0xF) < 0xA ? (c&0xF) + 0x30 : (c&0xF) + 0x41 - 10);
 }
 
-volatile unsigned char XBeeRXPtr = 6;
-static unsigned char XBeeRXBuff[7];
+void UART1WriteChar(unsigned char c){ UARTCharPut(UART1_BASE, c); }
+void UART1Write(const unsigned char* buff, int len){
+	while(len--)
+		UARTCharPut(UART1_BASE, *buff++);
+}
 
-// Handle XBee ACK Msg
+
+unsigned char XBeeRXPtr = 0;
+volatile unsigned char XBeeRXFrameSize = 0;
+static unsigned char XBeeRXBuff[32];
+
+unsigned char XBeeRXDataSize = 0;
+static unsigned char XBeeRXData[32];
+
+// Handle XBee RX Msg
+// TODO: Use ACK Msg
 void XBeeRXHandler(unsigned char data){
-	if (XBeeRXPtr != 6){
-		XBeeRXBuff[++XBeeRXPtr] = data;
-	}else if (data == 0x7E){
-		XBeeRXPtr = 0;
-		XBeeRXBuff[0] = data;
-	}
+	if (XBeeRXPtr == 0){
+		if (data == 0x7E)
+			XBeeRXBuff[XBeeRXPtr++] = data;
+	}else{
+		XBeeRXBuff[XBeeRXPtr++] = data;
+		
+		if (XBeeRXPtr == 3){
+			XBeeRXFrameSize = XBeeRXBuff[1] << 8 | XBeeRXBuff[2];
 	
-	if (XBeeRXPtr == 6){ 	// Check Msg
-		if (0xFF - ((XBeeRXBuff[3] + XBeeRXBuff[4] + XBeeRXBuff[5]) & 0xFF) != XBeeRXBuff[6]){
-			PrintHexToAscii(XBeeRXBuff[4]);
-			UART0Write(':');
-			UART0Write('N');
-			UART0Write('\r');
-			UART0Write('\n');
+			if (XBeeRXFrameSize <= 5){	// Toss out garbage data
+				XBeeRXPtr = 0;
+				XBeeRXFrameSize = 0;
+			}
+		}else if (XBeeRXPtr == 4 && data != 0x01){	// We only care about data, not XBee status updates
+			XBeeRXPtr = 0;
+			XBeeRXFrameSize = 0;
+		}else if (XBeeRXPtr == XBeeRXFrameSize + 3){
+			unsigned char ptr;
+			
+			XBeeRXDataSize = 0;
+			for(ptr = 8; ptr < XBeeRXFrameSize + 3; ptr++)
+				XBeeRXData[XBeeRXDataSize++] = XBeeRXBuff[ptr];
+			
+			XBeeRXPtr = 0;
+			XBeeRXFrameSize = 0;
 		}
 	}
 }
@@ -78,31 +103,31 @@ void XBeeWrite(unsigned char c){
 	if (XBeeBuffSize < 32)
 		XBeeBuff[XBeeBuffSize++] = c;
 }
-void XBeeSend(){
+void XBeeSend(unsigned short addr){
 	unsigned char chk = 0, tmp = 0;
 	
-	UART1Write(0x7E);	// Delim
+	UART1WriteChar(0x7E);	// Delim
 	
-	UART1Write(((XBeeBuffSize + 5) >> 8) & 0xFF);	// Data Length
-	UART1Write((XBeeBuffSize + 5) & 0xFF);
+	UART1WriteChar(((XBeeBuffSize + 5) >> 8) & 0xFF);	// Data Length
+	UART1WriteChar((XBeeBuffSize + 5) & 0xFF);
 	
 	chk += 0x01;	// API
 	chk += apiID; // API Frame ID
-	chk += 0x00;  // Destination
-	chk += 0x00;	
+	chk += addr >> 8;  // Destination
+	chk += addr & 0xFF;	
 	chk += 0x00;	// Option Byte
-	UART1Write(0x01);
-	UART1Write(apiID++);
-	UART1Write(0x00);
-	UART1Write(0x00);
-	UART1Write(0x00);
+	UART1WriteChar(0x01);
+	UART1WriteChar(apiID++);
+	UART1WriteChar(addr >> 8);
+	UART1WriteChar(addr & 0xFF);
+	UART1WriteChar(0x00);
 	
 	while (XBeeBuffSize - tmp){
 		chk += XBeeBuff[tmp];
-		UART1Write(XBeeBuff[tmp++]);
+		UART1WriteChar(XBeeBuff[tmp++]);
 	}
 	
-	UART1Write(0xFF - chk);
+	UART1WriteChar(0xFF - chk);
 	
 	XBeeBuffSize = 0;	// Reset Buffer
 }
@@ -168,23 +193,65 @@ int main(void){
 	IntEnable(INT_ADC0SS0);
 	ADCSequenceEnable(ADC0_BASE, 0);
 	
+	// Configure XBeeUART0Write("Configuring Xbee\r\n", 18);
+	
+	Wait(2000);
+	UART1Write("+++", 3);
+	Wait(2000);
+	UART1Write("ATCHC\r", 6);
+	Wait(500);
+	UART1Write("ATID657\r", 8);
+	Wait(500);
+	UART1Write("ATDH0\r", 6);
+	Wait(500);
+	UART1Write("ATDLFFFF\r", 9);
+	Wait(500);
+	UART1Write("ATMY00\r", 7);
+	Wait(500);
+	UART1Write("ATCE1\r", 6);
+	Wait(500);
+	UART1Write("ATA10\r", 6);
+	Wait(500);
+	UART1Write("ATA24\r", 6);
+	Wait(500);
+	UART1Write("ATAPI1\r", 7);
+	Wait(500);
+	UART1Write("ATWR\r", 5);
+	Wait(500);
+	UART1Write("ATAC\r", 5);
+	Wait(500);
+	UART1Write("ATCN\r", 5);
+	
+	Wait(1000);
+	
 
 	// Enable All Interrupts
 	IntMasterEnable();
+	
+	UART0WriteChar('\r');
+	UART0WriteChar('\n');
+	UART0WriteChar('\r');
+	UART0WriteChar('\n');
 	
 	
 	while(1){
 		ADCProcessorTrigger(ADC0_BASE, 0);
 		Wait(10);
 		
-		XBeeWrite(adcValues[0] >> 8);		// ADC is 10 bit
-		XBeeWrite(adcValues[0]);
-		XBeeWrite(adcValues[1] >> 8);
-		XBeeWrite(adcValues[1]);
-		XBeeWrite(adcValues[2] >> 8);
+		XBeeWrite(adcValues[2] >> 8);		// ADC is 10 bit
 		XBeeWrite(adcValues[2]);
 		XBeeWrite(adcValues[3] >> 8);
 		XBeeWrite(adcValues[3]);
-		XBeeSend();
+		XBeeSend(0xA);
+		UART0WriteChar('\r');
+		UART0WriteChar('\n');
+		
+		XBeeWrite(adcValues[0] >> 8);
+		XBeeWrite(adcValues[0]);
+		XBeeWrite(adcValues[1] >> 8);
+		XBeeWrite(adcValues[1]);
+		XBeeSend(0xB);
+		UART0WriteChar('\r');
+		UART0WriteChar('\n');
 	}
 }
